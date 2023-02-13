@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+#NavBarContainer{
+    background-color: rgb(56, 56, 45);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#NavBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 0;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#shoppingCart{
+    /* background-color: #ffdc58; */
+    background-color: rgb(161, 163, 165);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shoppingCart > img{
+    padding-top: 8px ;
+    width: 40px;
+}
+
+
+
+#loggingAndCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logging{
+    margin-right: 20px;
+    background-color: rgb(255, 132, 50);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Merriweather Sans', sans-serif;
+
+}
