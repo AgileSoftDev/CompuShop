@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
+
+
+#FiltersContainer{
+    border: 1px solid black;
+    width: 19vw;
+    height: 70vh;
+    margin-left: 20vw;
+    margin-top: 4vh;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    line-height: 200%;
+    letter-spacing: 1.5px;
+    color: grey;
+    
+}
+
+#title{
+    font-size: 100%;
+    margin-bottom: 5%;
+    font-weight: bold;
+}
