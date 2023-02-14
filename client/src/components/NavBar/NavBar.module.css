@@ -1,68 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
-
 
 #NavBarContainer{
-    background-color: rgb(44, 44, 37);
-    width: 100vw;
+    background-color: #202020;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fefefe;
+    font-family: 'Roboto Condensed', sans-serif;
+
 }
 
-#NavBar{
+#NavBarContainer ul {
+    width: 100%;
+    max-width: 750px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    list-style: none;
     padding: 15px 0;
-    width: 100%;
-    max-width: 1200px;
+    font-size: 18px;
+    font-style: italic;
 }
 
-#logoContainer, #logoContainer img {
-    width: 300px;
-}
-
-
-#shoppingCart{
-    background-color: rgb(161, 163, 165);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#shoppingCart > img{
-    padding-top: 8px ;
-    width: 40px;
-}
-
-
-
-#loggingAndCart{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#logging{
-    margin-right: 20px;
-    background-color: rgb(255, 132, 50);
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#logging img {
-    width: 20px;
-    margin-right: 5px;
-}
-
-#logging span{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+#NavBarContainer ul li:hover{
+    color: #fea14d;
+    transform: scale(1.1);
+    cursor: pointer;
 }
