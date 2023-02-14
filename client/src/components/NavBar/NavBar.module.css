@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
+
+
 #NavBarContainer{
     background-color: rgb(56, 56, 45);
     width: 100vw;
@@ -16,8 +18,12 @@
     max-width: 1200px;
 }
 
+#logoContainer, #logoContainer img {
+    width: 300px;
+}
+
+
 #shoppingCart{
-    /* background-color: #ffdc58; */
     background-color: rgb(161, 163, 165);
     border-radius: 50%;
     width: 50px;
@@ -46,6 +52,17 @@
     padding: 10px;
     border-radius: 10px;
     border: none;
-    font-family: 'Merriweather Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#logging img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+#logging span{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
 }

@@ -7,7 +7,7 @@ import { Home } from "./views/index.js";
 function App() {
   return (
     <div className="App">
-        <Route exact path={"/home"} render={()=> <Home/>}/>
+        <Route exact path={"/"} render={()=> <Home/>}/>
     </div>
   );
 }
