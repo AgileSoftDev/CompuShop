@@ -9,6 +9,7 @@
 
 }
 
+
 #NavBarContainer ul {
     width: 100%;
     max-width: 750px;
@@ -23,6 +24,7 @@
 
 #NavBarContainer ul li:hover{
     color: #fea14d;
+    transition: all 150ms;
     transform: scale(1.1);
     cursor: pointer;
 }
