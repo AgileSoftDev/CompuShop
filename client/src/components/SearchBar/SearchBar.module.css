@@ -6,9 +6,7 @@
     border-radius: 2px;
 }
 
-#SearchBarContainer :hover:not(button, img){
-    box-shadow: 0 0 10px 2px #bbac9f9c;
-}
+
 
 #SearchBarContainer :focus-visible{
     outline: none;
