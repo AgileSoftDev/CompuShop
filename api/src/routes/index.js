@@ -8,6 +8,14 @@ const router = Router();
 
 router.get("/components", async (req, res) =>{
     try {
+        if(req.query.name){
+            const compSearch = await findComp(req.query.name)
+            if(!compSearch[0]){
+                return res.status(400).send({error:"No such component found"})
+            }else{
+                return res.status(200).send(compSearch)
+            }
+        }
         return res.status(200).send(await allComps())
     } catch (error) {
         return error
