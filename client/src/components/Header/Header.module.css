@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300;1,700&display=swap');
+
+#Header{
+    background-color: rgb(17, 14, 14);
+}
+
+#avisoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: rgb(231, 226, 219);
+    padding: 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#avisoContainer h1{
+    margin-right: 15px;
+    font-weight: 700;
+}
+
+#avisoContainer span{
+    font-weight: 300;
+}
+
+#avisoContainer img{
+    width: 25px;
+    position: absolute;
+    right: 30px;
+}
