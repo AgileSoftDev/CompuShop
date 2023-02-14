@@ -21,7 +21,9 @@ const SearchBar = () =>{
 
     const handlerSubmit=(e) =>{
         e.preventDefault();
-        alert(`estás buscando <<${inputStatus}>>`)
+        alert(`Buscaste:   *${inputStatus}*`)
+        setInputStatus("")
+        setLogoSearchBarStatus(true)
     }
 
 

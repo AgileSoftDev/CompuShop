@@ -16,7 +16,6 @@ const NavBar = ()=>{
                 <SearchBar/>
                 <button id={style.logging}> <img src={loggingImg} alt="logging" /> <Link id={style.linkLoggind} to={"/logging"}>INICIAR SESIÓN</Link> </button> 
                 <div id={style.shoppingCartContainer}><Link to={"/shoppingCart"}><img src={shoppingCart} alt="shoping Cart"/></Link></div>
-
             </div>
         </div>
     )

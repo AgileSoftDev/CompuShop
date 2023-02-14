@@ -32,6 +32,11 @@
     padding: 0 10px;
     border-radius: 2px;
     border: none;
+    font-size: 16.5px;
+}
+
+#SearchBarContainer form input::placeholder{
+    font-size: 15px;
 }
 
 #SearchBarContainer button{

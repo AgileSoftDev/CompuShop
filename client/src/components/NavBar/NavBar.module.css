@@ -6,7 +6,6 @@
     align-items: center;
     color: #fefefe;
     font-family: 'Roboto Condensed', sans-serif;
-
 }
 
 
@@ -18,8 +17,17 @@
     justify-content: space-around;
     list-style: none;
     padding: 15px 0;
-    font-size: 18px;
+}
+
+#NavBarContainer ul a{
+    text-decoration: none;
+}
+
+#NavBarContainer ul li {
     font-style: italic;
+    color: #fefefe;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
 }
 
 #NavBarContainer ul li:hover{
