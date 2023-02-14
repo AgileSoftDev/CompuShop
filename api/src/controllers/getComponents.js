@@ -24,7 +24,18 @@ const findComp = async (name)=>{
     }
 }
 
+const findByType = async (type)=>{
+    try {
+        const compByType = await allComps()
+        const compResponse = await compByType.filter((e)=>e.type.toLowerCase()== type.toLowerCase())
+        return compResponse
+    } catch (error) {
+        return error
+    }
+}
+
 module.exports ={
     allComps,
-    findComp
+    findComp,
+    findByType
 }
