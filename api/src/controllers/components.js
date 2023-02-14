@@ -1,9 +1,9 @@
-const generateComponents = require("../models/data.js")
-
+const axios = require("axios")
+const {components} = require("../models/data.json")
 
 const allComps = async ()=>{
     try {
-      return await generateComponents()
+      return await components
     } catch (error) {
         return error
     }
@@ -13,7 +13,7 @@ const findComp = async (name)=>{
     try {
         const compByName = await allComps()
         const compRes = compByName.filter((e)=>{
-            if(e.name===name){
+            if(e.name.toLowerCase().match(name)){
                 return true
             }
             return false
@@ -25,5 +25,6 @@ const findComp = async (name)=>{
 }
 
 module.exports ={
-    allComps
+    allComps,
+    findComp
 }
