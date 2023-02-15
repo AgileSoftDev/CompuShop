@@ -9,7 +9,7 @@
             "img":"https://ddtech.mx/assets/uploads/21a788dbfdc086ea6088b2ddbe6b25a1.png"
         },
         {
-            "id": "2",
+            "id": 2,
             "name": "GTX 1650",
             "price":"3,499",
             "description":"NVIDIA GeForce GTX 1650 4GB GDDR6",

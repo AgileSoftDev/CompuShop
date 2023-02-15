@@ -28,7 +28,7 @@ const findById = async (id)=>{
     try {
     const compById = await allComps()
     const res = compById.filter((e)=>{
-        if (e.id===id) {
+        if (e.id==id) {
             return true
         }
         return false

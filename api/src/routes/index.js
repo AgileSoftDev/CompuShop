@@ -2,7 +2,9 @@ const { Router } = require('express');
 const {allComps,
        findComp,
        findById,
-       findByType} = require("../controllers/components.js")
+       findByType} = require("../controllers/getComponents.js")
+
+const {allUsers, findUser, verifyEmail} = require("../controllers/getUser.js")
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -36,6 +38,29 @@ router.get("/components/id/:id", async(req, res)=>{
  router.get("/components/:type", async(req, res)=>{
      try {
         return res.status(200).send(await findByType(req.params.type))
+     } catch (error) {
+         return error
+     }
+})
+
+router.get("/users", async (req, res) =>{
+    try {
+        if(req.query.name){
+            const compSearch = await findUser(req.query.name)
+            if(!compSearch[0]){
+                return res.status(400).send({error:"No user with that name"})
+            }else{
+                return res.status(200).send(compSearch)
+            }
+        }
+        return res.status(200).send(await allUsers())
+    } catch (error) {
+        return error
+    }
+})
+router.get("/users/:mail", async (req, res) =>{
+    try {
+        return res.status(200).send(await verifyEmail(req.params.mail))
      } catch (error) {
          return error
      }
