@@ -2,19 +2,10 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    /* color: black;
-    box-sizing: border-box;
-    padding: 5px 5px;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    font-family: 'Roboto Condensed', sans-serif; */
+    border: 1px black solid;
+}
 
-  }
-
-  .card {
+.card {
     display: flex;
     flex-direction: column;
     text-align: center;

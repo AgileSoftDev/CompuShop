@@ -5,10 +5,6 @@ import style from './Card.module.css'
 const Card = ({ id, title, image, precio }) => {
     return (
       <Link to={`/producto/${id}`} className={style.buttonLinks}>
-        <div 
-            className={style.cardContainer} 
-            id={id}
-        >
             <div className={style.card}>
                 <div className={style.heading}>
                     <div className='image'>
@@ -26,7 +22,6 @@ const Card = ({ id, title, image, precio }) => {
                 </div>
 
             </div>
-        </div>
       </Link>
     );
 };

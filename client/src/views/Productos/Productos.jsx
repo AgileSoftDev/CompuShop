@@ -1,6 +1,7 @@
 import {style} from './Productos.module.css';
 import SideBar from '../../components/SideBar/SideBar';
 import Order from "../../components/Order/Order.jsx"
+import ContainerCards from "../../components/Card/ContainerCards.jsx"
 
 const productos = [
     {
@@ -34,6 +35,7 @@ const Home = ()=>{
         <div>
             <Order/>
             <SideBar/>
+            <ContainerCards listArray={productos}/>
         </div>
     )
 };
