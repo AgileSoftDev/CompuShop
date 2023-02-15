@@ -1,0 +1,53 @@
+.cardContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* color: black;
+    box-sizing: border-box;
+    padding: 5px 5px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    font-family: 'Roboto Condensed', sans-serif; */
+
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    background-color: #EEEEEE;
+    width: 100%;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+  /* Use flexbox on the title text */
+  .title {
+    flex: 1;
+}
+
+/* Use flexbox on the heading of the card */
+.heading {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+/* Style the heading of the card */
+.card h1 {
+    padding-bottom: 5px;
+    border-bottom: rgb(140, 216, 140) solid 3px;
+}
+
+/* Style the image of the card */
+.card img {
+    height: 100%;
+    width: 100%;
+    margin: 2%;
+}
+
+  
