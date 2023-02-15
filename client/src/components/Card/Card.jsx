@@ -3,21 +3,23 @@ import { Link } from 'react-router-dom';
 import style from './Card.module.css'
 
 const Card = ({ id, title, image, precio }) => {
+    const state = true
     return (
-      <Link to={`/producto/${id}`} id={style.Card}>
-            <div className={style.card}>
-                <div className={style.heading}>
-                    <div id={style.imgContainer}>
-                        <img  src={image} alt="img referencia" />
+      <Link to={`/producto/${id}`} id={ state ? style.Card : style.Card2}>
+
+            <div className={style.image}>
+                    <img  src={image} alt={title} placeholder={title} />
+            </div>
+            <div className={style.information}>
+                <div>
+                    <h3 className={style.title}>{title}</h3>
                 </div>
-           </div>
-                <div className={style.title}>
-                    <h3 className='title'>{title}</h3>
-                    <h4>$ {precio}</h4>
-                    <button>Sumar al carrito</button>
+                <div>
+                    <h3 className={style.price}>$ {precio}</h3>
+                </div>
+                <button>SUMAR AL CARRITO</button>
             </div>
 
-            </div>
       </Link>
     );
 };
