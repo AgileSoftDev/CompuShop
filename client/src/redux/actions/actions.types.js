@@ -1,0 +1,1 @@
+export const SET_STATE_VIEW_CARD = 'SET_STATE_VIEW_CARD'
