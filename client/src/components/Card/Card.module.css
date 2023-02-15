@@ -1,44 +1,28 @@
-.cardContainer {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px black solid;
+#imgContainer{
 }
 
-.card {
+#Card {
     display: flex;
     flex-direction: column;
     text-align: center;
     color: black;
-    background-color: #EEEEEE;
-    width: 100%;
-    margin-right: 10px;
-    padding-bottom: 10px;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 330px;
+    height: 350px;
 }
 
-  /* Use flexbox on the title text */
-  .title {
-    flex: 1;
+#Card2{
+
 }
 
-/* Use flexbox on the heading of the card */
-.heading {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-}
 
-/* Style the heading of the card */
-.card h1 {
-    padding-bottom: 5px;
-    border-bottom: rgb(140, 216, 140) solid 3px;
-}
 
-/* Style the image of the card */
+
 .card img {
-    height: 100%;
-    width: 100%;
-    margin: 2%;
+    width: 200px;
 }
 
   

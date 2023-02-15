@@ -1,0 +1,19 @@
+#Container{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#productsContainer{
+    background-color: rgb(37, 28, 28);
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    width: 80%;
+}
+
+#productsContainer section{
+    display: flex;
+    flex-direction: column;
+}

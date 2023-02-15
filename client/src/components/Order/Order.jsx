@@ -3,7 +3,7 @@ import style from "./Order.module.css"
 
 const Order = ()=> {
     return(
-        <div className={style.container}>
+        <div id={style.container}>
             <select className={style.select}>
                 <option>Ordenar por</option>
                 <option>Destacados</option>

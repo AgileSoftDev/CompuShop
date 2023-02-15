@@ -1,7 +1,7 @@
-import {style} from './Productos.module.css';
+import style from './Productos.module.css';
 import SideBar from '../../components/SideBar/SideBar';
 import Order from "../../components/Order/Order.jsx"
-import ContainerCards from "../../components/Card/ContainerCards.jsx"
+import ContainerCards from "../../components/CardContainer/ContainerCards.jsx"
 
 const productos = [
     {
@@ -32,11 +32,20 @@ const productos = [
 
 const Home = ()=>{
     return(
-        <div>
-            <Order/>
-            <SideBar/>
-            <ContainerCards listArray={productos}/>
+        <div id={style.Container}>
+            <div id={style.productsContainer}>
+            <div>
+                <SideBar/>
+             </div>
+            <section>
+                <Order/>
+                <ContainerCards listArray={productos}/>
+            </section>
+            </div>
+
         </div>
+        
+        
     )
 };
 
