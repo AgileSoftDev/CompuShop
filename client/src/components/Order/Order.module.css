@@ -1,0 +1,21 @@
+.container {
+    border: 1px solid black;
+    display: flex;
+    height: 4.5vh;
+    width: 40vw;
+    align-items: center;
+    margin-left: 35%;
+    margin-top: 1%;
+    position: absolute;
+    background-color: rgb(44, 44, 37);
+}
+
+.select {
+    width: 30%;
+    height: 100%;
+}
+
+.container select option {
+    background-color: rgb(255, 132, 50);
+
+}
