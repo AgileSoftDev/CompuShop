@@ -8,7 +8,7 @@ const Order = ()=> {
                 <option>Ordenar por</option>
                 <option>Destacados</option>
                 <option>Mayor precio</option>
-                <option>Menor precio</option>
+                <option>Menor preciso</option>
             </select>
         </div>
     )
