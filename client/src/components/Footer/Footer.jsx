@@ -35,9 +35,9 @@ const Footer = () =>{
                     </div>
                 </div>
             </nav>
-            <p>Las marcas y logos de compragamer.com compragamer.com/tv compragamer.com/reviews son propiedad de Newton Station SRL
+            <p>Las marcas y logos de compuShop.com  compuShop.com/productos son propiedad de Newton Station SRL
                 <br/>
-            Todos los derechos reservados 2017</p>
+            Todos los derechos reservados 2023</p>
         </footer>
     )
 };
