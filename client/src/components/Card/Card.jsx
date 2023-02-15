@@ -6,17 +6,14 @@ const Card = ({ id, title, image, precio }) => {
     const state = true
     return (
       <Link to={`/producto/${id}`} id={ state ? style.Card : style.Card2}>
-
-            <div className={style.image}>
-                    <img  src={image} alt={title} placeholder={title} />
+            <div>
+                <div >
+                     <img  src={image} alt={title} />
+                </div>
+                <h1 >{title}</h1>
             </div>
-            <div className={style.information}>
-                <div>
-                    <h3 className={style.title}>{title}</h3>
-                </div>
-                <div>
-                    <h3 className={style.price}>$ {precio}</h3>
-                </div>
+            <div>
+                <h1 >$ {precio}</h1>
                 <button>SUMAR AL CARRITO</button>
             </div>
 

@@ -1,31 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Rowdies:wght@300;400;700&display=swap');
 
 
 #Card {
-    /* border: 1px solid black; */
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     text-align: center;
-    color: black;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    width: 245px;
-    height: 360px;
+    justify-content: start;
+    color: rgb(34, 33, 33);
+    margin-bottom: 20px;
+    padding: 12px 5px;
+    border-radius: 5px;
+    width: 250px;
+    height: 345px;
     text-decoration: none;
+    
+}
+
+#Card > :nth-child(1){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
+
+#Card > :nth-child(1) > div {
+    height: 160px;    
+}
+
+#Card > :nth-child(1) > div img {
+    height: 140px;
+}
+
+#Card > :nth-child(1) h1{
+    font-size: 18px;
+    color: rgb(98, 91, 91);
+    font-weight: 300;
+    font-family: 'Rowdies', cursive;
+}
+
+
+#Card > :nth-child(2){
+    margin-top: auto;
+}
+
+#Card > :nth-child(2) > button {
+    cursor: pointer;
+    background-color: #fd611a;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 175px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Rowdies', cursive;
+}
+
+#Card > :nth-child(2) > h1{
+    color: rgb(70, 117, 185);
+    font-weight: 400;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+}
+
+
 #Card2{
-    /* border: 1px solid black; */
     background-color: #ffffff;
     display: flex;
     flex-direction: row;
     justify-content: center;
     text-align: start;
-    color: black;
-    margin: 20px;
+    color: rgb(34, 33, 33);
+    margin: 20px 0;
     margin-bottom: 2px;
     padding: 20px;
     border-radius: 10px;
@@ -36,50 +87,9 @@
 
 
 
-#Card .image img {
-    width: 100%;
-}
 
-#Card2 .image img {
-    /* border: 1px solid black; */
-    width: 138px;
-    height: 138px;
-}
-.information {
-    /* margin-right: 300px; */
-    margin-left: 50px;
-}
 
-.information .title {
-    /* border: 1px solid black; */
-    color: black;
-    margin-bottom: 15px;
-}
-.information .price {
-    /* border: 1px solid black; */
 
-    color: #5376ea;
-    font-family: 'Roboto', sans-serif;
-    font-size: x-large;
-}
 
-button {
-    margin-top: 30px;
-    background-color: #ff8432;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    color: white;
-}
-
-button:hover {
-    background-color: orange;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    color: white;
-}
 
   
