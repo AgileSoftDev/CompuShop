@@ -24,7 +24,39 @@ const findComp = async (name)=>{
     }
 }
 
+const findById = async (id)=>{
+    try {
+    const compById = await allComps()
+    const res = compById.filter((e)=>{
+        if (e.id===id) {
+            return true
+        }
+        return false
+    })
+    return res
+} catch (error) {
+        return error
+}
+}
+
+const findByType = async (type)=>{
+    try {
+        const compByType = await allComps()
+        const compResponse = await compByType.filter((e)=>{
+            if(e.type.toLowerCase().match(type)){
+                return true
+            }
+            return false
+        })
+        return compResponse
+    } catch (error) {
+        return error
+    }
+}
+
 module.exports ={
     allComps,
-    findComp
+    findComp,
+    findByType,
+    findById
 }
