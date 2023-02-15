@@ -1,5 +1,5 @@
 const { Router }= require("express");
-const {allComps, findComp, findByType} = require("../controllers/getComponents.js");
+const {allComps, findComp, findByCategory, findById} = require("../controllers/getComponents.js");
 
 
 const componentsRoutes= Router();
@@ -21,13 +21,13 @@ componentsRoutes.get("/", async (req, res) =>{
     }
 });
 
-componentsRoutes.get("/:type", async(req, res)=>{
-    const {type}= req.params;
+componentsRoutes.get("/:category", async(req, res)=>{
+    const {category}= req.params;
     try {
-        if(type){
-            const allComp= await findByType(type);
+        if(category){
+            const allComp= await findByCategory(category);
             if(!allComp){
-                return res.status(404).send(`${type} is not a type`)
+                return res.status(404).send(`${category} is not a type`)
             }else{
                 res.status(200).send(allComp)
             }
@@ -35,6 +35,19 @@ componentsRoutes.get("/:type", async(req, res)=>{
     } catch (error) {
         return error
     }
+});
+
+componentsRoutes.get("/id/:id", async(req, res)=>{
+    const {id}= req.params
+    try {
+        return res.status(200).send(await findById(id))
+    } catch (error) {
+        return error
+    }
+})
+
+componentsRoutes.post("/", async(req, res)=>{
+
 })
 
 module.exports= componentsRoutes;
