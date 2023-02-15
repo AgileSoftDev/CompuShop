@@ -1,8 +1,9 @@
 #cardContainer{
     width: 100%;
     display: flex;
-    border: 1px black solid;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    border-radius: 5px;
 }

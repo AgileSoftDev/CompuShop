@@ -2,16 +2,16 @@
 }
 
 #Card {
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     text-align: center;
     color: black;
-    border: 2px solid black;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
-    width: 330px;
-    height: 350px;
+    width: 245px;
+    height: 335px;
 }
 
 #Card2{

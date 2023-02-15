@@ -34,13 +34,13 @@ const Home = ()=>{
     return(
         <div id={style.Container}>
             <div id={style.productsContainer}>
-            <div>
-                <SideBar/>
-             </div>
-            <section>
-                <Order/>
-                <ContainerCards listArray={productos}/>
-            </section>
+                <aside>
+                    <SideBar/>
+                </aside>
+                <section>
+                    <Order/>
+                    <ContainerCards listArray={productos}/>
+                </section>
             </div>
 
         </div>
