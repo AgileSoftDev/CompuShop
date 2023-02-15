@@ -18,6 +18,7 @@ const Footer = () =>{
                 <div>
                      <h1>Ayuda</h1> 
                      <p>Si tenés sugerencias o comentarios</p> 
+                     <Link>CONTACTANOS</Link> 
                 </div>
 
                 <div>
@@ -28,10 +29,10 @@ const Footer = () =>{
                 <div>
                     <p>Siguenos en:</p> 
                     <div>
-                        <img src={facebook_icon} alt="" />
-                        <img src={instagram_icon} alt="" />
-                        <img src={youtube_icon} alt="" />
-                        <img src={twitter_icon} alt="" />
+                        <img src={instagram_icon} alt="instagram" />
+                        <img src={facebook_icon} alt="facebook" />
+                        <img src={youtube_icon} alt="youtube" />
+                        <img src={twitter_icon} alt="twitter" />
                     </div>
                 </div>
             </nav>

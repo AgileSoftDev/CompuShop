@@ -30,19 +30,58 @@
 }
 
 
-#Footer  nav :nth-child(2){
+
+
+#Footer  nav > :nth-child(2) > h1{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+#Footer  nav > :nth-child(2) > p{
+    font-size: 15px;
+    font-weight: 200;
+    margin-bottom: 15px;
+}
+#Footer  nav > :nth-child(2) > a{
+    font-size: 13px;
+    border: 1px solid #fefefe;
+    text-decoration: none;
+    color: #fefefe;
+    padding: 5px;
+    border-radius: 5px;
 }
 
+
 #Footer  nav > :nth-child(3) a {
-    background-color: yellow;
     margin: 10px 0;
     text-decoration: none;
 }
 
+#Footer  nav > :nth-child(3) :first-child{
+    border: 1px solid #ffffff52;
+    width: 200px;
+    height: 37px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fefefefe;
+    padding: 5px;
+} 
+
+#Footer  nav > :nth-child(3) :nth-child(2){
+    color: #fefefe;
+    text-decoration: underline;
+}
+
+#Footer  nav > :nth-child(4){
+    align-items: start;
+    padding-left: 50px;
+}
 
 #Footer  nav > :nth-child(4) div img{
-    width: 50px;
-    margin: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 5px 10px 0 0;
 }
 
 
