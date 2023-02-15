@@ -3,7 +3,7 @@
 
 #HeaderContainer{
     background-color: rgb(44, 44, 37);
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

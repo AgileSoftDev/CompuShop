@@ -4,7 +4,6 @@ import shoppingCart from "../../assets/icons/black-shopping-cart.svg"
 import SearchBar from "../SearchBar/SearchBar";
 import loggingImg from "../../assets/icons/logging.svg"
 import {Link} from 'react-router-dom'
-import { useRef } from "react";
 
 
 const NavBar = ()=>{
