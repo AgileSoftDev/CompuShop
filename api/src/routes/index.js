@@ -23,7 +23,7 @@ router.get("/components", async (req, res) =>{
         }
         return res.status(200).send(await allComps())
     } catch (error) {
-        return error
+        return res.status(400).send(error)
     }
 })
 
@@ -31,7 +31,7 @@ router.get("/components/id/:id", async(req, res)=>{
     try {
         return res.status(200).send(await findById(req.params.id))
     } catch (error) {
-        return error
+        return res.status(400).send(error)
     }
 })
 
@@ -39,7 +39,7 @@ router.get("/components/id/:id", async(req, res)=>{
      try {
         return res.status(200).send(await findByType(req.params.type))
      } catch (error) {
-         return error
+        return res.status(400).send(error)
      }
 })
 
@@ -55,14 +55,14 @@ router.get("/users", async (req, res) =>{
         }
         return res.status(200).send(await allUsers())
     } catch (error) {
-        return error
+        return res.status(400).send(error)
     }
 })
 router.get("/users/:mail", async (req, res) =>{
     try {
         return res.status(200).send(await verifyEmail(req.params.mail))
      } catch (error) {
-         return error
+         return res.status(400).send(error)
      }
 })
 
