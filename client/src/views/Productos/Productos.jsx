@@ -1,5 +1,5 @@
 import style from './Productos.module.css';
-import Sidebar from '../../components/SideBar/SideBar.jsx';
+import Sidebar from '../../components/SideBar/Sidebar.jsx';
 import Order from "../../components/Order/Order.jsx"
 import ContainerCards from "../../components/CardContainer/ContainerCards.jsx"
 
