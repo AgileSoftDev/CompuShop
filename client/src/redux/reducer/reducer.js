@@ -1,9 +1,10 @@
 import { SET_STATE_VIEW_CARD } from "../actions/actions.types";
 
+ 
 
 const initialState = {
     connectionON : true,
-    stateViewCard: true,
+    stateViewCard: window.localStorage.getItem("viewCarStyle")===null?true:window.localStorage.getItem("viewCarStyle")==='true'?true:false,
 }
 
 

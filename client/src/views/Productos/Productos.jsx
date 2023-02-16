@@ -30,7 +30,7 @@ const productos = [
     }
 ]
 
-const Home = ()=>{
+const Products = ()=>{
     return(
         <div id={style.Container}>
             <div id={style.productsContainer}>
@@ -49,4 +49,4 @@ const Home = ()=>{
     )
 };
 
-export default Home;
+export default Products;
