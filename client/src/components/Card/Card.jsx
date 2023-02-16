@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import style from './Card.module.css'
+import { useSelector } from 'react-redux';
+
+
 
 const Card = ({ id, title, image, precio }) => {
-    const state = true
+
+    const stateViewCard = useSelector(e=>e.stateViewCard)
+
+
     return (
-      <Link to={`/producto/${id}`} id={ state ? style.Card : style.Card2}>
+      <Link to={`/producto/${id}`} id={ stateViewCard ? style.Card : style.Card2}>
             <div>
                 <div >
                      <img  src={image} alt={title} />

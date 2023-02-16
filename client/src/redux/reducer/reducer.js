@@ -3,7 +3,7 @@ import { SET_STATE_VIEW_CARD } from "../actions/actions.types";
 
 const initialState = {
     connectionON : true,
-    stateViewCard: false,
+    stateViewCard: true,
 }
 
 
@@ -12,7 +12,7 @@ const rootReducer = (state = initialState, { type, payload }) =>{
         case SET_STATE_VIEW_CARD:
             return {
                 ...state,
-                stateViewCard: payload
+                stateViewCard: !state.stateViewCard,
             }
         
         default:

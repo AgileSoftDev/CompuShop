@@ -4,19 +4,20 @@
     padding: 20px;
     background-color: rgb(44, 44, 37);
     border-radius: 5px;
+    position: relative;
+    justify-content: start;
+    align-items: center;
 }
 
 .select {
     height: 30px;
     width: 35%;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
     border-bottom: 1px solid rgb(255, 132, 50);
+    padding-left: 3px;
     background-color: transparent;
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
-
 }
 
 .select:focus{
@@ -36,3 +37,14 @@
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
 }
+
+
+#iconOrder{
+    width: 40px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0,-45%);
+    cursor: pointer;
+}
+
