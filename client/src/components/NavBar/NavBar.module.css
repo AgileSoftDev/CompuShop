@@ -31,8 +31,13 @@
 }
 
 #NavBarContainer ul li:hover{
-    color: #fea14d;
+    color: #fcb679dc;
     transition: all 150ms;
-    transform: scale(1.1);
+    transform: scale(1.09);
     cursor: pointer;
+}
+
+#NavBarContainer ul #active{
+    color: #f8943c;
+    transform: scale(1.15);
 }
