@@ -88,6 +88,7 @@ code {
 .sidebar-item.plain:hover{
   text-decoration: underline;
   color: rgb(255, 132, 50);
+  background-color: rgb(243, 243, 243);
 }
 .sidebar-item.plain i{
   display: inline-block;
