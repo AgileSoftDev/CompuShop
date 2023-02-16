@@ -17,6 +17,7 @@
     "react-scripts": "4.0.3",
     "redux": "",
     "redux-thunk": "^2.3.0",
+    "swiper": "^9.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
