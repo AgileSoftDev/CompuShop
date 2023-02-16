@@ -1,5 +1,6 @@
 const { Router }= require("express");
 const {allComps, findComp, findByCategory, findById} = require("../controllers/getComponents.js");
+const createComponent = require('./../controllers/createComponent.js')
 
 
 const componentsRoutes= Router();
@@ -47,9 +48,12 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
 })
 
 componentsRoutes.post("/", async(req, res)=>{
-    const data = require('./../models/data.json');
-    const createComponent = require('./../controllers/createComponent.js');
-    res.send(await createComponent(data.components))
+    try {
+        res.status(201).send(await createComponent(req.body));
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({error: error})
+    }
 })
 
 module.exports= componentsRoutes;
