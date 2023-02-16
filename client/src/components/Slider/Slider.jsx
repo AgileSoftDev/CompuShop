@@ -7,17 +7,17 @@ import { FreeMode } from "swiper";
 // import 'swiper/css/scrollbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "../ProductCard/ProducCard";
 
-import img1 from '../img/img1.jpg';
-import img2 from '../img/img2.webp';
-import img3 from '../img/img3.jfif';
-import img4 from '../img/img4.webp';
-import img5 from '../img/img5.png';
+import img1 from './img/img1.jpeg';
+import img2 from './img/img2.jpeg';
+import img3 from './img/img3.jpeg';
+import img4 from './img/img4.jpeg';
+// import img5 from '../img/img5.jpeg';
 
 const Slider = () => {
     return (
-        <div className="container py-px-15 justify-content-center bg-dark">git status
+        <div className="container py-px-15 justify-content-center bg-dark">
            <Swiper
               freeMode={true}
               grabCursor={true}
@@ -27,19 +27,16 @@ const Slider = () => {
               spaceBetween={30}
         >
             <SwiperSlide> 
-                <ProductCard data={{imgSrc:img1}} />  
+                <ProductCard imgSrc={img1} />  
             </SwiperSlide>
             <SwiperSlide> 
-                <ProductCard data={{imgSrc:img2}} />  
+                <ProductCard imgSrc={img2} />  
             </SwiperSlide>
             <SwiperSlide>
-                <ProductCard data={{imgSrc:img3}} />  
+                <ProductCard imgSrc={img3} />  
             </SwiperSlide>
             <SwiperSlide> 
-                <ProductCard data={{imgSrc:img4}} />  
-            </SwiperSlide>
-            <SwiperSlide> 
-                <ProductCard data={{imgSrc:img5}} />  
+                <ProductCard imgSrc={img4} />  
             </SwiperSlide>
         </Swiper>
    </div>
