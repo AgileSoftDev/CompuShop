@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Rowdies:wght@300;400;700&display=swap');
+
+
+#Card {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: start;
+    color: rgb(34, 33, 33);
+    margin-bottom: 20px;
+    padding: 12px 5px;
+    border-radius: 5px;
+    width: 256px;
+    height: 345px;
+    text-decoration: none;
+    
+}
+
+#Card > :nth-child(1){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#Card > :nth-child(1) > div {
+    height: 160px;    
+}
+
+#Card > :nth-child(1) > div img {
+    height: 140px;
+}
+
+#Card > :nth-child(1) h1{
+    font-size: 18px;
+    color: rgb(98, 91, 91);
+    font-weight: 300;
+    font-family: 'Rowdies', cursive;
+}
+
+
+#Card > :nth-child(2){
+    margin-top: auto;
+}
+
+#Card > :nth-child(2) > button {
+    cursor: pointer;
+    background-color: #fd611a;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 175px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Rowdies', cursive;
+}
+
+#Card > :nth-child(2) > h1{
+    color: rgb(70, 117, 185);
+    font-weight: 400;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+}
+
+
+#Card2{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: rgb(34, 33, 33);
+    margin: 0 0 20px 0;
+    /* padding: 20px; */
+    border-radius: 10px;
+    width: 800px;
+    text-decoration: none;
+}
+
+#Card2 > :nth-child(1){
+    width: 200px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Card2 > :nth-child(1) >  img{
+    height: 140px;
+}
+
+#Card2 > :nth-child(2){
+    height: 100%;
+    min-height: 160px ;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#Card2 > :nth-child(2) > h2{
+    font-size: 19px;
+    color: rgb(98, 91, 91);
+    font-weight: 300;
+    font-family: 'Rowdies', cursive;
+}
+
+#Card2 > :nth-child(2) > h1{
+    color: rgb(70, 117, 185);
+    font-weight: 400;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    margin: auto 0;
+}
+
+#Card2 > :nth-child(2) > button {
+    cursor: pointer;
+    background-color: #fd611a;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 175px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Rowdies', cursive;
+}
+
+
+
+
+
+
+  

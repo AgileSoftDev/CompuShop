@@ -1,5 +1,5 @@
 import style from "./SearchBar.module.css"
-import { useState } from "react";
+import { useRef, useState } from "react";
 import lupa from "../../assets/icons/lupa.png"
 import xIcon from "../../assets/icons/X-icon_black.svg"
 
@@ -7,6 +7,8 @@ import xIcon from "../../assets/icons/X-icon_black.svg"
 
 
 const SearchBar = () =>{
+
+    const inputRef = useRef()
 
     const [inputStatus,setInputStatus] = useState('') 
     const [logoSearchBarStatus, setLogoSearchBarStatus] = useState(true)
@@ -19,16 +21,23 @@ const SearchBar = () =>{
 
     const handlerSubmit=(e) =>{
         e.preventDefault();
-        alert(`estás buscando <<${inputStatus}>>`)
+        alert(`Buscaste:   *${inputStatus}*`)
+        setInputStatus("")
+        setLogoSearchBarStatus(true)
+    }
+
+
+    const loupeHadler = () =>{
+        inputRef.current.focus(); 
     }
 
     return(
         <div id={style.SearchBarContainer}  >
             <form action="" onSubmit={e=>handlerSubmit(e)}  >
-                  <input placeholder="Buscar componente" type="text" value={inputStatus} onChange={hanlderChange}  />
+                  <input placeholder="Buscar componente" type="text" value={inputStatus} onChange={hanlderChange} ref={inputRef} />
             </form>
             {logoSearchBarStatus?
-                                <button onClick={()=>{setInputStatus("")}  } ><img src={lupa} alt="lupa" /></button>   :
+                                <button onClick={()=>loupeHadler() } ><img src={lupa} alt="lupa" /></button>   :
                                 <button id={style.xIcon} onClick={()=>{setInputStatus(""); setLogoSearchBarStatus(!logoSearchBarStatus)}} ><img src={xIcon} alt="X icon" /></button>}
         </div>
     )

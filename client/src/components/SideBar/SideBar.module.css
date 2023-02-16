@@ -1,0 +1,42 @@
+
+.SideBar {
+    width: 380px;
+    height: 70vh;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-decoration: none;
+    line-height: 200%;
+    color: rgb(102, 102, 102);
+    font-style: italic;
+    background-color: rgb(44, 44, 37);
+}
+
+.SideBar .menu{
+    width: 100%;
+}
+
+.SideBar .menu p {
+    color: white;
+    padding:5px 15px 5px;
+    background-color: rgb(255, 132, 50);
+    font-size: 130%;
+}
+
+.SideBar ul {
+    list-style: none;
+}
+
+.SideBar .menu li a {
+    text-align: none;
+    color: white;
+    text-decoration: none;
+    display: block;
+    background-color: rgb(44, 44, 37);
+    padding: 5px 15px 5px;
+    letter-spacing: 1px;
+}
+
+.SideBar .menu li a:hover {
+    background-color: rgb(255, 132, 50);
+    font-size: 130%;
+    cursor: pointer;
+}

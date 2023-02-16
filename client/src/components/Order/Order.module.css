@@ -1,0 +1,51 @@
+.container {
+    border: 1px solid black;
+    display: flex;
+    padding: 20px;
+    background-color: rgb(44, 44, 37);
+    border-radius: 5px;
+    position: relative;
+    justify-content: start;
+    align-items: center;
+    width: 800px;
+}
+
+.select {
+    height: 30px;
+    width: 35%;
+    border: none;
+    border-bottom: 1px solid rgb(255, 132, 50);
+    padding-left: 3px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.select:focus{
+    border-color: #dee2e6;
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 1px solid rgb(255, 132, 50);
+    
+}
+
+.select:hover{
+    cursor: pointer;
+}
+
+.select option {
+    background-color: rgb(44, 44, 37);
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+#iconOrder{
+    width: 40px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0,-45%);
+    cursor: pointer;
+}
+
