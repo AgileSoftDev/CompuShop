@@ -1,5 +1,5 @@
 import style from './Productos.module.css';
-import SideBar from '../../components/SideBar/SideBar';
+import Sidebar from '../../components/SideBar/Sidebar.jsx';
 import Order from "../../components/Order/Order.jsx"
 import ContainerCards from "../../components/CardContainer/ContainerCards.jsx"
 
@@ -35,7 +35,7 @@ const Home = ()=>{
         <div id={style.Container}>
             <div id={style.productsContainer}>
                 <aside>
-                    <SideBar/>
+                    <Sidebar/>
                 </aside>
                 <section>
                     <Order/>
