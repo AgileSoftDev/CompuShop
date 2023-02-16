@@ -47,7 +47,9 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
 })
 
 componentsRoutes.post("/", async(req, res)=>{
-
+    const data = require('./../models/data.json');
+    const createComponent = require('./../controllers/createComponent.js');
+    res.send(await createComponent(data.components))
 })
 
 module.exports= componentsRoutes;
