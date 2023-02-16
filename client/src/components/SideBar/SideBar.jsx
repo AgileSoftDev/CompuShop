@@ -1,3 +1,4 @@
+import  "./SideBar.css"
 import SidebarItem from "./SidebarItem"
 import items from "./sidebar.json"
 
