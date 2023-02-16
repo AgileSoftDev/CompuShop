@@ -19,6 +19,8 @@
     background-color: transparent;
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+    font-size: 15px;
 }
 
 .select:focus{
@@ -26,7 +28,6 @@
     outline: 0;
     box-shadow: none;
     border-bottom: 1px solid rgb(255, 132, 50);
-    
 }
 
 .select:hover{
