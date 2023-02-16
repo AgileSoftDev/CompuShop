@@ -7,6 +7,7 @@ import setStateViewCard from "../../redux/actions/actions";
 
 const Order = ()=> {
     const dispatch = useDispatch()
+
     const stateViewCard = useSelector(e=>e.stateViewCard)
 
     return(
@@ -18,7 +19,7 @@ const Order = ()=> {
                 <option>Mayor precio</option>
                 <option>Menor precio</option>
             </select>
-            <div id={style.iconOrder} onClick={()=>dispatch(setStateViewCard())}>
+            <div id={style.iconOrder} onClick={()=>{dispatch(setStateViewCard());window.localStorage.setItem('viewCarStyle', String(!stateViewCard))}}>
                 <img src={stateViewCard?icon_horizontal_order:icon_vertical_order} alt="icono del tipo de orden" />
             </div>
         </div>
