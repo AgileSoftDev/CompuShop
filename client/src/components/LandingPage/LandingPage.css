@@ -1,0 +1,21 @@
+.landing_background {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-image: url("../../assets/page.jpeg");
+    background-position: left;
+    background-size:100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100% ;
+    height:  100%;
+    position: fixed;
+    align-items: center;
+}
+
+.conteined {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin-right: 100px;
+}
