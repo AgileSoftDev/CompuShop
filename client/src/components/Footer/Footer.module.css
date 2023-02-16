@@ -27,6 +27,7 @@
 
 #Footer nav :first-child > img{
     width: 70px;
+    cursor: pointer;
 }
 
 
@@ -94,6 +95,7 @@
     width: 40px;
     height: 40px;
     margin: 5px 10px 0 0;
+    cursor: pointer;
 }
 
 
