@@ -8,13 +8,13 @@
 #SliderContainer div{
     margin: 0 0 50px 0;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1800px;
     overflow: hidden;
 }
 
 
 #SliderContainer ul{
-    width: 200%;
+    width: 500%;
     padding: 0;
     display: flex;
     animation: sliding 7s infinite  ease-in-out;
@@ -28,7 +28,7 @@
     cursor: pointer;
     list-style: none;
     width: 100vw;
-    max-width: 1600px;
+    max-width: 1800px;
   }
   
   #SliderContainer ul li img {

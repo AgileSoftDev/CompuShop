@@ -3,7 +3,7 @@
     justify-content:center;
     align-items: center;
     background-image: url("../../assets/page.jpeg");
-    background-position: left;
+    background-position: right;
     background-size:100%;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -15,48 +15,55 @@
 
 .conteined {
     
-    margin-right: 1px;
+    margin-right: 12px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 1.3rem;
-    margin: 3px;
+    font-size: 2rem;
+    margin: -40px;
+    color: #090a0a;
+   
    
 }
+
 .button span{
     transition: .4s ease-in-out all;
-    position: center;
-    left: -40%;
+    position: absolute;
+    left: 80%;
+    font-family: 'Montserrat', sans-serif;
     }
+
 .button .icono{
     display: flex;
     align-items: center;
     position: absolute;
-    z-index: 2;
-    left: 40px;
-    background-color: yellow;
+    z-index: 5;
+    left: -40px;
     transition: .3s ease-in-out all;
+    opacity: 0;
 }
 .button svg{
     color: aliceblue;
-    width: 35px;
-    height: 35px;
+    width: 60px;
+    height: 60px;
 }
-.button:hover{
-    color: blueviolet;
+.button-icono:hover{
+    background: #a210a2;
+
 }
-.button:hover .icono{
+.button-icono:hover .icono{
     left:calc(100% -50px) ;
+    opacity: 1;
 }
 
 .button span:hover span {
-    left: 20px;
+    left: 50px;
 }
 
 .button{
     
    position: relative;
-   padding: 10px 15px;
-   border: none;
+   padding:25px 25px;
+   border: 15px;
    outline: none;
    color: #090a0a;
    cursor: pointer;
@@ -64,7 +71,7 @@
 }
 
 button:hover {
-    color:black;
+    color:rgb(244, 240, 240);
 }
 
 
