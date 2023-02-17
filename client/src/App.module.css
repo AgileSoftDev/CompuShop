@@ -4,3 +4,7 @@
   box-sizing: border-box;
 }
 
+#AbsoluteContaier_Main{
+  background-color: #eeeeeeee;
+  min-height: calc(100vh - 313px);
+}

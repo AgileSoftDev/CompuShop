@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,400;1,700&display=swap');
+
+
+#ContainerConstruye {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ContainerConstruye > div {
+    padding: 0 7.5;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#ContainerConstruye > :nth-child(1) > :nth-child(1){
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+
+#ContainerConstruye > :nth-child(1) > div > h1{
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+}
+
+#ContainerConstruye > :nth-child(1) > div > p{
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+#containerConstruye_main > :nth-child(1){
+    background-color: #ffffff;
+    width: 390px;
+    padding: 16px;
+}
+
+#containerConstruye_main > :nth-child(1) > ul{
+
+    height: 100%;
+    width: 100%;
+    columns: 2;
+}
+
+#containerConstruye_main > :nth-child(1) > ul > li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 14px 0;
+    height: 65px;
+}
+#containerConstruye_main > :nth-child(1) > ul > li>img{
+    transition: all 50ms ease-out;
+    cursor: pointer;
+}
+.nonActive:hover{
+    transform: scale(1.2);
+}
