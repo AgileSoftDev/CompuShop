@@ -1,10 +1,7 @@
-import ProductCard from "../ProductCard/ProducCard";
 import style from "./Slider.module.css"
 import img1 from '../../assets/slider/img1.jpg';
 import img2 from '../../assets/slider/img2.jpg';
-import img3 from '../../assets/slider/img2.jpg';
-import img4 from '../../assets/slider/img2.jpg';
-import img5 from '../../assets/slider/img2.jpg';
+
 
 const Slider = () => {
     return (
