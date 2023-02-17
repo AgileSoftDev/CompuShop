@@ -1,0 +1,51 @@
+#SliderContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#SliderContainer div{
+    width: 100%;
+    max-width: 1600px;
+    background-color: black;
+    overflow: hidden;
+}
+
+#SliderContainer ul{
+    width: 200%;
+    padding: 0;
+    display: flex;
+    animation: sliding 6s infinite  ease-in-out;
+    margin: 0;
+}
+#SliderContainer ul:hover{
+    animation-play-state: paused;
+}
+
+#SliderContainer ul li {
+    cursor: pointer;
+    list-style: none;
+    width: 100vw;
+    max-width: 1600px;
+  }
+  
+  #SliderContainer ul li img {
+    width: 100%;
+  }
+
+  @keyframes sliding {
+    0%{
+        margin-left: 0;
+    }45%{
+        margin-left: 0;
+    }
+
+    50%{
+        margin-left: -100%;
+    }95%{
+        margin-left: -100%;
+    }
+
+
+  }

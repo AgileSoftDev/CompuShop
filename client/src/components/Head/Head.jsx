@@ -11,7 +11,7 @@ const NavBar = ()=>{
     return(
         <div id={style.HeaderContainer}>
             <div id={style.NavBar}>
-                <div id={style.logoContainer}><Link to={"/"}><img src={logo_compuShop} alt="logo_compuShop" /></Link></div>
+                <div id={style.logoContainer}><Link to={"/home"}><img src={logo_compuShop} alt="logo_compuShop" /></Link></div>
                 <SearchBar/>
                 <button id={style.logging}> <img src={loggingImg} alt="logging" /> <Link id={style.linkLoggind} to={"/logging"}>INICIAR SESIÓN</Link> </button> 
                 <div id={style.shoppingCartContainer}><Link to={"/shoppingCart"}><img src={shoppingCart} alt="shoping Cart"/></Link></div>
