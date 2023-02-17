@@ -14,8 +14,58 @@
 }
 
 .conteined {
+    
+    margin-right: 1px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 3px;
+   
+}
+.button span{
+    transition: .4s ease-in-out all;
+    position: center;
+    left: -40%;
+    }
+.button .icono{
     display: flex;
     align-items: center;
-    align-content: center;
-    margin-right: 100px;
+    position: absolute;
+    z-index: 2;
+    left: 40px;
+    background-color: yellow;
+    transition: .3s ease-in-out all;
 }
+.button svg{
+    color: aliceblue;
+    width: 35px;
+    height: 35px;
+}
+.button:hover{
+    color: blueviolet;
+}
+.button:hover .icono{
+    left:calc(100% -50px) ;
+}
+
+.button span:hover span {
+    left: 20px;
+}
+
+.button{
+    
+   position: relative;
+   padding: 10px 15px;
+   border: none;
+   outline: none;
+   color: #090a0a;
+   cursor: pointer;
+   transition: .5s;
+}
+
+button:hover {
+    color:black;
+}
+
+
+
