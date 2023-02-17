@@ -6,21 +6,22 @@
 }
 
 #SliderContainer div{
+    margin: 0 0 50px 0;
     width: 100%;
     max-width: 1600px;
-    background-color: black;
     overflow: hidden;
 }
+
 
 #SliderContainer ul{
     width: 200%;
     padding: 0;
     display: flex;
-    animation: sliding 6s infinite  ease-in-out;
+    animation: sliding 7s infinite  ease-in-out;
     margin: 0;
 }
 #SliderContainer ul:hover{
-    animation-play-state: paused;
+    /* animation-play-state: paused; */
 }
 
 #SliderContainer ul li {
