@@ -4,16 +4,29 @@ import shoppingCart from "../../assets/icons/black-shopping-cart.svg"
 import SearchBar from "../SearchBar/SearchBar";
 import loggingImg from "../../assets/icons/logging.svg"
 import {Link} from 'react-router-dom'
+import LoginButton from "../Login/Login";
+import LogoutButton from "../Logout/Logout";
+import Profile from "../Profile/Profile";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const NavBar = ()=>{
+
+    const { isAuthenticated } = useAuth0();
 
     return(
         <div id={style.HeaderContainer}>
             <div id={style.NavBar}>
                 <div id={style.logoContainer}><Link to={"/home"}><img src={logo_compuShop} alt="logo_compuShop" /></Link></div>
                 <SearchBar/>
-                <button id={style.logging}> <img src={loggingImg} alt="logging" /> <Link id={style.linkLoggind} to={"/logging"}>INICIAR SESIÓN</Link> </button> 
+                {isAuthenticated ? (
+                    <>
+                        <Profile/>
+                        <LogoutButton/>
+                    </>
+                ) : (
+                    <LoginButton/>
+                )}
                 <div id={style.shoppingCartContainer}><Link to={"/shoppingCart"}><img src={shoppingCart} alt="shoping Cart"/></Link></div>
             </div>
         </div>
