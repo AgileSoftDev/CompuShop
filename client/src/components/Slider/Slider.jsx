@@ -6,6 +6,7 @@ import img4 from '../../assets/slider/img4.jpg'
 import img5 from '../../assets/slider/img5.jpg'
 
 
+
 const Slider = () => {
     return (
     <div id={style.SliderContainer}>
