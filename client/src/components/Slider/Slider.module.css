@@ -14,10 +14,10 @@
 
 
 #SliderContainer ul{
-    width: 200%;
+    width: 500%;
     padding: 0;
     display: flex;
-    animation: sliding 7s infinite  ease-in-out;
+    animation: sliding 12s infinite alternate  ease-in-out;
     margin: 0;
 }
 #SliderContainer ul:hover{
@@ -38,15 +38,32 @@
   @keyframes sliding {
     0%{
         margin-left: 0;
-    }45%{
+    }20%{
         margin-left: 0;
     }
 
-    50%{
+    22%{
         margin-left: -100%;
-    }95%{
+    }42%{
         margin-left: -100%;
     }
 
+    44%{
+        margin-left: -200%;
+    }64%{
+        margin-left: -200%;
+    }
+
+    66%{
+        margin-left: -300%;
+    }86%{
+        margin-left: -300%;
+    }
+    
+    88%{
+        margin-left: -400%;
+    }100%{
+        margin-left: -400%;
+    }
 
   }

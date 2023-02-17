@@ -1,5 +1,5 @@
 #Footer{
-    /* background-color: red; */
+    font-family: Montserrat, sans-serif;
 }
 
 #Footer nav{
@@ -105,6 +105,10 @@
     align-items: center;
     text-align: center;
     padding: 5px 0;
-    font-size: 13px;
+    font-size: 12px;
     background-color: #eeeeee;
+    color: #333;
+    font-weight: 400;
+    line-height: 14px;
+    font-family:  sans-serif ; 
 }
