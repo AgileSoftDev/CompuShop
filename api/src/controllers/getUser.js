@@ -9,3 +9,5 @@ const getUser= async()=>{
         return error
     }
 }
+
+module.exports= getUser

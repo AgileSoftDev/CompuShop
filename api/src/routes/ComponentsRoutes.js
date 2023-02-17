@@ -1,5 +1,8 @@
 const { Router }= require("express");
 const {allComps, findComp, findByCategory, findById} = require("../controllers/getComponents.js");
+const createComponent = require('./../controllers/createComponents.js');
+const deleteComponent = require('./../controllers/deleteComponent.js');
+const updateComponents = require('./../controllers/updateComponents.js')
 
 
 const componentsRoutes= Router();
@@ -27,7 +30,7 @@ componentsRoutes.get("/:category", async(req, res)=>{
         if(category){
             const allComp= await findByCategory(category);
             if(!allComp){
-                return res.status(404).send(`${category} is not a type`)
+                return res.status(404).send(`${category} is not a category`)
             }else{
                 res.status(200).send(allComp)
             }
@@ -47,7 +50,32 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
 })
 
 componentsRoutes.post("/", async(req, res)=>{
+    try {
+        res.status(201).send(await createComponent(req.body));
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({error})
+    }
+})
 
+componentsRoutes.delete('/:id', async(req, res) => {
+    try {
+        const {id} = req.params;
+        await deleteComponent(id);
+        res.status(201).send({status: 'Registro eliminado con éxito'});
+    } catch (error) {
+        res.status(404).send({error});
+    }
+})
+
+componentsRoutes.put('/:id', async(req, res) => {
+    try {
+        const {id} = req.params;
+        const data = req.body;
+        res.status(204).send(await updateComponents(id, data))
+    } catch (error) {
+        res.status(404).send({error})
+    }
 })
 
 module.exports= componentsRoutes;
