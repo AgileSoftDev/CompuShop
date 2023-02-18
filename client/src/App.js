@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import LandingPage from "../src/components/LandingPage/LandingPage.jsx"
 import { useLocation } from "react-router-dom";
 import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
+import Ayuda from "./views/Ayuda/Ayuda";
 
 
 
