@@ -103,21 +103,6 @@ const SliderBrands = () => {
             <div className={style.slide}>
                 <img src={img11} alt=""/>
             </div>
-            {/* <div className={style.slide}>
-                <img src={img12} alt=""/>
-            </div>
-            <div className={style.slide}>
-                <img src={img13} alt=""/>
-            </div>
-            <div className={style.slide}>
-                <img src={img14} alt=""/>
-            </div>
-            <div className={style.slide}>
-                <img src={img15} alt=""/>
-            </div>
-            <div className={style.slide}>
-                <img src={img16} alt=""/>
-            </div> */}
         </div>
     </div>
   )

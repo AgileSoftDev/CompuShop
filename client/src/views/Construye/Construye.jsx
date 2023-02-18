@@ -24,6 +24,8 @@ import { useEffect, useState } from "react";
 import './style_svgs.css';
 import { setStepBuildPc } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
+import CardArmaTuPc from "../../components/Card_arma_tu_pc/Card_arma_tu_pc";
+import triangle from "../../assets/construye/general_icons/triangle.svg";
 
 const rutas_pasos = {
     '/construye/paso1' : {cpu:true},
@@ -109,6 +111,26 @@ const Construye = () =>{
                                 <img className={!componet.peripherals?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({peripherals:true});dispatch(setStepBuildPc('/construye/paso10'))}} src={componet.peripherals?peripherals_active:peripherals} alt="peripherals" />
                             </li>
                         </ul>
+                        <div>
+                            <div>
+                                <h3>(0 wathss)</h3>
+                                <div>
+                                    <p>VOLVER ATRÁS</p>
+                                    <div>
+                                        <img src={triangle} alt="Flecha abajo" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h1>Toltal: $ 0</h1>
+                                <div>
+                                    <p>SALTAR PASO</p>
+                                    <div>
+                                        <img src={triangle} alt="Flecha abajo" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div>
@@ -122,7 +144,15 @@ const Construye = () =>{
                             </div>
                             
                             <div>
-
+                                 <CardArmaTuPc/>
+                                 <CardArmaTuPc/>
+                                 <CardArmaTuPc/>
+                                 <CardArmaTuPc/>
+                                 <CardArmaTuPc/>
+                                 <CardArmaTuPc/>
+                                 <CardArmaTuPc/>
+                                 <CardArmaTuPc/>
+                                 <CardArmaTuPc/>
                             </div>
                     </div>
                 </div> 
