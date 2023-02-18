@@ -2,7 +2,7 @@ import style from "./Order.module.css";
 import icon_horizontal_order from "../../assets/icons/horizontal_order_icon.svg";
 import icon_vertical_order from "../../assets/icons/vertical_order_icon.svg"
 import {useDispatch ,useSelector} from "react-redux"
-import setStateViewCard from "../../redux/actions/actions";
+import {setStateViewCard} from "../../redux/actions/actions";
 
 
 const Order = ()=> {

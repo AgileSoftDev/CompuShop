@@ -1,4 +1,4 @@
-import { SET_STATE_VIEW_CARD } from "./actions.types"
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC } from "./actions.types"
 
 const setStateViewCard = () => {
     return (dispatch) => {
@@ -8,4 +8,14 @@ const setStateViewCard = () => {
     }
 };
 
-export default setStateViewCard;
+const setStepBuildPc = (step) =>{
+    return{
+        type: SET_STEP_BUILD_PC,
+        payload: step,
+    }
+}
+
+export {
+     setStateViewCard,
+     setStepBuildPc,
+};
