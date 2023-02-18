@@ -1,5 +1,5 @@
 .slider {
-    width: 100vw;
+    width: 100%;
     height: auto;
     margin: auto;
     overflow: hidden;
@@ -7,17 +7,21 @@
 
 .slider .slide_track {
     display: flex;
-    animation: scroll 100s linear infinite;
-    -webkit-animation: scroll 100s linear infinite;
-    width: calc(200px * 32);
+    animation: scroll 30s linear infinite;
+    -webkit-animation: scroll 30s linear infinite;
+    width: calc(174px * 27);
 }
 
 .slider .slide {
-    width: 200px;
+    width: 174px;
+    height: 134px;
 }
 
 .slider .slide img {
-    width: 100%;
+    width: 150px;
+    height: 134px;
+    display: block;
+    margin: 0 auto;
 }
 
 @keyframes scroll {
@@ -26,7 +30,7 @@
         transform: translateX(0);
     }
     100% {
-        -webkit-transform: translateX(calc(-200px * 16));
-        transform: translateX(calc(-200px * 16));
+        -webkit-transform: translateX(calc(-174px * 16));
+        transform: translateX(calc(-174px * 16));
     }
 }

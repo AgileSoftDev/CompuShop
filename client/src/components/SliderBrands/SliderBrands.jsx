@@ -103,7 +103,7 @@ const SliderBrands = () => {
             <div className={style.slide}>
                 <img src={img11} alt=""/>
             </div>
-            <div className={style.slide}>
+            {/* <div className={style.slide}>
                 <img src={img12} alt=""/>
             </div>
             <div className={style.slide}>
@@ -117,7 +117,7 @@ const SliderBrands = () => {
             </div>
             <div className={style.slide}>
                 <img src={img16} alt=""/>
-            </div>
+            </div> */}
         </div>
     </div>
   )
