@@ -8,6 +8,7 @@ import LandingPage from "../src/components/LandingPage/LandingPage.jsx"
 import { useLocation } from "react-router-dom";
 import Construye from "./views/Construye/Construye";
 import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
+import SliderBrands from "./components/SliderBrands/SliderBrands";
 
 
 
@@ -24,7 +25,11 @@ function App() {
               <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
               <Route  path={"/construye"} render={()=><Construye/>}/>
         </div>
-        { location.pathname !=='/' && <Footer/>}
+        { location.pathname !=='/' && 
+        <>
+          <SliderBrands/>
+          <Footer/>
+        </>}
     </div>
   );
 }
