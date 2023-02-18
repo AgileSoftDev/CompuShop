@@ -8,10 +8,14 @@
     align-items: center;
 }
 
-#ContainerConstruye > div {
-    padding: 0 7.5;
+#ContainerConstruye > :nth-child(1) {
+    padding: 0 7.5px;
     width: 100%;
     max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #ContainerConstruye > :nth-child(1) > :nth-child(1){
@@ -20,6 +24,7 @@
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
 
@@ -36,10 +41,15 @@
     margin-top: 10px;
 }
 
+#containerConstruye_main{
+    display: flex;
+}
+
 #containerConstruye_main > :nth-child(1){
     background-color: #ffffff;
     width: 390px;
     padding: 16px;
+    margin-right: 7.5px;
 }
 
 #containerConstruye_main > :nth-child(1) > ul{
@@ -63,4 +73,48 @@
 }
 .nonActive:hover{
     transform: scale(1.2);
+}
+
+
+
+#containerConstruye_main > :nth-child(2){
+    width: 787.5px;
+}
+
+#containerConstruye_main > :nth-child(2) > :nth-child(1){
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#containerConstruye_main > :nth-child(2) > :nth-child(1) > span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 37px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#containerConstruye_main > :nth-child(2) > :nth-child(1) > :nth-child(1){
+    border: solid 1px #00c7fd;
+    margin-right: 10px;
+}
+#containerConstruye_main > :nth-child(2) > :nth-child(1) > :nth-child(2){
+    border: 1px solid #000;
+}
+
+.span_intel_active{
+    background-color: #00c7fd;
+}
+
+.span_amd_active{
+    background-color: #000;
+}
+
+#containerConstruye_main > :nth-child(2) > :nth-child(2){
+    background-color: red;
+    width: 100%;
+    height: 100px;
 }
