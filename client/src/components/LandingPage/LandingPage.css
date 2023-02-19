@@ -24,6 +24,10 @@
    
    
 }
+.d-grid :hover{
+    
+
+}
 
 .button span{
     transition: .4s ease-in-out all;
@@ -70,9 +74,6 @@
    transition: .5s;
 }
 
-button:hover {
-    color:rgb(244, 240, 240);
-}
 
 
 
