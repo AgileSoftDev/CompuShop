@@ -1,0 +1,94 @@
+.container {
+    border: 1px solid black;
+    height: 620px;
+}
+
+.cuadro {
+    width: 70rem;
+    height: 570px;
+    margin: 22px 380px;
+    background-color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+}
+
+.info {
+    height: 180px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.info img {
+    border-radius: 100px;
+    border: 2px solid rgb(228, 117, 43);;
+    height: 150px;
+    width: 150px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.info h1 {
+    font-size: 50px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.info2 {
+    border: 1px solid black;
+    height: 360px;
+    width: 700px;
+}
+
+.info2 h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.email {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 25px;
+    align-items: center;
+}
+
+.ciudad {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 25px;
+    align-items: center;
+}
+
+.direccion {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 25px;
+    align-items: center;
+}
+
+.celular {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 25px;
+    align-items: center;
+}
