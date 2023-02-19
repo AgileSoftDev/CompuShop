@@ -20,7 +20,7 @@ import psu_active from "../../assets/construye/icons_componentes_active/psu_acti
 import caseIcon_active from "../../assets/construye/icons_componentes_active/case_active.png";
 import screen_active from "../../assets/construye/icons_componentes_active/screen_active.png";
 import peripherals_active from "../../assets/construye/icons_componentes_active/periferico_active.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import './style_svgs.css';
 import { setStepBuildPc } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -95,28 +95,83 @@ const Construye = () =>{
     const history = useHistory();
     const pathname = history.location.pathname;
     const [componet, setComponent] = useState({})
+
+    const refArrowLimpiar = useRef(null)
+    const refButtonLimpiar = useRef(null)
+    const refButtonFinalizar = useRef(null)
+    const myRef = useRef(null)
+
+
+
     const step_build_pc=useSelector(e=>e.step_build_pc)
 
     const [marcaStatus, setMarcaStatus] = useState({})
 
+
+    const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
+
       
         useEffect(()=>{
             if (step_build_pc) {
-                setComponent(rutas_pasos[step_build_pc])
-                for (let key in rutas_pasos) {
-                    if (rutas_pasos[key] === rutas_pasos[step_build_pc]) {
-                        history.push(key) 
-                      break;
-                    }   
-                } 
+
+                if(rutas_pasos[step_build_pc]){
+
+                    setComponent(rutas_pasos[step_build_pc])
+                    for (let key in rutas_pasos) {
+                        if (rutas_pasos[key] === rutas_pasos[step_build_pc]) {
+                            history.push(key) 
+                          break;
+                        }  
+                    }
+                 }else{
+                    history.push('/construye/paso1')
+                    setComponent({cpu:true})
+                 } 
+
+
             }else{
-                const result = rutas_pasos[pathname]?rutas_pasos[pathname]:rutas_pasos[pathname.slice(0,-1)]?rutas_pasos[pathname.slice(0,-1)]:(history.push('/construye/paso1') , {cpu:true});
+                const result = rutas_pasos[cleanPathname(pathname)]?rutas_pasos[pathname]:(history.push('/construye/paso1') , {cpu:true});
                 setComponent(result)
             }
-        },[])
+
+            window.addEventListener("click",  setButtonsManagerFalse)
+
+  
+
+        },[step_build_pc, pathname, history])
       
 
+    const moveStepHandler = (type) =>{
+
+        const pathPartition = cleanPathname(pathname).split('/')
+        let step = parseInt(pathPartition.pop().slice(4));
+        step = step + type;
+        const newRoute ='paso' + String(step)
+        history.push(newRoute)
+        dispatch(setStepBuildPc('/construye/' + newRoute))
+        
+    } 
+    
  
+    const currentStep = ()=>{
+        const pathPartition = cleanPathname(pathname).split('/')
+        let step = parseInt(pathPartition.pop().slice(4));
+        return step
+    }
+
+
+
+
+    function setButtonsManagerFalse (evento) {
+        const target  =  evento.target;
+        if (target !== myRef.current && target !== refArrowLimpiar.current) {
+            if (target !== refButtonLimpiar.current && target !== refButtonFinalizar.current ){
+                setButtonManagerStatus({})
+            }
+        }
+    }
+
+
 
     return(
         <div id={style.ContainerConstruye}>
@@ -164,20 +219,31 @@ const Construye = () =>{
                         <div>
                             <div>
                                 <h3>(0 wathss)</h3>
-                                <div>
-                                    <p>VOLVER ATRÁS</p>
-                                    <div>
+                                <div className={currentStep()<= 1 ? style.disabled:undefined}>
+                                    <p onClick={currentStep()>1?()=>moveStepHandler(-1) : undefined}>VOLVER ATRÁS</p>
+
+                                    <div ref={refArrowLimpiar} onClick={()=>setButtonManagerStatus({ limpiar: !buttonsManagerStatus.limpiar})} >
                                         <img src={triangle} alt="Flecha abajo" />
                                     </div>
+
+                         
+                                    <button ref={refButtonLimpiar} id={buttonsManagerStatus.limpiar ? undefined : style.oculto } className={style.buttonManager}>
+                                         <span>LIMPIAR</span>
+                                    </button> 
+
                                 </div>
                             </div>
                             <div>
                                 <h1>Toltal: $ 0</h1>
-                                <div>
-                                    <p>SALTAR PASO</p>
-                                    <div>
+                                <div className={currentStep()>=10? style.disabled:undefined}>
+                                    <p disa onClick={currentStep()<10?()=>moveStepHandler(1):undefined}>SALTAR PASO</p>
+                                    <div ref={myRef} onClick={()=>setButtonManagerStatus({ finalizar: !buttonsManagerStatus.finalizar})}>
                                         <img src={triangle} alt="Flecha abajo" />
                                     </div>
+
+                                      <button ref={refButtonFinalizar} id={buttonsManagerStatus.finalizar ? undefined : style.oculto } className={style.buttonManager}>
+                                        <span>FINALIZAR</span> 
+                                    </button>
                                 </div>
                             </div>
                         </div>
