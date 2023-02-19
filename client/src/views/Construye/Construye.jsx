@@ -26,6 +26,7 @@ import { setStepBuildPc } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import CardArmaTuPc from "../../components/Card_arma_tu_pc/Card_arma_tu_pc";
 import triangle from "../../assets/construye/general_icons/triangle.svg";
+import { cleanPathname } from "../../utils/index.js";
 
 const rutas_pasos = {
     '/construye/paso1' : {cpu:true},
@@ -39,6 +40,53 @@ const rutas_pasos = {
     '/construye/paso9' : {screen:true},
     '/construye/paso10' : {peripherals:true},
     '/construye' : {cpu:true},
+  }
+
+const rutas_texto = {
+    '/construye/paso1' : {
+        title:'Elige tu Procesador',
+        text:'Tu procesador es la pieza central del rendimiento de los programas. Para saber si un procesador es potente lo que tenés que medir es la frecuencia, el ancho de bus, la memoria caché y los núcleos e hilos de procesamiento.',
+    },
+    '/construye/paso2' : {
+        title:'Elige tu Motherboard',
+        text:'Es donde se conectarán todos los componentes de tu PC. Según el modelo que elijas tendrás diferentes beneficios de conectividad y expansión.',
+    },
+    '/construye/paso3' : {
+        title:'Elige tu Coole',
+        text:'El cooler mantiene la temperatura de tu equipo, evitando el daño en los componentes y permitiendo que este funcione correctamente.        ',
+    },
+    '/construye/paso4' : {
+        title:'Elige tu Memorias',
+        text:'Las memorias sirven para cargar y almacenar todas las instrucciones que se ejecutan en el procesador. Lo que se debe tener en cuenta en esta sección es el tamaño, la frecuencia y la cantidad de módulos.',
+    },
+    '/construye/paso5' : {
+        title:'Elige tu Placa de Video',
+        text:'El procesador gráfico de una tarjeta es muchísimo más potente que el que tienen los procesadores, por esta razón es necesaria para el buen funcionamiento del equipo y muy recomendada para gamers y profesionales de los gráficos.',
+    },
+    '/construye/paso6' : {
+        title:'Elige tu Almacenamiento',
+        text:'Acá es donde se guardarán tus documentos. Se debe tener en cuenta el tamaño y la velocidad. Las unidades SSD son más veloces y pueden ser utilizadas como unidad principal de almacenamiento o como un complemento de un almacenamiento HDD.',
+    },
+    '/construye/paso7' : {
+        title:'Elige tu Fuente',
+        text:'La fuente es la encargada de alimentar al resto de los componentes y va a ser uno de los factores a tener en cuenta si querés armar una pc potente.',
+    },
+    '/construye/paso8' : {
+        title:'Elige tu Gabinete',
+        text:'Es fundamental para el armado de la pc ya que contendrá todos los componentes funcionales de la misma. Podés revisar las medidas en el botón de especificaciones.',
+    },
+    '/construye/paso9' : {
+        title:'Elige tu Monitor',
+        text:'El monitor es fundamental si querés disfrutar de tus juegos y peliculas favoritas.',
+    },
+    '/construye/paso10' : {
+        title:'Elige tu Periféricos',
+        text:'Mouses, Teclados, MousePad, Auriculares, Coolers, y más.',
+    },
+    '/construye' : {
+        title:'¡Está listo para empezar a armar tu pc!',
+        text:'Empieza eligiendo tu cpu. Tu procesador es la pieza central del rendimiento de los programas. Para saber si un procesador es potente lo que tenés que medir es la frecuencia, el ancho de bus, la memoria caché y los núcleos e hilos de procesamiento.',
+    },
   }
 
 
@@ -68,13 +116,15 @@ const Construye = () =>{
         },[])
       
 
+ 
+
     return(
         <div id={style.ContainerConstruye}>
             <div>
 
                 <div>
-                    <h1>Elige tu procesador</h1>
-                    <p>Tu procesador es la pieza central del rendimiento de los programas. Para saber si un procesador es potente lo que tenés que medir es la frecuencia, el ancho de bus, la memoria caché y los núcleos e hilos de procesamiento.</p> 
+                    <h1>{rutas_texto[cleanPathname(pathname)]&&rutas_texto[cleanPathname(pathname)].title}</h1>
+                    <p>{rutas_texto[cleanPathname(pathname)]&&rutas_texto[cleanPathname(pathname)].text}</p> 
                 </div>
 
                 <div id={style.containerConstruye_main}>
