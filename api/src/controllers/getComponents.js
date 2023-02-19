@@ -1,5 +1,6 @@
-const axios = require("axios")
-const {components} = require("../models/data.json")
+const axios = require("axios");
+const {components} = require("../models/data.json");
+const { Components}= require("../models/components");
 
 const allComps = async ()=>{
     try {
@@ -24,18 +25,42 @@ const findComp = async (name)=>{
     }
 }
 
-const findByType = async (type)=>{
+const findByCategory = async (category)=>{
     try {
-        const compByType = await allComps()
-        const compResponse = await compByType.filter((e)=>e.type.toLowerCase()== type.toLowerCase())
+        const compByCategory = await allComps()
+        const compResponse = await compByCategory.filter((e)=>e.category.toLowerCase()== category.toLowerCase())
         return compResponse
     } catch (error) {
         return error
     }
 }
 
+const findById = async (id)=>{
+    try {
+    const compById = await allComps()
+    const res = compById.filter((e)=>{
+        if (e.id==id) {
+            return true
+        }
+        return false
+    })
+    return res
+} catch (error) {
+        return error
+}
+}
+
+// const createComponent= async(name, price, category, description, img)=>{
+//     try {
+//         const newComponent= await allComps()
+//     } catch (error) {
+//         return error
+//     }
+// }
+
 module.exports ={
     allComps,
     findComp,
-    findByType
+    findByCategory,
+    findById
 }

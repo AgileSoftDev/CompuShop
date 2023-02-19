@@ -1,30 +1,28 @@
-const { DataTypes }= require("sequelize");
-module.exports= (sequelize)=>{
-    sequelize.define('components',{
-        name: {
-            type: DataTypes.STRING,
-            unique: true
-        },
-        id:{
-            type: DataTypes.INTEGER,
-            primaryKey: true
+const { Schema, model }= require("mongoose");
+
+const componentSchema= new Schema(
+    {
+        name:{
+            type: String,
+            required: true,
         },
         price:{
-            type: DataTypes.INTEGER,
-            allowNull:false
+            type: Number,
+            required: true,
+        },
+        category:{
+            type: String,
         },
         description:{
-            type: DataTypes.STRING,
-        },
-        type:{
-            type: DataTypes.STRING,
-            allowNull:false
+            type: String,
+            required: true,
         },
         img:{
-            type: DataTypes.STRING,
-            allowNull: false
+            type: String,
         }
-    },{createdAt: false,
-        updateAt: false,
-    })
-};
+    }
+);
+
+const Components = model("Components", componentSchema)
+
+module.exports= Components

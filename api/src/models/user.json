@@ -1,0 +1,20 @@
+{
+   "user":[
+    {
+        "userName": "juan",
+        "userCategory": "client",
+        "email":"juan123@gmail.com",
+        "password": "juan123456",
+        "wallet": "paypal",
+        "phoneNumber": "3213443343"
+    },
+    {
+        "userName": "antonio",
+        "userCategory": "admin",
+        "email":"antonio123@gmail.com",
+        "password": "antonio1234543",
+        "wallet": "paypal",
+        "phoneNumber": "3213443334"
+    }
+    ]
+}
