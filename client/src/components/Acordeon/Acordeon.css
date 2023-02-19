@@ -1,0 +1,17 @@
+#Accordion .logging{
+    height: 40px;
+    background-color: rgb(228, 117, 43);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: black;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+}
+#Accordion.logging:hover {
+    color: black;
+}
