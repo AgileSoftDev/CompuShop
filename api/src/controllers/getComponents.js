@@ -29,3 +29,12 @@ module.exports = {
     findByCategory,
     findById
 }
+
+/*
+const data = require('./../models/message.json')
+    console.log(data)
+    data.components.map(async e => {
+        const xd = new Components(e);
+        await xd.save()
+    })
+*/
