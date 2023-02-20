@@ -93,6 +93,9 @@ const rutas_texto = {
 const Construye = () =>{
     const dispatch = useDispatch()
     const history = useHistory();
+
+    history.location.pathname === '/construye/' && history.push('/construye')
+
     const pathname = history.location.pathname;
     const [componet, setComponent] = useState({})
 
@@ -236,7 +239,7 @@ const Construye = () =>{
                             <div>
                                 <h1>Toltal: $ 0</h1>
                                 <div className={currentStep()>=10? style.disabled:undefined}>
-                                    <p disa onClick={currentStep()<10?()=>moveStepHandler(1):undefined}>SALTAR PASO</p>
+                                    <p disa onClick={pathname === "/construye" ? ()=>history.push('/construye/paso2') : currentStep()<10?()=>moveStepHandler(1):undefined}>SALTAR PASO</p>
                                     <div ref={myRef} onClick={()=>setButtonManagerStatus({ finalizar: !buttonsManagerStatus.finalizar})}>
                                         <img src={triangle} alt="Flecha abajo" />
                                     </div>
