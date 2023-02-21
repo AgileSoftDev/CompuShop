@@ -80,10 +80,11 @@
 }
 #containerConstruye_main > :nth-child(1) > ul > li>img{
     transition: all 50ms ease-out;
-    cursor: pointer;
 }
 .nonActive:hover{
     transform: scale(1.2);
+    cursor: pointer;
+
 }
 
 #containerConstruye_main > :nth-child(1) > :nth-child(2){

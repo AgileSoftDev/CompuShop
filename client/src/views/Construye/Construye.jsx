@@ -28,6 +28,7 @@ import CardArmaTuPc from "../../components/Card_arma_tu_pc/Card_arma_tu_pc";
 import triangle from "../../assets/construye/general_icons/triangle.svg";
 import { cleanPathname } from "../../utils/index.js";
 
+
 const rutas_pasos = {
     '/construye/paso1' : {cpu:true},
     '/construye/paso2' : {motherBoard:true},
@@ -90,33 +91,59 @@ const rutas_texto = {
   }
 
 
+
+  const getCurrentStep = (pathname)=>{
+
+    if(cleanPathname(pathname) === "/construye") return 1
+
+    const pathPartition = cleanPathname(pathname).split('/')
+    let step = parseInt(pathPartition.pop().slice(4));
+    return step
+}
+
+
 const Construye = () =>{
+
     const dispatch = useDispatch()
     const history = useHistory();
-
-    history.location.pathname === '/construye/' && history.push('/construye')
-
     const pathname = history.location.pathname;
+
+
+    const [currentStep ,setCurrentStep] = useState()
+
     const [componet, setComponent] = useState({})
 
     const refArrowLimpiar = useRef(null)
     const refButtonLimpiar = useRef(null)
     const refButtonFinalizar = useRef(null)
-    const myRef = useRef(null)
+    const refArrowFinalizar = useRef(null)
 
+    window.addEventListener("click",  setButtonsManagerFalse)
 
 
     const step_build_pc=useSelector(e=>e.step_build_pc)
 
     const [marcaStatus, setMarcaStatus] = useState({})
 
-
     const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
 
       
+    const listenerRef = useRef(null)
         useEffect(()=>{
-            if (step_build_pc) {
+            const handleClick = (evento) => {
+                setButtonsManagerFalse(evento);
+                window.removeEventListener("click", handleClick);
+              };
 
+              listenerRef.current = handleClick;
+
+
+            window.addEventListener("click",  listenerRef.current)
+
+            setCurrentStep(getCurrentStep(cleanPathname(pathname)))
+
+            if (step_build_pc) {
+                
                 if(rutas_pasos[step_build_pc]){
 
                     setComponent(rutas_pasos[step_build_pc])
@@ -133,46 +160,44 @@ const Construye = () =>{
 
 
             }else{
-                const result = rutas_pasos[cleanPathname(pathname)]?rutas_pasos[pathname]:(history.push('/construye/paso1') , {cpu:true});
+                const result = rutas_pasos[cleanPathname(pathname)]?rutas_pasos[cleanPathname(pathname)]:(history.push('/construye/paso1') , {cpu:true});
                 setComponent(result)
             }
 
-            window.addEventListener("click",  setButtonsManagerFalse)
 
+            return ()=>{ 
+                window.removeEventListener("click", listenerRef.current );
+        }
   
 
-        },[step_build_pc, pathname, history])
+        },[step_build_pc, pathname, history , currentStep])
       
-
-    const moveStepHandler = (type) =>{
-
-        const pathPartition = cleanPathname(pathname).split('/')
-        let step = parseInt(pathPartition.pop().slice(4));
-        step = step + type;
-        const newRoute ='paso' + String(step)
-        history.push(newRoute)
-        dispatch(setStepBuildPc('/construye/' + newRoute))
-        
-    } 
-    
- 
-    const currentStep = ()=>{
-        const pathPartition = cleanPathname(pathname).split('/')
-        let step = parseInt(pathPartition.pop().slice(4));
-        return step
-    }
-
 
 
 
     function setButtonsManagerFalse (evento) {
         const target  =  evento.target;
-        if (target !== myRef.current && target !== refArrowLimpiar.current) {
+        if (target !== refArrowFinalizar.current && target !== refArrowLimpiar.current) {
             if (target !== refButtonLimpiar.current && target !== refButtonFinalizar.current ){
-                setButtonManagerStatus({})
+                if(buttonsManagerStatus.limpiar|| buttonsManagerStatus.finalizar){
+                    setButtonManagerStatus({})
+                }
             }
         }
     }
+
+
+    const moveStepHandler = (type) =>{
+
+        const step = getCurrentStep(cleanPathname(pathname)) + type
+
+        const newRoute ='paso' + String(step)
+        history.push(newRoute)
+
+        dispatch(setStepBuildPc('/construye/' + newRoute))
+
+        setCurrentStep(step )
+    } 
 
 
 
@@ -222,8 +247,8 @@ const Construye = () =>{
                         <div>
                             <div>
                                 <h3>(0 wathss)</h3>
-                                <div className={currentStep()<= 1 ? style.disabled:undefined}>
-                                    <p onClick={currentStep()>1?()=>moveStepHandler(-1) : undefined}>VOLVER ATRÁS</p>
+                                <div className={currentStep <= 1 ? style.disabled:undefined }>
+                                    <p onClick={currentStep > 1 ? ()=> moveStepHandler(-1) : undefined} >VOLVER ATRÁS</p>
 
                                     <div ref={refArrowLimpiar} onClick={()=>setButtonManagerStatus({ limpiar: !buttonsManagerStatus.limpiar})} >
                                         <img src={triangle} alt="Flecha abajo" />
@@ -238,9 +263,9 @@ const Construye = () =>{
                             </div>
                             <div>
                                 <h1>Toltal: $ 0</h1>
-                                <div className={currentStep()>=10? style.disabled:undefined}>
-                                    <p disa onClick={pathname === "/construye" ? ()=>history.push('/construye/paso2') : currentStep()<10?()=>moveStepHandler(1):undefined}>SALTAR PASO</p>
-                                    <div ref={myRef} onClick={()=>setButtonManagerStatus({ finalizar: !buttonsManagerStatus.finalizar})}>
+                                <div className={currentStep>=10? style.disabled:undefined}>
+                                    <p  onClick={cleanPathname(pathname) === "/construye" ? ()=> history.push('/construye/paso2') : currentStep < 10? ()=> moveStepHandler(1) :undefined}>SALTAR PASO</p>
+                                    <div ref={refArrowFinalizar} onClick={()=>setButtonManagerStatus({ finalizar: !buttonsManagerStatus.finalizar})}>
                                         <img src={triangle} alt="Flecha abajo" />
                                     </div>
 
