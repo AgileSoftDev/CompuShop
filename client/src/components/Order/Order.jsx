@@ -7,27 +7,22 @@ import {orderBy, setStateViewCard} from "../../redux/actions/actions";
 
 const Order = ()=> {
     const dispatch = useDispatch()
-    const { allComponents } = useSelector(store => store)
 
-    function handleSort(e) {
-        e.preventDefault();
-        dispatch(orderBy(allComponents, e.target.value))
-      };
 
+
+    
     const stateViewCard = useSelector(e=>e.stateViewCard)
 
     return(
         <div className={style.container}>
             <select 
                 className={style.select} 
-                // onChange={e => handleSort(e)}
+                onChange={e => dispatch(orderBy(e.target.value))}
             >
                 <option hidden>Ordenar por</option>
-                <option>Todos</option>
-                <option value>Destacados</option>
-                <option value='asc'>Mayor precio</option>
+                <option value="all">Todos</option>
+                <option value='asc' >Mayor precio</option>
                 <option value='desc'>Menor precio</option>
-                {/* <option value='health_score'>Health Score</option> */}
             </select>
             <div id={style.iconOrder} onClick={()=>{dispatch(setStateViewCard());window.localStorage.setItem('viewCarStyle', String(!stateViewCard))}}>
                 <img src={stateViewCard?icon_horizontal_order:icon_vertical_order} alt="icono del tipo de orden" />

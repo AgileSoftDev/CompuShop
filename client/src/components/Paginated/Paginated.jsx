@@ -2,11 +2,21 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "./Paginated.module.css";
 import { numPaginadoChange } from "../../redux/actions/actions";
 import arrow from "../../assets/icons/arrow.svg"
+import { useEffect } from "react";
 
 
 const Paginated = () => {
   const { numPaginado, paginated } = useSelector(store => store)
   const dispatch = useDispatch()
+
+
+  useEffect(()=>{
+      window.scroll({
+        behavior: "smooth",
+        top: 0
+      });
+  },[numPaginado])
+
   return (
     <div className={style.container}>
       <button

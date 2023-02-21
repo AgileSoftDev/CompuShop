@@ -1,40 +1,42 @@
-import { orderArray } from "../../utils";
-import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT } from "./actions.types"
+import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE } from "./actions.types"
+import axios from 'axios'
 
-export function orderBy(data,option) {
-    return (dispatch) => {
-        return dispatch({
-            type: GET_ALL_COMPONENTS,
-            payload: orderArray(data,option),
-        })
-    }
+
+
+const orderBy = (tipo) => {
+        return async (dispatch)=>{
+            const {data}  = await axios.get('http://localhost:3001/components');
+            dispatch({type: ORDER_PRICE,payload: {
+                tipo,
+                data
+            },
+            })
+        }
 };
+
 
 const setStateViewCard = () => {
-    return (dispatch) => {
-        return dispatch({
-                type: SET_STATE_VIEW_CARD,
-            })
-    }
+        return { type: SET_STATE_VIEW_CARD }
+    
 };
 
-export function searchComponent(recipe) {
-    return (dispatch) => {
-        return dispatch({
+
+function searchComponent(component) {
+        return {
                 type: SEARCH_COMPONENT,
-                payload: recipe
-            })
-    }
+                payload: component
+            }
 };
 
-export function numPaginadoChange(num) {
-    return (dispatch) => {
-        return dispatch({
+
+ function numPaginadoChange(num) {
+        return {
                 type: SET_NUM_PAGINATED,
                 payload: num
-            })
-    }
+            }
+
 };
+
 
 const setStepBuildPc = (step) =>{
     return{
@@ -43,6 +45,7 @@ const setStepBuildPc = (step) =>{
     }
 }
 
+
 const getAllComponents = (payload) =>{
     return{
         type: GET_ALL_COMPONENTS,
@@ -50,8 +53,13 @@ const getAllComponents = (payload) =>{
     }
 }
 
+
+
 export {
      setStateViewCard,
      setStepBuildPc,
      getAllComponents,
+     numPaginadoChange,
+     searchComponent,
+     orderBy,
 };
