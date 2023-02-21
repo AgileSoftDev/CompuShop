@@ -1,0 +1,15 @@
+.conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee;
+}
+
+#Ayuda{
+    
+    margin-top: 20px;
+    padding-right: 20vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}

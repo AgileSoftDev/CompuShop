@@ -1,0 +1,92 @@
+.Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee;
+  }
+  .h1{
+    text-justify: center;
+    font-family: 'Montserrat';
+  }
+  .accordion {
+    justify-content: center;
+    background-color: #eee;
+    color: rgb(228, 117, 43);
+    cursor: pointer;
+    padding: 30px;
+    width: 120%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 4px;
+    margin-top: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 16px;
+  }
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  .accordion:after {
+    content: '\002B';
+    color: black;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+    
+    padding: 0 25px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    font-size: 20px;
+    color:rgb(228, 117, 43);
+    max-height: 1,5;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 22px;
+    
+     }
+    
+    .logging{
+      height: 40px;
+      background-color: rgb(228, 117, 43);
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: black;
+      font-family: 'Montserrat';
+      font-style: italic;
+  }
+  .logging:hover {
+      color: black;
+  }
+  
+  .panelActive {
+    padding: 0 25px;
+    background-color: white;
+    /* display: */
+    overflow: hidden;
+  } 

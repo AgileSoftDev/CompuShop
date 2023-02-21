@@ -1,15 +1,16 @@
-import { Accordion } from 'react-bootstrap';
 import Acordeon from '../../components/Acordeon/Acordeon';
-
+import style from './Ayuda.module.css'
 
 const Ayuda = ()=>{
     return(
       
         <div>
-            {/* <Acordeon/> */}
+            <div id={style.Container}>
+            <div id={style.Ayuda}>
+            { <Acordeon/> }
             </div>  
-       
-         
+       </div>
+       </div>
     )
 };
 
