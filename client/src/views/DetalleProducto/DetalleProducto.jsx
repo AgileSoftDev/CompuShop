@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import style from './DetalleProducto.module.css'
-import axios from "axios"
+import axios from "axios";
+import shield from "../../assets/detalles_componente/green_shield.svg";
+import truck from "../../assets/detalles_componente/delivery_truck.svg"
+import check from "../../assets/detalles_componente/green_check.svg"
 
 const rebaja = (price) => {
     return price - (price * 0.35)
@@ -24,48 +27,42 @@ const DetalleProducto = () => {
 
     }, [])
 
+    console.log(component);
 
     return (
-    <div className={style.contenedor}>
-        <div className={style.image}>
-            <img src={component.img} alt="" />
-        </div>
-        <main className={style.contenido}>
-            <div className={style.header}>
-                <h3 className={style.nombreProducto}>{component.name}</h3>
-                <h4 className={style.idProducto}>ID: {component._id}</h4>
-            </div>
-            <div className={style.contenedorPrecios}>
-                <div className={style.contenedorPrecioRebaja}>
-                    {/* <p>Precio de rebaja</p>  */}
-                    <h3>${component.price}</h3>
+        <main id={style.ContainerDetailsProduct}>
+            <div id={style.top}>
+                <div id={style.imageContainer}>
+                      <img src={component.img} alt="" />
                 </div>
-                <div className={style.contenedorPrecioEspecial}>
-                    <p>PRECIO ESPECIAL</p>
-                    <h3>${rebaja(component.price)}</h3>
+                <div id={style.mainInfo}>
+                    <div>
+                        <h1>{component.description}</h1>
+                    </div>
+                    <span>  {'> '} {component.category}</span>
+
+                    <div>
+                        <div>
+                            <p>PRECIO ESPECIAL</p>
+                            <h2>${rebaja(component.price)}</h2>
+                        </div>
+                        <div>
+                            <p>PRECIO LISTA</p>
+                            <h2>${component.price}</h2>
+                        </div>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><div><img src={shield} alt="Shield Protection" /></div> Garantía - 12 meses</li>
+                            <li><div><img src={check} alt="Green Check"  id={style.check}/></div> Stock disponible</li>
+                            <li><div><img src={truck} alt="Delivery truck" id={style.truck} /></div> Envíos a todo el país</li>
+                        </ul>
+                    </div>
+                    <button>SUMAR AL CARRITO</button>   
                 </div>
-                {/* <div className={style.contenedorPrecioEspecial}>
-                    <p>VER CUOTAS</p>
-                    <h3>$242.473</h3>
-                </div> */}
             </div>
-            <div className={style.listaInfo}>
-                <ul>
-                    <li>Garantía - 12 meses</li>
-                    <li>Stock disponible</li>
-                    <li>Envíos a todo el país</li>
-                </ul>
-            </div>
-            <button>SUMAR AL CARRITO</button>   
-           
         </main>
-        <div className={style.contenedorInfo2}>
-            <div className={style.productosRelacionados}>
-               
-            </div>
-        </div>
-            
-    </div>
+    
   )
 }
 

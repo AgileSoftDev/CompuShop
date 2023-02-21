@@ -3,8 +3,6 @@ import { paginationArray } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
 
 
-
-
 const initialState = {
     allComponents: [],
     numPaginado: 0,

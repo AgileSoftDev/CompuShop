@@ -1,54 +1,134 @@
-.contenedor {
-    border: 2px solid black;
-    width: 90%;
-    margin: 20px auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    height: 300px;
-}
-
-.header {
-    border: 2px solid black;
-}
-.contenido {
-    margin-top: 20px;
-    border: 2px solid black;
-    width: 100%;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-rows: repeat(3, 1fr);
-    height: 150px;
-}
-
-.contenedorPrecios {
-    border: 2px solid black;
-    width: 100%;
+#ContainerDetailsProduct{
     display: flex;
-    grid-gap: 20px;
-    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 35px 0 30px 0;
+    font-family: Montserrat,sans-serif;
 }
 
-.contenedorPrecioEspecial {
-    border: 2px solid black;
-    width: 100%;
-}
-
-.contenedorPrecioRebaja {
-    border: 2px solid black;
-    width: 100%;
-    text-decoration: line-through;
-}
-
-.listaInfo {
-    margin-top: 20px;
-    border: 2px solid black;
-    width: 100%;
-}
-
-.image {
+#top {
+    width: 1200px;
+    height: 550px;
     display: flex;
-    width: 200px;
-    height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+#imageContainer{
+    width: 600px !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#imageContainer img{
+    width: 450px;
+}
+
+#mainInfo{
+    width: 600px !important;
+    height: 100%;
+    padding: 0 7.5px;
+}
+
+#mainInfo > :first-child > h1{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#mainInfo > span{
+    font-size: 12px;
+    font-weight: 400;
+    padding: 12px 0;
+    display: block;
+}
+
+#mainInfo > :nth-child(3){
+    border-top: 1px solid #4676b93d;
+    border-bottom: 1px solid #4676b95b;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #4676b9;
+}
+
+#mainInfo > :nth-child(3) > :first-child{
+    /* padding: 0 20% 0 5px; */
+}
+
+#mainInfo > :nth-child(3) h2{
+    font-size: 32px;
+
+}
+
+#mainInfo > :nth-child(3) p{
+    font-size: 10px;
+}
+
+
+#mainInfo > :nth-child(4) > ul{
+    /* background-color: red; */
+    width: 100%;
+    height: 130px;
+    padding: 14px 0;
+    list-style: none;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+    border-bottom: 1px solid #4676b95b;;
+}
+
+#mainInfo > :nth-child(4) > ul > li {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 14px;
+    color: #4caf50;
+}
+
+#mainInfo > :nth-child(4) > ul > li > div{
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainInfo > :nth-child(4) > ul > li > div > img {
+    width: 25px;
+    overflow: hidden;
+    height: 25px;
+}
+
+#mainInfo > :nth-child(4) > ul > li > div > #check{
+    width: 19px;
+    height: 19px;
+    margin-left: 3px;
+}
+
+#mainInfo > :nth-child(4) > ul > li > div > #truck{
+    margin-left: 3px;
+}
+
+#mainInfo > :nth-child(5){
+    background-color: #e4752b;
+    height: 35px;
+    width: 300px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fefefe;
+    font-family: Montserrat,sans-serif;
+    margin-top: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#mainInfo > :nth-child(5):active{
+    background-color: #ff8330;
 }
