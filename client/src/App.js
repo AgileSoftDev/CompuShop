@@ -8,6 +8,7 @@ import LandingPage from "../src/components/LandingPage/LandingPage.jsx"
 import { useLocation } from "react-router-dom";
 import Construye from "./views/Construye/Construye";
 import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
+import Ayuda from "./views/Ayuda/Ayuda";
 // import Ayuda from "./views/Ayuda/Ayuda";
 
 
@@ -23,7 +24,7 @@ function App() {
         <Route exact path={"/productos"} render={()=> <Productos/>} />
         <Route path={"/construye"} render={()=> <Construye/>} />
         <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
-        {/* <Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> */}
+        <Route exact path={"/ayuda"} render={()=> <Ayuda/>}/>
         { location.pathname !=='/' && <Footer/>}
     </div>
   );

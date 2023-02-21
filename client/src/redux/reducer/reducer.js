@@ -1,8 +1,22 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC } from "../actions/actions.types";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT } from "../actions/actions.types";
+import axios from 'axios';
+import { paginationArray } from "../../utils";
+const actions = require('../actions/actions')
 
- 
+export const getAllComponents = () => {
+    return dispatch => {
+        axios.get('http://localhost:3001/components')
+            .then(res => {
+                dispatch(actions.getAllComponents(res.data));
+            })
+            .catch(error => console.log(error));
+    }
+}
 
 const initialState = {
+    allComponents: [],
+    numPaginado: 0,
+    paginated: [],
     connectionON : true,
     stateViewCard: window.localStorage.getItem("viewCarStyle")===null?true:window.localStorage.getItem("viewCarStyle")==='true'?true:false,
     buil_pc : {
@@ -33,6 +47,29 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             return{
                 ...state,
                 step_build_pc:payload,
+            }
+
+        case SET_NUM_PAGINATED:
+            return{
+                ...state,
+                numPaginado: payload,
+            }
+
+            case SEARCH_COMPONENT:
+                return {
+                    ...state,
+                    paginated: paginationArray(
+                        state.allComponents.filter(item => 
+                            item.name.slice(0, payload.trim().length).toLowerCase() === payload.trim().toLowerCase()
+                        ), 15),
+                    numPaginado: 0,
+                }
+        
+        case GET_ALL_COMPONENTS:
+            return{
+                ...state,
+                allComponents: payload,
+                paginated: paginationArray(payload, 9),
             }
         
         default:

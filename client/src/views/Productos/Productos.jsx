@@ -2,6 +2,10 @@ import style from './Productos.module.css';
 import Sidebar from '../../components/SideBar/SideBar.jsx';
 import Order from "../../components/Order/Order.jsx"
 import ContainerCards from "../../components/CardContainer/ContainerCards.jsx"
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getAllComponents } from '../../redux/reducer/reducer';
+import Paginated from '../../components/Paginated/Paginated';
 
 const productos = [
     {
@@ -31,6 +35,20 @@ const productos = [
 ]
 
 const Products = ()=>{
+
+    const dispatch = useDispatch();
+
+    const { allComponents, paginated } = useSelector(store => store)
+
+    useEffect(() => {
+        dispatch(getAllComponents())
+      }, [])
+    
+    useEffect(() => {
+      console.log(allComponents)
+      console.log(paginated)
+    }, [allComponents,paginated])
+
     return(
         <div id={style.Container}>
             <div id={style.productsContainer}>
@@ -39,7 +57,9 @@ const Products = ()=>{
                 </aside>
                 <section>
                     <Order/>
-                    <ContainerCards listArray={productos}/>
+                    <Paginated/>
+                    <ContainerCards listArray={paginated}/>
+                    {/* // ! <Paginated/> preguntar si queda bien arriba y abajo o solo arriba */}
                 </section>
             </div>
 

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 
 
-const Card = ({ id, title, image, precio }) => {
+const Card = ({ id, name, img, price }) => {
 
     const stateViewCard = useSelector(e=>e.stateViewCard)
 
@@ -15,12 +15,12 @@ const Card = ({ id, title, image, precio }) => {
             <Link to={`/producto/${id}`} id={style.Card }>
                   <div>
                       <div >
-                           <img  src={image} alt={title} />
+                           <img  src={img} alt={'Imagen de ' + name} />
                       </div>
-                      <h1 >{title}</h1>
+                      <h1 >{name}</h1>
                   </div>
                   <div>
-                      <h1 >$ {precio}</h1>
+                      <h1 >$ {price}</h1>
                       <button>SUMAR AL CARRITO</button>
                   </div>
       
@@ -30,11 +30,11 @@ const Card = ({ id, title, image, precio }) => {
         return (
             <Link to={`/producto/${id}`} id={style.Card2 }>
                   <div>
-                           <img  src={image} alt={title} />
+                           <img  src={img} alt={name} />
                   </div>
                   <div>
-                      <h2 >{title}</h2>
-                      <h1 >$ {precio}</h1>
+                      <h2 >{name}</h2>
+                      <h1 >$ {price}</h1>
                       <button>SUMAR AL CARRITO</button>
                   </div>
       

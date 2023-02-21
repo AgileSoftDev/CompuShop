@@ -2,6 +2,8 @@ import style from "./SearchBar.module.css"
 import { useRef, useState } from "react";
 import lupa from "../../assets/icons/lupa.png"
 import xIcon from "../../assets/icons/X-icon_black.svg"
+import { searchComponent } from "../../redux/actions/actions";
+import { useDispatch } from "react-redux";
 
 
 
@@ -9,14 +11,16 @@ import xIcon from "../../assets/icons/X-icon_black.svg"
 const SearchBar = () =>{
 
     const inputRef = useRef()
-
+    const dispatch = useDispatch();
     const [inputStatus,setInputStatus] = useState('') 
     const [logoSearchBarStatus, setLogoSearchBarStatus] = useState(true)
 
     const hanlderChange=(e)=>{
+        e.preventDefault();
         const value = e.target.value
         setInputStatus(value)
         value.length > 0 ? setLogoSearchBarStatus(false): setLogoSearchBarStatus(true)
+        dispatch(searchComponent(value))
     }
 
     const handlerSubmit=(e) =>{

@@ -1,17 +1,21 @@
+import { useSelector } from 'react-redux';
 import Card from '../Card/Card.jsx';
 import style from './ContainerCards.module.css'
 
 
 const ContainerCards = ({ listArray }) => {
+  const { numPaginado } = useSelector(store => store)
+
   return (
     <div id={style.cardContainer} >
   
-      {listArray?.map((component) => {
-        return ( <Card              
-                    id ={component.id}
-                    title={component.name}
-                    image={component.image}
-                    precio={component.precio}
+      {listArray[numPaginado]?.map((component) => {
+        return ( <Card 
+                    key={component._id}         
+                    id={component._id}
+                    name={component.name}
+                    price={component.price}
+                    img={component.img}
                 />);
       })}
     </div>
