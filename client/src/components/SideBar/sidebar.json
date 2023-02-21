@@ -1,0 +1,216 @@
+[
+    {
+        "title": "Equipos y Notebooks",
+        "icon": "bi bi-pc-display-horizontal",
+        "childrens": [
+            {
+                "title": "Notebooks",
+                "icon": "bi bi-laptop",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Kits de actualizacion",
+        "icon": "bi bi-tools",
+        "childrens": [
+            {
+                "title": "Kits de actualizacion",
+                "icon": "bi bi-tools",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Procesadores",
+        "icon": "bi bi-cpu",
+        "childrens": [
+            {
+                "title": "Procesadores AMD",
+                "icon": "bi bi-cpu-fill",
+                "path": "/productos"
+            },
+            {
+                "title": "Procesadores INTEL",
+                "icon": "bi bi-cpu-fill",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Mothers",
+        "icon": "bi bi-motherboard",
+        "childrens": [
+            {
+                "title": "Mothers AMD",
+                "icon": "bi bi-motherboard-fill",
+                "path": "/productos"
+            },
+            {
+                "title": "Mothers INTEL",
+                "icon": "bi bi-motherboard-fill",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Placas de video",
+        "icon": "bi bi-gpu-card",
+        "childrens": [
+            {
+                "title": "Placas de video GForce",
+                "icon": "bi bi-gpu-card",
+                "path": "/productos"
+            },
+            {
+                "title": "Placas de video Radeon AMD",
+                "icon": "bi bi-gpu-card",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Memorias RAM",
+        "icon": "bi bi-memory",
+        "childrens": [
+            {
+                "title": "Memorias",
+                "icon": "bi bi-memory",
+                "path": "/productos"
+            },
+            {
+                "title": "Memorias Notebooks",
+                "icon": "bi bi-memory",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Almacenamiento",
+        "icon": "bi bi-hdd",
+        "childrens": [
+            {
+                "title": "Discos Rigidos",
+                "icon": "bi bi-hdd-fill",
+                "path": "/productos"
+            },
+            {
+                "title": "Discos SSD",
+                "icon": "bi bi-device-ssd",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Refrigeracion",
+        "icon": "bi bi-thermometer-snow",
+        "childrens": [
+            {
+                "title": "Coolers Fan",
+                "icon": "bi bi-fan",
+                "path": "/productos"
+            },
+            {
+                "title": "Coolers CPU",
+                "icon": "bi bi-fan",
+                "path": "/productos"
+            },
+            {
+                "title": "Pasta Termica",
+                "icon": "bi bi-thermometer-snow",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Gabinetes",
+        "icon": "bi bi-pc",
+        "childrens": [
+            {
+                "title": "Gabinetes",
+                "icon": "bi bi-pc",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Fuentes",
+        "icon": "bi bi-plug",
+        "childrens": [
+            {
+                "title": "Fuentes de alimentacion",
+                "icon": "bi bi-plug",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Monitores y Televisores",
+        "icon": "bi bi-display",
+        "childrens": [
+            {
+                "title": "Monitores y Pantallas",
+                "icon": "bi bi-display-fill",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Perifericos",
+        "icon": "bi bi-headset",
+        "childrens": [
+            {
+                "title": "Auriculares",
+                "icon": "bi bi-headset",
+                "path": "/productos"
+            },
+            {
+                "title": "Teclados",
+                "icon": "bi bi-keyboard",
+                "path": "/productos"
+            },
+            {
+                "title": "Mouses",
+                "icon": "bi bi-mouse",
+                "path": "/productos"
+            },
+            {
+                "title": "Webcam",
+                "icon": "bi bi-webcam",
+                "path": "/productos"
+            },
+            {
+                "title": "MousePad",
+                "icon": "bi bi-mouse3",
+                "path": "/productos"
+            },
+            {
+                "title": "Microfonos",
+                "icon": "bi bi-mic",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Sillas",
+        "icon": "bi bi-display",
+        "childrens": [
+            {
+                "title": "Sillas Gamers",
+                "icon": "bi bi-display-fill",
+                "path": "/productos"
+            }
+        ]
+    },
+    {
+        "title": "Cables y Adaptadores",
+        "icon": "bi bi-usb-plug-fill",
+        "childrens": [
+            {
+                "title": "Cables y Adaptadores",
+                "icon": "bi bi-usb-plug-fill",
+                "path": "/productos"
+            }
+        ]
+    }
+]

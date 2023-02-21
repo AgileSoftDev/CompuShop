@@ -1,0 +1,210 @@
+.fondo {
+    background-color: #eeeeeeee;
+    height: 700px;
+    font-style: italic;
+    display: flex;
+}
+
+.container {
+    width: 1200px;
+    margin: 10px auto;
+    display: flex;
+    font-family: Montserrat, sans-serif !important;
+}
+
+.titulo {
+    margin:30px;
+    font-size: 35px;
+    font-style: normal;
+}
+
+.volver{
+    margin:30px;
+    font-size: 20px;
+    font-style: normal;
+    margin-left: 850px;
+    color: rgb(228, 117, 43);
+    text-decoration: none;
+}
+
+.volver:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.izquierda {
+    width: 750px;
+    height: 600px;
+    position: absolute;
+    margin-top: 80px;
+}
+
+.derecha {
+    width: 450px;
+    height: 600px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 750px;
+}
+
+.cuadro1 {
+    background-color: white;
+    width: 700px;
+    height: 140px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(194, 194, 194);
+}
+
+.cuadro1 h2 {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: rgb(228, 117, 43);
+}
+
+.cuadro1 p {
+    padding: 2px 20px;
+    font-size: 15px;
+}
+
+
+.cuadro2 {
+    background-color: white;
+    width: 700px;
+    height: 140px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(194, 194, 194);
+}
+
+.cuadro2 h2 {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: rgb(228, 117, 43);
+}
+
+.cuadro2 p {
+    padding: 2px 20px;
+    font-size: 15px;
+}
+
+.cuadro3 {
+    background-color: white;
+    width: 700px;
+    height: 140px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(194, 194, 194);
+}
+
+.cuadro3 h2 {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: rgb(228, 117, 43);
+}
+
+.cuadro3 p {
+    padding: 2px 20px;
+    font-size: 15px;
+}
+
+.cuadro4 {
+    background-color: white;
+    width: 400px;
+    height: 140px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(194, 194, 194);
+}
+
+.cuadro4 h2 {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: rgb(228, 117, 43);
+}
+
+.cuadro4 p {
+    padding: 2px 20px;
+    font-size: 15px;
+}
+
+.cuadro5 {
+    background-color: white;
+    width: 400px;
+    height: 180px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(194, 194, 194);
+}
+
+.cuadro5 h2 {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: rgb(228, 117, 43);
+}
+
+.cuadro5 p {
+    padding: 2px 20px;
+    font-size: 15px;
+}
+
+.direccion {
+    margin-left: 140px;
+    margin-top: 35px;
+    height: 40px;
+    background-color: rgb(228, 117, 43);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.cuadro6 {
+    background-color: white;
+    width: 400px;
+    height: 180px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(194, 194, 194);
+}
+
+.carrito {
+    height: 40px;
+    width: 140px;
+    background-color: rgb(228, 117, 43);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 30px 40px;
+}
+
+.datos {
+    height: 40px;
+    width: 140px;
+    background-color: rgb(228, 117, 43);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.salir {
+    height: 40px;
+    width: 140px;
+    background-color: rgb(228, 117, 43);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 5px 135px;
+}
+
+
+
+
+
