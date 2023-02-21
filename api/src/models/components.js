@@ -19,6 +19,9 @@ const componentSchema= new Schema(
         },
         img:{
             type: String,
+        },
+        maker:{
+            type: String,
         }
     }
 );

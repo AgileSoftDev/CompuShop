@@ -6,6 +6,7 @@ const createComponent = async data => {
     if(!data.category) throw 'Atributo «Categoría» es requerido';
     if(!data.price) throw 'Atributo «Precio» es requerido';
     if(!data.description) throw 'Atributo «Descripción» es requerido';
+    if(!data.maker) throw "Atributo «Maker» es requerido";
     const component = new Components(data);
     const savedComponent = await component.save();
     return savedComponent;

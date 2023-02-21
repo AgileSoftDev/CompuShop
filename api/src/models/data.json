@@ -5,77 +5,88 @@
             "price":13.799,
             "description":"TUF Gaming GeForce RTX 3070 Ti V2 OC Edition 8GB GDDR6X",
             "category": "GPU",
-            "img":"https://www.zotac.com/download/files/page/3070Ti/3070_ti_award.png"
+            "img":"https://www.zotac.com/download/files/page/3070Ti/3070_ti_award.png",
+            "maker": "GEFORCE"
         },
         {
             "name": "GTX 1650",
             "price":3.499,
             "description":"NVIDIA GeForce GTX 1650 4GB GDDR6",
             "category": "GPU",
-            "img":"https://www.asus.com/media/global/gallery/q9qcrfsypt27nqos_setting_xxx_0_90_end_2000.png"
+            "img":"https://www.asus.com/media/global/gallery/q9qcrfsypt27nqos_setting_xxx_0_90_end_2000.png",
+            "maker": "GEFORCE"
         },
         {
             "name": "Radeon RX 6600 XT",
             "price":9.999,
             "description":"Tarjeta de video Radeon RX 6600 XT 8GB GDDR6 / ASUS DUAL OC / HDMI, DP/ PCI-e 4.0 / Nuevo Chip RDNA 2 / DUAL-RX6600XT-O8G ",
             "category":"GPU",
-            "img":"https://www.pcmastersbogota.com.co/wp-content/uploads/2022/03/Radeon%E2%84%A2-RX-6600-XT-EAGLE-8G-01.png"
+            "img":"https://www.pcmastersbogota.com.co/wp-content/uploads/2022/03/Radeon%E2%84%A2-RX-6600-XT-EAGLE-8G-01.png",
+            "maker": "AMD"
         },
         {
             "name": "GT 1030",
             "price":2.799,
             "description":"Tarjeta de video NVIDIA GeForce GT 1030 2GB GDDR4 / Gigabyte / HDMI, DVI / GV-N1030D4-2GL",
             "category":"GPU",
-            "img":"https://e7.pngegg.com/pngimages/277/221/png-clipart-graphics-cards-video-adapters-gigabyte-technology-gddr5-sdram-geforce-computer-low-profile-computer-cable.png"
+            "img":"https://e7.pngegg.com/pngimages/277/221/png-clipart-graphics-cards-video-adapters-gigabyte-technology-gddr5-sdram-geforce-computer-low-profile-computer-cable.png",
+            "maker": "GEFORCE"
         },
         {
             "name": "GTX 1650",
             "price":3.299,
             "description":"Tarjeta de video NVIDIA GeForce GTX 1650 4GB GDDR5 / MSI D6 VENTUS XS OCV1 / HDMI, DP / 912-V809-3060",
             "category":"GPU",
-            "img":"https://image.pngaaa.com/233/844233-middle.png"
+            "img":"https://image.pngaaa.com/233/844233-middle.png",
+            "maker": "GEFORCE"
         },
         {
             "name": "Asus PRIME B460M",
             "price":1.499,
             "description":"Tarjeta Madre Asus PRIME B460M-A R2.0 Socket LGA1200 Intel B460 Micro ATX / DDR4 / Intel Core 10th Generación        ",
             "category":"BOARD",
-            "img":"https://www.asus.com/media/global/products/sfalkfod5w5uqkjk/P_setting_xxx_0_90_end_500.png"
+            "img":"https://www.asus.com/media/global/products/sfalkfod5w5uqkjk/P_setting_xxx_0_90_end_500.png",
+            "maker": "Intel"
         },
         {
             "name": "Asus PRIME B550M-A AC",
             "price":1.999,
             "description":"Tarjeta Madre Asus PRIME B550M-A AC / AM4 / AMD RYZEN 3000 SERIES / micro ATX ",
             "category":"BOARD",
-            "img":"https://www.asus.com/media/global/products/c1xc5wovtrrlf3do/P_setting_xxx_0_90_end_500.png"
+            "img":"https://www.asus.com/media/global/products/c1xc5wovtrrlf3do/P_setting_xxx_0_90_end_500.png",
+            "maker": "AMD"
         },  
         {
             "name": "Gigabyte B560M",
             "price":2.299,
             "description":"Tarjeta Madre Gigabyte B560M DS3H V2 Socket LGA1200 Intel B560 Micro ATX / DDR4 ",
             "category":"BOARD",
-            "img":"https://static.gigabyte.com/StaticFile/Image/Global/da88a91931bfb0cba86d4b99d528d0f4/Product/27181/Png"
+            "img":"https://static.gigabyte.com/StaticFile/Image/Global/da88a91931bfb0cba86d4b99d528d0f4/Product/27181/Png",
+            "maker":"Intel"
         },
         {
             "name": "Asus ROG MAXIMUS Z690 HERO",
             "price":12.699,
             "description":"Tarjeta Madre Asus ROG MAXIMUS Z690 HERO Socket Intel LGA1700 Intel Z690 ​ATX",
             "category":"BOARD",
-            "img":"https://dlcdnwebimgs.asus.com/files/media/26C85F08-2530-49D9-A881-35FBF9E13E9B/v2/img/kv/pd.png"
+            "img":"https://dlcdnwebimgs.asus.com/files/media/26C85F08-2530-49D9-A881-35FBF9E13E9B/v2/img/kv/pd.png",
+            "maker":"Intel"
         },
         {
             "name": "MSI H510M-A PRO",
             "price":1.799,
             "description":"Tarjeta Madre MSI H510M-A PRO Socket LGA1200 Intel H510 Micro-ATX / DDR4 / Intel Core 11th Generación",
             "category":"BOARD",
-            "img":"https://asset.msi.com/resize/image/global/product/product_1611648790a060cf56e0c23ea5ed67a7bc96e70f15.png62405b38c58fe0f07fcef2367d8a9ba1/380.png"
+            "img":"https://asset.msi.com/resize/image/global/product/product_1611648790a060cf56e0c23ea5ed67a7bc96e70f15.png62405b38c58fe0f07fcef2367d8a9ba1/380.png",
+            "maker":"Intel"
         },
         {
             "name": "AMD RYZEN 7 5700G",
             "price":3.899,
             "description":"PROCESADOR AMD RYZEN 7 5700G APU 3.8GHZ / 4.6GHZ / 8 CORE 16Threads / AM4 / Con disipador Wraith Stealth / Radeon Graphics 8 Nucleos Integrada / 100-100000263BOX",
             "category":"CPU",
-            "img":"https://infoshopcorp.com/wp-content/uploads/2021/08/4346.jpg"
+            "img":"https://infoshopcorp.com/wp-content/uploads/2021/08/4346.jpg",
+            "maker":"AMD"
         },
     
         {
@@ -83,28 +94,32 @@
             "price":1.599,
             "description":"PROCESADOR AMD RYZEN 3 3200G APU 3.6GHZ / 4GHZ / 4CORE / AM4 / Con disipador Wraith Stealth / Radeon VEGA 8 Integrada / YD3200C5FHBOX ",
             "category":"CPU",
-            "img":"https://www.amd.com/system/files/2019-06/238593-ryzen-3-vega-pib-left-facing-1260x709_0.png"
+            "img":"https://www.amd.com/system/files/2019-06/238593-ryzen-3-vega-pib-left-facing-1260x709_0.png",
+            "maker":"AMD"
         },    
         {
             "name": "Intel Core i3-12100F",
             "price":2.499,
             "description":"Procesador Intel Core i3-12100F 3.3GHz / 4.3GHz / 4 Nucleos / 8 Hilos / Socket LGA1700 - Intel 12TH Generación / Requiere Tarjeta de Video / BX8071512100F",
             "category":"CPU",
-            "img":"https://i0.wp.com/www.computerevolution.com.co/wp-content/uploads/Procesador-INTEL-CORE-I3-12100F1.jpg?fit=1024%2C1024&ssl=1"
+            "img":"https://i0.wp.com/www.computerevolution.com.co/wp-content/uploads/Procesador-INTEL-CORE-I3-12100F1.jpg?fit=1024%2C1024&ssl=1",
+            "maker":"Intel"
         },
         {
             "name": "AMD Ryzen 9 5900X",
             "price":6.299,
             "description":"Procesador AMD Ryzen 9 5900X / 12 Core / 24 Thread / 3.7GHz / 4.8GHz Boost / TDP 105W / (Requiere Disipador) / (Requiere Tarjeta de Video) / 100-100000061WOF / Gratis Juego COH 3! ",
             "category":"CPU",
-            "img":"https://www.amd.com/system/files/2020-09/616656-amd-ryzen-9-5000-series-PIB-1260x709_0.png"
+            "img":"https://www.amd.com/system/files/2020-09/616656-amd-ryzen-9-5000-series-PIB-1260x709_0.png",
+            "maker": "AMD"
         },
         {
             "name": "Intel Celeron G5905",
             "price":959,
             "description":"Procesador Intel Celeron G5905 Dual core / 3.50GHz / 4MB Cache / Intel LGA1200 / BX80701G5905",
             "category":"CPU",
-            "img":"https://www.loltec.com/storage/media/2fEtHzMsOGybEot91xZbl2hPEeqCC4O6HB7Aij17.jpeg"
+            "img":"https://www.loltec.com/storage/media/2fEtHzMsOGybEot91xZbl2hPEeqCC4O6HB7Aij17.jpeg",
+            "maker":"Intel"
         },
         {
             "name": "Acteck Integra ULTRON X",
@@ -178,38 +193,73 @@
           },
           {
             "name": "Spatium S270",
-            "category": "SSD",
+            "category": "STORAGE",
             "price":349,
             "description":"Unidad de Estado Sólido MSI Spatium S270 / 240gb SSD / Interno para Juegos / Read speeds up to 500MB/s / SPATIUM S270",
             "img":"https://asset.msi.com/resize/image/global/product/product_1659590602cf6c33bd0f8fdeb6970fb8609f608c15.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"
           },
           {
             "name": "Adata SU630",
-            "category": "SSD",
+            "category": "STORAGE",
             "price":309,
             "description":"Unidad de estado solido SSD 240GB 2.5INCH SATA3 Adata SU630 / ASU630SS-240GQ-R",
             "img":"https://content1.rozetka.com.ua/goods/images/original/299551224.jpg"
           },
           {
             "name": "NV2",
-            "category": "SSD",
+            "category": "STORAGE",
             "price":1.249,
             "description":"Unidad de Estado Solido M.2 KINGSTON / 1TB (SNV2S/1000G) / NV2 / PCIE 4.0 / NVME 2280",
             "img":"https://media.kingston.com/kingston/product/ktc-product-ssd-snv2s-500g-1-lg.jpg"
           },
           {
             "name": "LEGEND 700",
-            "category": "SSD",
+            "category": "STORAGE",
             "price":999,
             "description":"ESTADO SOLIDO ADATA LEGEND 700 1TB/ALEG-700-1TCS",
             "img":"https://webapi3.adata.com/storage/product/legend_700_3.png"
           },
           {
             "name": "Vulcan Z",
-            "category": "SSD",
+            "category": "STORAGE",
             "price":569,
             "description":"Unidad de Estado Sólido TeamGroup T-Force Vulcan Z / 512GB / SLC Cache 3D NAND TLC / SATA III / R/W velocidad hasta 530/470 MB/s / T253TZ512G0C101",
             "img":"https://www.teamgroupinc.com/es/upload/product_note_pic/b89d1cfa01848db7a60a6e3cdcef1149.jpg"
+          },
+          {
+            "name": "Gigabyte 450W 80 Plus Bronze",
+            "category": "FUENTE",
+            "price": "16.430",
+            "description": "Fuente Gigabyte 450W 80 Plus Bronze P450B",
+            "img": "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1521/innergigabyteimages/sec2-img1.png"
+          },
+          {
+            "name": "XFX 1600W 80 Plus Gold",
+            "category": "FUENTE",
+            "price": "49.270",
+            "description": "Fuente XFX 1600W 80 Plus Gold Full Modular PS1600PG",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_681867-MLA52248682583_112022-W.jpg"
+          },
+          {
+            "name": "PERFORMANCE 550W",
+            "category": "FUENTE",
+            "price": "3.100",
+            "description": "Fuente PERFORMANCE 550W Solo gabinetes con posición de PSU panel superior",
+            "img": "http://d2r9epyceweg5n.cloudfront.net/stores/001/922/582/products/producto17-7679a1116b8dfdd38c16628725530169-640-0.jpg"
+          },
+          {
+            "name": "ASUS ROG THOR 850W 80 Plus Platinum",
+            "category": "FUENTE",
+            "price": "69.350",
+            "description": "Fuente ASUS ROG THOR 850W 80 Plus Platinum 850P Full modular",
+            "img": "https://dlcdnwebimgs.asus.com/gain/180E8712-66F2-45B3-8D46-3D174577B146"
+          },
+          {
+            "name": "Linkworld 550W 80 Plus Bronze",
+            "category": "FUENTE",
+            "price": "13.700",
+            "description": "Fuente de poder no modular con certificacion 80 PLUS Bronze",
+            "img": "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1521/innergigabyteimages/sec2-img1.png"
           }
     ]
 }
