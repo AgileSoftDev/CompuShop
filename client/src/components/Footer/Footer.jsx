@@ -5,11 +5,13 @@ import facebook_icon from "../../assets/redes-sociaes_icons/facebook_icon.svg"
 import instagram_icon from "../../assets/redes-sociaes_icons/instagram_icon.svg"
 import youtube_icon from "../../assets/redes-sociaes_icons/youtube_icon.svg"
 import twitter_icon from "../../assets/redes-sociaes_icons/twitter_icon.svg"
-
+import SliderBrands from "../SliderBrands/SliderBrands"
 
 const Footer = () =>{
     return(
-        <footer id={style.Footer}>
+        <>  
+          <SliderBrands></SliderBrands>
+          <footer id={style.Footer}>
             <nav>
                 <div>
                     <img src={QR_dataFiscal} alt="QR" />
@@ -40,6 +42,8 @@ const Footer = () =>{
                 <br/>
             Todos los derechos reservados 2023</p>
         </footer>
+        </>
+      
     )
 };
 

@@ -57,12 +57,10 @@ const Products = ()=>{
                 </aside>
                 <section>
                     <Order/>
-                    <Paginated/>
                     <ContainerCards listArray={paginated}/>
-                    {/* // ! <Paginated/> preguntar si queda bien arriba y abajo o solo arriba */}
+                    <Paginated/>
                 </section>
             </div>
-
         </div>
         
         

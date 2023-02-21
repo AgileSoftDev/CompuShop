@@ -6,7 +6,7 @@ const Ayuda = ()=>{
     return(
       
         <div>
-            <Acordeon/>
+            {/* <Acordeon/> */}
             </div>  
        
          

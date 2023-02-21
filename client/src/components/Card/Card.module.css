@@ -9,10 +9,10 @@
     justify-content: start;
     color: rgb(34, 33, 33);
     margin-bottom: 20px;
-    padding: 12px 5px;
+    padding: 10px 5px 15px 0;
     border-radius: 5px;
     width: 256px;
-    height: 345px;
+    height: 320px;
     text-decoration: none;
     
 }
@@ -30,6 +30,7 @@
 }
 
 #Card > :nth-child(1) > div img {
+    width: 140px;
     height: 140px;
 }
 
@@ -76,13 +77,13 @@
     align-items: center;
     color: rgb(34, 33, 33);
     margin: 0 0 20px 0;
-    /* padding: 20px; */
     border-radius: 10px;
     width: 800px;
     text-decoration: none;
 }
 
 #Card2 > :nth-child(1){
+    overflow: hidden;
     width: 200px;
     height: 160px;
     display: flex;
@@ -91,6 +92,7 @@
 }
 
 #Card2 > :nth-child(1) >  img{
+    width: 140px;
     height: 140px;
 }
 
