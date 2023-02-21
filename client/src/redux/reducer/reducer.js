@@ -1,35 +1,12 @@
 import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT } from "../actions/actions.types";
-import axios from 'axios';
 import { paginationArray } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
 
 
-const actions = require('../actions/actions');
 
-
-export const getAllComponents = () => {
-    return dispatch => {
-        axios.get('http://localhost:3001/components')
-            .then(res => {
-                dispatch(actions.getAllComponents(res.data));
-            })
-            .catch(error => console.log(error));
-    }
-}
-
-export const getDetailComponentById = (id) => {
-    return dispatch => {
-        axios.get(`http://localhost:3001/components/id/${id}`)
-            .then(res => {
-                dispatch(actions.getDetailComponent(res.data));
-            })
-            .catch(error => console.log(error));
-    }
-}
 
 const initialState = {
     allComponents: [],
-    detailComponent: {},
     numPaginado: 0,
     paginated: [],
     connectionON : true,
@@ -93,7 +70,6 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             };
 
         case ORDER_PRICE:
-   
             const newOrder = sortByPrice(payload.data, payload.tipo)
             return{
                 ...state

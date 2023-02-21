@@ -4,7 +4,7 @@ import Order from "../../components/Order/Order.jsx"
 import ContainerCards from "../../components/CardContainer/ContainerCards.jsx"
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getAllComponents } from '../../redux/reducer/reducer';
+import { getAllComponents } from '../../redux/actions/actions.js';
 import Paginated from '../../components/Paginated/Paginated';
 
 // const productos = [

@@ -35,7 +35,7 @@ const Card = ({ id, name, img, price }) => {
                   <div>
                       <h2 >{name}</h2>
                       <h1 >$ {price}</h1>
-                      <button>SUMAR AL CARRITO</button>
+                      <button>SUMAR AL CARRITo</button>
                   </div>
       
             </Link>

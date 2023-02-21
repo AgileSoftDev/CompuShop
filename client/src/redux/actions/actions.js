@@ -53,12 +53,20 @@ const setStepBuildPc = (step) =>{
 }
 
 
-const getAllComponents = (payload) =>{
-    return{
-        type: GET_ALL_COMPONENTS,
-        payload: payload,
+
+ const getAllComponents = () => {
+    return async dispatch => {
+        const {data} = await axios.get('http://localhost:3001/components')
+        .catch(error => alert("Error en la action getAllComponents, al obtener la data"));
+                dispatch({
+                    type: GET_ALL_COMPONENTS,
+                    payload: data,
+            })
+         
     }
 }
+
+
 
 
 

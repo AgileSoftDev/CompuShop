@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Card from '../../components/Card/Card'
-import { getDetailComponentById } from '../../redux/reducer/reducer'
 import style from './DetalleProducto.module.css'
+import axios from "axios"
 
 const rebaja = (price) => {
     return price - (price * 0.35)
@@ -11,37 +9,40 @@ const rebaja = (price) => {
 
 const DetalleProducto = () => {
     const { id } = useParams()
-    const dispatch = useDispatch();
-    const { detailComponent } = useSelector(store => store)
     
-    console.log(`🚀 ~ file: DetalleProducto.jsx:8 ~ DetalleProducto ~ id:`, id)
     
-    useEffect(() => {
-      dispatch(getDetailComponentById(id))
+    const [component, setComponet] = useState({})
+
+    useEffect( () => {
+        const getDetailComponentById = async () => {
+
+             const {data} = await  axios.get(`http://localhost:3001/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
+             setComponet(data)  
+        }
+
+        getDetailComponentById()
+
     }, [])
 
-    useEffect(() => {
-      console.log(`🚀 ~ file: DetalleProducto.jsx:20 ~ DetalleProducto ~ detailComponent:`, detailComponent)
-    }, [detailComponent])
-    
+
     return (
     <div className={style.contenedor}>
         <div className={style.image}>
-            <img src={detailComponent.img} alt="" />
+            <img src={component.img} alt="" />
         </div>
         <main className={style.contenido}>
             <div className={style.header}>
-                <h3 className={style.nombreProducto}>{detailComponent.name}</h3>
-                <h4 className={style.idProducto}>ID: {detailComponent._id}</h4>
+                <h3 className={style.nombreProducto}>{component.name}</h3>
+                <h4 className={style.idProducto}>ID: {component._id}</h4>
             </div>
             <div className={style.contenedorPrecios}>
                 <div className={style.contenedorPrecioRebaja}>
                     {/* <p>Precio de rebaja</p>  */}
-                    <h3>${detailComponent.price}</h3>
+                    <h3>${component.price}</h3>
                 </div>
                 <div className={style.contenedorPrecioEspecial}>
                     <p>PRECIO ESPECIAL</p>
-                    <h3>${rebaja(detailComponent.price)}</h3>
+                    <h3>${rebaja(component.price)}</h3>
                 </div>
                 {/* <div className={style.contenedorPrecioEspecial}>
                     <p>VER CUOTAS</p>
