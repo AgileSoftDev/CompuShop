@@ -5,6 +5,7 @@ import style from './ContainerCards.module.css'
 
 const ContainerCards = ({ listArray }) => {
   const { numPaginado } = useSelector(store => store)
+  console.log(listArray);
 
   return (
     <div id={style.cardContainer} >
@@ -13,7 +14,7 @@ const ContainerCards = ({ listArray }) => {
         return ( <Card 
                     key={component._id}         
                     id={component._id}
-                    name={component.name}
+                    name={component.description}
                     price={component.price}
                     img={component.img}
                 />);
