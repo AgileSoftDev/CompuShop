@@ -1,0 +1,54 @@
+.contenedor {
+    border: 2px solid black;
+    width: 90%;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    height: 300px;
+}
+
+.header {
+    border: 2px solid black;
+}
+.contenido {
+    margin-top: 20px;
+    border: 2px solid black;
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-rows: repeat(3, 1fr);
+    height: 150px;
+}
+
+.contenedorPrecios {
+    border: 2px solid black;
+    width: 100%;
+    display: flex;
+    grid-gap: 20px;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.contenedorPrecioEspecial {
+    border: 2px solid black;
+    width: 100%;
+}
+
+.contenedorPrecioRebaja {
+    border: 2px solid black;
+    width: 100%;
+    text-decoration: line-through;
+}
+
+.listaInfo {
+    margin-top: 20px;
+    border: 2px solid black;
+    width: 100%;
+}
+
+.image {
+    display: flex;
+    width: 200px;
+    height: 200px;
+}

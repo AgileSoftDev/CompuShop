@@ -1,4 +1,4 @@
-import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE } from "./actions.types"
+import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT } from "./actions.types"
 import axios from 'axios'
 
 
@@ -18,6 +18,13 @@ const orderBy = (tipo) => {
 const setStateViewCard = () => {
         return { type: SET_STATE_VIEW_CARD }
     
+};
+
+const getDetailComponent = (component) => {
+    return {
+        type: GET_DETAIL_COMPONENT,
+        payload: component
+    }
 };
 
 
@@ -62,4 +69,5 @@ export {
      numPaginadoChange,
      searchComponent,
      orderBy,
+     getDetailComponent,
 };
