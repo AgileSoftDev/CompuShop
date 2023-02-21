@@ -17,7 +17,19 @@ const componentSchema= new Schema(
             type: String,
             required: true,
         },
+        description_2:{
+            type: String
+        },
+        description_3:{
+            type: String
+        },
+        description_4:{
+            type: String
+        },
         img:{
+            type: String,
+        },
+        maker:{
             type: String,
         }
     }
