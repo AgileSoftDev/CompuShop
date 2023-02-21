@@ -1,0 +1,71 @@
+#Card_arma_tu_pc{
+    background-color: #ffffff;
+    height: 148px;
+    width: 381,75px;
+    padding: 10px;
+    display: flex;
+    position: relative;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+
+#Card_arma_tu_pc  h1 {
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+#Card_arma_tu_pc h3 {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    /* background-color: aqua; */
+    margin: 6px 0 0 0;
+}
+
+#Card_arma_tu_pc p{
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #4caf50;
+} 
+
+
+#Card_arma_tu_pc > :nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Card_arma_tu_pc > :nth-child(2){
+    margin-left: 8px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#Card_arma_tu_pc > :nth-child(2) :nth-child(3){
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+#Card_arma_tu_pc > :nth-child(2) :nth-child(3) > p{
+    margin-left: 5px;
+}
+
+#Card_arma_tu_pc > :nth-child(2) :nth-child(3) > img{
+    width: 16px;
+    height: 16px;
+}
+
+#Card_arma_tu_pc > img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
