@@ -1,5 +1,3 @@
-const generateComponents = require("../models/data.js")
-
 
 const allComps = async ()=>{
     try {
