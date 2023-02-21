@@ -9,6 +9,19 @@ const Card = ({ id, name, img, price }) => {
 
     const stateViewCard = useSelector(e=>e.stateViewCard)
 
+    const cleanName =(name) =>{
+        let nameCleaned = name;
+        if (nameCleaned.length < 65) return nameCleaned
+        else return nameCleaned.substring(0, 65) + "..." 
+        
+    }
+
+    const cleanName2 = (name) =>{
+        let nameCleaned = name;
+        if (nameCleaned.length < 120) return nameCleaned
+        else return nameCleaned.substring(0, 120) + "..." 
+    }
+
 
     if(stateViewCard){
         return (
@@ -17,7 +30,7 @@ const Card = ({ id, name, img, price }) => {
                       <div >
                            <img  src={img} alt={'Imagen de ' + name} />
                       </div>
-                      <h1 >{name}</h1>
+                      <h1 >{cleanName(name)}</h1>
                   </div>
                   <div>
                       <h1 >$ {price}</h1>
@@ -33,9 +46,9 @@ const Card = ({ id, name, img, price }) => {
                     <img  src={img} alt={name} />
                   </div>
                   <div>
-                      <h2 >{name}</h2>
+                      <h2 >{cleanName2(name)}</h2>
                       <h1 >$ {price}</h1>
-                      <button>SUMAR AL CARRITo</button>
+                      <button>SUMAR AL CARRITO</button>
                   </div>
       
             </Link>

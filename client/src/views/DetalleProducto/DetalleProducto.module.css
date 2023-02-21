@@ -55,13 +55,14 @@
     color: #4676b9;
 }
 
-#mainInfo > :nth-child(3) > :first-child{
-    /* padding: 0 20% 0 5px; */
-}
 
 #mainInfo > :nth-child(3) h2{
     font-size: 32px;
+}
 
+#mainInfo > :nth-child(3) > div > #discountPrice{
+    color: #a74c9a;
+    font-size: 24px;
 }
 
 #mainInfo > :nth-child(3) p{

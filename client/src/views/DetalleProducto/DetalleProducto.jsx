@@ -7,7 +7,7 @@ import truck from "../../assets/detalles_componente/delivery_truck.svg"
 import check from "../../assets/detalles_componente/green_check.svg"
 
 const rebaja = (price) => {
-    return price - (price * 0.35)
+    return price - (price * 0.35).toFixed(2)
 } 
 
 const DetalleProducto = () => {
@@ -17,6 +17,10 @@ const DetalleProducto = () => {
     const [component, setComponet] = useState({})
 
     useEffect( () => {
+        window.scroll({
+            behavior: "smooth",
+            top: 0
+          });
         const getDetailComponentById = async () => {
 
              const {data} = await  axios.get(`http://localhost:3001/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
@@ -48,7 +52,7 @@ const DetalleProducto = () => {
                         </div>
                         <div>
                             <p>PRECIO LISTA</p>
-                            <h2>${component.price}</h2>
+                            <h2 id={style.discountPrice}>${component.price}</h2>
                         </div>
                     </div>
                     <div>
