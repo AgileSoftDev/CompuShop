@@ -1,0 +1,29 @@
+#Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee;
+}
+
+#productsContainer{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    width: 1200px;
+    margin-top: 20px;
+    padding-right: 10vw;
+}
+
+
+#productsContainer section{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+
+@media screen and (max-width:1300px) {
+    #productsContainer{
+        padding-right: 0;
+    }
+}
