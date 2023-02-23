@@ -1,4 +1,3 @@
-const axios = require("axios");
 const {components} = require("../models/data.json");
 const { Components}= require("../models/components");
 
@@ -14,7 +13,7 @@ const findComp = async (name)=>{
     try {
         const compByName = await allComps()
         const compRes = compByName.filter((e)=>{
-            if(e.name.toLowerCase().match(name)){
+            if(e.name.toLowerCase().match(name) || e.name.toUpperCase().match(name)){
                 return true
             }
             return false
@@ -49,14 +48,6 @@ const findById = async (id)=>{
         return error
 }
 }
-
-// const createComponent= async(name, price, category, description, img)=>{
-//     try {
-//         const newComponent= await allComps()
-//     } catch (error) {
-//         return error
-//     }
-// }
 
 module.exports ={
     allComps,
