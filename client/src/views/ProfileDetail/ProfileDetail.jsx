@@ -19,7 +19,7 @@ const ProfileDetail = () => {
                         <h2><i class="fa-solid fa-user-secret"></i> Mi información</h2>
                         <p>Nombre: {user.name}</p>
                         <p>Email: {user.email}</p>
-                        <p>Celular: {user.phone_number}</p>
+                        <p>Celular: {user.phone_number}  </p>
                     </div>
 
                     <div className={style.cuadro2}>

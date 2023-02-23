@@ -8,7 +8,7 @@
     text-align: center;
     justify-content: start;
     color: rgb(34, 33, 33);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     padding: 10px 5px 15px 5px;
     border-radius: 5px;
     width: 256px;
@@ -116,7 +116,7 @@
 }
 
 #Card2 > :nth-child(2) > h2{
-    font-size: 19px;
+    font-size: 17px;
     color: rgb(98, 91, 91);
     font-weight: 300;
     font-family: 'Rowdies', cursive;
@@ -124,6 +124,8 @@
     display: flex;
     align-items: center;
     justify-content: start;
+    padding-top: 12px;
+    padding-right: 10px;
 }
 
 #Card2 > :nth-child(2) > h1{

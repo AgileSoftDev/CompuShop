@@ -18,8 +18,8 @@ const Card = ({ id, name, img, price }) => {
 
     const cleanName2 = (name) =>{
         let nameCleaned = name;
-        if (nameCleaned.length < 120) return nameCleaned
-        else return nameCleaned.substring(0, 120) + "..." 
+        if (nameCleaned.length < 128) return nameCleaned
+        else return nameCleaned.substring(0, 128) + "..." 
     }
 
 
