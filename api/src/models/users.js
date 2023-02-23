@@ -24,7 +24,12 @@ const userSchema= new Schema(
         },
         phoneNumber:{
             type: Number,
+        },
+        isActive:{
+            type: Boolean,
+            default: true,
         }
+        
 });
 
 const User= model("User", userSchema) 

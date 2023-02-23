@@ -1,28 +1,67 @@
 const { Router } = require('express');
-const {allUsers, findUser, verifyEmail} = require("../controllers/getUser.js")
+const {getUser, findUser, findById, findByCategory} = require("../controllers/getUser.js")
+const createUser = require("../controllers/createUser");
+const {deleteUser, activateUser} = require('../controllers/deleteUser.js');
 
-const router = Router();
+const userRoutes = Router();
 
-router.get("/users", async (req, res) =>{
+userRoutes.get("/", async (req, res) =>{
+        const {name}= req.query;
     try {
-        if(req.query.name){
-            const compSearch = await findUser(req.query.name)
-            if(!compSearch[0]){
-                return res.status(400).send({error:"No user with that name"})
-            }else{
-                return res.status(200).send(compSearch)
-            }
+        if(name){
+            res.status(201).send(await findUser(name))
         }
-        return res.status(200).send(await allUsers())
+        else return res.status(201).send(await getUser())
     } catch (error) {
-        return error
+        res.status(404).send({error})
     }
 })
 
-router.get("/users/:mail", async (req, res) =>{
+userRoutes.get("/:category", async(req, res)=>{
+    const {category}= req.params;
     try {
-        return res.status(200).send(await verifyEmail(req.params.mail))
-     } catch (error) {
-         return error
-     }
+        res.status(201).send(await findByCategory(category));
+    } catch (error) {
+        res.status(404).send({error})
+    }
+});
+
+userRoutes.get("/id/:id", async(req, res)=>{
+    const {id}= req.params
+    try {
+        return res.status(200).send(await findById(id))
+    } catch (error) {
+        res.status(404).send({error})
+    }
 })
+
+userRoutes.post("/", async (req, res) =>{
+    try {
+        res.status(201).send(await createUser(req.body))
+    } catch (error) {
+        console.log(error)
+        res.status(400).send(error)
+    }
+})
+
+userRoutes.put("/:id", async(req, res)=>{
+    const {id}= req.params
+    try{
+        return res.status(200).send(await deleteUser(id))
+    } catch (error){
+        res.status(400).send(error)
+    }
+})
+
+userRoutes.put("/activate/:id", async(req, res)=>{
+    const {id}= req.params
+    try{
+        return res.status(200).send(await activateUser(id))
+    } catch (error){
+        res.status(400).send(error)
+    }
+})
+
+
+
+module.exports= userRoutes;
