@@ -1,4 +1,4 @@
-import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT } from "./actions.types"
+import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY } from "./actions.types"
 import axios from 'axios'
 
 
@@ -67,6 +67,25 @@ const setStepBuildPc = (step) =>{
 }
 
 
+const filterByCategory = (category, marca, pick)=>{
+    return async dispatch =>{
+        let {data} = await axios.get(`http://localhost:3001/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
+        console.log(data);
+        if(marca){
+            data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
+        }
+
+        if(!data.length) alert("No Hay componentes con esa marca")
+
+        if(data) dispatch({type: FILTER_BY_CATEGORY, payload: {data,pick}})
+    }
+};
+
+const deleteFilterCategory= ()=> {
+    return {type:DELETE_FILTER_CATEGORY}
+}
+
+
 
 
 
@@ -78,4 +97,6 @@ export {
      searchComponent,
      orderBy,
      getDetailComponent,
+     filterByCategory,
+     deleteFilterCategory,
 };
