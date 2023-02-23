@@ -1,4 +1,4 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT } from "../actions/actions.types";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY } from "../actions/actions.types";
 import { paginationArray } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
 
@@ -22,6 +22,7 @@ const initialState = {
         peripherals:{}
     },
     step_build_pc:undefined,
+    categoryPick: undefined,
 }
 
 
@@ -74,7 +75,22 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 , allComponents: newOrder,
                 paginated: paginationArray(newOrder, 9),
                 numPaginado:0
-            }
+            };
+
+        case FILTER_BY_CATEGORY:
+            return{
+                ...state,
+                allComponents: payload.data,
+                paginated:paginationArray(payload.data),
+                numPaginado: 0,
+                categoryPick:payload.pick
+            };
+
+        case DELETE_FILTER_CATEGORY:
+            return{
+                ...state,
+                categoryPick: undefined
+            };
         
         default:
             return{

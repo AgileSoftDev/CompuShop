@@ -135,7 +135,7 @@ const Construye = () =>{
                 window.removeEventListener("click", handleClick);
               };
 
-              listenerRef.current = handleClick;
+            listenerRef.current = handleClick;
 
 
             window.addEventListener("click",  listenerRef.current)
@@ -166,6 +166,7 @@ const Construye = () =>{
 
 
             return ()=>{ 
+                // console.log("De desmonté");
                 window.removeEventListener("click", listenerRef.current );
         }
   
@@ -176,6 +177,7 @@ const Construye = () =>{
 
 
     function setButtonsManagerFalse (evento) {
+        // console.log("Me clickearon");
         const target  =  evento.target;
         if (target !== refArrowFinalizar.current && target !== refArrowLimpiar.current) {
             if (target !== refButtonLimpiar.current && target !== refButtonFinalizar.current ){
