@@ -1,4 +1,3 @@
-
 const allComps = async ()=>{
     try {
       return await generateComponents()

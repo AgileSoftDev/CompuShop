@@ -1,6 +1,6 @@
 const axios = require("axios");
-const { user }= require("../models/user.json")
-const { User}= require("../models/User");
+const { user }= require("../../models/user.json")
+const { User}= require("../../models/User");
 
 const getUser= async()=>{
     try {
