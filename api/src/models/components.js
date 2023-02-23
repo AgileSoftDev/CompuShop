@@ -31,6 +31,14 @@ const componentSchema= new Schema(
         },
         maker:{
             type: String,
+        },
+        stock:{
+            type: Boolean,
+            required: true
+        },
+        quantityStock:{
+            type: Number,
+            required: true
         }
     }
 );
