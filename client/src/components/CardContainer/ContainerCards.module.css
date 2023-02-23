@@ -6,3 +6,9 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 16px;
 }
+
+#cardContainer2{
+    margin-top: 15px;
+    border-radius: 5px;
+    width: 800px;
+}
