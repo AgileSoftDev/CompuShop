@@ -23,10 +23,12 @@ const initialState = {
     },
     step_build_pc:undefined,
     categoryPick: undefined,
+    orderPrice:undefined,
 }
 
 
 const rootReducer = (state = initialState, { type, payload }) =>{
+    let data = undefined;
     switch (type) {
         case SET_STATE_VIEW_CARD:
             return {
@@ -57,10 +59,11 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 };
         
         case GET_ALL_COMPONENTS:
+            data = state.orderPrice?sortByPrice(payload, state.orderPrice) :payload
             return{
                 ...state,
-                allComponents: payload,
-                paginated: paginationArray(payload, 9),
+                allComponents: data,
+                paginated: paginationArray(data, 9),
             };
         case GET_DETAIL_COMPONENT:
             return{
@@ -74,14 +77,17 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 ...state
                 , allComponents: newOrder,
                 paginated: paginationArray(newOrder, 9),
-                numPaginado:0
+                numPaginado:0,
+                orderPrice: payload.tipo,
+
             };
 
         case FILTER_BY_CATEGORY:
+             data = state.orderPrice?sortByPrice(payload.data, state.orderPrice) :payload.data
             return{
                 ...state,
-                allComponents: payload.data,
-                paginated:paginationArray(payload.data),
+                allComponents: data,
+                paginated:paginationArray(data),
                 numPaginado: 0,
                 categoryPick:payload.pick
             };

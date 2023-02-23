@@ -8,16 +8,15 @@ import {orderBy, setStateViewCard} from "../../redux/actions/actions";
 const Order = ()=> {
     const dispatch = useDispatch()
 
+    const stateViewCard = useSelector(e=>e.stateViewCard);
+    const categoryPick = useSelector(e=>e.categoryPick);
 
-
-    
-    const stateViewCard = useSelector(e=>e.stateViewCard)
 
     return(
         <div className={style.container}>
             <select 
                 className={style.select} 
-                onChange={e => dispatch(orderBy(e.target.value))}
+                onChange={e => dispatch(orderBy(e.target.value,categoryPick))}
             >
                 <option hidden>Ordenar por</option>
                 <option value="all">Todos</option>

@@ -129,7 +129,7 @@ export default function Sidebar(){
                             Discos Duros
                             </p>
                          </span>  
-                         <span id={categoryPick=== "Placas de Video" ? style.categoryPick : undefined}> 
+                         <span id={categoryPick=== "Discos Solidos SDD" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory("SSD","","Discos Solidos SDD"))}>
                             Discos Solidos SDD
