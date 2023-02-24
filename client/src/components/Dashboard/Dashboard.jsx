@@ -20,19 +20,25 @@ export default function Sidebar(){
             <div>
             
                  
-            <div>
-                    { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                          Agregar Producto 
-            </div> 
+                <div  id={style.categoryContainer} >
+                    <div id={style.categoryTitle} onClick={() => open !== "Agregar"? setOpen("Agregar"): setOpen(!"Agregar")}>
+                        <div>
+                            { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
+                         Agregra Producto
+                        </div> 
+                        <img className={style.arrows} id={open === "add" ?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
+                        <div>
                                  
                                  </div> 
                     </div>
                     
                 
+                </div>  
                 
                 
-                
-             
+                </div>                                                                                                       
+                     
+            </div>
             
     )
 }
