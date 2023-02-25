@@ -1,5 +1,5 @@
 const axios = require("axios");
-const User= require("../models/users");
+const User= require("../../models/users");
 const {getUser}=require("./getUser.js")
 
 

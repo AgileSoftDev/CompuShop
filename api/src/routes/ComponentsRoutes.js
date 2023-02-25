@@ -1,8 +1,8 @@
 const { Router }= require("express");
-const {allComps, findComp, findByCategory, findById} = require("../controllers/getComponents.js");
-const createComponent = require('./../controllers/createComponent.js');
-const deleteComponent = require('./../controllers/deleteComponent.js');
-const updateComponents = require('./../controllers/updateComponents.js');
+const {allComps, findComp, findByCategory, findById} = require("../controllers/component/getComponents.js");
+const createComponent = require('../controllers/component/createComponent.js');
+const deleteComponent = require('../controllers/component/deleteComponent.js');
+const updateComponents = require('../controllers/component/updateComponents.js');
 // const resultImg= require("../controllers/createComponents")
 const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 

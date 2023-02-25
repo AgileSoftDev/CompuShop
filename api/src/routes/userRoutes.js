@@ -1,7 +1,7 @@
 const { Router } = require('express');
-const {getUser, findUser, findById, findByCategory} = require("../controllers/getUser.js")
-const createUser = require("../controllers/createUser");
-const {deleteUser, activateUser, updateUser} = require('../controllers/deleteUser.js');
+const {getUser, findUser, findById, findByCategory} = require("../controllers/user/getUser.js")
+const createUser = require("../controllers/user/createUser");
+const {deleteUser, activateUser, updateUser} = require('../controllers/user/deleteUser.js');
 
 const userRoutes = Router();
 
