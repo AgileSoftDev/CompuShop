@@ -5,9 +5,11 @@ import {Link} from 'react-router-dom'
 
 
 const ProfileDetail = () => {
-
+    
     const { user, logout } = useAuth0();
-
+    const infoUser = JSON.parse(localStorage.getItem("user"));
+    console.log("info user profile", infoUser);
+    
     return (
         <div className={style.fondo}>
             <div className={style.container}>
