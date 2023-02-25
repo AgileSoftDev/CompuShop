@@ -11,6 +11,7 @@ import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
 import Ayuda from "./views/Ayuda/Ayuda";
 import DetalleProducto from "./views/DetalleProducto/DetalleProducto";
 import Admin from "./views/Admin/Admin";
+import EditUser from "./views/EditUser/EditUser"
 
 // import Ayuda from "./views/Ayuda/Ayuda";
 
@@ -28,9 +29,11 @@ function App() {
         <Route exact path={"/producto/:id"} render={()=> <DetalleProducto/>} />
         <Route path={"/construye"} render={()=> <Construye/>} />
         <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
+        <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
         { <Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
         <Route exact path={"/Admin"} render={()=> <Admin/>}/>
         { location.pathname !=='/' && <Footer/>}
+
     </div>
   );
 }

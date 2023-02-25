@@ -19,7 +19,7 @@ const ProfileDetail = () => {
                         <h2><i class="fa-solid fa-user-secret"></i> Mi información</h2>
                         <p>Nombre: {user.name}</p>
                         <p>Email: {user.email}</p>
-                        <p>Celular: {user.phone_number}  </p>
+                        <p>Celular: {user.phone_number} </p>
                     </div>
 
                     <div className={style.cuadro2}>
@@ -47,7 +47,7 @@ const ProfileDetail = () => {
 
                     <div className={style.cuadro6}>
                         <Link to={"/shoppingCart"}><button className={style.carrito}><i class="fa-solid fa-cart-shopping"></i> Carrito</button></Link>
-                        <button className={style.datos}><i class="fa-solid fa-wrench"></i> Actualizar información</button>
+                        <Link to={"/edituser"} ><button className={style.datos}><i class="fa-solid fa-wrench"></i> Actualizar información</button></Link>
                         <button className={style.salir} onClick={()=> logout({ returnTo: window.location.origin})}><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
                     </div>
                 </div>
