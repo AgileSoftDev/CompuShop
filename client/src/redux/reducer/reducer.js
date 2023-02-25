@@ -1,6 +1,9 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY } from "../actions/actions.types";
-import { paginationArray } from "../../utils";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC } from "../actions/actions.types";
+import { paginationArray, getCurrentComponent } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
+const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
+
+
 
 
 const initialState = {
@@ -9,7 +12,7 @@ const initialState = {
     paginated: [],
     connectionON : true,
     stateViewCard: window.localStorage.getItem("viewCarStyle")===null?true:window.localStorage.getItem("viewCarStyle")==='true'?true:false,
-    buil_pc : {
+    build_pc :pc_build?pc_build: {
         cpu: undefined,
         motherBoard: undefined,
         cooler: undefined,
@@ -19,7 +22,7 @@ const initialState = {
         psu: undefined,
         case: undefined,
         screen: undefined,
-        peripherals:{}
+        peripherals:[],
     },
     step_build_pc:undefined,
     categoryPick: undefined,
@@ -28,6 +31,9 @@ const initialState = {
 
 
 const rootReducer = (state = initialState, { type, payload }) =>{
+
+    
+
     let data = undefined;
     switch (type) {
         case SET_STATE_VIEW_CARD:
@@ -98,6 +104,33 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 categoryPick: undefined
             };
         
+        case PICK_ARMA_TU_PC:
+
+            const build_pc={
+                ...state.build_pc
+            };
+
+            build_pc[getCurrentComponent[state.step_build_pc]]=payload;
+
+
+            const newState= {
+                ...state,
+                build_pc,
+            };
+
+            window.localStorage.setItem('pc_build', JSON.stringify(build_pc))
+
+            return{
+                ...newState
+                };
+
+        case CLEAN_ARMA_TU_PC:
+            localStorage.removeItem('pc_build');
+            return{
+                ...state,
+                build_pc:{}
+            }
+            
         default:
             return{
                 ...state
