@@ -1,4 +1,6 @@
-const Components = require("../models/components");
+//const axios = require("axios");
+//const {components} = require("../models/data.json");
+const Components = require("../../models/components");
 
 const allComps = async () => {
     return await Components.find()
