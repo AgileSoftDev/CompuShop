@@ -95,7 +95,6 @@ const rutas_texto = {
 
 
   const getCurrentStep = (pathname)=>{
-
     if(cleanPathname(pathname) === "/construye") return 1
 
     const pathPartition = cleanPathname(pathname).split('/')
@@ -136,6 +135,7 @@ const Construye = () =>{
 
         useEffect(()=>{
             const handleClick = (evento) => {
+                console.log("handelclick");
                 setButtonsManagerFalse(evento);
                 window.removeEventListener("click", handleClick);
               };
@@ -163,7 +163,7 @@ const Construye = () =>{
 
 
             return ()=>{ 
-                // console.log("De desmonté");
+                // console.log("Me desmonté");
                 window.removeEventListener("click", listenerRef.current );
         }
   
@@ -201,10 +201,7 @@ const Construye = () =>{
 
                 }else if(typeof(category) ==="string"){
                     let {data} = await axios.get(`http://localhost:3001/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
-                    // if(marca)   data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
-    
-                    // console.log(data);
-    
+        
                     setCardsToShow(data)
                 }else{
                     console.log(`unhanlded category: ${category}`);
@@ -246,7 +243,8 @@ const Construye = () =>{
     const moveStepHandler = (type) =>{
         const step = getCurrentStep(cleanPathname(pathname)) + type
         const newRoute ='paso' + String(step)
-        history.push(newRoute)
+        if (pathname === "/construye")  history.push("/construye/"+newRoute)
+        else  history.push(newRoute)
         setCurrentStep(step )
     } 
 
