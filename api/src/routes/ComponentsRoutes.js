@@ -2,8 +2,9 @@ const { Router }= require("express");
 const {allComps, findComp, findByCategory, findById} = require("../controllers/getComponents.js");
 const createComponent = require('./../controllers/createComponents.js');
 const deleteComponent = require('./../controllers/deleteComponent.js');
-const updateComponents = require('./../controllers/updateComponents.js')
-
+const updateComponents = require('./../controllers/updateComponents.js');
+// const resultImg= require("../controllers/createComponents")
+const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 
 const componentsRoutes= Router();
 
@@ -50,8 +51,27 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
 })
 
 componentsRoutes.post("/", async(req, res)=>{
+    const {name, description, img, description_2, description_3, description_4, price, category, stock, quantityStock}= req.body
     try {
-        res.status(201).send(await createComponent(req.body));
+        const resultImg= await cloudinary.uploader.upload(img, {
+            folder: "components",
+        })
+        res.status(201).send(await createComponent({
+            name:name,
+            category:category,
+            price:price,
+            description:description,
+            img:{
+                public_id: resultImg.public_id,
+                url: resultImg.secure_url
+            },
+            description_2:description_2,
+            description_3:description_3,
+            description_4:description_4,
+            stock:stock,
+            quantityStock:quantityStock
+
+        }));
     } catch (error) {
         console.log(error)
         res.status(400).send({error})
