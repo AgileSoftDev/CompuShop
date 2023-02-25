@@ -10,7 +10,7 @@
           "description_2": "recommended font 750W",
           "description_3": "dimensions 267 mm * 112 mm * 40 mm",
           "description_4": "Frequency 1575 MHz",
-          "stock": "NO",
+          "stock": true,
           "quantityStock":0
       },
       {
@@ -23,7 +23,7 @@
           "description_2": "recommended font 300 W",
           "description_3": "dimensions 129 mm * 111 mm",
           "description_4": "Frequency 1485 MHz",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":6
       },
       {
@@ -36,7 +36,7 @@
           "description_2": "recommended font 550 W",
           "description_3": "dimensions 267 mm * 120 mm * 40 mm",
           "description_4": "Frequecy 1968 MHz",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":3
       },
       {
@@ -49,7 +49,7 @@
           "description_2": "recommended font 300 W",
           "description_3": "dimensions 174 mm* 68 mm* 35mm",
           "description_4": "Frequency 1227 MHz",
-          "stock": "NO",
+          "stock": true,
           "quantityStock":0
       },
       {
@@ -62,7 +62,7 @@
           "description_2": "recommended font 300 W",
           "description_3": "dimensions 129 mm * 111 mm",
           "description_4": "Frequecy 1485 MHz",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":12
       },
       {
@@ -75,7 +75,7 @@
           "description_2": "Ram: 4 x DIMM, Max. 128GB, DDR4 2933/2800/2666/2400/2133 MHz Non-ECC, Un-buffered Memory",
           "description_3": "Support DisplayPort 1.4 with max. resolution of 4096 x 2304 @60Hz",
           "description_4": "Chipset Intel® B460",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":1
       },
       {
@@ -88,7 +88,7 @@
           "description_2": "Ram: 4 x DIMM, Max. 128GB, DDR4 3200/3000/2933/2800/2666/2400/2133 MHz",
           "description_3": "Support HDMI 2.1(4K@60HZ)",
           "description_4": "Chipset AMD B550",
-          "stock": "NO",
+          "stock": false,
           "quantityStock":0
       },  
       {
@@ -101,7 +101,7 @@
           "description_2": "Ram: 4 DDR4 (Dual channel)Max Memory Size: 128GB",
           "description_3": "DisplayPort 1.4 resolution of 4096 x 2304 @60Hz",
           "description_4": "Intel® B560 Chipset",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":6
       },
       {
@@ -114,7 +114,7 @@
           "description_2": "Ram: 4 x DIMM, Max. 128GB, DDR5 6400+(OC)/ 6200(OC)/ 6000(OC)/ 5800(OC)/ 5600(OC)/ 5400(OC)/ 5200(OC)/ 5000(OC)",
           "description_3": "HDMI® Support 4K@60Hz",
           "description_4": "Chipset Intel® Z690",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":1
       },
       {
@@ -127,7 +127,7 @@
           "description_2": "Ram: 2 x DIMM, Max. 128GB, 3200/ 3000 / 2933 / 2800 / 2666 / 2400 / 2133 MHz",
           "description_3": "HDMI® Support 4K@60Hz",
           "description_4": "Intel® H510 Chipset",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":9
       },
       {
@@ -140,7 +140,7 @@
           "description_2": "núcleos de CPU 8",
           "description_3": "basic clock 3.8GHz",
           "description_4": "Ram Compatability DDR4 max 3200MHz",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":8
       },
   
@@ -154,7 +154,7 @@
           "description_2": "núcleos de CPU 4",
           "description_3": "basic clock 3.6GHz",
           "description_4": "Ram Compatability DDR4 max 2933MHz",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":16
       },    
       {
@@ -167,7 +167,7 @@
           "description_2": "núcleos de CPU 4",
           "description_3": "basic clock 3.3GHz",
           "description_4": "Ram Compatability DDR4 max 3200MHz Up to DDR5 4800 MHz",
-          "stock": "SI",
+          "stock": true,
           "quantityStock":2
       },
       {
@@ -180,7 +180,7 @@
           "description_2": "núcleos de CPU 12",
           "description_3": "basic clock 3.7GHz",
           "description_4": "Ram Compatability DDR4 max 3200MHz",
-          "stock": "NO",
+          "stock": false,
           "quantityStock":0
       },
       {
@@ -193,7 +193,7 @@
           "description_2": "núcleos de CPU 2",
           "description_3":"basic clock 3.3GHz",
           "description_4": "Ram Compatability DDR4 max 2666MHz",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":5
       },
       {
@@ -205,7 +205,7 @@
           "description_2": "Board support Micro ATX, Mini-ATX",
           "description_3": "dimensions 170 mm * 355 mm * 370 mm",
           "description_4": "Ventana lateral: NO",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":6
       },
       {
@@ -217,7 +217,7 @@
           "description_2": "Board support Micro ATX, Mini-ATX, E-ATX, ATX",
           "description_3": "dimensions 390 mm* 210 mm* 445 mm",
           "description_4": "Ventana lateral: Cristal templado de 4mm",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":2
       },
       {
@@ -229,7 +229,7 @@
           "description_2": "Board support Micro ATX, ATX",
           "description_3": "dimensions 7.09 x 18.86 x 16.34 pulgadas",
           "description_4": "Ventana lateral: Vidrio templado",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":4
       },
       {
@@ -241,7 +241,7 @@
           "description_2": "Board support E-ATX, ATX, micro-ATX, mini-ITX",
           "description_3": "dimensions No aplica",
           "description_4": "Ventana lateral: NO",
-          "stock":"NO",
+          "stock":false,
           "quantityStock":0
       },
       {
@@ -253,7 +253,7 @@
           "description_2":"Board support ATX",
           "description_3": "dimensions 350 mm * 175 mm * 410 mm",
           "description_4": "Ventana lateral: NO",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":6
       },
       {
@@ -265,7 +265,7 @@
           "description_2": "Velocity 3200 MHz",
           "description_3": "Ram Type DDR4",
           "description_4": "Voltage 1.35 V",
-          "stock":"NO",
+          "stock":false,
           "quantityStock":0
         },
         {
@@ -277,7 +277,7 @@
           "description_2": "Velocity 3200 MHz",
           "description_3": "Ram Type DDR4",
           "description_4": "Voltage 1.35 V",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":16
         },
         {
@@ -289,7 +289,7 @@
           "description_2": "Velocity 3200 MHz",
           "description_3": "Ram Type DDR4",
           "description_4": "Voltage 1.5 V",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":32
         },
         {
@@ -301,7 +301,7 @@
           "description_2": "Velocity 2666 MHz",
           "description_3": "Ram Type DDR4",
           "description_4": "Voltage 1.2 V",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":16
         },
         {
@@ -313,7 +313,7 @@
           "description_2": "Velocity 3200 MHz",
           "description_3": "Ram Type DDR4",
           "description_4": "Voltage 1.35 V",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":21
         },
         {
@@ -325,7 +325,7 @@
           "description_2": "Capacity 240 GB",
           "description_3": "Read speed 550 MB/s",
           "description_4": "Write speed 450 MB/s",
-          "stock":"NO",
+          "stock":false,
           "quantityStock":0
         },
         {
@@ -337,7 +337,7 @@
           "description_2": "Capacity 240 GB",
           "description_3": "Read speed 520 MB/s",
           "description_4": "Write speed 450 MB/s",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":40
         },
         {
@@ -349,7 +349,7 @@
           "description_2": "Capacity 512 GB",
           "description_3": "Read speed 7000 MB/s",
           "description_4": "Write speed 3900 MB/s",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":23
         },
         {
@@ -361,7 +361,7 @@
           "description_2": "Capacity 512 GB",
           "description_3": "Read speed 2000 MB/s",
           "description_4": "Write speed 1600 MB/s",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":5
         },
         {
@@ -373,7 +373,7 @@
           "description_2": "Capacity 1 TB",
           "description_3": "Read speed 550 MB/s",
           "description_4": "Write speed 500 MB/s",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":30
         },
         {
@@ -385,7 +385,7 @@
           "description_2": "certification 80 PLUS Bronze",
           "description_3": "Efficiency 85%",
           "description_4": "Modular NO",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":20
         },
         {
@@ -397,7 +397,7 @@
           "description_2": "certification 80 PLUS Gold",
           "description_3": "Efficiency 90%",
           "description_4": "Modular SI",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":10
         },
         {
@@ -409,7 +409,7 @@
           "description_2": "GENERIC",
           "description_3": "Efficiency NO",
           "description_4": "Modular NO",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":2
         },
         {
@@ -421,7 +421,7 @@
           "description_2": "certification 80 PLUS Platinum",
           "description_3": "Efficiency 93%",
           "description_4": "Modular SI",
-          "stock":"SI",
+          "stock":true,
           "quantityStock":5
         },
         {
@@ -433,7 +433,7 @@
           "description_2": "certification 80 PLUS Bronze",
           "description_3": "Efficiency 85%",
           "description_4": "Modular NO",
-          "stock":"NO",
+          "stock":false,
           "quantityStock":0
         }
   ]
