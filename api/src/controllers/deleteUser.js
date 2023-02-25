@@ -21,4 +21,19 @@ const activateUser = async(id)=>{
         return await userxd.save().catch(e => console.log(e))
 }
 
-module.exports= {deleteUser, activateUser}
+const updateUser = async(id, data) => {
+    console.log(id)
+    console.log(data)
+    const user = await User.findOne({ _id: id });
+    console.log(user)
+    if(!component) throw 'No se ha encontrado un componente con ese ID';
+    user.name = data.name;
+    user.category = data.category;
+    user.password = data.password;
+    user.wallet = data.wallet;
+    user.phoneNumber = data.phoneNumber;
+    return await user.save().catch(e => console.log(e));
+}
+
+
+module.exports= {deleteUser, activateUser, updateUser}
