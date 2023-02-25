@@ -5,42 +5,42 @@ import style from "./EditUser.module.css";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { editUser } from "../../redux/actions/actions";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
 const EditUser = ()=>{
     
+    const {user} = useAuth0()
     const dispatch = useDispatch();
     const history = useHistory();
-    const usuario = useSelector(state => state.User)
-    console.log(usuario, "soy el usuario")
+    // const usuario = useSelector(state => state.user)
+    console.log(user, "soy el usuario")
     const [formularioEnviado, setformularioEnviado] = useState(false);
 
     useEffect(() => {
-        if(usuario) {
+        if(user) {
             setformularioEnviado({
-                image: usuario.image,
-                name: usuario.name,
-                surname: usuario.surname,
-                nickname: usuario.nickname,
-                email: usuario.email,
-                phone_number: usuario.phone_number,
-                address: usuario.address,
+                name: user.name,
+                surname: user.surname,
+                nickname: user.nickname,
+                email: user.email,
+                phone_number: user.phone_number,
+                address: user.address,
             })
         }
-    }, [usuario])
+    }, [user])
 
     return(
         <div>
             <Formik
                 initialValues={{
-                    image: usuario?.image ? usuario.image : "",  
-                    name: usuario?.name ? usuario.name : "",
-                    surname: usuario?.surname ? usuario.surname : "",
-                    nickname: usuario?.nickname ? usuario.nickname : "",
-                    email: usuario?.email ? usuario.email : "",
-                    phone_number: usuario?.phone_number ? usuario.phone_number : "",
-                    address: usuario?.address ? usuario.address : "",
+                    name: user?.name ? user.name : "",
+                    surname: user?.surname ? user.surname : "",
+                    nickname: user?.nickname ? user.nickname : "",
+                    email: user?.email ? user.email : "",
+                    phone_number: user?.phone_number ? user.phone_number : "",
+                    address: user?.address ? user.address : "",
                 }}
                 onSubmit={(valores, { resetForm }) => {
                     resetForm();
@@ -103,8 +103,6 @@ const EditUser = ()=>{
                     <Form>
                         <div>
                             <div>TUS DATOS</div>
-                            <label htmlFor="image">Imagen de perfil</label>
-                            <Field type="text" id="image" name="image"/>
                             <label htmlFor="name">Nombre: </label>
                             <Field type="text" id="name" name="name" placeholder="Tu nombre" />
                             <ErrorMessage
