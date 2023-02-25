@@ -26,20 +26,22 @@ const findById = async (id) => {
     return component;
 }
 
-const findStock = async () =>{
-    const stockfinal = await allComps().map((e)=>{
-        if(!stockfinal.find((x)=> x = e.category )){
-            return{
+const findStock = async () => {
+    const data = await allComps();
+    const stockfinal = [];
+    data.forEach(e => {
+        const found = stockfinal.find(x => x.category === e.category);
+        if (!found) {
+            stockfinal.push({
                 category: e.category,
                 stock: e.stock
-            }
-        }else{
-          let existent = stockfinal.find((item) => item[category]===e.category)
-            existent.stock = existent.stock + e.stock
-        } 
-    })
-    return stockfinal
-}
+            });
+        } else {
+            found.stock += e.stock;
+        }
+    });
+    return stockfinal;
+};
 
 module.exports = {
     allComps,
