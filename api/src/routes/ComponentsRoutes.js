@@ -1,5 +1,5 @@
 const { Router }= require("express");
-const {allComps, findComp, findByCategory, findById} = require("../controllers/component/getComponents.js");
+const {allComps, findComp, findByCategory, findById, findStock} = require("../controllers/component/getComponents.js");
 const createComponent = require('../controllers/component/createComponent.js');
 const deleteComponent = require('../controllers/component/deleteComponent.js');
 const updateComponents = require('../controllers/component/updateComponents.js');
@@ -35,6 +35,14 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
         return res.status(200).send(await findById(id))
     } catch (error) {
         res.status(404).send({error})
+    }
+})
+
+componentsRoutes.get("/stock", async(req, res)=>{
+    try {
+        return res.status(200).send(await findStock())
+    } catch (error) {
+        
     }
 })
 

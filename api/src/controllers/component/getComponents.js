@@ -25,11 +25,26 @@ const findById = async (id) => {
     return component;
 }
 
+const findStock = async () =>{
+    const stockfinal = await allComps().map((e)=>{
+        if(stockfinal.find((x)=> x = e.category )){
+            stockfinal.e.category.stock+e.stock
+        }else{
+            return{
+                category: e.category,
+                stock: e.stock
+            }
+        } 
+    })
+    return stockfinal
+}
+
 module.exports = {
     allComps,
     findComp,
     findByCategory,
-    findById
+    findById,
+    findStock
 }
 
 /*
