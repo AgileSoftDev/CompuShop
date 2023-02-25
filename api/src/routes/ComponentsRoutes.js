@@ -46,6 +46,8 @@ componentsRoutes.get("/stock", async(req, res)=>{
     }
 })
 
+allComps()
+
 componentsRoutes.post("/", async(req, res)=>{
     const {name, description, img, description_2, description_3, description_4, price, category, stock, quantityStock}= req.body
     try {

@@ -4,6 +4,7 @@ const Components = require("../../models/components");
 
 const allComps = async () => {
     return await Components.find()
+    console.log(allComps());
 }
 
 const findComp = async (name) => {
@@ -27,13 +28,14 @@ const findById = async (id) => {
 
 const findStock = async () =>{
     const stockfinal = await allComps().map((e)=>{
-        if(stockfinal.find((x)=> x = e.category )){
-            stockfinal.e.category.stock+e.stock
-        }else{
+        if(!stockfinal.find((x)=> x = e.category )){
             return{
                 category: e.category,
                 stock: e.stock
             }
+        }else{
+          let existent = stockfinal.find((item) => item[category]===e.category)
+            existent.stock = existent.stock + e.stock
         } 
     })
     return stockfinal

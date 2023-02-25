@@ -9,7 +9,7 @@ const reviewRoutes= require("./reviewRoutes.js");
 const router = Router();
 
 router.use("/users", userRoutes)
-router.use("/components", reviewRoutes)
+router.use("/review", reviewRoutes)
 // const controlador = require('../controllers/cloudinaryPrueba');
 // const upload = require("../controllers/cloudinaryPrueba")
 const uploadRoutes= require("../controllers/cloudinaryPrueba.js")
