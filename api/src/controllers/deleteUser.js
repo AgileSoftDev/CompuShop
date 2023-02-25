@@ -27,8 +27,9 @@ const updateUser = async(id, data) => {
     const user = await User.findOne({ _id: id });
     console.log(user)
     if(!component) throw 'No se ha encontrado un componente con ese ID';
-    user.name = data.name;
-    user.category = data.category;
+    user.userName = data.userName;
+    user.userCategory = data.userCategory;
+    user.email = data.email;
     user.password = data.password;
     user.wallet = data.wallet;
     user.phoneNumber = data.phoneNumber;
