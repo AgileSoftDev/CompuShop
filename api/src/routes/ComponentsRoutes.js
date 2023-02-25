@@ -52,6 +52,7 @@ componentsRoutes.post("/", async(req, res)=>{
         const resultImg= await cloudinary.uploader.upload(img, {
             folder: "components",
         })
+        
         res.status(201).send(await createComponent({
             name:name,
             category:category,

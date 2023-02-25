@@ -15,7 +15,7 @@ const createComponent = async data => {
     
     const component = new Components(data);
     const savedComponent = await component.save();
-    return savedComponent;
+    return setTimeout(savedComponent, 5000);
 }
 
 module.exports = createComponent
