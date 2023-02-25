@@ -10,6 +10,8 @@ import Construye from "./views/Construye/Construye";
 import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
 import Ayuda from "./views/Ayuda/Ayuda";
 import DetalleProducto from "./views/DetalleProducto/DetalleProducto";
+import Admin from "./views/Admin/Admin";
+
 // import Ayuda from "./views/Ayuda/Ayuda";
 
 
@@ -27,6 +29,7 @@ function App() {
         <Route path={"/construye"} render={()=> <Construye/>} />
         <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
         { <Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
+        <Route exact path={"/Admin"} render={()=> <Admin/>}/>
         { location.pathname !=='/' && <Footer/>}
     </div>
   );
