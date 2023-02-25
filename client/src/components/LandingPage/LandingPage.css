@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&display=swap');
 .landing_background {
     display: flex;
     justify-content:center;
@@ -12,66 +13,45 @@
     position: fixed;
     align-items: center;
 }
-
 .conteined {
-    
     margin-right: 12px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 2rem;
     margin: -40px;
     color: #090a0a;
-   
-   
 }
-.d-grid :hover{
-    
-
+#buttonLading > p{
+    margin-left: 10px;
 }
-
-.button span{
-    transition: .4s ease-in-out all;
-    position: absolute;
-    left: 80%;
-    font-family: 'Montserrat', sans-serif;
-    }
-
-.button .icono{
+#buttonLading{
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900;
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 4px;
+    font-size: 24px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s;
+    flex-direction: row;
     display: flex;
     align-items: center;
-    position: absolute;
-    z-index: 5;
-    left: -40px;
-    transition: .3s ease-in-out all;
-    opacity: 0;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 0 150px whitesmoke;
+    z-index: 1000;
+    border: none;
+    background-color: rgba(255, 107, 8, 0.499);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
 }
-.button svg{
-    color: aliceblue;
-    width: 60px;
-    height: 60px;
-}
-.button-icono:hover{
-    background: #a210a2;
-
-}
-.button-icono:hover .icono{
-    left:calc(100% -50px) ;
-    opacity: 1;
-}
-
-.button span:hover span {
-    left: 50px;
-}
-
-.button{
-    
-   position: relative;
-   padding:25px 25px;
-   border: 15px;
-   outline: none;
-   color: #090a0a;
-   cursor: pointer;
-   transition: .5s;
+#buttonLading:hover{
+    background: #ff6b08;
+    box-shadow: 0 0 10px #ff6b08, 0 0 40px #ff6b08, 0 0 80px #ff6b08;
+    transform: scale(1.1);
 }
 
 

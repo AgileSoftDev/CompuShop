@@ -1,4 +1,4 @@
-import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC } from "./actions.types"
+import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER } from "./actions.types"
 import axios from 'axios'
 import { filterCategoryParams } from "../../helpers/Filter.helpers";
 
@@ -113,6 +113,20 @@ const cleanArmaTuPc = () =>{
     return {type: CLEAN_ARMA_TU_PC}
 }
 
+const editUser = (email, props) =>{
+    return async function(dispatch) {
+        try {
+            const res = await axios.put(`http://localhost:3001/user?email=${email}`, props);
+            return dispatch({
+                type:"EDIT_USER",
+                payload: res.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 export {
      setStateViewCard,
      setStepBuildPc,
@@ -125,4 +139,5 @@ export {
      deleteFilterCategory,
      pickArmaTuPc,
      cleanArmaTuPc,
+     editUser
 };
