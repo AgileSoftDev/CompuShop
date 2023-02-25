@@ -20,12 +20,12 @@ const Footer = () =>{
                 <div>
                      <h1>Ayuda</h1> 
                      <p>Si tienes sugerencias o comentarios</p> 
-                     <Link>CONTACTANOS</Link> 
+                     <Link to="">CONTACTANOS</Link> 
                 </div>
 
                 <div>
-                    <Link>¡Trabaja con nosotros!</Link> 
-                    <Link>Botón de arrepentimiento</Link> 
+                    <Link to="">¡Trabaja con nosotros!</Link> 
+                    <Link to="">Botón de arrepentimiento</Link> 
                 </div>
 
                 <div>

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Roboto+Condensed:ital@1&family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Roboto+Condensed&family=Roboto:wght@500&family=Shantell+Sans:ital@1&display=swap');
+
 
 
 #ContainerConstruye {
@@ -57,14 +58,13 @@
 #containerConstruye_main > :nth-child(1) > :nth-child(1){
     background-color: #ffffff;
     width: 390px;
-    padding: 16px 16px 2px 16px;
-    height: 427px;
+    padding: 16px 16px 10px 16px;
+    height: 510px;
 }
 
 
 
 #containerConstruye_main > :nth-child(1) > ul{
-
     height: 100%;
     width: 100%;
     columns: 2;
@@ -76,15 +76,31 @@
     align-items: center;
     justify-content: center;
     margin: 0 0 14px 0;
-    height: 65px;
+    height: 85px;
+    overflow: hidden;
+    flex-direction: column;
+    width: 170px;
 }
 #containerConstruye_main > :nth-child(1) > ul > li>img{
     transition: all 50ms ease-out;
+    max-height: 58px;
+    border-radius: 5px;
 }
+
+#nameComponentPicked{
+    margin: 1px 0 0 3px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: rgb(135, 135, 135);
+    max-width: 150px;
+    text-align: center;
+    font-family: 'Shantell Sans', cursive;
+    line-height: 12px;
+}
+
 .nonActive:hover{
     transform: scale(1.2);
     cursor: pointer;
-
 }
 
 #containerConstruye_main > :nth-child(1) > :nth-child(2){
@@ -208,6 +224,22 @@
 
 #containerConstruye_main > :nth-child(2){
     width: 787.5px;
+    min-height: 630px;
+    position: relative;
+}
+
+#noHayProductos{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Shantell Sans', cursive;
+    color: rgb(50, 49, 49);
 }
 
 #containerConstruye_main > :nth-child(2) > :nth-child(1){
@@ -351,3 +383,4 @@
 #oculto{
     display: none ;
 }
+

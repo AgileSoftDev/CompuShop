@@ -22,11 +22,13 @@ import screen_active from "../../assets/construye/icons_componentes_active/scree
 import peripherals_active from "../../assets/construye/icons_componentes_active/periferico_active.png";
 import { useEffect, useRef, useState } from "react";
 import './style_svgs.css';
-import { setStepBuildPc } from "../../redux/actions/actions";
+import { cleanArmaTuPc, pickArmaTuPc, setStepBuildPc } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import CardArmaTuPc from "../../components/Card_arma_tu_pc/Card_arma_tu_pc";
 import triangle from "../../assets/construye/general_icons/triangle.svg";
 import { cleanPathname } from "../../utils/index.js";
+import axios from "axios";
+import { selectCategoryByStep } from "../../helpers/Construye.helpers";
 
 
 const rutas_pasos = {
@@ -53,7 +55,7 @@ const rutas_texto = {
         text:'Es donde se conectarán todos los componentes de tu PC. Según el modelo que elijas tendrás diferentes beneficios de conectividad y expansión.',
     },
     '/construye/paso3' : {
-        title:'Elige tu Coole',
+        title:'Elige tu Cooler',
         text:'El cooler mantiene la temperatura de tu equipo, evitando el daño en los componentes y permitiendo que este funcione correctamente.        ',
     },
     '/construye/paso4' : {
@@ -108,52 +110,47 @@ const Construye = () =>{
     const history = useHistory();
     const pathname = history.location.pathname;
 
-
     const [currentStep ,setCurrentStep] = useState()
-
     const [componet, setComponent] = useState({})
+    const [cardsToShow, setCardsToShow] = useState([])
+    const [marcaStatus, setMarcaStatus] = useState({})
+    const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
+    const [totalPrice, setTotalPrice] = useState(0)
 
     const refArrowLimpiar = useRef(null)
-    const refButtonLimpiar = useRef(null)
     const refButtonFinalizar = useRef(null)
     const refArrowFinalizar = useRef(null)
+
+    const listenerRef = useRef(null)
+
+
+    const step_build_pc=useSelector(e=>e.step_build_pc)
+    const choosenComponents = useSelector(e=>e.build_pc)
 
     window.addEventListener("click",  setButtonsManagerFalse)
 
 
-    const step_build_pc=useSelector(e=>e.step_build_pc)
 
-    const [marcaStatus, setMarcaStatus] = useState({})
-
-    const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
 
       
-    const listenerRef = useRef(null)
+
         useEffect(()=>{
             const handleClick = (evento) => {
                 setButtonsManagerFalse(evento);
                 window.removeEventListener("click", handleClick);
               };
 
-              listenerRef.current = handleClick;
+            listenerRef.current = handleClick;
 
 
-            window.addEventListener("click",  listenerRef.current)
+            // window.addEventListener("click",  listenerRef.current)  ///CHEKAR ESTA PARTE OJIITO
 
             setCurrentStep(getCurrentStep(cleanPathname(pathname)))
 
-            if (step_build_pc) {
-                
-                if(rutas_pasos[step_build_pc]){
+            if (step_build_pc) { 
+                if(rutas_pasos[step_build_pc])   setComponent(rutas_pasos[step_build_pc])
 
-                    setComponent(rutas_pasos[step_build_pc])
-                    for (let key in rutas_pasos) {
-                        if (rutas_pasos[key] === rutas_pasos[step_build_pc]) {
-                            history.push(key) 
-                          break;
-                        }  
-                    }
-                 }else{
+                else{
                     history.push('/construye/paso1')
                     setComponent({cpu:true})
                  } 
@@ -166,6 +163,7 @@ const Construye = () =>{
 
 
             return ()=>{ 
+                // console.log("De desmonté");
                 window.removeEventListener("click", listenerRef.current );
         }
   
@@ -175,10 +173,68 @@ const Construye = () =>{
 
 
 
+        useEffect(()=>{
+            if(cleanPathname(pathname)==="/construye")  dispatch(setStepBuildPc("/construye/paso1"))
+            else dispatch(setStepBuildPc(cleanPathname(pathname)))
+        },[pathname])
+
+
+        useEffect(()=>{
+            const getData = async (step_build_pc)=>{
+
+               
+                const category = selectCategoryByStep[step_build_pc]
+
+                if(Array.isArray(category)){
+
+                    let data = [];
+
+                    await Promise.all(category.map(async e => {
+                        let { data: data1 } = await axios.get(`http://localhost:3001/components/${e}`).catch(e => {
+                            console.log(`No se encontraron componentes con la categoría ${category}`);
+                            return "no data"
+                        });
+                        data = [...data, ...data1];
+                    }));
+                    
+                    setCardsToShow(data)
+
+                }else if(typeof(category) ==="string"){
+                    let {data} = await axios.get(`http://localhost:3001/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
+                    // if(marca)   data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
+    
+                    // console.log(data);
+    
+                    setCardsToShow(data)
+                }else{
+                    console.log(`unhanlded category: ${category}`);
+                    setCardsToShow(undefined)
+                }
+
+                
+            }
+            getData(step_build_pc)
+            
+        },[step_build_pc])
+
+
+        useEffect(()=>{
+
+            let fullPrice = 0;
+            for (const componente in choosenComponents) {
+                if (choosenComponents[componente]?.price) {
+                    fullPrice = fullPrice+choosenComponents[componente]?.price
+                }
+            }
+            setTotalPrice(fullPrice)
+
+        },[choosenComponents])
+
     function setButtonsManagerFalse (evento) {
+        // console.log("Me clickearon");
         const target  =  evento.target;
         if (target !== refArrowFinalizar.current && target !== refArrowLimpiar.current) {
-            if (target !== refButtonLimpiar.current && target !== refButtonFinalizar.current ){
+            if (target !== refButtonFinalizar.current ){
                 if(buttonsManagerStatus.limpiar|| buttonsManagerStatus.finalizar){
                     setButtonManagerStatus({})
                 }
@@ -188,14 +244,9 @@ const Construye = () =>{
 
 
     const moveStepHandler = (type) =>{
-
         const step = getCurrentStep(cleanPathname(pathname)) + type
-
         const newRoute ='paso' + String(step)
         history.push(newRoute)
-
-        dispatch(setStepBuildPc('/construye/' + newRoute))
-
         setCurrentStep(step )
     } 
 
@@ -214,34 +265,47 @@ const Construye = () =>{
                     <div>
                         <ul>
                             <li>
-                                <img className={!componet.cpu?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso1');setComponent({cpu:true});dispatch(setStepBuildPc('/construye/paso1'))}} src={componet.cpu?cpu_active: cpu} alt="cpu" />
+                                <img className={!componet.cpu?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso1');setComponent({cpu:true});dispatch(setStepBuildPc('/construye/paso1'))}} src={choosenComponents.cpu?choosenComponents.cpu.img:componet.cpu?cpu_active: cpu} alt="cpu" />
+                                {choosenComponents.cpu&&<p id={style.nameComponentPicked}>{choosenComponents.cpu.name}</p>}
                             </li>
                             <li>
-                                <img className={!componet.cooler?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso3'); setComponent({cooler:true});dispatch(setStepBuildPc('/construye/paso3'))}} src={componet.cooler?cooler_active:cooler} alt="cooler" />
+                                <img className={!componet.cooler?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso3'); setComponent({cooler:true});dispatch(setStepBuildPc('/construye/paso3'))}} src={choosenComponents.cooler?choosenComponents.cooler.img:componet.cooler?cooler_active:cooler} alt="cooler" />
+                                {choosenComponents.cooler&&<p id={style.nameComponentPicked}>{choosenComponents.cooler.name}</p>}
+
                             </li>
                             <li>
-                                <img className={!componet.gpu?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso5'); setComponent({gpu:true});dispatch(setStepBuildPc('/construye/paso5'))}} src={componet.gpu?gpu_active:gpu} alt="gpu" />
+                                <img className={!componet.gpu?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso5'); setComponent({gpu:true});dispatch(setStepBuildPc('/construye/paso5'))}} src={choosenComponents.gpu?choosenComponents.gpu.img:componet.gpu?gpu_active:gpu} alt="gpu" />
+                                {choosenComponents.gpu&&<p id={style.nameComponentPicked}>{choosenComponents.gpu.name}</p>}
+
                             </li>
                             <li>
-                                <img className={!componet.psu?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso7'); setComponent({psu:true});dispatch(setStepBuildPc('/construye/paso7'))}} src={componet.psu?psu_active:psu} alt="psu" />
+                                <img className={!componet.psu?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso7'); setComponent({psu:true});dispatch(setStepBuildPc('/construye/paso7'))}} src={choosenComponents.psu?choosenComponents.psu.img:componet.psu?psu_active:psu} alt="psu" />
+                                {choosenComponents.psu&&<p id={style.nameComponentPicked}>{choosenComponents.psu.name}</p>}
                             </li>
                             <li>
-                                <img className={!componet.screen?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso9'); setComponent({screen:true});dispatch(setStepBuildPc('/construye/paso9'))}}  src={componet.screen?screen_active:screen} alt="screen" />
+                                <img className={!componet.screen?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso9'); setComponent({screen:true});dispatch(setStepBuildPc('/construye/paso9'))}}  src={choosenComponents.screen?choosenComponents.screen.img:componet.screen?screen_active:screen} alt="screen" />
+                                {choosenComponents.screen&&<p id={style.nameComponentPicked}>{choosenComponents.screen.name}</p>}
                             </li>
                             <li>
-                                <img className={!componet.motherBoard?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso2'); setComponent({motherBoard:true});dispatch(setStepBuildPc('/construye/paso2'))}}  src={componet.motherBoard?motherBoard_active:motherBoard} alt="motherBoard" />
+                                <img className={!componet.motherBoard?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso2'); setComponent({motherBoard:true});dispatch(setStepBuildPc('/construye/paso2'))}}  src={choosenComponents.motherBoard?choosenComponents.motherBoard.img:componet.motherBoard?motherBoard_active:motherBoard} alt="motherBoard" />
+                                {choosenComponents.motherBoard&&<p id={style.nameComponentPicked}>{choosenComponents.motherBoard.name}</p>}
+
                             </li>
                             <li>
-                                <img className={!componet.ram?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso4'); setComponent({ram:true});dispatch(setStepBuildPc('/construye/paso4'))}}  src={componet.ram?ram_active:ram} alt="ram" />
+                                <img className={!componet.ram?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso4'); setComponent({ram:true});dispatch(setStepBuildPc('/construye/paso4'))}}  src={choosenComponents.ram?choosenComponents.ram.img:componet.ram?ram_active:ram} alt="ram" />
+                                {choosenComponents.ram&&<p id={style.nameComponentPicked}>{choosenComponents.ram.name}</p>}
                             </li>
                             <li>
-                                <img className={!componet.storaged?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso6'); setComponent({storaged:true});dispatch(setStepBuildPc('/construye/paso6'))}}  src={componet.storaged?storaged_active:storaged} alt="storaged" />
+                                <img className={!componet.storaged?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso6'); setComponent({storaged:true});dispatch(setStepBuildPc('/construye/paso6'))}}  src={choosenComponents.storaged?choosenComponents.storaged.img:componet.storaged?storaged_active:storaged} alt="storaged" />
+                                {choosenComponents.storaged&&<p id={style.nameComponentPicked}>{choosenComponents.storaged.name}</p>}
                             </li>
                             <li>
-                                <img className={!componet.caseIcon?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso8'); setComponent({caseIcon:true});dispatch(setStepBuildPc('/construye/paso8'))}}  src={componet.caseIcon?caseIcon_active:caseIcon} alt="caseIcon" />
+                                <img className={!componet.caseIcon?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso8'); setComponent({caseIcon:true});dispatch(setStepBuildPc('/construye/paso8'))}}  src={choosenComponents.case?choosenComponents.case.img:componet.caseIcon?caseIcon_active:caseIcon} alt="caseIcon" />
+                                {choosenComponents.case&&<p id={style.nameComponentPicked}>{choosenComponents.case.name}</p>}
                             </li>
                             <li>
-                                <img className={!componet.peripherals?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({peripherals:true});dispatch(setStepBuildPc('/construye/paso10'))}} src={componet.peripherals?peripherals_active:peripherals} alt="peripherals" />
+                                <img className={!componet.peripherals?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({peripherals:true});dispatch(setStepBuildPc('/construye/paso10'))}} src={choosenComponents?.peripherals?.length?choosenComponents.peripherals.img:componet.peripherals?peripherals_active:peripherals} alt="peripherals" />
+                                {!!choosenComponents?.peripherals?.length&& <p id={style.nameComponentPicked}>{choosenComponents.peripherals.name}</p>}
                             </li>
                         </ul>
                         <div>
@@ -255,14 +319,14 @@ const Construye = () =>{
                                     </div>
 
                          
-                                    <button ref={refButtonLimpiar} id={buttonsManagerStatus.limpiar ? undefined : style.oculto } className={style.buttonManager}>
+                                    <button id={buttonsManagerStatus.limpiar ? undefined : style.oculto } className={style.buttonManager} onClick={()=>dispatch(cleanArmaTuPc())}>
                                          <span>LIMPIAR</span>
                                     </button> 
 
                                 </div>
                             </div>
                             <div>
-                                <h1>Toltal: $ 0</h1>
+                                <h1>Toltal: $ {totalPrice}</h1>
                                 <div className={currentStep>=10? style.disabled:undefined}>
                                     <p  onClick={cleanPathname(pathname) === "/construye" ? ()=> history.push('/construye/paso2') : currentStep < 10? ()=> moveStepHandler(1) :undefined}>SALTAR PASO</p>
                                     <div ref={refArrowFinalizar} onClick={()=>setButtonManagerStatus({ finalizar: !buttonsManagerStatus.finalizar})}>
@@ -288,15 +352,9 @@ const Construye = () =>{
                             </div>
                             
                             <div>
-                                 <CardArmaTuPc/>
-                                 <CardArmaTuPc/>
-                                 <CardArmaTuPc/>
-                                 <CardArmaTuPc/>
-                                 <CardArmaTuPc/>
-                                 <CardArmaTuPc/>
-                                 <CardArmaTuPc/>
-                                 <CardArmaTuPc/>
-                                 <CardArmaTuPc/>
+                                {cardsToShow && Array.isArray(cardsToShow)&& cardsToShow.map(e=><CardArmaTuPc id={e._id} key={e._id} onClick={ ()=>{moveStepHandler(1);dispatch(pickArmaTuPc(e));} } img={e.img} price={e.price} title={e.description}/>)}
+                                {(!Array.isArray(cardsToShow) || !cardsToShow.length) && <p id={style.noHayProductos}>NO HAY PRODUCTOS EN ESA CATEGORÍA :(</p>}
+                                
                             </div>
                     </div>
                 </div> 

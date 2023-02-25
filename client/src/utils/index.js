@@ -22,34 +22,26 @@ function paginationArray (array, num) {
 }
 
 
+
+const getCurrentComponent = {
+  "/construye/paso1": "cpu",
+  "/construye/paso2": "motherBoard",
+  "/construye/paso3": "cooler",
+  "/construye/paso4": "ram",
+  "/construye/paso5": "gpu",
+  "/construye/paso6": "storaged",
+  "/construye/paso7": "psu",
+  "/construye/paso8": "case",
+  "/construye/paso9": "screen",
+  "/construye/paso10": "peripherals",
+};
+
+
 export{
+    getCurrentComponent,
     cleanPathname,
     paginationArray,
 }
 
 
 
-// export function orderArray(array, option) {
-//   function SortArrayByAsc(x, y){
-//     if (x.price < y.price) {return -1;}
-//     if (x.price > y.price) {return 1;}
-//     return 0;
-//   }
-
-//   function SortArrayByDesc(x, y){
-//     if (x.price > y.price) {return -1;}
-//     if (x.price < y.price) {return 1;}
-//     return 0;                                                                                                                                                                                                                        
-//   }
-
-
-//   switch (option) {
-//     case 'asc':
-//       return array.sort(SortArrayByAsc);
-//     case 'desc':
-//       return array.sort(SortArrayByDesc);
-
-//     default:
-//       break;
-//   }
-// }

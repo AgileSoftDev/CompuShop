@@ -11,7 +11,6 @@ const NavBar = () =>{
             <ul>
                 <Link to={"/productos"} ><li id={pathname==="/productos"? style.active:undefined} >PRODUCTOS</li> </Link>
                 <Link to={"/construye"} ><li id={pathname.includes("/construye")? style.active:undefined} >ARMA TU PC</li> </Link>
-                <Link to={"/marcas"} ><li id={pathname==="/marcas"? style.active:undefined} >MARCAS</li></Link>
                 <Link to={"/ayuda"} ><li id={pathname==="/ayuda"? style.active:undefined} >AYUDA</li></Link>
             </ul>
         </div>

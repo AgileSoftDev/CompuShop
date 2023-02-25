@@ -1,6 +1,9 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT } from "../actions/actions.types";
-import { paginationArray } from "../../utils";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC } from "../actions/actions.types";
+import { paginationArray, getCurrentComponent } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
+const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
+
+
 
 
 const initialState = {
@@ -9,7 +12,7 @@ const initialState = {
     paginated: [],
     connectionON : true,
     stateViewCard: window.localStorage.getItem("viewCarStyle")===null?true:window.localStorage.getItem("viewCarStyle")==='true'?true:false,
-    buil_pc : {
+    build_pc :pc_build?pc_build: {
         cpu: undefined,
         motherBoard: undefined,
         cooler: undefined,
@@ -19,13 +22,19 @@ const initialState = {
         psu: undefined,
         case: undefined,
         screen: undefined,
-        peripherals:{}
+        peripherals:[],
     },
     step_build_pc:undefined,
+    categoryPick: undefined,
+    orderPrice:undefined,
 }
 
 
 const rootReducer = (state = initialState, { type, payload }) =>{
+
+    
+
+    let data = undefined;
     switch (type) {
         case SET_STATE_VIEW_CARD:
             return {
@@ -56,10 +65,11 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 };
         
         case GET_ALL_COMPONENTS:
+            data = state.orderPrice?sortByPrice(payload, state.orderPrice) :payload
             return{
                 ...state,
-                allComponents: payload,
-                paginated: paginationArray(payload, 9),
+                allComponents: data,
+                paginated: paginationArray(data, 9),
             };
         case GET_DETAIL_COMPONENT:
             return{
@@ -73,9 +83,54 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 ...state
                 , allComponents: newOrder,
                 paginated: paginationArray(newOrder, 9),
-                numPaginado:0
-            }
+                numPaginado:0,
+                orderPrice: payload.tipo,
+
+            };
+
+        case FILTER_BY_CATEGORY:
+             data = state.orderPrice?sortByPrice(payload.data, state.orderPrice) :payload.data
+            return{
+                ...state,
+                allComponents: data,
+                paginated:paginationArray(data),
+                numPaginado: 0,
+                categoryPick:payload.pick
+            };
+
+        case DELETE_FILTER_CATEGORY:
+            return{
+                ...state,
+                categoryPick: undefined
+            };
         
+        case PICK_ARMA_TU_PC:
+
+            const build_pc={
+                ...state.build_pc
+            };
+
+            build_pc[getCurrentComponent[state.step_build_pc]]=payload;
+
+
+            const newState= {
+                ...state,
+                build_pc,
+            };
+
+            window.localStorage.setItem('pc_build', JSON.stringify(build_pc))
+
+            return{
+                ...newState
+                };
+
+        case CLEAN_ARMA_TU_PC:
+            localStorage.removeItem('pc_build');
+            return{
+                ...state,
+                build_pc:{}
+            }
+            
         default:
             return{
                 ...state

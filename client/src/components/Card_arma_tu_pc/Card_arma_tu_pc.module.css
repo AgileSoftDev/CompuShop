@@ -1,10 +1,13 @@
 #Card_arma_tu_pc{
     background-color: #ffffff;
     height: 148px;
-    width: 381,75px;
-    padding: 10px;
+    width: 381.75px;
+    padding: 8px;
     display: flex;
     position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
@@ -14,6 +17,7 @@
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    margin: auto 0;
 }
 
 #Card_arma_tu_pc h3 {
@@ -36,21 +40,46 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 115.75px;
+    height: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#Card_arma_tu_pc > :nth-child(1) >img{
+    width: 100%;
 }
 
 #Card_arma_tu_pc > :nth-child(2){
-    margin-left: 8px;
+    margin-left: 10px;
     display: flex;
     align-items: start;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
+    width: 242px;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+#Card_arma_tu_pc >:nth-child(2) > legend{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    height: 50px;
+    margin: 15px 0 10px 0;
+    flex-shrink: 0;
+    width: 100%;
+    /* overflow: hidden; */
+}
+
+#Card_arma_tu_pc > :nth-child(2) > h3{
+    margin-top: 8px;
 }
 
 #Card_arma_tu_pc > :nth-child(2) :nth-child(3){
     display: flex;
     align-items: center;
     margin-top: 10px;
-    margin-left: 0px;
 }
 
 #Card_arma_tu_pc > :nth-child(2) :nth-child(3) > p{
@@ -68,4 +97,8 @@
     position: absolute;
     right: 5px;
     top: 5px;
+}
+
+.selected{
+    border: 2px solid rgb(183, 175, 14) !important;
 }
