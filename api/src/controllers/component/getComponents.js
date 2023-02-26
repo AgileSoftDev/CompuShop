@@ -3,7 +3,11 @@
 const Components = require("../../models/components");
 
 const allComps = async () => {
+    try {
     return await Components.find()
+} catch (error) {
+        throw error
+}
 }
 
 const findComp = async (name) => {
@@ -26,6 +30,7 @@ const findById = async (id) => {
 }
 
 const findStock = async () => {
+    try {
     const data = await allComps();
     const stockfinal = [];
     data.forEach(e => {
@@ -40,6 +45,9 @@ const findStock = async () => {
         }
     });
     return stockfinal;
+} catch (error) {
+        throw error
+}
 };
 
 module.exports = {

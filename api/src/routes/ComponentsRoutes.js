@@ -42,7 +42,7 @@ componentsRoutes.get("/stock", async(req, res)=>{
     try {
         return res.status(200).send(await findStock())
     } catch (error) {
-        
+        res.status(400).send(error)
     }
 })
 
