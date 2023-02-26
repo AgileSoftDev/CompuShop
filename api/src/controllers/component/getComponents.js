@@ -34,6 +34,7 @@ const findStock = async () => {
     const data = await allComps();
     const stockfinal = [];
     data.forEach(e => {
+        if(e.stock){
         const found = stockfinal.find(x => x.category === e.category);
         if (!found) {
             stockfinal.push({
@@ -43,6 +44,7 @@ const findStock = async () => {
         } else {
             found.stock += e.quantityStock;
         }
+    }
     });
     return stockfinal;
 } catch (error) {
