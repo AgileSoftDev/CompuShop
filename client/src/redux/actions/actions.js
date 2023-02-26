@@ -235,6 +235,8 @@ const cleanArmaTuPc = () =>{
 
 const editUser = (email, props) =>{
     return async function(dispatch) {
+        console.log(email);
+        console.log(props);
         try {
             const res = await axios.put(`http://localhost:3001/user?email=${email}`, props);
             return dispatch({

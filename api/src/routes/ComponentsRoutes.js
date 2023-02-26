@@ -89,6 +89,7 @@ componentsRoutes.delete('/:id', async(req, res) => {
 
 componentsRoutes.put('/:id', async(req, res) => {
     try {
+        console.log("llegó la perición");
         const {id} = req.params;
         const data = req.body;
         res.status(204).send(await updateComponents(id, data))

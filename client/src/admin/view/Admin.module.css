@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+#AdminContainer{
+    /* background-color: red; */
+    display: flex;
+    height: 100vh;
+    font-family: 'Tilt Neon', cursive;
+}
+#panelAdmin{
+    background-color: #2c2c25;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px 25px 10px;
+    align-items: center;
+    justify-content: space-between;
+    color: #dedcdc;
+    width: 300px;
+}
+#panelAdmin>:nth-child(1){
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+}
+#panelAdmin>:nth-child(1)>:first-child {
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 30px;
+    width: 100%;
+}
+#panelAdmin>:nth-child(1)>:first-child :nth-child(2)>h1{
+    font-size: 25px;
+    font-weight: 700;
+}
+#panelAdmin>:nth-child(1)>:first-child > :nth-child(2)>p{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 14px;
+}
+#panelAdmin>:nth-child(1)>:first-child >:nth-child(1){
+    background-color: #fd611a;
+    padding: 0 5px;
+    font-size: 50px;
+    margin-right: 20px;
+    border-radius: 5px;
+    font-weight: 800;
+    color: #f5f1f1;
+}
+#panelAdmin>:nth-child(1) > :nth-child(2){
+    /* background-color: yellow; */
+    margin-top: 10px;
+}
+#panelAdmin>:nth-child(1)>a{
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #d3d1d1;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    padding-right: 20px;
+}
+#panelAdmin>:nth-child(1)>a:hover{
+    background-color: #fd621aad;
+    color: #fefeef;
+}
+
+#panelAdmin>:nth-child(2) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#panelAdmin>:nth-child(2) > :first-child{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+    padding-left: 20px;
+}
+#panelAdmin>:nth-child(2) > :first-child>:nth-child(1){
+    background-color: #fefefe8c;
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
+    position: relative;
+
+}
+#panelAdmin>:nth-child(2) > :first-child>:nth-child(1)>img{
+    width: 115%;
+    flex-shrink: 0;
+    position: absolute;
+    bottom: -16%;
+}
+#panelAdmin>:nth-child(2) > :nth-child(2){
+    width: 100%;
+    margin-top: 30px;
+    padding-left: 22px;
+    display: flex;
+}
+#panelAdmin>:nth-child(2) > :nth-child(2)>img{
+    width: 20px;
+}
+#panelAdmin>:nth-child(2) > :nth-child(2)>p{
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+
