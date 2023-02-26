@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Field, From, ErrorMessage, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-// import style from "./EditUser.module.css";
+import style from "./EditUser.module.css";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { editUser } from "../../redux/actions/actions";
@@ -9,7 +9,7 @@ import { editUser } from "../../redux/actions/actions";
 
 
 const EditUser = ()=>{
-  
+    
     const dispatch = useDispatch();
     const history = useHistory();
     const usuario = useSelector(state => state.User)
@@ -17,8 +17,6 @@ const EditUser = ()=>{
     const [formularioEnviado, setformularioEnviado] = useState(false);
 
     useEffect(() => {
-       
-        
         if(usuario) {
             setformularioEnviado({
                 image: usuario.image,
@@ -30,16 +28,10 @@ const EditUser = ()=>{
                 address: usuario.address,
             })
         }
-       
-       
     }, [usuario])
 
     return(
-      
-        
-              <div>
-              <div>
-                
+        <div>
             <Formik
                 initialValues={{
                     image: usuario?.image ? usuario.image : "",  
@@ -50,7 +42,6 @@ const EditUser = ()=>{
                     phone_number: usuario?.phone_number ? usuario.phone_number : "",
                     address: usuario?.address ? usuario.address : "",
                 }}
-                 
                 onSubmit={(valores, { resetForm }) => {
                     resetForm();
                     dispatch(editUser(valores.email, valores));
@@ -109,14 +100,10 @@ const EditUser = ()=>{
                 }}
             >
                 {({ errors }) => (
-                    <Form className="formulario">
-                       
+                    <Form id={style.formulario}>
+                        <h1>ACTUALIZA TUS DATOS</h1>
                         <div>
-                         <div>
-                            <h1>ACTUALIZA TUS DATOS</h1>
-                            <div className="formulario"></div>
-                            <div>
-                                <div></div>
+                            <div></div>
                             <label htmlFor="image">Imagen de perfil</label>
                             <Field type="text" id="image" name="image"/>
                             <label htmlFor="name">Nombre: </label>
@@ -127,9 +114,8 @@ const EditUser = ()=>{
                                     <div>{errors.name}</div>
                                 )}
                             />
-                       
-
                         </div>
+                        <div>
                         <label htmlFor="surname">Apellido: </label>
                         <Field
                             type="text"
@@ -142,7 +128,9 @@ const EditUser = ()=>{
                             component={() => (
                             <div>{errors.surname}</div>
                             )}
-                        /> 
+                        />
+                        </div>
+                        <div>
                         <label htmlFor="nickname">Nombre de Usuario: </label>
                         <Field
                             type="text"
@@ -155,7 +143,10 @@ const EditUser = ()=>{
                             component={() => (
                             <div>{errors.nickname}</div>
                             )}
-                        /><label htmlFor="phone_number">Numero de telefono: </label>
+                        />
+                        </div>
+                        <div>
+                        <label htmlFor="phone_number">Numero de telefono: </label>
                         <Field
                             type="text"
                             id="phone_number"
@@ -168,6 +159,8 @@ const EditUser = ()=>{
                             <div>{errors.phone_number}</div>
                             )}
                         />
+                        </div>
+                        <div>
                         <label htmlFor="address">Direccion: </label>
                         <Field
                             type="text"
@@ -180,7 +173,10 @@ const EditUser = ()=>{
                             component={() => (
                             <div>{errors.address}</div>
                             )}
-                        /> <label htmlFor="email">Correo: </label>
+                        />
+                        </div>
+                        <div>
+                        <label htmlFor="email">Correo: </label>
                         <Field
                             type="email"
                             id="email"
@@ -192,38 +188,20 @@ const EditUser = ()=>{
                             component={() => (
                             <div>{errors.email}</div>
                             )}
-                        />   
-                        <button type="submit">Enviar</button>
+                        />
+                        </div>
+                       
+                        <button id={style.button} type="submit">Enviar</button>
                         {formularioEnviado && (
                         <p>Enviado con exito!</p>
                         )}
-                        </div>
-                       
-                        <div>
                         
-                        </div>
-                        <div>
-                        
-                        </div>
-                     
-                        
-                        </div>
-                        <div>
-                        
-                        </div>
-                        <div>
-                        
-                        <Link to='/profile'>Regresar</Link>
-                        </div>
+                        <Link to='/profile'><p>Regresa</p></Link>
                     </Form>
-                    
                 )}
             </Formik>
-            </div>
         </div>
-       
-    );
-   
-     } 
+    )
+};
 
 export default EditUser;
