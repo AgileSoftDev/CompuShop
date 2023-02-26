@@ -4,6 +4,7 @@ import userIcon from "../admin_assets/user_icon.png";
 import { useHistory } from "react-router-dom";
 import logoutIcon from "../admin_assets/logout-svgrepo-com.svg"
 import TableProductos from "../admin_componets/TableProductos/TableProductos";
+import ControlPanel from "../view/ControlPanel/ControlPanel";
 const Admin = () =>{
     const pathname = useHistory().location.pathname
     return(
@@ -36,6 +37,7 @@ const Admin = () =>{
             </div>
 
             <div id={style.mainAdmin}>
+                <Route exact path={"/admin/controlPanel"} render={()=> <ControlPanel />}/>
                 <Route exact path={"/admin/products"} render={()=> <TableProductos/>}/>
                 <Route exact path={"/admin/users"} render={()=> <TableProductos/>}/>
             </div>
