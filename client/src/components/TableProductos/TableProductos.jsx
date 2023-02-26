@@ -1,14 +1,18 @@
-import React, { useEffect } from 'react'
-import {useDispatch ,useSelector} from "react-redux"
-import { getAllComponents } from '../../redux/actions/actions';
-import style from './TableProductos.module.css'
+import React, { useEffect, useState } from 'react';
+import style from './TableProductos.module.css';
+import axios from 'axios';
+// import { set } from 'immer/dist/internal';
 
 const TableProductos = () => {
-    const dispatch = useDispatch();
-    const allComponents = useSelector(store => store.allComponents);
+
+const [allComponents, setAllComponentes] = useState([])
 
     useEffect(() => {
-      dispatch(getAllComponents())
+        const getAllComponents =async()=>{
+            const {data} = await axios.get("http://localhost:3001/components").catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+            if (data.length)setAllComponentes(data)    
+        }
+        getAllComponents()
     }, [])
     
   return (
@@ -23,15 +27,17 @@ const TableProductos = () => {
         </div>
         <div id={style.containerTable}>
             <table style={style.table}>
-                <tr>
-                    <th>ID</th>
-                    <th>Categoria</th>
-                    <th>Marca</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Descripcion</th>
-                    <th>Acciones</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Categoria</th>
+                        <th>Marca</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Descripcion</th>
+                        <th>Acciones</th>
+                    </tr> 
+                </thead>
                 {
                     allComponents && allComponents.map(component => {
                         return (

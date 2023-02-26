@@ -1,10 +1,13 @@
 #containerTitle {
     background-color: aqua;
-    width: 90%;
 }
 
 #containerTable {
-    background-color: brown;
-    width: 90%;
+    /* background-color: brown; */
+    border-collapse: collapse; 
+}
+
+#containerTable tr {
+    border: 2px solid black;
 }
 
