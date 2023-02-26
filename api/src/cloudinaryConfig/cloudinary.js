@@ -16,14 +16,14 @@ module.exports= cloudinary
 
 // Upload
 
-const res = cloudinary.uploader.upload('https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg', {public_id: "olympic_flag"})
+// const res = cloudinary.uploader.upload('https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg', {public_id: "olympic_flag"})
 
-res.then((data) => {
-  console.log(data);
-  console.log(data.secure_url);
-}).catch((err) => {
-  console.log(err);
-});
+// res.then((data) => {
+//   console.log(data);
+//   console.log(data.secure_url);
+// }).catch((err) => {
+//   console.log(err);
+// });
 
 
 // Generate 

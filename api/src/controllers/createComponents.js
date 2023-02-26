@@ -1,7 +1,7 @@
 const Components = require('./../models/components.js')
 // const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 const createComponent = async data => {
-    console.log(data)
+    // console.log(data)
     if(!data.name) throw 'Atributo «Nombre» es requerido';
     if(!data.img) throw 'Atributo «Imagen» es requerido';
     if(!data.category) throw 'Atributo «Categoría» es requerido';
@@ -15,7 +15,8 @@ const createComponent = async data => {
     
     const component = new Components(data);
     const savedComponent = await component.save();
-    return setTimeout(savedComponent, 5000);
+    console.log("savedComponent" + savedComponent)
+    return savedComponent
 }
 
 module.exports = createComponent

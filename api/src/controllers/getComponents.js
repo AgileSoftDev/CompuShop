@@ -49,14 +49,36 @@
 // }
 // }
 
+// const findStock = async () => {
+//     try {
+//     const data = await allComps();
+//     const stockfinal = [];
+//     data.forEach(e => {
+//         const found = stockfinal.find(x => x.category === e.category);
+//         if (!found) {
+//             stockfinal.push({
+//                 category: e.category,
+//                 stock: e.quantityStock
+//             });
+//         } else {
+//             found.quantityStock += e.quantityStock;
+//         }
+//     });
+//     return stockfinal;
+// } catch (error) {
+//         throw error
+// }
+// };
+
 // module.exports ={
 //     allComps,
 //     findComp,
 //     findByCategory,
-//     findById
+//     findById,
+//     findStock
 // }
 
-const Components = require("../models/components");
+const Components = require("../models/components.js");
 
 const allComps = async () => {
     return await Components.find()
