@@ -1,10 +1,7 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC } from "../actions/actions.types";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART } from "../actions/actions.types";
 import { paginationArray, getCurrentComponent } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
 const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
-
-
-
 
 const initialState = {
     allComponents: [],
@@ -27,6 +24,7 @@ const initialState = {
     step_build_pc:undefined,
     categoryPick: undefined,
     orderPrice:undefined,
+    shoppingCart: []
 }
 
 
@@ -124,13 +122,43 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 ...newState
                 };
 
-        case CLEAN_ARMA_TU_PC:
-            localStorage.removeItem('pc_build');
-            return{
-                ...state,
-                build_pc:{}
+        case ADD_TO_CART:
+            const cart = [...state.shoppingCart]
+            const itemInCart = cart.find((item) => item._id === payload._id);
+            if (itemInCart) {
+                itemInCart.quantity++;
+            } else {
+                cart.push({ ...payload, quantity: 1 });
             }
-            
+            return {
+                ...state,
+                shoppingCart: cart
+            }
+
+        case INCREMENT_CART:
+            const itemPlus = state.shoppingCart.find((item) => item.id === payload);
+            itemPlus.quantity++;
+            return{
+                ...state
+            }
+
+        case DECREMENT_CART:
+            const itemLess = state.shoppingCart.find((item) => item.id === payload);
+            if (itemLess.quantity === 1) {
+              itemLess.quantity = 1
+            } else {
+              itemLess.quantity--;
+            }
+            return{
+                ...state
+            }
+        case REMOVE_ITEM_CART:
+            const removeItem = state.shoppingCart.filter((item) => item.id !== payload);
+            state.shoppingCart = removeItem;
+            return{
+                ...state
+            }
+
         default:
             return{
                 ...state

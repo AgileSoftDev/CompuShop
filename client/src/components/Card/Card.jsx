@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import style from './Card.module.css'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/actions/actions';
 
 
 
-const Card = ({ id, name, img, price }) => {
+const Card = ({ id, name, img, price, component }) => {
 
     const stateViewCard = useSelector(e=>e.stateViewCard)
+    const dispatch = useDispatch()
 
     const cleanName =(name) =>{
         let nameCleaned = name;
@@ -34,7 +36,7 @@ const Card = ({ id, name, img, price }) => {
                   </div>
                   <div>
                       <h1 >$ {price}</h1>
-                      <button>SUMAR AL CARRITO</button>
+                      <button onClick={()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
                   </div>
       
             </Link>
