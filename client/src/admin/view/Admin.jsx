@@ -1,9 +1,11 @@
 import style from "./Admin.module.css"
 import {Link, Route} from "react-router-dom"
 import userIcon from "../admin_assets/user_icon.png";
+import { useHistory } from "react-router-dom";
 import logoutIcon from "../admin_assets/logout-svgrepo-com.svg"
-import TableProductos from "../../components/TableProductos/TableProductos";
+import TableProductos from "../admin_componets/TableProductos/TableProductos";
 const Admin = () =>{
+    const pathname = useHistory().location.pathname
     return(
         <div id={style.AdminContainer}>
             <div id={style.panelAdmin}>
@@ -15,11 +17,11 @@ const Admin = () =>{
                             <p>Componentes de PC</p>
                         </div>
                     </div>
-                    <Link to={"/admin/controlPanel"}>Panel de control</Link>
-                    <Link to={""}>Configuraciones</Link>
-                    <Link to={"/admin/settings/users"}>Users</Link>
-                    <Link to={"/admin/settings/categories"}>Categories</Link>
-                    <Link to={"/admin/products"}>Productos</Link>
+                    <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
+                    <Link id={pathname==="/admin/setting"?style.linkActive:undefined} to={"/admin/setting"}>Configuraciones</Link>
+                    <Link id={pathname==="/admin/settings/users"?style.linkActive:undefined} to={"/admin/settings/users"}>Users</Link>
+                    <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link>
+                    <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
                     <div>

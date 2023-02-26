@@ -1,13 +1,46 @@
-#containerTitle {
-    background-color: aqua;
+#ProductPanelContainer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    color: rgb(58, 56, 56);
+}
+#ProductPanelContainer>:nth-child(1)>h1{
+    
+}
+#table {
+    margin: 20px 5px;
 }
 
-#containerTable {
-    /* background-color: brown; */
-    border-collapse: collapse; 
+#table ,#table td,#table th  {
+    border: 1px solid black;
+    border-collapse:collapse;
 }
 
-#containerTable tr {
-    border: 2px solid black;
+#table td,#table th {
+    padding: 5px;
 }
+#buttonSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px !important;
+}
+#buttonSection > :nth-child(1){
+    display: flex;
+    /* background: yellow; */
+}
+#buttonSection > :nth-child(1) button{
+    background-color: rgb(10, 120, 42);
+    padding: 5px;
+    margin: 0 0 3px 10px;
+    border: 1px solid rgb(6, 66, 23);
+    color: #e8e2e2;
 
+}
+#buttonSection > :nth-child(2){
+    background-color: rgb(207, 12, 12);
+    padding: 2px 5px;
+    color: #e6e0e0;
+    border: 1px solid rgb(171, 8, 8);
+}
