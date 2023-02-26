@@ -1,5 +1,5 @@
 import style from "./Admin.module.css"
-import {Link} from "react-router-dom"
+import {Link, Route} from "react-router-dom"
 import userIcon from "../admin_assets/user_icon.png";
 import logoutIcon from "../admin_assets/logout-svgrepo-com.svg"
 import TableProductos from "../../components/TableProductos/TableProductos";
@@ -16,7 +16,9 @@ const Admin = () =>{
                         </div>
                     </div>
                     <Link to={"/admin/controlPanel"}>Panel de control</Link>
-                    <Link to={"/admin/setting"}>Configuraciones</Link>
+                    <Link to={""}>Configuraciones</Link>
+                    <Link to={"/admin/settings/users"}>Users</Link>
+                    <Link to={"/admin/settings/categories"}>Categories</Link>
                     <Link to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
@@ -32,7 +34,8 @@ const Admin = () =>{
             </div>
 
             <div id={style.mainAdmin}>
-                <TableProductos/>
+                <Route exact path={"/admin/products"} render={()=> <TableProductos/>}/>
+                <Route exact path={"/admin/users"} render={()=> <TableProductos/>}/>
             </div>
         </div>
     )

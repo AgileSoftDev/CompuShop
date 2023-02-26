@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from './TableProductos.module.css';
 import axios from 'axios';
-// import { set } from 'immer/dist/internal';
 
 const TableProductos = () => {
 
@@ -9,7 +8,7 @@ const [allComponents, setAllComponentes] = useState([])
 
     useEffect(() => {
         const getAllComponents =async()=>{
-            const {data} = await axios.get("http://localhost:3001/components").catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+            const {data} = await axios.get("https://compu-shop.vercel.app/components").catch(error => alert("Error en la tabla productos de admin al obtener la data"));
             if (data.length)setAllComponentes(data)    
         }
         getAllComponents()
@@ -35,6 +34,7 @@ const [allComponents, setAllComponentes] = useState([])
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Descripcion</th>
+                        <th>Cantidad</th>
                         <th>Acciones</th>
                     </tr> 
                 </thead>
@@ -48,6 +48,7 @@ const [allComponents, setAllComponentes] = useState([])
                                     <td>{component.name}</td>
                                     <td>{component.price}</td>
                                     <td>{component.description}</td>
+                                    <td>{component.quantityStock}</td>
                                     <td>
                                         <button>Ver</button>
                                         <button>Editar</button>
