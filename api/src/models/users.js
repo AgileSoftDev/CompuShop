@@ -20,7 +20,7 @@ const userSchema= new Schema(
         },
         wallet:{
             type: String,
-            required: true,
+            required: false,
         },
         phoneNumber:{
             type: Number,
@@ -28,6 +28,10 @@ const userSchema= new Schema(
         isActive:{
             type: Boolean,
             default: true,
+        },
+        createdAt:{
+            type: Date,
+            default: Date.now,
         }
         
 });

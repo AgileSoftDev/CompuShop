@@ -1,4 +1,7 @@
 const User = require("../../models/users.js");
+const axios = require("axios");
+
+
 
 const getUser= async()=>{
     try {
