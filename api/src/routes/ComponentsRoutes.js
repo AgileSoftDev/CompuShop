@@ -21,7 +21,7 @@ componentsRoutes.get("/", async (req, res) =>{
                 return res.status(200).send(compSearch)
             }
         }
-        return res.status(200).send(await allComps())
+        else return res.status(201).send(await allComps())
     } catch (error) {
         return res.status(500).send({error: error.message})
 
@@ -31,16 +31,9 @@ componentsRoutes.get("/", async (req, res) =>{
 componentsRoutes.get("/:category", async(req, res)=>{
     const {category}= req.params;
     try {
-        if(category){
-            const allComp= await findByCategory(category);
-            if(!allComp){
-                return res.status(404).send(`${category} is not a category`)
-            }else{
-                res.status(200).send(allComp)
-            }
-        }
+        res.status(201).send(await findByCategory(category));
     } catch (error) {
-        return error
+        res.status(404).send({error})
     }
 });
 
@@ -49,7 +42,7 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
     try {
         return res.status(200).send(await findById(id))
     } catch (error) {
-        return error
+        res.status(404).send({error})
     }
 })
 
@@ -65,6 +58,7 @@ componentsRoutes.delete('/:id', async(req, res) => {
 
 componentsRoutes.put('/:id', async(req, res) => {
     try {
+        console.log("llegó la perición");
         const {id} = req.params;
         const data = req.body;
         const resultPut= await updateComponents(id, data)

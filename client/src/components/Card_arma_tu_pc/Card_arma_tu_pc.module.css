@@ -1,0 +1,104 @@
+#Card_arma_tu_pc{
+    background-color: #ffffff;
+    height: 148px;
+    width: 381.75px;
+    padding: 8px;
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+
+#Card_arma_tu_pc  h1 {
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin: auto 0;
+}
+
+#Card_arma_tu_pc h3 {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    /* background-color: aqua; */
+    margin: 6px 0 0 0;
+}
+
+#Card_arma_tu_pc p{
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #4caf50;
+} 
+
+
+#Card_arma_tu_pc > :nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 115.75px;
+    height: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#Card_arma_tu_pc > :nth-child(1) >img{
+    width: 100%;
+}
+
+#Card_arma_tu_pc > :nth-child(2){
+    margin-left: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    width: 242px;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+#Card_arma_tu_pc >:nth-child(2) > legend{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    height: 50px;
+    margin: 15px 0 10px 0;
+    flex-shrink: 0;
+    width: 100%;
+    /* overflow: hidden; */
+}
+
+#Card_arma_tu_pc > :nth-child(2) > h3{
+    margin-top: 8px;
+}
+
+#Card_arma_tu_pc > :nth-child(2) :nth-child(3){
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#Card_arma_tu_pc > :nth-child(2) :nth-child(3) > p{
+    margin-left: 5px;
+}
+
+#Card_arma_tu_pc > :nth-child(2) :nth-child(3) > img{
+    width: 16px;
+    height: 16px;
+}
+
+#Card_arma_tu_pc > img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.selected{
+    border: 2px solid rgb(183, 175, 14) !important;
+}
