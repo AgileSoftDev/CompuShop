@@ -1,6 +1,6 @@
 const { Router }= require("express");
 const {allComps, findComp, findByCategory, findById, findStock} = require("../controllers/component/getComponents.js");
-const createComponent = require('../controllers/component/createComponent.js');
+const createComponent = require('../controllers/component/createComponents.js');
 const deleteComponent = require('../controllers/component/deleteComponent.js');
 const updateComponents = require('../controllers/component/updateComponents.js');
 // const resultImg= require("../controllers/createComponents")
