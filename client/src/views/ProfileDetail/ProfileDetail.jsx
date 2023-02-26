@@ -1,3 +1,4 @@
+
 import React from "react";
 import style from "./ProfileDetail.module.css"
 import { useAuth0 } from "@auth0/auth0-react";
