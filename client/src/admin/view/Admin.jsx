@@ -2,7 +2,7 @@ import style from "./Admin.module.css"
 import {Link} from "react-router-dom"
 import userIcon from "../admin_assets/user_icon.png";
 import logoutIcon from "../admin_assets/logout-svgrepo-com.svg"
-
+import TableProductos from "../../components/TableProductos/TableProductos";
 const Admin = () =>{
     return(
         <div id={style.AdminContainer}>
@@ -32,7 +32,7 @@ const Admin = () =>{
             </div>
 
             <div id={style.mainAdmin}>
-                
+                <TableProductos/>
             </div>
         </div>
     )
