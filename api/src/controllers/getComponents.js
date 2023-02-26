@@ -23,9 +23,34 @@ const findById = async (id) => {
     return component;
 }
 
+
+const findStock = async () => {
+    try {
+    const data = await allComps();
+    const stockfinal = [];
+    data.forEach(e => {
+        if(e.stock){
+        const found = stockfinal.find(x => x.category === e.category);
+        if (!found) {
+            stockfinal.push({
+                category: e.category,
+                stock: e.quantityStock
+            });
+        } else {
+            found.stock += e.quantityStock;
+        }
+    }
+    });
+    return stockfinal;
+} catch (error) {
+        throw error
+}
+};
+
 module.exports = {
     allComps,
     findComp,
     findByCategory,
-    findById
+    findById,
+    findStock
 }
