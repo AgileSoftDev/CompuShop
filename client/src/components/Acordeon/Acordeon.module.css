@@ -6,7 +6,7 @@
   }
   .h1{
     text-justify: center;
-    font-family: 'Montserrat';
+    font-family: 'Roboto Condensed', sans-serif;
   }
   .accordion {
     justify-content: center;
@@ -21,7 +21,7 @@
     transition: 0.4s;
     border-radius: 4px;
     margin-top: center;
-    font-family: 'Montserrat';
+    font-family: 'Roboto Condensed', sans-serif;
     font-style: normal;
     font-size: 16px;
   }
@@ -60,7 +60,7 @@
     max-height: 1,5;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    font-family: 'Montserrat';
+    font-family: 'Roboto Condensed', sans-serif;
     font-style: normal;
     font-size: 22px;
     
@@ -77,7 +77,7 @@
       align-items: center;
       cursor: pointer;
       color: black;
-      font-family: 'Montserrat';
+      font-family: 'Roboto Condensed', sans-serif;
       font-style: italic;
   }
   .logging:hover {
