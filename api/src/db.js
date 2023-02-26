@@ -5,7 +5,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
-// main().catch(err => console.log(err));
+main().catch(err => console.log(err));
 
 async function main() {
   mongoose.set('strictQuery', true);

@@ -41,7 +41,7 @@ const findStock = async () => {
                 stock: e.quantityStock
             });
         } else {
-            found.quantityStock += e.quantityStock;
+            found.stock += e.quantityStock;
         }
     });
     return stockfinal;

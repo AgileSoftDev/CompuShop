@@ -38,7 +38,7 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
     }
 })
 
-componentsRoutes.get("/stock", async(req, res)=>{
+componentsRoutes.get("/stock/all", async(req, res)=>{
     try {
         return res.status(200).send(await findStock())
     } catch (error) {
