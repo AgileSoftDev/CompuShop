@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Field, From, ErrorMessage, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import style from "./EditUser.module.css";
+// import style from "./EditUser.module.css";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { editUser } from "../../redux/actions/actions";
@@ -37,8 +37,8 @@ const EditUser = ()=>{
     return(
       
         
-              <div id={style.container}>
-              <div id={style.formulario}>
+              <div>
+              <div>
                 
             <Formik
                 initialValues={{
@@ -111,11 +111,11 @@ const EditUser = ()=>{
                 {({ errors }) => (
                     <Form className="formulario">
                        
-                        <div id={style.container}>
-                         <div id={style.formualario}>
+                        <div>
+                         <div>
                             <h1>ACTUALIZA TUS DATOS</h1>
                             <div className="formulario"></div>
-                            <div id={style.formik}>
+                            <div>
                                 <div></div>
                             <label htmlFor="image">Imagen de perfil</label>
                             <Field type="text" id="image" name="image"/>
