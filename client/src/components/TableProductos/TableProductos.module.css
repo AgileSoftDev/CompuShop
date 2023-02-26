@@ -1,13 +1,131 @@
-#containerTitle {
-    background-color: aqua;
-}
+.card {
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card_header {
+    display: flex;
+    flex-direction: row; /* dirección en que se distribuirán los elementos (horizontal) */
+    justify-content: space-between; /* alineación horizontal de los elementos */
+    align-items: center; /* alineación vertical de los elementos */
+    margin-bottom: 20px;
 
-#containerTable {
-    /* background-color: brown; */
-    border-collapse: collapse; 
-}
+  }
+  
+  .card_footer {
+    margin-top: 20px;
+  }
+  
+  .card_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .card_table td {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid #ccc;
+  }
+  
+  .card_table td:first-child {
+    background-color: #f5f5f5;
+    text-align: center;
+  }
 
-#containerTable tr {
-    border: 2px solid black;
-}
+  .button1 {
+    border: none;
+    color: #fff;
+    background-color: #fd611a;
+    border-radius: 20px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+   }
+   
+   .button1:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+   }
+   
+   @keyframes pulse512 {
+    0% {
+     box-shadow: 0 0 0 0 #fd611a;
+    }
+   
+    70% {
+     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+   
+    100% {
+     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+   }
 
+   .searchBar {
+    width: 100%;
+    max-width: 220px;
+    height: 45px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -18px;
+  }
+  
+  .searchBar:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+  }
+  
+  .searchBar:active {
+    transform: scale(0.95);
+  }
+  
+  .searchBar:focus {
+    border: 2px solid grey;
+  }
+
+  .loader {
+    --height-of-loader: 4px;
+    --loader-color: #fd611a;
+    width: 100%;
+    height: var(--height-of-loader);
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0.2);
+    position: relative;
+   }
+   
+   .loader::before {
+    content: "";
+    position: absolute;
+    background: var(--loader-color);
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 30px;
+    animation: moving 1s ease-in-out infinite;
+    ;
+   }
+   
+   @keyframes moving {
+    50% {
+     width: 100%;
+    }
+   
+    100% {
+     width: 0;
+     right: 0;
+     left: unset;
+    }
+   }
