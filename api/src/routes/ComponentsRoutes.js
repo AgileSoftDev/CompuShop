@@ -5,6 +5,10 @@ const deleteComponent = require('../controllers/component/deleteComponent.js');
 const updateComponents = require('../controllers/component/updateComponents.js');
 // const resultImg= require("../controllers/createComponents")
 const cloudinary = require("../cloudinaryConfig/cloudinary.js")
+const {createComponent, newCreateComponent} = require('./../controllers/createComponent.js');
+const deleteComponent = require('./../controllers/deleteComponent.js');
+const updateComponents = require('./../controllers/updateComponents.js')
+
 
 const componentsRoutes= Router();
 
@@ -71,6 +75,7 @@ componentsRoutes.post("/", async(req, res)=>{
             quantityStock:quantityStock
 
         }));
+        res.status(201).send(await newCreateComponent(req.body));
     } catch (error) {
         console.log(error)
         res.status(400).send({error})
@@ -97,5 +102,6 @@ componentsRoutes.put('/:id', async(req, res) => {
         res.status(404).send({error})
     }
 })
+
 
 module.exports= componentsRoutes;
