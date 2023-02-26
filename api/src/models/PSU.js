@@ -1,10 +1,8 @@
-const {model, Schema} = require('mongoose');
+const {Schema} = require('mongoose');
 
-const PSUchema = new Schema({
+const PSUs = new Schema({
     watts: Number,
     form: String
 })
-
-const PSUs = model('PSUs', PSUchema);
 
 module.exports = PSUs;

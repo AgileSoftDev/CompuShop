@@ -1,6 +1,6 @@
-const {model, Schema} = require('mongoose');
+const {Schema} = require('mongoose');
 
-const motherboardSchema = new Schema({
+const Motherboards = new Schema({
     cpu: String,
     chipset: String,
     socket: String,
@@ -14,6 +14,5 @@ const motherboardSchema = new Schema({
     form: String
 })
 
-const Motherboards = model('Motherboards', motherboardSchema);
 
 module.exports = Motherboards

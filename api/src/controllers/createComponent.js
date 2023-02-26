@@ -25,33 +25,35 @@ const newCreateComponent = async data => {
     const component = new Components()
     switch(data.category){
         case 'motherboard':
-            component.schema.add(Motherboards.schema);
+            component.schema.add(Motherboards);
             component.overwrite(data);
             break;
         case 'CPU':
-            component.schema.add(CPUs.schema);
+            component.schema.add(CPUs);
+            component.overwrite(data);
             break;
         case 'RAM':
-            component.add(auxRAM(data));
+            component.schema.add(RAMs);
+            component.overwrite(data);
             break;
         case 'GPU':
-            component.add(auxGPU(data));
+            component.schema.add(GPUs);
+            component.overwrite(data);
             break;
         case 'storage':
-            component.add(auxStorage(data));
+            component.schema.add(Storages);
+            component.overwrite(data)
             break;
         case 'case':
-            console.log('*no hace nada*')
+            component.overwrite(data)
             break;
         case 'PSU':
-            component.add(auxPSU(data));
+            component.schema.add(PSUs);
+            component.overwrite(data)
             break;
         default:
             throw 'Aún no contamos con esa categoría; crea una o revisa tu ortografía';
     }
-    //const savedComponent = await component.save();
-    console.log(5)
-    console.log(component)
     const savedComponent = await component.save()
     return savedComponent;
 }

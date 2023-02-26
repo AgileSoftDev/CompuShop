@@ -1,9 +1,7 @@
-const {model, Schema} = require('mongoose');
+const {Schema} = require('mongoose');
 
-const GPUSchema = new Schema({
+const GPUs = new Schema({
     memory: Number
 })
-
-const GPUs = model('GPUs', GPUSchema);
 
 module.exports = GPUs;

@@ -67,11 +67,5 @@ componentsRoutes.put('/:id', async(req, res) => {
     }
 })
 
-componentsRoutes.get('/alachingadatodo', (req, res) => {
-    const data = require('./../models/PCComponents.json');
-    data.map(async e => {
-        await newCreateComponent(e);
-    })
-})
 
 module.exports= componentsRoutes;
