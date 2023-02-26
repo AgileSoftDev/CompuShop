@@ -1,6 +1,6 @@
 const { Router }= require("express");
 const {allComps, findComp, findByCategory, findById} = require("../controllers/getComponents.js");
-const createComponent = require('./../controllers/createComponents.js');
+const {createComponent, newCreateComponent} = require('./../controllers/createComponent.js');
 const deleteComponent = require('./../controllers/deleteComponent.js');
 const updateComponents = require('./../controllers/updateComponents.js')
 
@@ -39,7 +39,7 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
 
 componentsRoutes.post("/", async(req, res)=>{
     try {
-        res.status(201).send(await createComponent(req.body));
+        res.status(201).send(await newCreateComponent(req.body));
     } catch (error) {
         console.log(error)
         res.status(400).send({error})
@@ -65,6 +65,13 @@ componentsRoutes.put('/:id', async(req, res) => {
     } catch (error) {
         res.status(404).send({error})
     }
+})
+
+componentsRoutes.get('/alachingadatodo', (req, res) => {
+    const data = require('./../models/PCComponents.json');
+    data.map(async e => {
+        await newCreateComponent(e);
+    })
 })
 
 module.exports= componentsRoutes;
