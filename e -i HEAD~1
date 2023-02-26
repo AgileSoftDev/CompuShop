@@ -1,0 +1,483 @@
+[33mcommit 4c3ad44a26f9cd7d34002060653c161a59bcf6b6[m[33m ([m[1;36mHEAD -> [m[1;32mfront[m[33m, [m[1;31morigin/front[m[33m)[m
+Merge: 219e9ae a0d5629
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Fri Feb 17 13:15:05 2023 -0500
+
+    SLIDER 1.1
+
+[33mcommit 219e9ae9d6dd59fd0d59cefe6816622609a9bdf3[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Fri Feb 17 13:12:42 2023 -0500
+
+    SLIDER -v 1.0
+
+[33mcommit a0d562914145fe7aa1069ce21c25a8e53d62a6b5[m
+Author: yorliana <ing.yorlianam24>
+Date:   Fri Feb 17 11:59:11 2023 -0500
+
+    LandingPage.css
+    
+    Co-Authored-By: yorliana <38323669+yorliana@users.noreply.github.com>
+
+[33mcommit 348e81d10e450bd8c22ab61e50f83391b1d0b6b7[m
+Merge: 2c624f1 4abaf38
+Author: yorliana <ing.yorlianam24>
+Date:   Thu Feb 16 23:52:05 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit 4abaf38bb3b00d2e9567415873c126909358692c[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 21:16:05 2023 -0500
+
+    update navBar
+
+[33mcommit 4a55d0b4555f260b1b9fbcb0bec5e2a897400b80[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 21:11:41 2023 -0500
+
+    SLIDER -v 0.96
+
+[33mcommit 2c624f1d7f33b41cbdad3447b964d14e1f186759[m
+Merge: e5a2a57 7d52ad1
+Author: yorliana <ing.yorlianam24>
+Date:   Thu Feb 16 21:00:04 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit e5a2a5757d909c54ca6a2bc524dff0edf0bfc393[m
+Author: yorliana <ing.yorlianam24>
+Date:   Thu Feb 16 20:59:47 2023 -0500
+
+    LandingPage
+    
+    Co-Authored-By: yorliana <38323669+yorliana@users.noreply.github.com>
+
+[33mcommit 7d52ad11cbaa8d63dbb389f6c47e41438ef5b2a4[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 20:38:13 2023 -0500
+
+    SLIDER -v 0.95
+
+[33mcommit 1cf626e4cee56250a5f9da40eca3ca42b559e3d7[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 20:37:31 2023 -0500
+
+    SLIDER -v 0.9
+
+[33mcommit 38beaf7bb915ce6b3c16135d0956c6c088433768[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 18:45:29 2023 -0500
+
+    vista lading ruta actualizada
+
+[33mcommit a9580e2a44eb4c44715746847bde133a6253487d[m
+Author: yorliana <ing.yorlianam24>
+Date:   Thu Feb 16 18:34:27 2023 -0500
+
+    landing
+    
+    landing
+    
+    Co-Authored-By: yorliana <38323669+yorliana@users.noreply.github.com>
+
+[33mcommit 09030a3d8bec2eb594ff8408cd247d3e7c417e6f[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 18:21:56 2023 -0500
+
+    update del enrutamiento
+
+[33mcommit b52c3665cd060849167411ab9b57a04f3226d68e[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 18:13:36 2023 -0500
+
+    corrección nuevamente de la importación del SideBar.jsx
+
+[33mcommit b692c712776edd6f45450b486c068c322995141f[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Thu Feb 16 16:09:08 2023 -0300
+
+    Sidebar error arreglado
+
+[33mcommit 935c81f526484631bc68f5c14b3d23d28412100d[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 12:16:26 2023 -0500
+
+    importación de sideBar corregida
+
+[33mcommit 28bed3278f9221bb5d424c2dce66ce6eca521356[m
+Merge: ad4e8a5 f1c013b
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 12:08:33 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit ad4e8a5dfba2daf06467d5d55a4b5d34a53b6b11[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 12:08:06 2023 -0500
+
+    Actualización del Navbar
+
+[33mcommit f1c013bf3009b105fc9294d3b27cfe64202a185b[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Thu Feb 16 13:36:43 2023 -0300
+
+    Update ruteo sidebar
+
+[33mcommit a5fd0c1e0debcf0585d4791eb4267e3588bda0b8[m
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Thu Feb 16 13:14:55 2023 -0300
+
+    INSTALL swiper
+
+[33mcommit b1d56f59b2b1d996292b48c54edc06a3c80cb2fc[m
+Merge: 9c894ef 4228e75
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Thu Feb 16 13:11:36 2023 -0300
+
+    Merge branch 'front' of github.com:JairOlgL/CompuShop into front
+
+[33mcommit 9c894ef7516989f75caae1413cea037836eddb73[m
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Thu Feb 16 13:11:13 2023 -0300
+
+    INSTALL libreria react bootstrap
+
+[33mcommit 4228e75301430f12acd53a5a5ce4b6df0d6c7afb[m
+Merge: f504c10 c6e59a7
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 11:00:19 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit c6e59a7574b8295c69d88e4324664ec70e2a7df7[m
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Thu Feb 16 12:52:08 2023 -0300
+
+    ADD product card y slider
+
+[33mcommit f504c10b078985c2653d3e98c788ced9f3f1af5f[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Thu Feb 16 10:48:37 2023 -0500
+
+    Agragando local storaged, para guardar el tipo de vista de las cards
+
+[33mcommit fea10f5bcc8ad0ce27ec393cf9a5c51e6ffafeb8[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Thu Feb 16 11:36:18 2023 -0300
+
+    Update Order
+
+[33mcommit 6a9ba62088c0bf902e557fc47f2453403afff9c6[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Thu Feb 16 11:30:29 2023 -0300
+
+    Update SideBar V2
+
+[33mcommit ce04cd2e8374e8857d223f7bac8fd5f981e3db7e[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Thu Feb 16 11:15:36 2023 -0300
+
+    SideBar v2
+    
+    Falta ordenar un poco el codigo
+
+[33mcommit d67bda4935a9f223cecfb2d12749a945d95860f3[m
+Author: yorliana <38323669+yorliana@users.noreply.github.com>
+Date:   Thu Feb 16 08:54:45 2023 -0500
+
+    Create Slider.jsx
+    
+    slider
+
+[33mcommit 290b11f54e79e91765d971bb7abfd6c8ea8d7e62[m
+Author: yorliana <38323669+yorliana@users.noreply.github.com>
+Date:   Thu Feb 16 08:53:21 2023 -0500
+
+    Create ProducCard.jsx
+    
+    productCard
+
+[33mcommit 9124932a0b6305faf8d6fbbf071c917f75898b97[m
+Merge: 11c123c d9ca133
+Author: yorliana <38323669+yorliana@users.noreply.github.com>
+Date:   Thu Feb 16 08:37:05 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit 11c123ca72267270142cea4f368d9ba335ebf819[m
+Author: yorliana <38323669+yorliana@users.noreply.github.com>
+Date:   Thu Feb 16 08:35:17 2023 -0500
+
+    Update package.json
+    
+    mhgg
+
+[33mcommit d9ca133aa18c134f7f2da86a7226c6fb634cdaf3[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 20:22:40 2023 -0500
+
+    vista horizontal de las cards DONE
+
+[33mcommit cc070660c0c633a23ebac8f34444feb839117c6d[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Wed Feb 15 21:55:54 2023 -0300
+
+    Boton en Logo hacia el home
+
+[33mcommit 9055744de195ab39c9f587cf972d59734bb9d56f[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 19:25:06 2023 -0500
+
+    Agregada la opción para cambiar el view de las cards
+
+[33mcommit b2fdd70358e7355a2990183cf84f2a77023a3a8b[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 18:48:15 2023 -0500
+
+    FOOTER -v 1.1
+
+[33mcommit 9783c1e5e4fdd0f2b1f38206fbb6f40c9bb9251a[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 18:04:17 2023 -0500
+
+    FOOTER -v 1.0
+
+[33mcommit a11bedd048568702f5c5481846dbc92de8cba219[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 16:44:41 2023 -0500
+
+    CARDS verticales -v 1.1
+
+[33mcommit 9058bc7077f74b1b7b36ace4aeb2bd8c729761fc[m
+Merge: 49630d2 2b28151
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Wed Feb 15 17:01:13 2023 -0300
+
+    Merge branch 'front' of github.com:JairOlgL/CompuShop into front
+
+[33mcommit 49630d2bb7552cb09d189d8ff8ee56ce7502d5b6[m
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Wed Feb 15 17:00:50 2023 -0300
+
+    CHANGE styles cards
+
+[33mcommit 2b281512a3bbb060aae9d45b99330b4af4f669fa[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 14:57:50 2023 -0500
+
+    update texto del footer
+
+[33mcommit 7f2cbd42676d6b2d0cd6951b5595ebde72485f12[m
+Merge: 25fbc4e 28b8e4e
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 14:54:01 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit 25fbc4ecf961d0f373ce28da56bf5460e4892664[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 14:53:08 2023 -0500
+
+    FOOTER -v 0.9
+
+[33mcommit 28b8e4e8c35d764f2f5b138a5b7e91c6baa4e81d[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Wed Feb 15 16:51:55 2023 -0300
+
+    Avance order
+
+[33mcommit 4b0b0c3c0d97abb80832ed4436565cec09898aa9[m
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Wed Feb 15 15:33:05 2023 -0300
+
+    ADD estado de estilos para vistas de cards
+
+[33mcommit 3e95b12d8f16ca43d503e3cf5f87ae23121de0a3[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 12:44:19 2023 -0500
+
+    view PRODUCTOS -v 1.0
+
+[33mcommit f0fd78454280bf75a0c865a521ebb1e0463eb3fe[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 12:16:24 2023 -0500
+
+    Maquetado de la view PRODUCTOS
+
+[33mcommit 98c41d826997bcde1e3548a1114f4971861465ec[m
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Wed Feb 15 13:28:15 2023 -0300
+
+    CHANGE cards
+
+[33mcommit c46981fd63c0edea325b8136a72180605aa50d94[m
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Wed Feb 15 13:17:18 2023 -0300
+
+    ADD array productos temporal
+
+[33mcommit d259b315e632e86e461206d16781f4c5b900762a[m
+Author: Bruno Fernandez <66654095+brunofnz@users.noreply.github.com>
+Date:   Wed Feb 15 13:13:28 2023 -0300
+
+    ADD cards containers
+
+[33mcommit 3ef9212a33f70357d84ad4443cc7ae60a8e4f291[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Wed Feb 15 13:08:01 2023 -0300
+
+    Update Order
+
+[33mcommit 3a6cf139954de3ad6fbdc21160a2c6277b87dc6e[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 11:01:56 2023 -0500
+
+    "Cambio de ruta productos"
+
+[33mcommit 86e9902e97aff3b7a12197e24737eafa2e37f015[m
+Merge: c281dc7 486f740
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 11:01:24 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit c281dc7921df3d8516586977645b4ea85e3def83[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 10:43:54 2023 -0500
+
+    sideBar solo se puede ver desde ruta 'productos'
+
+[33mcommit 486f7408d8688801628f22698c86009c5863507e[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Wed Feb 15 12:39:56 2023 -0300
+
+    Update
+
+[33mcommit 945664d38e5ba103db22f121f8533142af470aa4[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Wed Feb 15 12:37:47 2023 -0300
+
+    Principio order
+
+[33mcommit 1736ffffe6262852051784e4fae2a8176185f23f[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Wed Feb 15 10:15:32 2023 -0500
+
+    pequeñas modificacíones css al header
+
+[33mcommit 94afc3c7e79dc0cfe642112419036b4450efc761[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Tue Feb 14 17:16:22 2023 -0500
+
+    enrutamiento al header, HEADER -v 1.11
+
+[33mcommit 89f7f844c1e714d53f35b57d42a9fa6d200f07c6[m
+Merge: 5fc02d1 d100d8d
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Tue Feb 14 16:36:07 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit 5fc02d11944b359a415b06c24564e1be6908af62[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Tue Feb 14 16:35:56 2023 -0500
+
+    HEADER versión 1.0
+
+[33mcommit d100d8d971861e0d27917cf7a5ef8514bc5012c8[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Tue Feb 14 18:08:40 2023 -0300
+
+    Maquetado filters
+
+[33mcommit 17d421d87503fecf9b0c0d465fb4aec99b7f25ed[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Tue Feb 14 14:53:03 2023 -0500
+
+    modificación css
+
+[33mcommit b2fa9810bcccfdddc7fecf762a10b37e1e5733a1[m
+Merge: 99a9420 cb1edbf
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Tue Feb 14 14:50:36 2023 -0500
+
+    Merge branch 'front' of https://github.com/JairOlgL/CompuShop into front
+
+[33mcommit 99a9420ddebc8dc10cbd0d1ef0211e33f047e6f3[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Tue Feb 14 14:50:18 2023 -0500
+
+    Darle un poco de css al HEADER y agregarle controladores de estado
+
+[33mcommit cb1edbf5e658812683073c101b625d76d77a6918[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Tue Feb 14 14:10:43 2023 -0300
+
+    2
+
+[33mcommit fd05a587ecfb8a2e9857e3d51b66b5bc423e5b38[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Tue Feb 14 11:51:50 2023 -0500
+
+    barra de navegación DONE
+
+[33mcommit f585482c343d1fa900e8512913542f5b09478259[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Tue Feb 14 11:11:26 2023 -0500
+
+    Aviso de de pedidos del header DONE
+
+[33mcommit 5455fa66c7671dd45f8f65c4677194c71266b2f6[m
+Author: Mateo Carlos <mateocarlos402@hotmail.com>
+Date:   Tue Feb 14 12:46:51 2023 -0300
+
+    Para probar
+
+[33mcommit 3f65a6f5863c0a2558073d9c25de66026bbb5b03[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Mon Feb 13 20:55:06 2023 -0500
+
+    detalles al navBar
+
+[33mcommit 71ebd7d0619ccaa1909b6c2f337a1844144d6576[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Mon Feb 13 18:56:22 2023 -0500
+
+    primera versión del NavBar
+
+[33mcommit e3301359e7d90f9f3fdd51b16ef0a692809ed7e2[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Mon Feb 13 16:14:17 2023 -0500
+
+    carpetas de trabajo más estructuradas
+
+[33mcommit f2a597245bd272a65d5397fa928297020f03f946[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Mon Feb 13 15:48:21 2023 -0500
+
+    carpetas de trabajo más estructuradas y enrutamiendo configurado
+
+[33mcommit 5d7d6a25050c25d404c2107e054d78dbd47c0d50[m
+Author: troubles <cesar.troubles@gmail.com>
+Date:   Mon Feb 13 15:03:54 2023 -0500
+
+    redux connection DONE
+
+[33mcommit 3cf39ee98af071a01a5cf2bc2e33e2bd417d8dd5[m[33m ([m[1;31morigin/release[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/back[m[33m)[m
+Author: Jair Olguin <JairO@kra.com>
+Date:   Mon Feb 13 10:09:05 2023 -0600
+
+    xd
+
+[33mcommit 454228c90daac830fb7fa652b91873539755a9a9[m
+Author: Jair Olguin <ejair02@live.com.mx>
+Date:   Fri Feb 10 18:18:00 2023 -0600
+
+    First Push
+
+[33mcommit aa4f9608f468614bbec3298ead0859c4f85cba33[m
+Author: Jair Olguin <ejair02@live.com.mx>
+Date:   Fri Feb 10 18:15:02 2023 -0600
+
+    First Push

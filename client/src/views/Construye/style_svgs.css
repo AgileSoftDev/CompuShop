@@ -1,0 +1,30 @@
+.amd_inactive {
+    fill: #000000;
+  }
+.amd_active {
+    fill: #ffffff;
+}
+
+  
+.intel_active{
+  fill: #ffffff;
+}
+.intel_inactive{
+  fill: #0068b5;
+}
+
+
+.punto_grande_intel_active{
+  fill: #ffffff;
+}
+.punto_grande_intel_inactive{
+  fill: #00c7fd  ;
+}
+
+
+.puntoDeIntel_active{
+  fill: #ffffff;
+}
+.puntoDeIntel_inatcive{
+  fill: #00c7fd ;
+}

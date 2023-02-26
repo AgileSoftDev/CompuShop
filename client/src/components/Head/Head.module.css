@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
+
+
+#HeaderContainer{
+    background-color: rgb(44, 44, 37);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95px;
+}
+
+#NavBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 0;
+    width: 80%;
+    max-width: 1400px;
+}
+
+#logoContainer, #logoContainer img {
+    width: 300px;
+    margin-right: 15px;
+}
+
+
+#shoppingCartContainer{
+    background-color: rgb(161, 163, 165);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#shoppingCartContainer:hover:not(a Link img){
+    animation:  shaking infinite 2s;
+    /* background-color: rgb(26, 224, 142); */
+    background-color: #ffdf58;
+
+}
+
+@keyframes shaking {
+    5%{
+        transform: translate(0px, 0);
+    }
+    10%{
+        transform: translate(2px, 0);
+    }
+    15%{
+        transform: translate(0px, 0);
+    }
+    20%{
+        transform: translate(2px, 0);
+
+    }
+    25%{
+        transform: translate(0px, 0);
+    }
+    30%{
+        transform: translate(2px, 0);
+
+    }
+    35%{
+        transform: translate(0px, 0);
+
+    }
+    40%{
+        transform: translate(2px, 0);
+
+    }
+    45%{
+        transform: translate(0px, 0);
+
+    }
+    50%{
+        transform: translate(2px, 0);
+    }
+    55%{
+        transform: translate(0px, 0);
+    } 
+}
+
+#shoppingCartContainer a{
+    width: 30px;
+    height: 30px;
+}
+
+#shoppingCartContainer  img{
+    padding-top: 2px;
+    width: 30px;
+    pointer-events: none;
+}
+
+
+
+#loggingAndCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logging{
+    margin-left: 20px;
+    background-color: rgb(228, 117, 43);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(24, 23, 23);
+}
+
+#logging:active{
+    transform: scale(1.05);
+}
+
+#logging img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+
+
+#linkLoggind{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: #2c2c25;
+}

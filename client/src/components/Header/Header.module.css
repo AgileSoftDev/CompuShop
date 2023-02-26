@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;1,300;1,700&display=swap');
+
+
+#Header{
+    width: 100%;
+}
+
+#avisoContainer{
+    background-color: rgb(17, 14, 14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: rgb(231, 226, 219);
+    padding: 10px 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+}
+
+#avisoContainer h1{
+    margin-right: 15px;
+    font-weight: 700;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#avisoContainer span{
+    font-weight: 300;
+}
+
+#avisoContainer img{
+    width: 25px;
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
+}
