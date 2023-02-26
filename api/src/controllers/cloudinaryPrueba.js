@@ -1,82 +1,3 @@
-// const multer = require('multer');
-// const { Router }= require("express");
-// const cloudinary = require("../cloudinaryConfig/cloudinary.js")
-// const componentsRoutes= require("../routes/ComponentsRoutes")
-// const mime= require( "mime-types" )
-// const uploadRoutes= Router();
-// const path = require('path');
-
-
-// const subirImagen = (req, res) => {
-//     const ext = path.extname(req.img.originalname);
-// const nombreArchivo = path.basename(req.img.originalname, ext);
-// req.img.originalname = nombreArchivo + '-' + Date.now() + ext;
-
-//   cloudinary.uploader.upload(req.img.path, (error, resultado) => {
-//     if (error) {
-//       console.error(error);
-//       res.status(500).json({ error: 'Error al subir la imagen' });
-//     } else {
-//       res.status(200).json(resultado);
-//     }
-//   });
-// };
-
-
-// ////////////////Post de la imagen y almacenamiento local////////////////////////////////////
-// const storage = multer.diskStorage({
-//     destination: path.join(__dirname, '../public/uploads'),
-//     filename: (req, img, cb) => {
-//       const originalname = img.originalname;
-//       const ext = path.extname(originalname);
-//       const mimeType = mime.lookup(ext);
-//       const newExt = mimeType ? '.' + mime.extension(mimeType) : '';
-//       const newName = path.basename(originalname, ext);
-//       cb(null, newName + newExt);
-//     }
-//   });
-  
-//   const upload = multer({ storage: storage });
-//   uploadRoutes.post('/', upload.single('img'), function (req, res) {
-//       //////////////servicio///////////////
-//     console.log(req.img, req.body);
-//     res.send('Archivo cargado con éxito!');
-//   });
-
-//   uploadRoutes.post('/subir-imagen', upload.single('img'), async (req, res) => {
-//     if (!req.file) {
-//       return res.status(400).json({ message: 'No se ha subido ningún archivo' });
-//     }
-  
-//     try {
-//       const resultado = await subirImagen(req.file);
-//       res.status(200).json(resultado);
-//     } catch (error) {
-//       res.status(500).json({ error });
-//     }
-//   });
-
-//   componentsRoutes.post("/", upload.single('img'), async(req, res) => {
-//       const { name } = req.body;
-//       const img = req.file
-//       console.log(req.file)
-//       cloudinary.uploader.upload_stream({ resource_type: 'auto' },
-//       (error, result) => {
-//           if (error) {
-//             console.error(error);
-//             res.status(500).send('Error al subir archivo a Cloudinary');
-//           } else {
-//             // Aquí puedes hacer lo que quieras con los datos
-//             console.log('Nombre: ', name);
-//             console.log('URL del archivo en Cloudinary: ', result.url);
-    
-//             res.send('¡Datos del formulario recibidos y archivo subido a Cloudinary!');
-//           }
-//       })
-//       .end(img.buffer);
-//   })
-  
-// module.exports= uploadRoutes
 
 
 const multer = require('multer');
@@ -85,6 +6,7 @@ const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 const componentsRoutes= require("../routes/ComponentsRoutes")
 const mime= require( "mime-types" )
 const createComponent= require("./createComponents")
+const { allComps, findComp}= require("./getComponents")
 const uploadRoutes= Router();
 const path = require('path');
 
@@ -148,5 +70,34 @@ uploadRoutes.post('/', upload.single('img'), (req, res) => {
     }
   });
 });
+
+// componentsRoutes.get('/', upload.array('img'), async(req, res) => {
+//   try {
+//     const images = [];
+//     console.log(images)
+//     for (const file of req.files) {
+//       const result = await cloudinary.uploader.upload(file.path);
+//       images.push(result.secure_url);
+//     }
+
+//     const {name} = req.query;
+//     if (name) {
+//       const compSearch = await findComp(name);
+//       if (!compSearch) { 
+//         return res.status(400).send({error: "No such component found"});
+//       }
+//       compSearch.images = images;
+//       return res.status(200).send(compSearch);
+//     } else {
+//       const comps = await allComps();
+//       for (const comp of comps) {
+//         comp.images = images.filter(image => image.includes(comp._id));
+//       }
+//       return res.status(200).send(comps);
+//     }
+//   } catch (error) {
+//     return res.status(500).send({error: error.message});
+//   }
+// });
 
 module.exports = uploadRoutes;
