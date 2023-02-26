@@ -1,10 +1,9 @@
 //const axios = require("axios");
-//const {components} = require("../models/data.json");
+//const {components} = require("../../models/data.json");
 const Components = require("../../models/components");
 
 const allComps = async () => {
     return await Components.find()
-    console.log(allComps());
 }
 
 const findComp = async (name) => {
@@ -34,10 +33,10 @@ const findStock = async () => {
         if (!found) {
             stockfinal.push({
                 category: e.category,
-                stock: e.stock
+                stock: e.quantityStock
             });
         } else {
-            found.stock += e.stock;
+            found.quantityStock += e.quantityStock;
         }
     });
     return stockfinal;
