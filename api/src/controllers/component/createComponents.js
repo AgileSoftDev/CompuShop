@@ -53,6 +53,10 @@ const newCreateComponent = async data => {
             component.schema.add(PSUs);
             component.overwrite(data)
             break;
+        case 'FUENTE':
+            component.schema.add(PSUs);
+            component.overwrite(data)
+            break;
         default:
             throw 'Aún no contamos con esa categoría; crea una o revisa tu ortografía';
     }
