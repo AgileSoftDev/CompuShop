@@ -3,10 +3,8 @@
 const multer = require('multer');
 const { Router }= require("express");
 const cloudinary = require("../cloudinaryConfig/cloudinary.js")
-const componentsRoutes= require("../routes/ComponentsRoutes")
 const mime= require( "mime-types" )
 const createComponent= require("./createComponents")
-const { allComps, findComp}= require("./getComponents")
 const uploadRoutes= Router();
 const path = require('path');
 
@@ -71,33 +69,21 @@ uploadRoutes.post('/', upload.single('img'), (req, res) => {
   });
 });
 
-// componentsRoutes.get('/', upload.array('img'), async(req, res) => {
-//   try {
-//     const images = [];
-//     console.log(images)
-//     for (const file of req.files) {
-//       const result = await cloudinary.uploader.upload(file.path);
-//       images.push(result.secure_url);
-//     }
+uploadRoutes.post('/subir-imagen', upload.single('img'), (req, res) => {
 
-//     const {name} = req.query;
-//     if (name) {
-//       const compSearch = await findComp(name);
-//       if (!compSearch) { 
-//         return res.status(400).send({error: "No such component found"});
-//       }
-//       compSearch.images = images;
-//       return res.status(200).send(compSearch);
-//     } else {
-//       const comps = await allComps();
-//       for (const comp of comps) {
-//         comp.images = images.filter(image => image.includes(comp._id));
-//       }
-//       return res.status(200).send(comps);
-//     }
-//   } catch (error) {
-//     return res.status(500).send({error: error.message});
-//   }
-// });
+  // Subir la imagen a Cloudinary
+  cloudinary.uploader.upload(req.file.path, async(err, result) => {
+    const result2= result
+    if (err) {
+      console.log('Error al subir la imagen:', err);
+      res.status(500).json({ mensaje: 'Error al subir la imagen' });
+    } else {
+      // La imagen se ha subido correctamente, guardar la URL en la base de datos o en otra ubicación
+      const url = result2.secure_url;
+      console.log('Imagen subida correctamente:', url);
+      res.json({ mensaje: 'Imagen subida correctamente', url: url });
+    }
+  });
+});
 
 module.exports = uploadRoutes;

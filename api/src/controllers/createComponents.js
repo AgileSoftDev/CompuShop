@@ -1,5 +1,5 @@
 const Components = require('./../models/components.js')
-// const cloudinary = require("../cloudinaryConfig/cloudinary.js")
+
 const createComponent = async data => {
     // console.log(data)
     if(!data.name) throw 'Atributo «Nombre» es requerido';

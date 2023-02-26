@@ -14,7 +14,7 @@ const updateComponents = async(id, data) => {
     component.stock= data.stock;
     component.quantityStock= data.quantityStock;
     component.img = data.img;
-    // console.alert("El componente fue actualizado")
+    
     return await component.save().catch(e => console.log(e))
 }
 
