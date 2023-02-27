@@ -204,7 +204,8 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             
         case REMOVE_ITEM_CART:
             const cartttt= state.shoppingCart.map(e=>e)
-            const arrFiltrado = cartttt.filter((item) => item._id !== payload);            
+            const arrFiltrado = cartttt.filter((item) => item._id !== payload);    
+            window.localStorage.setItem('carrito', JSON.stringify(arrFiltrado))        
             return{
                 ...state
                 ,shoppingCart: arrFiltrado,
