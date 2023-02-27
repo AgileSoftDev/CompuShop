@@ -47,11 +47,20 @@ const getDetailComponent = (component) => {
 };
 
 
-function searchComponent(component) {
-        return {
-                type: SEARCH_COMPONENT,
-                payload: component
-            }
+function searchComponent(payload) {
+    return async dispatch => {
+        const ruta = `http://localhost:3001/components?name=${payload}`
+        let {data} = await axios.get(ruta)
+        .catch(error => alert("Error en la action getAllComponents, al obtener la data"));
+
+        console.log(data);
+
+                dispatch({
+                    type: GET_ALL_COMPONENTS,
+                    payload: data,
+                 })
+         
+    }
 };
 
 

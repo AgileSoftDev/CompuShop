@@ -11,8 +11,10 @@ import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
 import Ayuda from "./views/Ayuda/Ayuda";
 import DetalleProducto from "./views/DetalleProducto/DetalleProducto";
 import Admin from "./admin/view/Admin.jsx";
+import PasarelaPago from "./components/PasarelaPago/PasarelaPago";
 // import EditUser from "./views/EditUser/EditUser"
 // import Ayuda from "./views/Ayuda/Ayuda";
+
 
 
 
@@ -32,6 +34,7 @@ function App() {
         <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
         {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
         <Route  path={"/admin"} render={()=> <Admin/>}/>
+        <Route exact path={"/pasarela"} render={()=><PasarelaPago/>}/>
         { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && <Footer/>}
     </div>
   );

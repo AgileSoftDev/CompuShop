@@ -11,6 +11,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+// import { current } from "@reduxjs/toolkit";
 
 
 
@@ -23,10 +24,13 @@ const NavBar = ()=>{
 
     const cartRef = useRef(null);
     const cartIconRef = useRef(null);
+    const buttonComprarRef = useRef(null)
+    const trashRef = useRef(null)
     const [numberStatus, setNumberStatus] = useState()
 
     const setCartOff = (e) =>{
-        if (!cartRef.current.contains(e.target) && e.target !== cartIconRef.current)setShoppingCart(false)
+        if (!cartRef.current.contains(e.target) && e.target !== cartIconRef.current )setShoppingCart(false)
+        if(e.target===buttonComprarRef.current)setShoppingCart(false)
     }
 
     useEffect(()=>{
@@ -54,7 +58,7 @@ const NavBar = ()=>{
                     </div>
                     <div id={shoppingCartStatus?style.shoppingCartActive:undefined}>
                         <div ref={cartRef}  style={shoppingCartStatus ? { height: `${cartRef.current.scrollHeight}px` }: { height: '0px' }}>
-                           <ShoppingCart />
+                           <ShoppingCart refToTrash={trashRef} buttonComprarRef={buttonComprarRef} />
                         </div>
                     </div>
                     <p id={style.itemNumber}>{numberStatus}</p>

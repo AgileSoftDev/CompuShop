@@ -242,11 +242,13 @@ const Construye = () =>{
 
 
     const moveStepHandler = (type) =>{
-        const step = getCurrentStep(cleanPathname(pathname)) + type
-        const newRoute ='paso' + String(step)
-        if (pathname === "/construye")  history.push("/construye/"+newRoute)
-        else  history.push(newRoute)
-        setCurrentStep(step )
+        if (pathname !== "/construye/paso10") {
+            const step = getCurrentStep(cleanPathname(pathname)) + type
+            const newRoute ='paso' + String(step)
+            if (pathname === "/construye")  history.push("/construye/"+newRoute)
+            else  history.push(newRoute)
+            setCurrentStep(step )
+        }
     } 
 
 
@@ -303,7 +305,7 @@ const Construye = () =>{
                                 {choosenComponents.case&&<p id={style.nameComponentPicked}>{choosenComponents.case.name}</p>}
                             </li>
                             <li>
-                                <img className={!componet.peripherals?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({peripherals:true});dispatch(setStepBuildPc('/construye/paso10'))}} src={choosenComponents?.peripherals?.length?choosenComponents.peripherals.img:componet.peripherals?peripherals_active:peripherals} alt="peripherals" />
+                                <img className={!componet.peripherals?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({peripherals:true});dispatch(setStepBuildPc('/construye/paso10'))}} src={choosenComponents?.peripherals?choosenComponents.peripherals.img:componet.peripherals?peripherals_active:peripherals} alt="peripherals" />
                                 {!!choosenComponents?.peripherals?.length&& <p id={style.nameComponentPicked}>{choosenComponents.peripherals.name}</p>}
                             </li>
                         </ul>

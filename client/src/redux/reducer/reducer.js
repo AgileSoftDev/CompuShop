@@ -24,7 +24,7 @@ const initialState = {
     step_build_pc:undefined,
     categoryPick: undefined,
     orderPrice:undefined,
-    shoppingCart: []
+    shoppingCart:window.localStorage.getItem("carrito")===null?[]:JSON.parse(window.localStorage.getItem("carrito")),
 }
 
 
@@ -53,14 +53,13 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             };
 
         case SEARCH_COMPONENT:
-                return {
-                    ...state,
-                    paginated: paginationArray(
-                        state.allComponents.filter(item => 
-                            item.name.slice(0, payload.trim().length).toLowerCase() === payload.trim().toLowerCase()
-                        ), 15),
-                    numPaginado: 0,
-                };
+
+
+            return{
+                ...state,
+                allComponents:payload,
+                paginated: paginationArray(payload, 9),
+            }
         
         case GET_ALL_COMPONENTS:
             data = state.orderPrice?sortByPrice(payload, state.orderPrice) :payload
@@ -122,6 +121,13 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 ...newState
                 };
 
+        case CLEAN_ARMA_TU_PC:
+            localStorage.removeItem('pc_build');
+            return{
+                ...state,
+                build_pc:{}
+            }
+
         case ADD_TO_CART:
             const cart = state.shoppingCart.map(e=>e);
             const itemInCart = cart.find((item ,) => item._id === payload._id);
@@ -143,6 +149,8 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             } else {
                 cart.push({ ...payload, quantity: 1 });
             }
+
+            window.localStorage.setItem('carrito', JSON.stringify(cart))
             return {
                 ...state,
                 shoppingCart: cart,
@@ -161,6 +169,7 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 quantity:itemPlus.quantity+1
             }
             cartt.splice(indexx,1,newob)
+            window.localStorage.setItem('carrito', JSON.stringify(cartt))
 
             return{
                 ...state,
@@ -181,6 +190,7 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                     quantity:itemLess.quantity-1
                 }
                 carttt.splice(indexxx,1,newobb)
+                window.localStorage.setItem('carrito', JSON.stringify(carttt))
 
                 return{
                     ...state,
@@ -193,10 +203,11 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             }
             
         case REMOVE_ITEM_CART:
-            const removeItem = state.shoppingCart.filter((item) => item.id !== payload);
-            state.shoppingCart = removeItem;
+            const cartttt= state.shoppingCart.map(e=>e)
+            const arrFiltrado = cartttt.filter((item) => item._id !== payload);            
             return{
                 ...state
+                ,shoppingCart: arrFiltrado,
             }
 
         default:

@@ -26,13 +26,16 @@
     border-radius: 10px;
     border: none;
     font-size: 20px;
-    color: #2c2c25;
-    font-family: 'Tilt Neon', cursive;
     font-weight: 800;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#ShoppingCart>:nth-child(2)>button>a{
+    text-decoration: none;
+    color: #2c2c25;
+    font-family: 'Tilt Neon', cursive;
 }
 
 #ShoppingCart>:nth-child(2)>h3{
