@@ -12,9 +12,7 @@ import Ayuda from "./views/Ayuda/Ayuda";
 import DetalleProducto from "./views/DetalleProducto/DetalleProducto";
 import Admin from "./admin/view/Admin.jsx";
 import EditUser from "./views/EditUser/EditUser"
-
-
-
+// import Ayuda from "./views/Ayuda/Ayuda";
 
 
 
@@ -34,10 +32,7 @@ function App() {
         <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
         {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
         <Route  path={"/admin"} render={()=> <Admin/>}/>
-    
-        
         { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && <Footer/>}
-
     </div>
   );
 }

@@ -127,7 +127,6 @@ const EditUser = ()=>{
                                     <div>{errors.name}</div>
                                 )}
                             />
-                       
 
                         </div>
                         <label htmlFor="surname">Apellido: </label>
