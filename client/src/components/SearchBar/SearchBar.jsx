@@ -1,14 +1,17 @@
 import style from "./SearchBar.module.css"
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import lupa from "../../assets/icons/lupa.png"
 import xIcon from "../../assets/icons/X-icon_black.svg"
-import { searchComponent } from "../../redux/actions/actions";
+import { searchComponent,getAllComponents } from "../../redux/actions/actions";
 import { useDispatch } from "react-redux";
+import {useHistory} from "react-router-dom"
+
 
 
 
 
 const SearchBar = () =>{
+    const pathname = useHistory().location.pathname; 
 
     const inputRef = useRef()
     const dispatch = useDispatch();
@@ -20,20 +23,21 @@ const SearchBar = () =>{
         const value = e.target.value
         setInputStatus(value)
         value.length > 0 ? setLogoSearchBarStatus(false): setLogoSearchBarStatus(true)
-        dispatch(searchComponent(value))
     }
 
-    const handlerSubmit=(e) =>{
+    const  handlerSubmit=(e) =>{
         e.preventDefault();
-        alert(`Buscaste:   *${inputStatus}*`)
-        setInputStatus("")
-        setLogoSearchBarStatus(true)
+        dispatch(searchComponent(inputStatus))
     }
 
 
     const loupeHadler = () =>{
         inputRef.current.focus(); 
     }
+
+    useEffect(()=>{
+        setInputStatus("")
+    },[pathname])
 
     return(
         <div id={style.SearchBarContainer}  >
@@ -42,7 +46,7 @@ const SearchBar = () =>{
             </form>
             {logoSearchBarStatus?
                                 <button onClick={()=>loupeHadler() } ><img src={lupa} alt="lupa" /></button>   :
-                                <button id={style.xIcon} onClick={()=>{setInputStatus(""); setLogoSearchBarStatus(!logoSearchBarStatus)}} ><img src={xIcon} alt="X icon" /></button>}
+                                <button id={style.xIcon} onClick={()=>{setInputStatus(""); setLogoSearchBarStatus(!logoSearchBarStatus);dispatch(getAllComponents())}} ><img src={xIcon} alt="X icon" /></button>}
         </div>
     )
 };
