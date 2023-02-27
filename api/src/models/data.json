@@ -342,7 +342,7 @@
         },
         {
           "name": "NV2",
-          "category": "SSD",
+          "category": "STORAGE",
           "price":1249,
           "description":"Unidad de Estado Solido M.2 KINGSTON / 1TB (SNV2S/1000G) / NV2 / PCIE 4.0 / NVME 2280",
           "img":"https://res.cloudinary.com/dhwyjetxl/image/upload/v1677435730/wdg1zxjwd8dtqvjptggk.jpg",
@@ -369,7 +369,7 @@
           "category": "STORAGE",
           "price":569,
           "description":"Unidad de Estado Sólido TeamGroup T-Force Vulcan Z / 512GB / SLC Cache 3D NAND TLC / SATA III / R/W velocidad hasta 530/470 MB/s / T253TZ512G0C101",
-          "img":"https://res.cloudinary.com/dhwyjetxl/image/upload/v1677435785/pwwmdlrtljhdt3si67xm.jpg",
+          "img":"https://res.cloudinary.com/dhwyjetxl/image/upload/v1677463182/scjq211b5cpvweoqa6k9.jpg",
           "description_2": "Capacity 1 TB",
           "description_3": "Read speed 550 MB/s",
           "description_4": "Write speed 500 MB/s",
@@ -435,6 +435,66 @@
           "description_4": "Modular NO",
           "stock":false,
           "quantityStock":0
-        }
+        },
+        {
+          "name": "NZXT Kraken X63",
+          "category": "Cooler",
+          "price": 3699,
+          "description": "AIO Liquid Cooler 280mm",
+          "img": "https://res.cloudinary.com/dhwyjetxl/image/upload/v1677463182/scjq211b5cpvweoqa6k9.jpg",
+          "description_2": "Customizable RGB lighting",
+          "description_3": "CAM software for monitoring and control",
+          "description_4": "Includes a 280mm radiator and two Aer P140mm fans",
+          "stock": true,
+          "quantityStock": 5
+        },
+        {
+          "name": "Noctua NH-D15",
+          "category": "Cooler",
+          "price": 2799,
+          "description": "Dual-tower CPU Cooler",
+          "img": "https://res.cloudinary.com/dhwyjetxl/image/upload/v1677465996/ncq0e6gnui2fxrh4cxb6.jpg",
+          "description_2": "Six heatpipe dual tower design",
+          "description_3": "Compatible with both Intel and AMD sockets",
+          "description_4": "Quiet and efficient NF-A15 140mm fans included",
+          "stock": true,
+          "quantityStock": 10
+        },
+        {
+          "name": "Corsair H100i RGB Platinum SE",
+          "category": "Cooler",
+          "price": 3899,
+          "description": "AIO Liquid Cooler 240mm",
+          "img": "https://res.cloudinary.com/dhwyjetxl/image/upload/v1677466214/kyida39miplnsx30qzxa.png",
+          "description_2": "Customizable RGB lighting",
+          "description_3": "Includes a 240mm radiator and two ML120 PRO RGB PWM fans",
+          "description_4": "iCUE software for monitoring and control",
+          "stock": true,
+          "quantityStock": 7
+        },
+        {
+          "name": "be quiet! Dark Rock Pro 4",
+          "category": "Cooler",
+          "price": 2599,
+          "description": "Dual-tower CPU Cooler",
+          "img": "https://res.cloudinary.com/dhwyjetxl/image/upload/v1677466214/kyida39miplnsx30qzxa.png",
+          "description_2": "Seven heatpipe dual tower design",
+          "description_3": "Silent Wings 3 120mm PWM fans",
+          "description_4": "Easy to install and compatible with most motherboards",
+          "stock": true,
+          "quantityStock": 9
+        },
+        {
+          "name": "Cooler Master Hyper 212 RGB Black Edition",
+          "category": "Cooler",
+          "price": 999,
+          "description": "Single-tower CPU Cooler",
+          "img": "https://res.cloudinary.com/dhwyjetxl/image/upload/v1677466454/cid5bqt3ojruo5tkkhoc.jpg",
+          "description_2": "Customizable RGB lighting",
+          "description_3": "Direct contact technology for better heat dissipation",
+          "description_4": "Quiet and efficient SF120R RGB fan included",
+          "stock": true,
+          "quantityStock": 15
+        }    
   ]
 }
