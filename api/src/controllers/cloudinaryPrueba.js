@@ -1,15 +1,20 @@
-
-
-// const multer = require('multer');
-const cloudinaryStorage = require('multer-storage-cloudinary');
+const multer = require('multer');
+const {CloudinaryStorage} = require('multer-storage-cloudinary');
 const { Router }= require("express");
-const cloudinary = require("../cloudinaryConfig/cloudinary.js")
+// const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 const mime= require( "mime-types" )
 const createComponent= require("./createComponents")
 const uploadRoutes= Router();
 // const path = require('path');
 
+const cloudinary = require('cloudinary').v2;
 
+cloudinary.config({
+  cloud_name: "dhwyjetxl",
+  api_key: "195214223213211",
+  api_secret: "8vbCgWu90HVms1DRB6ibl0Gfnao"
+});
+module.exports= cloudinary
 const subirImagen = (file) => {
   const ext = path.extname(file.originalname);
   const nombreArchivo = path.basename(file.originalname, ext);
@@ -40,7 +45,7 @@ const subirImagen = (file) => {
 //     cb(null, newName + newExt);
 //   }
 // });
-const storage = cloudinaryStorage({
+const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   folder: 'uploads',
   allowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
@@ -48,7 +53,6 @@ const storage = cloudinaryStorage({
     cb(null, file.originalname);
   }
 });
-
 const upload = multer({ storage: storage });
 
 uploadRoutes.post('/', upload.single('img'), (req, res) => {
