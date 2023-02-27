@@ -1,62 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './ControlPanel.module.css';
 import { PieChart, Pie, Legend, Cell, Tooltip, ResponsiveContainer } from 'recharts';
-
-const dataStock = [
-  {
-    category: "GPU",
-    stock: 0
-  },
-  {
-    category: "BOARD",
-    stock: 17
-  },
-  {
-    category: "CPU",
-    stock: 0
-  },
-  {
-    category: "CHASIS",
-    stock: 18
-  },
-  {
-    category: "RAM",
-    stock: 0
-  },
-  {
-    category: "STORAGE",
-    stock: 75
-  },
-  {
-    category: "SSD",
-    stock: 23
-  },
-  {
-    category: "FUENTE",
-    stock: 37
-  },
-  {
-    category: "motherboard",
-    stock: 0
-  },
-  {
-    category: "storage",
-    stock: 0
-  },
-  {
-    category: "PSU",
-    stock: 0
-  }
-]
-
-const data01 = dataStock.map(item => {
-  if (item.stock > 0) {
-    return {
-      name: item.category,
-      value: item.stock
-    }
-  }
-})
+import axios, { all } from 'axios';
 
 const COLORS = [
 '#FF5733',
@@ -68,42 +13,41 @@ const COLORS = [
 '#FBC02D',
 '#E0E0E0'];
 
-const data = [
-  {
-    id: "javascript",
-    label: "javascript",
-    value: 263,
-    color: "hsl(187, 70%, 50%)"
-  },
-  {
-    id: "sass",
-    label: "sass",
-    value: 19,
-    color: "hsl(0, 70%, 50%)"
-  },
-  {
-    id: "hack",
-    label: "hack",
-    value: 254,
-    color: "hsl(121, 70%, 50%)"
-  },
-  {
-    id: "css",
-    label: "css",
-    value: 295,
-    color: "hsl(117, 70%, 50%)"
-  },
-  {
-    id: "scala",
-    label: "scala",
-    value: 481,
-    color: "hsl(112, 70%, 50%)"
-  }
-]
-
 const ControlPanel = () => {
+  
+
+  const [allDataStock, setAllDataStock] = useState([])
+
+const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const getDataStock =async()=>{
+        const {data} = await axios.get("https://compu-shop-weld.vercel.app/components/stock/all").catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+        if (data.length) {
+            const dataFilter = data?.map(item => {
+              if (item.stock > 0) {
+                return {
+                  name: item.category,
+                  value: item.stock
+                }
+              }
+            })
+            setAllDataStock(dataFilter)
+            setLoading(false)
+        }
+    }
+    getDataStock()
+}, [])
+  
+useEffect(() => {
+  console.log(allDataStock);
+}, [allDataStock])
+
   return (
     <div>
+              {
+            loading ? <div class={style.loader}></div> : undefined
+        }
         <div className={style.card}>
             <h1>Control Panel</h1>
             <div className={style.card_header}>
@@ -123,12 +67,12 @@ const ControlPanel = () => {
                 <Pie
                   dataKey="value"
                   isAnimationActive={true}
-                  data={data01}
+                  data={allDataStock && allDataStock}
                   outerRadius={120}
                   fill="#c2521c"
                   label
                 >
-                {data01.map((entry, index) => (
+                {allDataStock && allDataStock?.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index]} />
                 ))}
                 </Pie>

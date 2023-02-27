@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import style from './TableProductos.module.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const TableLoaded = ({allComponents}) => {
     return (
@@ -57,6 +58,7 @@ const LoaderTableProducts = () => {
 const TableProductos = () => {
 
 const [allComponents, setAllComponentes] = useState([])
+
 const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -91,7 +93,7 @@ const [loading, setLoading] = useState(true)
                     <input placeholder='Search...' className={style.searchBar}></input>
                 </div>
                 <div>
-                    <button  className={style.buttons}>Agregar Producto</button>
+                    <Link  className={style.buttons} to={'/admin/products/add'}>Agregar Producto</Link>
                     <button  className={style.buttons}>Mostrar Inactivos</button>
                 </div>
             </div>
