@@ -110,26 +110,6 @@
 //             >
 //                 {({ errors }) => (
 //                     <Form className="formulario">
-<<<<<<< Updated upstream
-=======
-                       
-//                         <div id={style.container}>
-//                          <div id={style.formualario}>
-//                             <h1>ACTUALIZA TUS DATOS</h1>
-//                             <div className="formulario"></div>
-//                             <div id={style.formik}>
-//                                 <div></div>
-//                             <label htmlFor="image">Imagen de perfil</label>
-//                             <Field type="text" id="image" name="image"/>
-//                             <label htmlFor="name">Nombre: </label>
-//                             <Field type="text" id="name" name="name" placeholder="Tu nombre" />
-//                             <ErrorMessage
-//                                 name="name"
-//                                 component={() => (
-//                                     <div>{errors.name}</div>
-//                                 )}
-//                             />
->>>>>>> Stashed changes
                        
 //                         <div id={style.container}>
 //                          <div id={style.formualario}>
@@ -148,15 +128,9 @@
 //                                 )}
 //                             />
 
-<<<<<<< Updated upstream
 // //                         </div>
 // //                         <label htmlFor="surname">Apellido: </label>
 // //                         <Field
-=======
-//                         </div>
-//                         <label htmlFor="surname">Apellido: </label>
-//                         <Field
->>>>>>> Stashed changes
 //                             type="text"
 //                             id="surname"
 //                             name="surname"
@@ -251,8 +225,4 @@
    
 //      } 
 
-<<<<<<< Updated upstream
 // export default EditUser;
-=======
-// export default EditUser;
->>>>>>> Stashed changes

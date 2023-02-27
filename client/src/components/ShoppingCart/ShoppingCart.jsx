@@ -12,7 +12,9 @@ const ShoppingCart = (props) =>{
     useEffect(()=>{
         let num = 0;
         itemsToBuy.forEach(e => {
-            num = num + e.price
+            let price = e.price
+            if(e.quantity)price=price*e.quantity
+            num = num + price
         });
         setTotal(num)
     },[itemsToBuy])
@@ -20,7 +22,7 @@ const ShoppingCart = (props) =>{
     return(
     <div id={style.ShoppingCart}>
         <div>
-           {itemsToBuy.map(e=> <CardShoppingCart key={e._id} title={e.name} img={e.img} id={e._id} price={e.price} cantidad={e.quantity} refToTrash={props.refToTrash}/>)}
+           {itemsToBuy.map(e=> <CardShoppingCart key={e._id} title={e.name} img={e.img} id={e._id}  cantidad={e.quantity} refToTrash={props.refToTrash}/>)}
         </div>
         <div>
             <button><Link ref={props.buttonComprarRef} to={"/pasarela"}>Comprar</Link> </button>
