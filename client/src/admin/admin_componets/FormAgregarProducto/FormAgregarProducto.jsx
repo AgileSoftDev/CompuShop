@@ -37,11 +37,13 @@ const FormAgregarProducto = () => {
         quantityStock: 0,
     },
     onSubmit: async (values) => {
+      
       if(values.stock === 'true') values.stock = true
       if(values.stock === 'false') values.stock = false
+
       var data = new FormData();
       data.append('img', file);
-      console.log(file)
+      // console.log(file)
       data.append('name', values.name);
       data.append('category', values.category);
       data.append('price', values.price);
@@ -52,12 +54,14 @@ const FormAgregarProducto = () => {
       data.append('stock', values.stock);
       data.append('quantityStock', values.quantityStock);
       alert(JSON.stringify(values, null, 2));
-      console.log(data)
-      const url= "https://compu-shop-qqkcc8odp-compushop.vercel.app/upload/"
+      // console.log(data)
+      const url= "http://localhost:3001/upload/"
       await axios.post(url, data)
-        .then(res => console.log(res))
-        .catch(error => console.log(error))
-      }}
+      .then(res => console.log(res))
+      .catch(error => console.log(error))
+      console.log("me ejecute")
+      }
+    }
       );
 //hola saas
   return (

@@ -14,7 +14,7 @@ cloudinary.config({
   api_key: "195214223213211",
   api_secret: "8vbCgWu90HVms1DRB6ibl0Gfnao"
 });
-module.exports= cloudinary
+
 const subirImagen = (file) => {
   const ext = path.extname(file.originalname);
   const nombreArchivo = path.basename(file.originalname, ext);
@@ -47,7 +47,7 @@ const subirImagen = (file) => {
 // });
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
-  folder: 'uploads',
+  // folder: 'uploads',
   allowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -57,7 +57,7 @@ const upload = multer({ storage: storage });
 
 uploadRoutes.post('/', upload.single('img'), (req, res) => {
   cloudinary.uploader.upload(req.file.path, async(error, result) => {
-    console.log(req.file)
+    // console.log(req.file)
     const result2= result
     if (error) {
       console.error(error);
@@ -94,7 +94,7 @@ uploadRoutes.post('/subir-imagen', upload.single('img'), (req, res) => {
     } else {
       // La imagen se ha subido correctamente, guardar la URL en la base de datos o en otra ubicación
       const url = result2.secure_url;
-      console.log('Imagen subida correctamente:', url);
+      // console.log('Imagen subida correctamente:', url);
       res.json({ mensaje: 'Imagen subida correctamente', url: url });
     }
   });
