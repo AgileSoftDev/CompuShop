@@ -11,7 +11,7 @@ import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
 import Ayuda from "./views/Ayuda/Ayuda";
 import DetalleProducto from "./views/DetalleProducto/DetalleProducto";
 import Admin from "./admin/view/Admin.jsx";
-import EditUser from "./views/EditUser/EditUser"
+// import EditUser from "./views/EditUser/EditUser"
 // import Ayuda from "./views/Ayuda/Ayuda";
 
 
@@ -28,7 +28,7 @@ function App() {
         <Route exact path={"/producto/:id"} render={()=> <DetalleProducto/>} />
         <Route path={"/construye"} render={()=> <Construye/>} />
         <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
-        <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
+        {/* <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
         {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
         <Route  path={"/admin"} render={()=> <Admin/>}/>
         { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && <Footer/>}
