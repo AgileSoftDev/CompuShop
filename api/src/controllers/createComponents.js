@@ -6,6 +6,7 @@ const createComponent = async data => {
     if(!data.img) throw 'Atributo «Imagen» es requerido';
     if(!data.category) throw 'Atributo «Categoría» es requerido';
     if(!data.price) throw 'Atributo «Precio» es requerido';
+    if(!data.img) throw 'Atributo «img» es requerido';
     if(!data.description) throw 'Atributo «Descripción» es requerido';
     if(!data.description_2) throw 'Atributo «Descripción_2» es requerido';
     if(!data.description_3) throw 'Atributo «Descripción_3» es requerido';
