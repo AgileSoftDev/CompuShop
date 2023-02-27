@@ -27,7 +27,7 @@ const initialState = {
     shoppingCart:window.localStorage.getItem("carrito")===null?[]:JSON.parse(window.localStorage.getItem("carrito")),
 }
 
-//hola
+//hola de nuevo
 const rootReducer = (state = initialState, { type, payload }) =>{
 
     
