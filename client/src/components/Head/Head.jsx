@@ -22,11 +22,11 @@ const NavBar = ()=>{
     const { isAuthenticated } = useAuth0();
 
     const cartRef = useRef(null);
-    const cartContaiRef = useRef(null);
+    const cartIconRef = useRef(null);
     const [numberStatus, setNumberStatus] = useState()
 
     const setCartOff = (e) =>{
-        if (e.target !== cartRef.current && e.target !== cartContaiRef.current)setShoppingCart(false)
+        if (!cartRef.current.contains(e.target) && e.target !== cartIconRef.current)setShoppingCart(false)
     }
 
     useEffect(()=>{
@@ -49,7 +49,7 @@ const NavBar = ()=>{
                     <LoginButton/>
                 )}
                 <div id={style.shoppingCartContainer}  style={shoppingCartStatus ? { backgroundColor: '#ffdf58' } : undefined} >
-                    <div ref={cartContaiRef}  onClick={()=>setShoppingCart(!shoppingCartStatus)} >
+                    <div ref={cartIconRef}  onClick={()=>setShoppingCart(!shoppingCartStatus)} >
                         <img src={shoppingCart} alt="shoping Cart"/>
                     </div>
                     <div id={shoppingCartStatus?style.shoppingCartActive:undefined}>
