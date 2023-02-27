@@ -190,7 +190,7 @@ const Construye = () =>{
                     let data = [];
 
                     await Promise.all(category.map(async e => {
-                        let { data: data1 } = await axios.get(`http://localhost:3001/components/${e}`).catch(e => {
+                        let { data: data1 } = await axios.get(`https://compu-shop-weld.vercel.app/components/${e}`).catch(e => {
                             console.log(`No se encontraron componentes con la categoría ${category}`);
                             return "no data"
                         });
@@ -200,7 +200,7 @@ const Construye = () =>{
                     setCardsToShow(data)
 
                 }else if(typeof(category) ==="string"){
-                    let {data} = await axios.get(`http://localhost:3001/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
+                    let {data} = await axios.get(`https://compu-shop-weld.vercel.app/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
         
  
                     setCardsToShow(data)

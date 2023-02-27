@@ -23,7 +23,7 @@ const DetalleProducto = () => {
           });
         const getDetailComponentById = async () => {
 
-             const {data} = await  axios.get(`http://localhost:3001/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
+             const {data} = await  axios.get(`https://compu-shop-weld.vercel.app/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
              setComponet(data)  
         }
 
