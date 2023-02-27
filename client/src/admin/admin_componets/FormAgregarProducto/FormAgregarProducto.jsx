@@ -51,7 +51,7 @@ const FormAgregarProducto = () => {
       data.append('stock', values.stock);
       data.append('quantityStock', values.quantityStock);
       alert(JSON.stringify(values, null, 2));
-      await axios.post('http://localhost:3001/upload/', data)
+      await axios.post('https://compu-shop-weld.vercel.app/upload/', data)
         .then(res => console.log(res))
         .catch(error => console.log(error))
       }}
