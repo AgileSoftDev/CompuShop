@@ -27,7 +27,7 @@ const FormAgregarProducto = () => {
     initialValues: {
         name: '',
         price: 0,
-        category: '',
+        category: 'GPU',
         maker: '',
         description: '',
         description_2: '',
@@ -50,11 +50,12 @@ const FormAgregarProducto = () => {
       data.append('description_4', values.description_4);
       data.append('stock', values.stock);
       data.append('quantityStock', values.quantityStock);
-      await axios.post('https://compu-shop-weld.vercel.app/upload/', data)
+      alert(JSON.stringify(values, null, 2));
+      await axios.post('http://localhost:3001/upload/', data)
         .then(res => console.log(res))
         .catch(error => console.log(error))
-      },
-  });
+      }}
+      );
 
   return (
     <div>
@@ -67,8 +68,13 @@ const FormAgregarProducto = () => {
                 Agregue los productos a la base de datos de CompuShop
             </p>
         </div>
-        <div className={style.card}>
-          <form onSubmit={formik.handleSubmit} className={style.form_container}>
+        <div 
+          className={style.card}
+        >
+          <form 
+            onSubmit={formik.handleSubmit} 
+            className={style.form_container}
+          >
               
               <div className={style.form_item}>
                 <div>
@@ -153,7 +159,6 @@ const FormAgregarProducto = () => {
                 <div>
                   <input 
                       className={style.form_input2}
-                  
                       type="number" 
                       id="quantityStock"
                       name="quantityStock"

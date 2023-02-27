@@ -1,6 +1,5 @@
 
 .card {
-    
     width: 80%;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -17,7 +16,6 @@
   }
 
   .form_item {
-    
     padding: 1em;
   }
 
