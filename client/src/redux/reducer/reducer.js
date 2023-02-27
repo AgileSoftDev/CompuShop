@@ -19,7 +19,7 @@ const initialState = {
         psu: undefined,
         case: undefined,
         screen: undefined,
-        peripherals:[],
+        peripherals:undefined,
     },
     step_build_pc:undefined,
     categoryPick: undefined,
