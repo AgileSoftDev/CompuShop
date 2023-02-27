@@ -1,76 +1,151 @@
-#formulario {
-	max-width: 500px;
-    margin: 1em auto;
-	background: #fff;
-	border-radius: 5px;
-	padding: 2.5em;;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
-#formulario h1{
-    color: #fd611a;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+  
 
 }
-#formulario > div {
-	margin-bottom: 20px;
+
+body {
+  background: #eeee;
+  color: black;
+
+
 }
 
-#formulario label {
-	display: block;
-	font-weight: 600;
-	font-size: 14px;
-	margin-bottom: 5px;
-	color: #fd611a;;
+.container {
+  user-select: none;
+  min-height: 587px;
 }
 
-#formulario input,
-#formulario textarea {
-	font-family: 'Open Sans', sans-serif;
-	width: 100%;
-	border-radius: 5px;
-	border: 2px solid #e2e2e2;
-	font-size: 18px;
-	padding: 10px;
-	margin-bottom: 5px;
-	color: #1f1f1f;
+.title {
+  text-align: 50%;
+  font-size: 4em;
+  font-weight: 900;
+  margin: .2em 0;
+}
+h1{
+    font-size: 18px;
+    font-style: italic;
+    font-family: 'Montserrat' ;
+   color: #fd611a;
+   margin-top: 1px;
+}
+button{
+  
+    background-color: #fd611a;
+    color: white;
+    font-size: 20px;
+    padding: 10px 80px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+form {
+   
+  max-width: 350px;
+  margin: 1em auto;
+  padding: 1.5em;
+  border-radius: 7px;
+  border: 1px solid black;
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.808);
+  display: flex;
+  flex-direction: column;
+  /* gap: 1.5em; */
 }
 
-#formulario input:focus {
-	outline: none;
-	border: 2px solid #fd611a;
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+  flex: 1;
+  background: #FFFFFF;
+  border: 2px solid black;
+  outline: none;
+  margin: 10px 0;
 }
 
-#formulario .error {
-	color: #e92b2d;
-	font-weight: 600;
-	font-size: 12px;
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: #F73D93;
 }
 
-#formulario button[type="submit"] {
-	display: block;
-	background: #fd611a;;
-	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	padding: 10px;
-	border-radius: 5px;
-	color: #fff;
-	font-size: 16px;
-	transition: .3s ease all;
+select {
+  cursor: pointer;
 }
 
-.formulario button[type="submit"]:hover {
-	background: #fd611a;;
+.radio-group {
+  margin: .5em 0;
+  font-size: 1em;
 }
 
-.formulario .exito {
-	text-align: center;
-	font-size: 14px;
-	padding-top: 20px;
-	color: #02a802;
+.radio-group>label {
+  display: flex;
+  gap: .5em;
 }
 
-.formulario input[type="radio"] {
-	width: auto;
+.radio-group>label,
+.radio-group>label>input {
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #F73D93;
+}
+
+form>div {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+form>div>label {
+  font-weight: bold;
+}
+
+form>label {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  width: fit-content;
+  margin: 1em 0;
+}
+
+form>button {
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: #F73D93;
+  border: 1px solid black;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  transition: all .2s ease;
+}
+
+form>button:hover {
+  opacity: 0.8;
+}
+
+form>button:active {
+  transform: scale(.98);
+}
+
+.error {
+  color: #E94560;
+  font-weight: bold;
+  display: block;
+  text-align: right;
 }

@@ -9,7 +9,7 @@ import { editUser } from "../../redux/actions/actions";
 
 
 const EditUser = ()=>{
-    
+  
     const dispatch = useDispatch();
     const history = useHistory();
     const usuario = useSelector(state => state.User)
@@ -17,6 +17,8 @@ const EditUser = ()=>{
     const [formularioEnviado, setformularioEnviado] = useState(false);
 
     useEffect(() => {
+       
+        
         if(usuario) {
             setformularioEnviado({
                 image: usuario.image,
@@ -28,10 +30,16 @@ const EditUser = ()=>{
                 address: usuario.address,
             })
         }
+       
+       
     }, [usuario])
 
     return(
-        <div>
+      
+        
+              <div id={style.container}>
+              <div id={style.formulario}>
+                
             <Formik
                 initialValues={{
                     image: usuario?.image ? usuario.image : "",  
@@ -42,6 +50,7 @@ const EditUser = ()=>{
                     phone_number: usuario?.phone_number ? usuario.phone_number : "",
                     address: usuario?.address ? usuario.address : "",
                 }}
+                 
                 onSubmit={(valores, { resetForm }) => {
                     resetForm();
                     dispatch(editUser(valores.email, valores));
@@ -100,10 +109,14 @@ const EditUser = ()=>{
                 }}
             >
                 {({ errors }) => (
-                    <Form id={style.formulario}>
-                        <h1>ACTUALIZA TUS DATOS</h1>
-                        <div>
-                            <div></div>
+                    <Form className="formulario">
+                       
+                        <div id={style.container}>
+                         <div id={style.formualario}>
+                            <h1>ACTUALIZA TUS DATOS</h1>
+                            <div className="formulario"></div>
+                            <div id={style.formik}>
+                                <div></div>
                             <label htmlFor="image">Imagen de perfil</label>
                             <Field type="text" id="image" name="image"/>
                             <label htmlFor="name">Nombre: </label>
@@ -114,8 +127,9 @@ const EditUser = ()=>{
                                     <div>{errors.name}</div>
                                 )}
                             />
+                       
+
                         </div>
-                        <div>
                         <label htmlFor="surname">Apellido: </label>
                         <Field
                             type="text"
@@ -128,9 +142,7 @@ const EditUser = ()=>{
                             component={() => (
                             <div>{errors.surname}</div>
                             )}
-                        />
-                        </div>
-                        <div>
+                        /> 
                         <label htmlFor="nickname">Nombre de Usuario: </label>
                         <Field
                             type="text"
@@ -143,10 +155,7 @@ const EditUser = ()=>{
                             component={() => (
                             <div>{errors.nickname}</div>
                             )}
-                        />
-                        </div>
-                        <div>
-                        <label htmlFor="phone_number">Numero de telefono: </label>
+                        /><label htmlFor="phone_number">Numero de telefono: </label>
                         <Field
                             type="text"
                             id="phone_number"
@@ -159,8 +168,6 @@ const EditUser = ()=>{
                             <div>{errors.phone_number}</div>
                             )}
                         />
-                        </div>
-                        <div>
                         <label htmlFor="address">Direccion: </label>
                         <Field
                             type="text"
@@ -173,10 +180,7 @@ const EditUser = ()=>{
                             component={() => (
                             <div>{errors.address}</div>
                             )}
-                        />
-                        </div>
-                        <div>
-                        <label htmlFor="email">Correo: </label>
+                        /> <label htmlFor="email">Correo: </label>
                         <Field
                             type="email"
                             id="email"
@@ -188,20 +192,38 @@ const EditUser = ()=>{
                             component={() => (
                             <div>{errors.email}</div>
                             )}
-                        />
-                        </div>
-                       
-                        <button id={style.button} type="submit">Enviar</button>
+                        />   
+                        <button type="submit">Enviar</button>
                         {formularioEnviado && (
                         <p>Enviado con exito!</p>
                         )}
+                        </div>
+                       
+                        <div>
                         
-                        <Link to='/profile'><p>Regresa</p></Link>
+                        </div>
+                        <div>
+                        
+                        </div>
+                     
+                        
+                        </div>
+                        <div>
+                        
+                        </div>
+                        <div>
+                        
+                        <Link to='/profile'>Regresar</Link>
+                        </div>
                     </Form>
+                    
                 )}
             </Formik>
+            </div>
         </div>
-    )
-};
+       
+    );
+   
+     } 
 
 export default EditUser;

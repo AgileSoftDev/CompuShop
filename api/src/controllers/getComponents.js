@@ -1,4 +1,4 @@
-const Components = require("../models/components");
+const Components = require("../models/components.js");
 
 const allComps = async () => {
     return await Components.find()
@@ -23,18 +23,34 @@ const findById = async (id) => {
     return component;
 }
 
+
+const findStock = async () => {
+    try {
+    const data = await allComps();
+    const stockfinal = [];
+    data.forEach(e => {
+        if(e.stock){
+        const found = stockfinal.find(x => x.category === e.category);
+        if (!found) {
+            stockfinal.push({
+                category: e.category,
+                stock: e.quantityStock
+            });
+        } else {
+            found.stock += e.quantityStock;
+        }
+    }
+    });
+    return stockfinal;
+} catch (error) {
+        throw error
+}
+};
+
 module.exports = {
     allComps,
     findComp,
     findByCategory,
-    findById
+    findById,
+    findStock
 }
-
-/*
-const data = require('./../models/message.json')
-    console.log(data)
-    data.components.map(async e => {
-        const xd = new Components(e);
-        await xd.save()
-    })
-*/
