@@ -28,11 +28,11 @@ function App() {
         <Route exact path={"/producto/:id"} render={()=> <DetalleProducto/>} />
         <Route path={"/construye"} render={()=> <Construye/>} />
         <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
-        {/* <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
+        {/* <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
+        <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
         {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
         <Route  path={"/admin"} render={()=> <Admin/>}/>
         { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && <Footer/>}
-
     </div>
   );
 }
