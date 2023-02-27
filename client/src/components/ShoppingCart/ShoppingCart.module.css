@@ -1,0 +1,52 @@
+#ShoppingCart{
+    display: flex;
+    width: 400px;
+    /* height: 300px; */
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    font-family: 'Tilt Neon', cursive;
+}
+#ShoppingCart>:nth-child(2){
+    /* background-color: aqua; */
+    width: 100%;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(207, 206, 203);
+    padding: 0 30px;
+}
+
+#ShoppingCart>:nth-child(2)>button{
+    background-color: #f96400;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    color: #2c2c25;
+    font-family: 'Tilt Neon', cursive;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ShoppingCart>:nth-child(2)>h3{
+    /* margin-bottom: 20px; */
+    position: relative;
+}
+#ShoppingCart>:nth-child(2)>h3::after{
+    background-color: rgb(207, 206, 203);
+    width: 100px;
+    height: 3px;
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: 50%;
+    transform: translate(50%,0);
+}

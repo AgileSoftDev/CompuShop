@@ -123,35 +123,75 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 };
 
         case ADD_TO_CART:
-            const cart = [...state.shoppingCart]
-            const itemInCart = cart.find((item) => item._id === payload._id);
+            const cart = state.shoppingCart.map(e=>e);
+            const itemInCart = cart.find((item ,) => item._id === payload._id);
+            let index;
+
             if (itemInCart) {
-                itemInCart.quantity++;
+
+                cart.forEach((e,i)=>{
+                    if (e._id === itemInCart._id) 
+                    index = i
+                })
+
+                const newob={
+                    ...itemInCart,
+                    quantity:itemInCart.quantity+1
+                }
+                cart.splice(index,1,newob)
+                
             } else {
                 cart.push({ ...payload, quantity: 1 });
             }
             return {
                 ...state,
-                shoppingCart: cart
-            }
-
+                shoppingCart: cart,
+              };
+      
         case INCREMENT_CART:
-            const itemPlus = state.shoppingCart.find((item) => item.id === payload);
-            itemPlus.quantity++;
+            let cartt = state.shoppingCart.map(e=>e);
+            const itemPlus = cartt.find((item) => item._id === payload);
+            let indexx;
+
+            cartt.forEach((e,i)=>{
+                if (e._id === itemPlus._id) indexx = i
+            })
+            const newob={
+                ...itemPlus,
+                quantity:itemPlus.quantity+1
+            }
+            cartt.splice(indexx,1,newob)
+
             return{
-                ...state
+                ...state,
+                shoppingCart: cartt,
             }
 
         case DECREMENT_CART:
-            const itemLess = state.shoppingCart.find((item) => item.id === payload);
-            if (itemLess.quantity === 1) {
-              itemLess.quantity = 1
-            } else {
-              itemLess.quantity--;
+                 let carttt = state.shoppingCart.map(e=>e);
+                const itemLess = carttt.find((item) => item._id === payload);
+                if (itemLess.quantity> 1) {
+                let indexxx;
+
+                carttt.forEach((e,i)=>{
+                    if (e._id === itemLess._id) indexxx = i
+                })
+                const newobb={
+                    ...itemLess,
+                    quantity:itemLess.quantity-1
+                }
+                carttt.splice(indexxx,1,newobb)
+
+                return{
+                    ...state,
+                    shoppingCart: carttt,
+                }
+            }else{
+                return{
+                    ...state
+                }
             }
-            return{
-                ...state
-            }
+            
         case REMOVE_ITEM_CART:
             const removeItem = state.shoppingCart.filter((item) => item.id !== payload);
             state.shoppingCart = removeItem;

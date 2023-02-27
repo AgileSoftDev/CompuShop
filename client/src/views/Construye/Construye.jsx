@@ -202,6 +202,7 @@ const Construye = () =>{
                 }else if(typeof(category) ==="string"){
                     let {data} = await axios.get(`http://localhost:3001/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
         
+ 
                     setCardsToShow(data)
                 }else{
                     console.log(`unhanlded category: ${category}`);
