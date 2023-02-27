@@ -1,19 +1,19 @@
-import style from "./Notfound.module.css"
-import herramienta from "../../assets/herramienta.png"
+// import style from "./Notfound.module.css"
+// import herramienta from "../../assets/herramienta.png"
 
-const Notfound = () => {
+// const Notfound = () => {
 
-    return(
-            <div className={style.container}>
-                <div>
-                    <img src={herramienta} alt={"herramienta"}/>
-                    <p>NOT FOUND</p>
-                </div>
-                <div>
-                    <button>VOLVER A HOME</button>
-                </div>
-            </div>
-    )
-}
+//     return(
+//             <div className={style.container}>
+//                 <div>
+//                     <img src={herramienta} alt={"herramienta"}/>
+//                     <p>NOT FOUND</p>
+//                 </div>
+//                 <div>
+//                     <button>VOLVER A HOME</button>
+//                 </div>
+//             </div>
+//     )
+// }
 
-export default Notfound;
+// export default Notfound;
