@@ -30,6 +30,8 @@ import { cleanPathname } from "../../utils/index.js";
 import axios from "axios";
 import { selectCategoryByStep } from "../../helpers/Construye.helpers";
 
+const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
+
 
 const rutas_pasos = {
     '/construye/paso1' : {cpu:true},
@@ -190,7 +192,7 @@ const Construye = () =>{
                     let data = [];
 
                     await Promise.all(category.map(async e => {
-                        let { data: data1 } = await axios.get(`https://compu-shop-weld.vercel.app/components/${e}`).catch(e => {
+                        let { data: data1 } = await axios.get(`${url}/components/${e}`).catch(e => {
                             console.log(`No se encontraron componentes con la categoría ${category}`);
                             return "no data"
                         });
@@ -200,7 +202,7 @@ const Construye = () =>{
                     setCardsToShow(data)
 
                 }else if(typeof(category) ==="string"){
-                    let {data} = await axios.get(`https://compu-shop-weld.vercel.app/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
+                    let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
         
  
                     setCardsToShow(data)

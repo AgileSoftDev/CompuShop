@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import style from './TableProductos.module.css';
 import axios from 'axios';
 
+const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
 
 const TableProductos = () => {
 
@@ -9,7 +10,7 @@ const [allComponents, setAllComponentes] = useState([])
 
     useEffect(() => {
         const getAllComponents =async()=>{
-            const {data} = await axios.get("http://localhost:3001/components").catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+            const {data} = await axios.get(`${url}/components`).catch(error => alert("Error en la tabla productos de admin al obtener la data"));
             if (data.length)setAllComponentes(data)    
         }
         getAllComponents()

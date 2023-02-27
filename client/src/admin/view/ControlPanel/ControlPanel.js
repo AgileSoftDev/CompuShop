@@ -3,6 +3,8 @@ import style from './ControlPanel.module.css';
 import { PieChart, Pie, Legend, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import axios, { all } from 'axios';
 
+const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
+
 const COLORS = [
 '#FF5733',
 '#C70039',
@@ -22,7 +24,7 @@ const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getDataStock =async()=>{
-        const {data} = await axios.get("https://compu-shop-weld.vercel.app/components/stock/all").catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+        const {data} = await axios.get(`${url}/components/stock/all`).catch(error => alert("Error en la tabla productos de admin al obtener la data"));
         if (data.length) {
             const dataFilter = data?.map(item => {
               if (item.stock > 0) {
