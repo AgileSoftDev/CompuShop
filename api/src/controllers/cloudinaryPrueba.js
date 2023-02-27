@@ -1,12 +1,13 @@
 
 
-const multer = require('multer');
+// const multer = require('multer');
+const cloudinaryStorage = require('multer-storage-cloudinary');
 const { Router }= require("express");
 const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 const mime= require( "mime-types" )
 const createComponent= require("./createComponents")
 const uploadRoutes= Router();
-const path = require('path');
+// const path = require('path');
 
 
 const subirImagen = (file) => {
@@ -28,15 +29,23 @@ const subirImagen = (file) => {
 
 
 ////////////////Post de la imagen y almacenamiento local////////////////////////////////////
-const storage = multer.diskStorage({
-  destination: path.join(__dirname, '../public/uploads'),
-  filename: (req, file, cb) => {
-    const originalname = file.originalname;
-    const ext = path.extname(originalname);
-    const mimeType = mime.lookup(ext);
-    const newExt = mimeType ? '.' + mime.extension(mimeType) : '';
-    const newName = path.basename(originalname, ext);
-    cb(null, newName + newExt);
+// const storage = multer.diskStorage({
+//   destination: path.join(__dirname, '../public/uploads'),
+//   filename: (req, file, cb) => {
+//     const originalname = file.originalname;
+//     const ext = path.extname(originalname);
+//     const mimeType = mime.lookup(ext);
+//     const newExt = mimeType ? '.' + mime.extension(mimeType) : '';
+//     const newName = path.basename(originalname, ext);
+//     cb(null, newName + newExt);
+//   }
+// });
+const storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'uploads',
+  allowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
   }
 });
 
@@ -44,6 +53,7 @@ const upload = multer({ storage: storage });
 
 uploadRoutes.post('/', upload.single('img'), (req, res) => {
   cloudinary.uploader.upload(req.file.path, async(error, result) => {
+    console.log(req.file)
     const result2= result
     if (error) {
       console.error(error);

@@ -41,6 +41,7 @@ const FormAgregarProducto = () => {
       if(values.stock === 'false') values.stock = false
       var data = new FormData();
       data.append('img', file);
+      console.log(file)
       data.append('name', values.name);
       data.append('category', values.category);
       data.append('price', values.price);
@@ -51,12 +52,14 @@ const FormAgregarProducto = () => {
       data.append('stock', values.stock);
       data.append('quantityStock', values.quantityStock);
       alert(JSON.stringify(values, null, 2));
-      await axios.post('https://compu-shop-weld.vercel.app/upload/', data)
+      console.log(data)
+      const url= "https://compu-shop-qqkcc8odp-compushop.vercel.app/upload/"
+      await axios.post(url, data)
         .then(res => console.log(res))
         .catch(error => console.log(error))
       }}
       );
-//hola
+//hola saas
   return (
     <div>
         <div className={style.card}>
