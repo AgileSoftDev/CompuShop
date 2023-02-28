@@ -21,8 +21,6 @@ const Card_arma_tu_pc = (props) =>{
            
     }
 
-    console.log(props);
-    // alert(props)
 
     return(
         <div id={style.Card_arma_tu_pc} onClick={props.onClick} key={props.key} className={picksArmaTuPc[getCurrentComponent[currentStep]]?._id=== props.id ?style.selected:undefined} >

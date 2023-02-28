@@ -57,13 +57,15 @@ const upload = multer({ storage: storage });
 
 uploadRoutes.post('/', upload.single('img'), (req, res) => {
   cloudinary.uploader.upload(req.file.path, async(error, result) => {
-    // console.log(req.file)
+    // console.log(req.file.path);
+    // console.log(req.file);
+
     const result2= result
     if (error) {
-      console.error(error);
+      // console.error(error);
       res.status(500).send('Error al subir archivo a Cloudinary');
     } else {
-      console.log(result2);
+      // console.log(result2);
       const newObject= {
         name:req.body.name,
         category:req.body.category,

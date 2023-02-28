@@ -4,9 +4,10 @@ import style from './DetalleProducto.module.css'
 import axios from "axios";
 import shield from "../../assets/detalles_componente/green_shield.svg";
 import truck from "../../assets/detalles_componente/delivery_truck.svg"
-import check from "../../assets/detalles_componente/green_check.svg"
+import check from "../../assets/detalles_componente/green_check.svg";
+import url from "../../utils/deploy_back.js";
 
-const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
+
 const rebaja = (price) => {
     return price - (price * 0.35).toFixed(2)
 } 

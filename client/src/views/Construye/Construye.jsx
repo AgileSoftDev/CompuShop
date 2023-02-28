@@ -29,8 +29,7 @@ import triangle from "../../assets/construye/general_icons/triangle.svg";
 import { cleanPathname } from "../../utils/index.js";
 import axios from "axios";
 import { selectCategoryByStep } from "../../helpers/Construye.helpers";
-
-const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
+import url from "../../utils/deploy_back";
 
 
 const rutas_pasos = {

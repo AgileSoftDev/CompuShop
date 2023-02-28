@@ -3,7 +3,7 @@ import React, { useEffect, useState} from "react";
 import ReactDOM from "react-dom"
 import {useSelector} from "react-redux";
 
-const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
+const PayPalButton = window?.paypal?.Buttons.driver("react", { React, ReactDOM });
 
 export default function PasarelaPago() {
 
