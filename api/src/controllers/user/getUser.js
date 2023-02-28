@@ -1,33 +1,41 @@
-const User = require("../../models/users.js");
-const axios = require("axios");
+const {ManagementClient} = require ('auth0')
+const User = require('../../models/users.js')
 
 
-
-const getUser= async()=>{
+const auth00 = new ManagementClient({
+    domain: 'dev-4x4kckwt6fai1h5p.us.auth0.com',
+    clientId: '0rz7r9PL1OGWZdZtBoF04s0v0mjX72HZ',
+    clientSecret: 'YOkY7GE323hK4hCMqKJDK1qHn5-IrUzdHHo3Px2tacdBAuG7g8AJhNKWxIUVdTgl',
+    scope: 'read:users'
+  });
+  
+  // Get all users
+ const getAllUsers = async ()=>{
     try {
-        return await User.find()
+      return await auth00.users.getAll();
     } catch (error) {
-        return error
+      throw new Error(error.message)
     }
-}
+    
+ }
 
-const findUser = async (name) => {
-    const regExpName = new RegExp(name, 'i');
-    const compByName = await User.find({ userName: regExpName });
-    if (!compByName.length) throw 'No se han encontrado Usuarios con ese nombre';
-    else return compByName;
-}
+ const getUser = async (useremail) => {
+  try {
+    return await auth00.users.getByEmail(useremail);
+  } catch (error) {
+    throw new Error(error.message)
+  }
+  
+ }
 
-const findByCategory = async (category) => {
-    const regExpCategory = new RegExp(category, 'i');
-    const compByCategory = await User.find({ userCategory: regExpCategory });
-    if (!compByCategory.length) throw 'No se han encontrado Usuarios con esa categoría';
-    else return compByCategory;
-}
+ const getDB = async () => {
+  try {
+    return await User.find()
+  } catch (error) {
+    throw new Error(error)
+  }
+ }
 
-const findById = async (id) => {
-    const component = await User.findOne({ _id: id }).catch(e => {throw 'No se ha encontrado un Usuario con ese ID'});
-    return component;
-}
 
-module.exports= {getUser, findUser, findByCategory, findById}
+
+module.exports= {getAllUsers, getUser, getDB}
