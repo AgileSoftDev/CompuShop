@@ -1,7 +1,7 @@
 import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART } from "./actions.types"
 import axios from 'axios'
 import { filterCategoryParams } from "../../helpers/Filter.helpers";
-const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
+const url= "https://compu-shop-jvvdg5rvd-compushop.vercel.app"
 
 
 const orderBy = (tipo ,categoryPick) => {
