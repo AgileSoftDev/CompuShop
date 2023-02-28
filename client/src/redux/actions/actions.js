@@ -1,13 +1,13 @@
-import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER, CREATE_USER, DELETE_USER, GET_ALL_USERS } from "./actions.types"
+import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART } from "./actions.types"
 import axios from 'axios'
 import { filterCategoryParams } from "../../helpers/Filter.helpers";
-
+const url= "https://compu-shop-jvvdg5rvd-compushop.vercel.app"
 
 
 const orderBy = (tipo ,categoryPick) => {
     if(!categoryPick){
         return async (dispatch)=>{
-            const {data}  = await axios.get('http://localhost:3001/components');
+            const {data}  = await axios.get(`${url}/components/`);
             dispatch({type: ORDER_PRICE,payload: {
                 tipo,
                 data
@@ -17,7 +17,7 @@ const orderBy = (tipo ,categoryPick) => {
     }else{
         return async dispatch =>{
             const [category,marca] = filterCategoryParams(categoryPick)
-            let {data} = await axios.get(`http://localhost:3001/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
+            let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
 
             if(marca){
                 data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
@@ -47,11 +47,20 @@ const getDetailComponent = (component) => {
 };
 
 
-function searchComponent(component) {
-        return {
-                type: SEARCH_COMPONENT,
-                payload: component
-            }
+function searchComponent(payload) {
+    return async dispatch => {
+        const ruta = `${url}/components?name=${payload}`
+        let {data} = await axios.get(ruta)
+        .catch(error => alert("Error en la action getAllComponents, al obtener la data"));
+
+        console.log(data);
+
+                dispatch({
+                    type: GET_ALL_COMPONENTS,
+                    payload: data,
+                 })
+         
+    }
 };
 
 
@@ -75,10 +84,11 @@ const setStepBuildPc = (step) =>{
 
  const getAllComponents = () => {
     return async dispatch => {
-        const ddd = "http://localhost:3001/components"
+        const ddd = `${url}/components/`
         const {data} = await axios.get(ddd)
         .catch(error => alert("Error en la action getAllComponents, al obtener la data"));
 
+>>>>>>>>> Temporary merge branch 2
                 dispatch({
                     type: GET_ALL_COMPONENTS,
                     payload: data,
@@ -90,7 +100,7 @@ const setStepBuildPc = (step) =>{
 
 const filterByCategory = (category, marca, pick)=>{
     return async dispatch =>{
-        let {data} = await axios.get(`http://localhost:3001/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
+        let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
         if(marca){
             data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
         }
@@ -118,7 +128,7 @@ const editUser = (email, props) =>{
         console.log(email);
         console.log(props);
         try {
-            const res = await axios.put(`http://localhost:3001/user?email=${email}`, props);
+            const res = await axios.put(`${url}/user?email=${email}`, props);
             return dispatch({
                 type:"EDIT_USER",
                 payload: res.data
@@ -129,35 +139,32 @@ const editUser = (email, props) =>{
     }
 }
 
-const createUser = (payload) => async (dispatch) =>{
-        try {
-            return await axios
-            .post("http://localhost:3001/user", payload)
-            .then((res)=>{
-                dispatch({
-                    type:CREATE_USER,
-                    payload: res.data
-                })
-            }) 
-        } catch (error) {
-            console.log(error)
-        }
-    
-}
-
-const getAllusers = () => {
-    return async dispatch => {
-        const ddd = "http://localhost:3001/users"
-        const {data} = await axios.get(ddd)
-        .catch(error => alert("Error en la action getAllUsers, al obtener la data"));
-
-                dispatch({
-                    type: GET_USER,
-                    payload: data,
-            })
-         
+//Shopping cart
+const addToCart = (payload) => {
+    return{
+        type: ADD_TO_CART,
+        payload
     }
 }
+const incrementCart = (payload) => {
+    return{
+        type: INCREMENT_CART,
+        payload
+    }
+}
+const decrementCart = (payload) => {
+    return{
+        type: DECREMENT_CART,
+        payload
+    }
+}
+const removeItemCart = (payload) => {
+    return{
+        type: REMOVE_ITEM_CART,
+        payload
+    }
+}
+
 export {
      setStateViewCard,
      setStepBuildPc,
@@ -171,6 +178,8 @@ export {
      pickArmaTuPc,
      cleanArmaTuPc,
      editUser,
-     createUser,
-     getAllusers
+     addToCart,
+     incrementCart,
+     decrementCart,
+     removeItemCart
 };

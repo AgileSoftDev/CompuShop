@@ -1,9 +1,13 @@
 import style from "./Admin.module.css"
-import {Link} from "react-router-dom"
+import {Link, Route} from "react-router-dom"
 import userIcon from "../admin_assets/user_icon.png";
+import { useHistory } from "react-router-dom";
 import logoutIcon from "../admin_assets/logout-svgrepo-com.svg"
-
+import TableProductos from "../admin_componets/TableProductos/TableProductos";
+import ControlPanel from "../view/ControlPanel/ControlPanel";
+import FormAgregarProducto from "../admin_componets/FormAgregarProducto/FormAgregarProducto";
 const Admin = () =>{
+    const pathname = useHistory().location.pathname
     return(
         <div id={style.AdminContainer}>
             <div id={style.panelAdmin}>
@@ -15,9 +19,11 @@ const Admin = () =>{
                             <p>Componentes de PC</p>
                         </div>
                     </div>
-                    <Link to={"/admin/controlPanel"}>Panel de control</Link>
-                    <Link to={"/admin/setting"}>Configuraciones</Link>
-                    <Link to={"/admin/products"}>Productos</Link>
+                    <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
+                    <a id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</a>
+                    <Link id={pathname==="/admin/settings/users"?style.linkActive:undefined} to={"/admin/settings/users"}>Users</Link>
+                    <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link>
+                    <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
                     <div>
@@ -32,7 +38,10 @@ const Admin = () =>{
             </div>
 
             <div id={style.mainAdmin}>
-                
+                <Route exact path={"/admin/controlPanel"} render={()=> <ControlPanel />}/>
+                <Route exact path={"/admin/products"} render={()=> <TableProductos/>}/>
+                <Route exact path={"/admin/products/add"} render={()=> <FormAgregarProducto/>}/>
+                <Route exact path={"/admin/users"} render={()=> <TableProductos/>}/>
             </div>
         </div>
     )

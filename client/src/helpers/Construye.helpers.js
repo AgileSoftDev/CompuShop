@@ -7,8 +7,8 @@ const selectCategoryByStep = {
     '/construye/paso6' : ["STORAGE","SSD"],
     '/construye/paso7' : "FUENTE",
     '/construye/paso8' : "CHASIS",
-    '/construye/paso9' : "patalla",
-    '/construye/paso10' : "PERIPHERALS",
+    '/construye/paso9' : "Monitor",
+    '/construye/paso10' : "PERIFERIC",
   }
 export {
     selectCategoryByStep,

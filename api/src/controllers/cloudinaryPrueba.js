@@ -1,23 +1,103 @@
-// const multer = require('multer');
+const multer = require('multer');
+const {CloudinaryStorage} = require('multer-storage-cloudinary');
 const { Router }= require("express");
-const upload = require('../cloudinaryConfig/multerConfig');
-// const upload = multer({ dest: 'uploadsCloudinary2222/' }); // carpeta donde se guardará temporalmente la imagen subida
-const cloudinary = require("../cloudinaryConfig/cloudinary.js")
+// const cloudinary = require("../cloudinaryConfig/cloudinary.js")
+const mime= require( "mime-types" )
+const createComponent= require("./createComponents")
 const uploadRoutes= Router();
-exports.subirImagen = (req, res) => {
-  cloudinary.uploader.upload(req.file.path, (error, resultado) => {
-    if (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Error al subir la imagen' });
-    } else {
-      res.status(200).json(resultado);
-    }
+// const path = require('path');
+
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  cloud_name: "dhwyjetxl",
+  api_key: "195214223213211",
+  api_secret: "8vbCgWu90HVms1DRB6ibl0Gfnao"
+});
+
+const subirImagen = (file) => {
+  const ext = path.extname(file.originalname);
+  const nombreArchivo = path.basename(file.originalname, ext);
+  file.originalname = nombreArchivo + '-' + Date.now() + ext;
+
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader.upload(file.path, (error, resultado) => {
+      if (error) {
+        console.error(error);
+        reject('Error al subir la imagen');
+      } else {
+        resolve(resultado);
+      }
+    });
   });
 };
 
-uploadRoutes.post('/', upload.single('file'), (req, res) => {
-  console.log(req.file);
-  res.send('Archivo cargado con éxito!');
+
+////////////////Post de la imagen y almacenamiento local////////////////////////////////////
+// const storage = multer.diskStorage({
+//   destination: path.join(__dirname, '../public/uploads'),
+//   filename: (req, file, cb) => {
+//     const originalname = file.originalname;
+//     const ext = path.extname(originalname);
+//     const mimeType = mime.lookup(ext);
+//     const newExt = mimeType ? '.' + mime.extension(mimeType) : '';
+//     const newName = path.basename(originalname, ext);
+//     cb(null, newName + newExt);
+//   }
+// });
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  // folder: 'uploads',
+  allowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+const upload = multer({ storage: storage });
+
+uploadRoutes.post('/', upload.single('img'), (req, res) => {
+  cloudinary.uploader.upload(req.file.path, async(error, result) => {
+    // console.log(req.file)
+    const result2= result
+    if (error) {
+      console.error(error);
+      res.status(500).send('Error al subir archivo a Cloudinary');
+    } else {
+      console.log(result2);
+      const newObject= {
+        name:req.body.name,
+        category:req.body.category,
+        price:req.body.price,
+        description:req.body.description,
+        img:result2.url,
+        description_2:req.body.description_2,
+        description_3:req.body.description_3,
+        description_4:req.body.description_4,
+        stock:req.body.stock,
+        quantityStock:req.body.quantityStock
+    }
+
+    const result= await createComponent(newObject);
+    res.status(201).send(result)
+    }
+  });
 });
 
-module.exports= uploadRoutes
+uploadRoutes.post('/subir-imagen', upload.single('img'), (req, res) => {
+
+  // Subir la imagen a Cloudinary
+  cloudinary.uploader.upload(req.file.path, async(err, result) => {
+    const result2= result
+    if (err) {
+      console.log('Error al subir la imagen:', err);
+      res.status(500).json({ mensaje: 'Error al subir la imagen' });
+    } else {
+      // La imagen se ha subido correctamente, guardar la URL en la base de datos o en otra ubicación
+      const url = result2.secure_url;
+      // console.log('Imagen subida correctamente:', url);
+      res.json({ mensaje: 'Imagen subida correctamente', url: url });
+    }
+  });
+});
+
+module.exports = uploadRoutes;

@@ -17,14 +17,7 @@ const componentSchema= new Schema(
             required: true,
         },
         img:{
-            public_id: {
-                type: String,
-                required: true
-            },
-            url:{
-                type: String,
-                required: true
-            }
+            type: String
         },
         maker:{
             type: String,

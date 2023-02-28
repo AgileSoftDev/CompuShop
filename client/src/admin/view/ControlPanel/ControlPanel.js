@@ -1,0 +1,90 @@
+import React, { useEffect, useState } from 'react'
+import style from './ControlPanel.module.css';
+import { PieChart, Pie, Legend, Cell, Tooltip, ResponsiveContainer } from 'recharts';
+import axios, { all } from 'axios';
+
+const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
+
+const COLORS = [
+'#FF5733',
+'#C70039',
+'#900C3F',
+'#581845',
+'#227093',
+'#4CAF50',
+'#FBC02D',
+'#E0E0E0'];
+
+const ControlPanel = () => {
+  
+
+  const [allDataStock, setAllDataStock] = useState([])
+
+const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const getDataStock =async()=>{
+        const {data} = await axios.get(`${url}/components/stock/all`).catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+        if (data.length) {
+            const dataFilter = data?.map(item => {
+              if (item.stock > 0) {
+                return {
+                  name: item.category,
+                  value: item.stock
+                }
+              }
+            })
+            setAllDataStock(dataFilter)
+            setLoading(false)
+        }
+    }
+    getDataStock()
+}, [])
+  
+useEffect(() => {
+  console.log(allDataStock);
+}, [allDataStock])
+
+  return (
+    <div>
+              {
+            loading ? <div class={style.loader}></div> : undefined
+        }
+        <div className={style.card}>
+            <h1>Control Panel</h1>
+            <div className={style.card_header}>
+            <p>
+                Vea los datos de su organizacion en una forma simplificada.
+            </p>
+
+            </div>
+        </div>
+
+        <div className={style.card}>
+            <div className={style.card_header}>
+              <h1>Stock</h1>
+            </div>
+            <div className={style.card_body}>
+              <PieChart width={400} height={400}>
+                <Pie
+                  dataKey="value"
+                  isAnimationActive={true}
+                  data={allDataStock && allDataStock}
+                  outerRadius={120}
+                  fill="#c2521c"
+                  label
+                >
+                {allDataStock && allDataStock?.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                ))}
+                </Pie>
+                <Tooltip  />
+              </PieChart>
+            </div>
+        </div>
+       
+    </div>
+  )
+}
+
+export default ControlPanel

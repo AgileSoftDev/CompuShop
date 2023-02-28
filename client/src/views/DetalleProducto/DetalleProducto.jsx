@@ -6,6 +6,7 @@ import shield from "../../assets/detalles_componente/green_shield.svg";
 import truck from "../../assets/detalles_componente/delivery_truck.svg"
 import check from "../../assets/detalles_componente/green_check.svg"
 
+const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
 const rebaja = (price) => {
     return price - (price * 0.35).toFixed(2)
 } 
@@ -23,7 +24,7 @@ const DetalleProducto = () => {
           });
         const getDetailComponentById = async () => {
 
-             const {data} = await  axios.get(`http://localhost:3001/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
+             const {data} = await  axios.get(`${url}/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
              setComponet(data)  
         }
 
