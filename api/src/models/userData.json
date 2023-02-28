@@ -1,12 +1,12 @@
 {
     "user":[
      {
-         "userName": "juan",
-         "userCategory": "client",
-         "email":"juan123@gmail.com",
-         "password": "juan123456",
-         "wallet": "paypal",
-         "phoneNumber": "3213443343"
+         "userName": "",
+         "userCategory": "",
+         "email":"",
+         "password": "",
+         "wallet": "",
+         "phoneNumber": ""
      },
      {
          "userName": "antonio",
