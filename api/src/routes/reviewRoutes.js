@@ -1,5 +1,5 @@
 const { Router }= require("express");
-const {allReviews, findByCategory, findById} = require("../controllers/review/getReview.js");
+const {allReviews, findByUserCategory, findById} = require("../controllers/review/getReview.js");
 const createReview = require('../controllers/review/createReview.js');
 const deleteReview = require('../controllers/review/deleteReview.js');
 const updateReview = require('../controllers/review/updateReview.js');
@@ -17,7 +17,7 @@ reviewRoutes.get("/", async (req, res) =>{
 reviewRoutes.get("/:category", async(req, res)=>{
     const {category}= req.params;
     try {
-        res.status(201).send(await findByCategory(category));
+        res.status(201).send(await findByUserCategory(category));
     } catch (error) {
         res.status(404).send({error})
     }
