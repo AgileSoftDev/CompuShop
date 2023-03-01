@@ -3,7 +3,7 @@ import style from './TableProductos.module.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import url from "../../../utils/deploy_back.js";
-
+import swal from "sweetalert2"
 const TableLoaded = ({allComponents}) => {
     const [ setAllComponentes] = useState([])
     const handleRevoke = async (component) => {
@@ -14,8 +14,18 @@ const TableLoaded = ({allComponents}) => {
               prevState.filter((item) => item._id !== component._id)
             );
           }
+          swal.fire({
+            title: 'Se elimino el producto con éxito',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+          });
         } catch (error) {
-          alert('Error al revocar el componente');
+            swal.fire({
+                title: 'Error al crear el producto',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+              });
         }
       };
     
