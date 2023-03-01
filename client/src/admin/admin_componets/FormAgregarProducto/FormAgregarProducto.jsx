@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import url from "../../../utils/deploy_back.js";
 import swal from 'sweetalert2';
+// import Validations from './validaciones';
 // import 'animate.css';
 
 
@@ -40,14 +41,27 @@ const FormAgregarProducto = () => {
         stock: false,
         quantityStock: 0,
     },
-    onSubmit: async (values) => {
+    onSubmit: async (values, { setSubmitting }) => {
       try {
-        if(values.stock === 'true') values.stock = true
-        if(values.stock === 'false') values.stock = false
-  
+        if (values.stock === 'true') values.stock = true
+        if (values.stock === 'false') values.stock = false
+    
+        // Validar cantidad
+        if (values.stock===false && values.quantityStock>0) {
+          swal.fire({
+            title: 'Error',
+            text: 'Por favor ingrese una cantidad válida',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            allowOutsideClick: false,
+            allowEnterKey: true
+          });
+          return;
+        }
+    
+        // Enviar formulario
         var data = new FormData();
         data.append('img', file);
-        // console.log(file)
         data.append('name', values.name);
         data.append('category', values.category);
         data.append('price', values.price);
@@ -56,14 +70,15 @@ const FormAgregarProducto = () => {
         data.append('description_3', values.description_3);
         data.append('description_4', values.description_4);
         data.append('stock', values.stock);
-        data.append('quantityStock', values.quantityStock); 
-        // código para enviar la información
+        data.append('quantityStock', values.quantityStock);
         await axios.post(`${url}/upload/`, data);
+        console.log(data)
         swal.fire({
           title: 'Se creo el producto con éxito',
           icon: 'success',
           confirmButtonText: 'Aceptar',
-          allowOutsideClick:false
+          allowOutsideClick: false,
+          allowEnterKey: true
         });
       } catch (error) {
         console.error(error);
@@ -75,6 +90,8 @@ const FormAgregarProducto = () => {
           timer: 3000,
           timerProgressBar: true
         });
+      } finally {
+        setSubmitting(false)
       }
     }
   }
@@ -186,7 +203,7 @@ const FormAgregarProducto = () => {
                       name="quantityStock"
                       onChange={formik.handleChange}
                       value={formik.values.quantityStock}
-                  />
+                      />
                 </div>
               </div>
               <div className={style.form_item}>
