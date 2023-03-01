@@ -17,9 +17,19 @@ const componentSchema= new Schema(
             required: true,
         },
         img:{
+            type: String
+        },
+        maker:{
             type: String,
         },
-        comments: []
+        stock:{
+            type: Boolean,
+            required: true
+        },
+        quantityStock:{
+            type: Number,
+            required: true
+        }
     }
 );
 

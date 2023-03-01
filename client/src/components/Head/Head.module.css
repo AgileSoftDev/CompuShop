@@ -34,13 +34,12 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: relative;
 }
 
-#shoppingCartContainer:hover:not(a Link img){
-    animation:  shaking infinite 2s;
-    /* background-color: rgb(26, 224, 142); */
+#shoppingCartContainer:hover:not(div img){
+    /* animation:  shaking infinite 2s; */
     background-color: #ffdf58;
-
 }
 
 @keyframes shaking {
@@ -84,19 +83,22 @@
     } 
 }
 
-#shoppingCartContainer a{
-    width: 30px;
-    height: 30px;
+#shoppingCartContainer >:nth-child(1){
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 50px 2px #fd611a;
+    z-index: 11;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 #shoppingCartContainer  img{
     padding-top: 2px;
     width: 30px;
     pointer-events: none;
+    user-select: none;
 }
-
-
-
 #loggingAndCart{
     display: flex;
     justify-content: center;
@@ -132,4 +134,41 @@
     font-weight: 500;
     text-decoration: none;
     color: #2c2c25;
+}
+
+
+#shoppingCartContainer> :nth-child(2){
+    border-radius: 10px;
+    background-color: #2c2c25;
+    width: 440px;
+    /* height: 380px; */
+    position: absolute;
+    right: -90px;
+    top: 105%;
+    z-index: 10;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    box-shadow: 0 0 50px 1px #fd621ac3;
+    overflow: hidden;
+}
+#shoppingCartContainer> :nth-child(2)>:first-child{
+    transition: all .5s ease-in-out;
+}
+
+#itemNumber{
+    position: absolute !important;
+    display: flex;
+    width: 25px;
+    background-color:#fd611a;
+    height: 25px;
+    top: -20px;
+    right: 0;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(23, 24, 24);
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
 }
