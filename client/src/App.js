@@ -11,7 +11,7 @@ import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
 import Ayuda from "./views/Ayuda/Ayuda";
 import DetalleProducto from "./views/DetalleProducto/DetalleProducto";
 import Admin from "./admin/view/Admin.jsx";
-// import PasarelaPago from "./components/PasarelaPago/PasarelaPago";
+import PasarelaPago from "./components/PasarelaPago/PasarelaPago";
 import {useEffect, useRef, useState} from "react";
 import ShoppingView from "./views/Shopping/Shopping.jsx";
 // import EditUser from "./views/EditUser/EditUser"
@@ -50,7 +50,7 @@ function App() {
 
 
         <Route  path={"/admin"} render={()=> <Admin/>}/>
-        {/* <Route exact path={"/pasarela"} render={()=><PasarelaPago/>}/> */}
+        <Route exact path={"/pasarela"} render={()=><PasarelaPago/>}/>
         { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') &&  location.pathname!=='/shoppingcart' &&  <Footer/>}
     </div>
   );
