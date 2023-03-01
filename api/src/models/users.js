@@ -40,6 +40,10 @@ const usersSchema= new Schema(
         addresses:{
             type: Array,
             required: false,
+        },
+        orders:{
+            type: Array,
+            required: false,
         }
         
 });

@@ -51,5 +51,14 @@ const removeAdmin = async(id) =>{
         return await userxd.save().catch(e => console.log(e))
 }
 
+const addOrder = async(id, order) =>{
+    const userxd = await User.findOne({userid: id})
+        if(!userxd){
+            throw 'No se ha encontrado un usuario con ese ID'
+        }
+        userxd.orders.push(order)
+        return await userxd.save().catch(e => console.log(e))
+}
 
-module.exports= {deleteUser, activateUser, updateUser, giveAdmin, removeAdmin}
+
+module.exports= {deleteUser, activateUser, updateUser, giveAdmin, removeAdmin, addOrder}

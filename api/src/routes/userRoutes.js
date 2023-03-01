@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const {getAllUsers, getUser, getDB} = require("../controllers/user/getUser.js")
 const createUser = require("../controllers/user/createUser")
-const {deleteUser, activateUser, updateUser, giveAdmin, removeAdmin} = require('../controllers/user/updateUser.js');
+const {deleteUser, activateUser, updateUser, giveAdmin, removeAdmin, addOrder} = require('../controllers/user/updateUser.js');
 
 const userRoutes = Router();
 
@@ -86,6 +86,16 @@ userRoutes.get("/email/:email", async(req, res)=>{
         return res.status(200).send(await removeAdmin(id))
     } catch (error) {
         res.status(400).send(error)
+    }
+ })
+
+ userRoutes.put("/orders/:id", async(req, res)=>{
+    const {id}= req.params
+    const order= req.body
+    try {
+        return  res.status(200).send(await addOrder(id, order))
+    } catch (error) {
+        
     }
  })
 
