@@ -18,13 +18,15 @@ const TableLoaded = ({allComponents}) => {
             title: 'Se elimino el producto con éxito',
             icon: 'success',
             confirmButtonText: 'Aceptar',
+            timerProgressBar: 3000
           });
         } catch (error) {
             swal.fire({
-                title: 'Error al crear el producto',
+                title: 'Error al eliminar el producto',
                 text: error.message,
                 icon: 'error',
                 confirmButtonText: 'Aceptar',
+                timerProgressBar: 3000
               });
         }
       };

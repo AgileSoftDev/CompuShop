@@ -63,6 +63,7 @@ const FormAgregarProducto = () => {
           title: 'Se creo el producto con éxito',
           icon: 'success',
           confirmButtonText: 'Aceptar',
+          allowOutsideClick:false
         });
       } catch (error) {
         console.error(error);
@@ -71,6 +72,8 @@ const FormAgregarProducto = () => {
           text: error.message,
           icon: 'error',
           confirmButtonText: 'Aceptar',
+          timer: 3000,
+          timerProgressBar: true
         });
       }
     }
