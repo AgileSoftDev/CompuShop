@@ -3,6 +3,8 @@ import style from './FormAgregarProducto.module.css'
 import { useFormik } from 'formik';
 import axios from 'axios';
 import url from "../../../utils/deploy_back.js";
+import swal from 'sweetalert2';
+// import 'animate.css';
 
 
 const categorias = [
@@ -39,29 +41,41 @@ const FormAgregarProducto = () => {
         quantityStock: 0,
     },
     onSubmit: async (values) => {
-      
-      if(values.stock === 'true') values.stock = true
-      if(values.stock === 'false') values.stock = false
-
-      var data = new FormData();
-      data.append('img', file);
-      // console.log(file)
-      data.append('name', values.name);
-      data.append('category', values.category);
-      data.append('price', values.price);
-      data.append('description', values.description);
-      data.append('description_2', values.description_2);
-      data.append('description_3', values.description_3);
-      data.append('description_4', values.description_4);
-      data.append('stock', values.stock);
-      data.append('quantityStock', values.quantityStock);
-      alert(JSON.stringify(values, null, 2));
-      await axios.post(`${url}/upload/`, data)
-        .then(res => console.log(res))
-        .catch(error => console.log(error))
-      }}
-      );
-//hola saas
+      try {
+        if(values.stock === 'true') values.stock = true
+        if(values.stock === 'false') values.stock = false
+  
+        var data = new FormData();
+        data.append('img', file);
+        // console.log(file)
+        data.append('name', values.name);
+        data.append('category', values.category);
+        data.append('price', values.price);
+        data.append('description', values.description);
+        data.append('description_2', values.description_2);
+        data.append('description_3', values.description_3);
+        data.append('description_4', values.description_4);
+        data.append('stock', values.stock);
+        data.append('quantityStock', values.quantityStock); 
+        // código para enviar la información
+        await axios.post(`${url}/upload/`, data);
+        swal.fire({
+          title: 'Se creo el producto con éxito',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
+      } catch (error) {
+        console.error(error);
+        swal.fire({
+          title: 'Error al crear el producto',
+          text: error.message,
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
+    }
+  }
+);
   return (
     <div>
         <div className={style.card}>

@@ -5,6 +5,20 @@ import { Link } from 'react-router-dom';
 import url from "../../../utils/deploy_back.js";
 
 const TableLoaded = ({allComponents}) => {
+    const [ setAllComponentes] = useState([])
+    const handleRevoke = async (component) => {
+        try {
+          const { data } = await axios.delete(`${url}/components/${component._id}`);
+          if (data.message === 'Component revoked successfully') {
+            setAllComponentes((prevState) =>
+              prevState.filter((item) => item._id !== component._id)
+            );
+          }
+        } catch (error) {
+          alert('Error al revocar el componente');
+        }
+      };
+    
     return (
         <>
             <table className={style.card_table}>
@@ -35,7 +49,7 @@ const TableLoaded = ({allComponents}) => {
                                                 <button>Ver</button>
                                                 <button>Editar</button>
                                             </div>
-                                            <button>Revocar</button>
+                                            <button onClick={()=> handleRevoke(component)}>Revocar</button>
                                         </td>
                                     </tr>
                             )
@@ -72,7 +86,6 @@ const [loading, setLoading] = useState(true)
         }
         getAllComponents()
     }, [])
-
   return (
     <div id={style.ProductsPanelContainer}>
         {
