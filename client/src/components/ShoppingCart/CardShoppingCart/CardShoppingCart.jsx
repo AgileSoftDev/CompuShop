@@ -22,6 +22,7 @@ const CardShoppingCart= (props) =>{
         });
     },[itmesToBuy])
 
+
     return(
         <div id={style.CardShoppingCart}>
             <div><img src={props.img} alt="Img de referencia del producto" /></div>
@@ -32,7 +33,7 @@ const CardShoppingCart= (props) =>{
                 <button onClick={()=>dispatch(decrementCart(props.id))}>-</button>
             </div>
             <h2>${price}</h2>
-            <div ref={props.refToTrash} onClick={()=>dispatch(removeItemCart(props.id))} id={style.trashIcon}><img src={trash_can} alt="Trash Can" /></div>
+            <div ref={props.refToTrash} className="trash" onClick={()=>dispatch(removeItemCart(props.id))} id={style.trashIcon}><img src={trash_can} alt="Trash Can" /></div>
         </div>
     )
 };

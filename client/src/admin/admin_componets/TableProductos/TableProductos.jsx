@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import style from './TableProductos.module.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import url from "../../../utils/deploy_back.js";
 
 const TableLoaded = ({allComponents}) => {
     return (
@@ -63,7 +64,7 @@ const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const getAllComponents =async()=>{
-            const {data} = await axios.get("https://compu-shop-weld.vercel.app/components/").catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+            const {data} = await axios.get(`${url}/components/`).catch(error => alert("Error en la tabla productos de admin al obtener la data"));
             if (data.length) {
                 setAllComponentes(data)
                 setLoading(false)

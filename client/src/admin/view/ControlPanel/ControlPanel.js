@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import style from './ControlPanel.module.css';
 import { PieChart, Pie, Legend, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import axios, { all } from 'axios';
+import url from "../../../utils/deploy_back.js";
 
-const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app"
 
 const COLORS = [
 '#FF5733',
@@ -13,7 +13,10 @@ const COLORS = [
 '#227093',
 '#4CAF50',
 '#FBC02D',
-'#E0E0E0'];
+'#E0E0E0',
+'#FF80AB',
+'#9C27B0',
+'#0D47A1'];
 
 const ControlPanel = () => {
   

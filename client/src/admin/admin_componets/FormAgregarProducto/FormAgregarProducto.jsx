@@ -2,6 +2,8 @@ import React, { useEffect, useState, ChangeEvent } from 'react'
 import style from './FormAgregarProducto.module.css'
 import { useFormik } from 'formik';
 import axios from 'axios';
+import url from "../../../utils/deploy_back.js";
+
 
 const categorias = [
   'GPU',
@@ -54,14 +56,10 @@ const FormAgregarProducto = () => {
       data.append('stock', values.stock);
       data.append('quantityStock', values.quantityStock);
       alert(JSON.stringify(values, null, 2));
-      // console.log(data)
-      const url= "https://compu-shop-5xi1u15qp-compushop.vercel.app/upload/"
-      await axios.post(url, data)
-      .then(res => console.log(res))
-      .catch(error => console.log(error))
-      console.log("me ejecute")
-      }
-    }
+      await axios.post(`${url}/upload/`, data)
+        .then(res => console.log(res))
+        .catch(error => console.log(error))
+      }}
       );
 //hola saas
   return (

@@ -19,15 +19,22 @@ const ShoppingCart = (props) =>{
         setTotal(num)
     },[itemsToBuy])
 
+
     return(
-    <div id={style.ShoppingCart}>
+    <div id={style.ShoppingCart} ref={props.refCart}>
         <div>
+            <h1>Carrito de compras</h1>
+        </div>
+       {itemsToBuy.length?<div>
            {itemsToBuy.map(e=> <CardShoppingCart key={e._id} title={e.name} img={e.img} id={e._id}  cantidad={e.quantity} refToTrash={props.refToTrash}/>)}
-        </div>
-        <div>
-            <button><Link ref={props.buttonComprarRef} to={"/pasarela"}>Comprar</Link> </button>
+        </div>:null }
+        {!itemsToBuy.length?<div id={style.empty}>
+           <p>Tu carrito está vacío :(</p>
+        </div>:null}
+        {itemsToBuy.length?<div>
+            <button><Link ref={props.buttonComprarRef} to={"/shoppingcart"}>Comprar</Link> </button>
             <h3>${total}</h3>
-        </div>
+        </div>:null}
     </div>
     )
 };

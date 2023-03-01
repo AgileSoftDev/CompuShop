@@ -10,7 +10,7 @@ import Profile from "../Profile/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { current } from "@reduxjs/toolkit";
 
 
@@ -18,26 +18,73 @@ import { useSelector } from "react-redux";
 const NavBar = ()=>{
 
     const itemsToBuy = useSelector(e=>e.shoppingCart)
-    const [shoppingCartStatus, setShoppingCart] = useState(false)
+
 
     const { isAuthenticated } = useAuth0();
 
     const cartRef = useRef(null);
     const cartIconRef = useRef(null);
     const buttonComprarRef = useRef(null)
-    const trashRef = useRef(null)
-    const [numberStatus, setNumberStatus] = useState()
+    const containerRef = useRef(null)
 
-    const setCartOff = (e) =>{
-        if (!cartRef.current.contains(e.target) && e.target !== cartIconRef.current )setShoppingCart(false)
-        if(e.target===buttonComprarRef.current)setShoppingCart(false)
-    }
+
+    const [numberStatus, setNumberStatus] = useState()
+    const [shoppingCartStatus, setShoppingCart] = useState(false)
+    const [styleCartContainer, setStyleCartContainer] = useState({})
+
+
 
     useEffect(()=>{
-        window.addEventListener("click", setCartOff)
         const cantidad = itemsToBuy.length
         setNumberStatus(cantidad)
+        if (shoppingCartStatus) {
+            setStyleCartContainer({
+                transition: 'all 0s ease-in-out',
+                height: `${cartRef?.current?.scrollHeight}px`,
+            });
+        }else{
+            setStyleCartContainer({
+                height: `0px`,
+                transition: 'all 0 ease-in-out',
+            });
+        }
+
+
+     
     },[itemsToBuy])
+
+
+    useEffect(()=>{
+
+        const setCartOff = (e) =>{
+        e.stopPropagation();
+        if (!containerRef.current.contains(e.target) && e.target !== cartIconRef.current && e.target.className!== "trash" && e.target.className!== "buttonSumarCart")setShoppingCart(false)
+        if(e.target===buttonComprarRef.current)setShoppingCart(false)
+         }
+
+        window.removeEventListener("click",setCartOff)
+        window.addEventListener("click", setCartOff)
+
+
+        if (shoppingCartStatus) {
+            setStyleCartContainer({
+                height: `${cartRef?.current?.scrollHeight}px`,
+                transition: ' all 0.5s ease-in-out',
+            });
+        }else{
+            setStyleCartContainer({
+                height: `0px`,
+                transition: 'all 0.5s ease-in-out',
+            });
+        }
+        
+
+        return () => {
+            if(!shoppingCartStatus)window.removeEventListener('click', setCartOff);
+          };
+    },[shoppingCartStatus])
+
+
 
     return(
         <div id={style.HeaderContainer}>
@@ -57,8 +104,8 @@ const NavBar = ()=>{
                         <img src={shoppingCart} alt="shoping Cart"/>
                     </div>
                     <div id={shoppingCartStatus?style.shoppingCartActive:undefined}>
-                        <div ref={cartRef}  style={shoppingCartStatus ? { height: `${cartRef.current.scrollHeight}px` }: { height: '0px' }}>
-                           <ShoppingCart refToTrash={trashRef} buttonComprarRef={buttonComprarRef} />
+                        <div ref={containerRef} style={styleCartContainer}>
+                           <ShoppingCart refCart={cartRef} buttonComprarRef={buttonComprarRef} />
                         </div>
                     </div>
                     <p id={style.itemNumber}>{numberStatus}</p>
