@@ -40,7 +40,7 @@ const NavBar = ()=>{
         if (shoppingCartStatus) {
             setStyleCartContainer({
                 transition: 'all 0s ease-in-out',
-                height: `${cartRef?.current?.scrollHeight}px`,
+                height: `${cartRef?.current?.scrollHeight}px`, 
             });
         }else{
             setStyleCartContainer({
@@ -58,7 +58,7 @@ const NavBar = ()=>{
 
         const setCartOff = (e) =>{
         e.stopPropagation();
-        if (!containerRef.current.contains(e.target) && e.target !== cartIconRef.current && e.target.className!== "trash" && e.target.className!== "buttonSumarCart")setShoppingCart(false)
+        if (!containerRef?.current?.contains(e.target) && e.target !== cartIconRef?.current && e.target?.className!== "trash" && e.target?.className!== "buttonSumarCart")setShoppingCart(false)
         if(e.target===buttonComprarRef.current)setShoppingCart(false)
          }
 

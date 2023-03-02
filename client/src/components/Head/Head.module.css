@@ -13,10 +13,11 @@
 #NavBar{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 15px 0;
-    width: 80%;
-    max-width: 1400px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 10px 0 10px;
 }
 
 #logoContainer, #logoContainer img {
@@ -35,6 +36,7 @@
     align-items: center;
     cursor: pointer;
     position: relative;
+    /* margin-left: 200px; */
 }
 
 #shoppingCartContainer:hover:not(div img){
