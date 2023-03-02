@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import style from './ControlPanel.module.css';
 import { PieChart, Pie, Legend, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import axios, { all } from 'axios';
+import url from "../../../utils/deploy_back.js";
+
 
 const COLORS = [
 '#FF5733',
@@ -11,7 +13,10 @@ const COLORS = [
 '#227093',
 '#4CAF50',
 '#FBC02D',
-'#E0E0E0'];
+'#E0E0E0',
+'#FF80AB',
+'#9C27B0',
+'#0D47A1'];
 
 const ControlPanel = () => {
   
@@ -22,7 +27,7 @@ const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getDataStock =async()=>{
-        const {data} = await axios.get("https://compu-shop-weld.vercel.app/components/stock/all").catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+        const {data} = await axios.get(`${url}/components/stock/all`).catch(error => alert("Error en la tabla productos de admin al obtener la data"));
         if (data.length) {
             const dataFilter = data?.map(item => {
               if (item.stock > 0) {

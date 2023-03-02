@@ -1,13 +1,19 @@
-
-
 const multer = require('multer');
+const {CloudinaryStorage} = require('multer-storage-cloudinary');
 const { Router }= require("express");
-const cloudinary = require("../cloudinaryConfig/cloudinary.js")
+// const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 const mime= require( "mime-types" )
 const createComponent= require("./createComponents")
 const uploadRoutes= Router();
-const path = require('path');
+// const path = require('path');
 
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  cloud_name: "dhwyjetxl",
+  api_key: "195214223213211",
+  api_secret: "8vbCgWu90HVms1DRB6ibl0Gfnao"
+});
 
 const subirImagen = (file) => {
   const ext = path.extname(file.originalname);
@@ -25,31 +31,27 @@ const subirImagen = (file) => {
     });
   });
 };
-
-
-////////////////Post de la imagen y almacenamiento local////////////////////////////////////
-const storage = multer.diskStorage({
-  destination: path.join(__dirname, '../public/uploads'),
-  filename: (req, file, cb) => {
-    const originalname = file.originalname;
-    const ext = path.extname(originalname);
-    const mimeType = mime.lookup(ext);
-    const newExt = mimeType ? '.' + mime.extension(mimeType) : '';
-    const newName = path.basename(originalname, ext);
-    cb(null, newName + newExt);
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  // folder: 'uploads',
+  allowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
   }
 });
-
 const upload = multer({ storage: storage });
 
 uploadRoutes.post('/', upload.single('img'), (req, res) => {
   cloudinary.uploader.upload(req.file.path, async(error, result) => {
+    // console.log(req.file.path);
+    // console.log(req.file);
+
     const result2= result
     if (error) {
-      console.error(error);
+      // console.error(error);
       res.status(500).send('Error al subir archivo a Cloudinary');
     } else {
-      console.log(result2);
+      // console.log(result2);
       const newObject= {
         name:req.body.name,
         category:req.body.category,
@@ -80,7 +82,7 @@ uploadRoutes.post('/subir-imagen', upload.single('img'), (req, res) => {
     } else {
       // La imagen se ha subido correctamente, guardar la URL en la base de datos o en otra ubicación
       const url = result2.secure_url;
-      console.log('Imagen subida correctamente:', url);
+      // console.log('Imagen subida correctamente:', url);
       res.json({ mensaje: 'Imagen subida correctamente', url: url });
     }
   });

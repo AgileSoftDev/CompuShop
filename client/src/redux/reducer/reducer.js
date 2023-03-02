@@ -19,7 +19,7 @@ const initialState = {
         psu: undefined,
         case: undefined,
         screen: undefined,
-        peripherals:[],
+        peripherals:undefined,
     },
     step_build_pc:undefined,
     categoryPick: undefined,
@@ -27,7 +27,7 @@ const initialState = {
     shoppingCart:window.localStorage.getItem("carrito")===null?[]:JSON.parse(window.localStorage.getItem("carrito")),
 }
 
-
+//hola de nuevo
 const rootReducer = (state = initialState, { type, payload }) =>{
 
     
@@ -98,7 +98,7 @@ const rootReducer = (state = initialState, { type, payload }) =>{
         case DELETE_FILTER_CATEGORY:
             return{
                 ...state,
-                categoryPick: undefined
+                categoryPick: undefined,
             };
         
         case PICK_ARMA_TU_PC:
@@ -205,11 +205,11 @@ const rootReducer = (state = initialState, { type, payload }) =>{
         case REMOVE_ITEM_CART:
             const cartttt= state.shoppingCart.map(e=>e)
             const arrFiltrado = cartttt.filter((item) => item._id !== payload);    
-            window.localStorage.setItem('carrito', JSON.stringify(arrFiltrado))        
+            window.localStorage.setItem('carrito', JSON.stringify(arrFiltrado))      
             return{
-                ...state
-                ,shoppingCart: arrFiltrado,
-            }
+                ...state,
+                shoppingCart: arrFiltrado,
+            };
 
         default:
             return{

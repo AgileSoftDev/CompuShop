@@ -31,7 +31,7 @@ const Card = ({ id, name, img, price, component }) => {
 
     if(stateViewCard){
         return (
-            <div  id={style.Card }>
+            <div id={style.Card }>
                   <div>
                       <div >
                            <img  src={img} alt={'Imagen de ' + name} />
@@ -40,7 +40,7 @@ const Card = ({ id, name, img, price, component }) => {
                   </div>
                   <div>
                       <h1 >$ {price}</h1>
-                      <button onClick={()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
+                      <button className="buttonSumarCart" onClick={()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
                   </div>
       
             </div>
@@ -54,7 +54,7 @@ const Card = ({ id, name, img, price, component }) => {
                   <div>
                       <Link to={`/producto/${id}`} >{cleanName2(name)}</Link>
                       <h1 >$ {price}</h1>
-                      <button onClick={()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
+                      <button className="buttonSumarCart" onClick={()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
                   </div>
       
             </div>
