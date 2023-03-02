@@ -1,8 +1,7 @@
 const { Router }= require("express");
-const {allComps, findComp, findByCategory, findById, findStock} = require("../controllers/getComponents.js");
-const createComponent = require('./../controllers/createComponents.js');
-const deleteComponent = require('./../controllers/deleteComponent.js');
-const updateComponents = require('./../controllers/updateComponents.js');
+const {allComps, findComp, findByCategory, findById, findStock} = require("../controllers/component/getComponents.js");
+const deleteComponent = require('../controllers/component/deleteComponent.js');
+const updateComponents = require('../controllers/component/updateComponents.js');
 const multer= require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });

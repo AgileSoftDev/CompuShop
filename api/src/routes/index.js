@@ -1,6 +1,5 @@
 const { Router } = require('express');
-const {allComps} = require("../controllers/components.js")
-const upload = require('../cloudinaryConfig/multerConfig.js');
+
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const userRoutes= require("./userRoutes.js")
