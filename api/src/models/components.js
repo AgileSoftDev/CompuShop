@@ -2,19 +2,29 @@ const { Schema, model }= require("mongoose");
 
 const componentSchema= new Schema(
     {
-        manufacturer:{
-            type: String,
-        },
         name:{
             type: String,
+            required: true,
+        },
+        price:{
+            type: Number,
             required: true,
         },
         category:{
             type: String,
         },
-        price:{
-            type: Number,
+        description:{
+            type: String,
             required: true,
+        },
+        description_2:{
+            type: String
+        },
+        description_3:{
+            type: String
+        },
+        description_4:{
+            type: String
         },
         img:{
             type: String
@@ -29,8 +39,7 @@ const componentSchema= new Schema(
         quantityStock:{
             type: Number,
             required: true
-        },
-        comments: []
+        }
     }
 );
 

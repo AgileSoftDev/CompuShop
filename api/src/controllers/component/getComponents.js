@@ -1,13 +1,7 @@
-//const axios = require("axios");
-//const {components} = require("../../models/data.json");
-const Components = require("../../models/components");
+const Components = require("../models/components.js");
 
 const allComps = async () => {
-    try {
     return await Components.find()
-} catch (error) {
-        throw error
-}
 }
 
 const findComp = async (name) => {
@@ -28,6 +22,7 @@ const findById = async (id) => {
     const component = await Components.findOne({ _id: id }).catch(e => {throw 'No se ha encontrado un componente con ese ID'});
     return component;
 }
+
 
 const findStock = async () => {
     try {
@@ -59,12 +54,3 @@ module.exports = {
     findById,
     findStock
 }
-
-/*
-const data = require('./../models/message.json')
-    console.log(data)
-    data.components.map(async e => {
-        const xd = new Components(e);
-        await xd.save()
-    })
-*/

@@ -1,13 +1,12 @@
 const { Router }= require("express");
-const {allComps, findComp, findByCategory, findById, findStock} = require("../controllers/component/getComponents.js");
-const deleteComponent = require('../controllers/component/deleteComponent.js');
-const updateComponents = require('../controllers/component/updateComponents.js');
+const {allComps, findComp, findByCategory, findById, findStock} = require("./../controllers/component/getComponents.js");
+const createComponent = require('./../controllers/component/createComponents.js');
+const deleteComponent = require('./../controllers/component/deleteComponent.js');
+const updateComponents = require('./../controllers/component/updateComponents.js');
 const multer= require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 const cloudinary = require("../cloudinaryConfig/cloudinary.js")
-const {createComponent, newCreateComponent} = require('../controllers/component/createComponents.js');
-
 
 const componentsRoutes= Router();
 
@@ -68,7 +67,6 @@ componentsRoutes.put('/:id', async(req, res) => {
         res.status(404).send({error})
     }
 })
-
 
 componentsRoutes.get("/stock/all", async(req, res)=>{
     try {

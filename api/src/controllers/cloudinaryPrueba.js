@@ -3,7 +3,7 @@ const {CloudinaryStorage} = require('multer-storage-cloudinary');
 const { Router }= require("express");
 // const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 const mime= require( "mime-types" )
-const createComponent= require("./createComponents")
+const createComponent= require("../controllers/component/createComponents")
 const uploadRoutes= Router();
 // const path = require('path');
 

@@ -1,4 +1,4 @@
-const Components = require('../../models/components.js');
+const Components = require('./../models/components.js');
 
 const deleteComponent = async(id) => {
     console.log(id)
