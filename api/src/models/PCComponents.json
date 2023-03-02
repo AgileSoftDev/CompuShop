@@ -1,0 +1,69 @@
+{
+    "motherboard": {
+        "manufacturer": "Asus",
+        "name": "Prime X670-P",
+        "category": "BOARD",
+        "price": 5999,
+        "cpu": "AMD",
+        "chipset": "X670",
+        "socket": "AM5",
+        "memory": {
+          "max": 128,
+          "slots": 4,
+          "type": "DDR5",
+          "hz": [6400, 6200, 6000, 5800, 5600, 5400, 5200, 5000, 4800]
+        },
+        "maxGraphics": 0,
+        "form": "ATX"
+      },
+      "CPU": {
+        "manufacturer": "AMD",
+        "name": "Ryzen 7 7600",
+        "category": "CPU",
+        "price": 5299,
+        "socket": "AM5",
+        "chipset": ["X670E", "X670", "B650E", "B650"],
+        "memory": {
+          "type": "DDR5",
+          "max": 128
+        }
+      },
+      "RAM": {
+        "manufacturer": "Kingston",
+        "name": "Fury Renegade RGB",
+        "category": "RAM",
+        "price": 599,
+        "type": "DDR5",
+        "capacity": 16,
+        "frequency": 6000
+      },
+      "GPU": {
+        "manufacturer": "ASROCK",
+        "name": "RX 6600 Challenger D",
+        "category": "GPU",
+        "price": 4999,
+        "memory": 8
+      },
+      "storage": {
+        "manufacturer": "ADATA",
+        "name": "XPG Gammix S70 BLADE",
+        "category": "storage",
+        "price": 1799,
+        "type": "M.2",
+        "capacity": 512
+      },
+      "case": {
+        "manufacturer": "Xzeal",
+        "name": "XZ130 White",
+        "category": "storage",
+        "price": 1299
+      },
+      "PSU": {
+        "manufacturer": "Thermaltake",
+        "name": "Smart BX1RGB",
+        "category": "PSU",
+        "price": 1699,
+        "watts": 750,
+        "form": "ATX"
+      }
+}
