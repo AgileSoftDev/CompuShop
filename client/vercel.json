@@ -3,7 +3,6 @@
     "env": {
       "OPENSSL_VERSION": "1.1.1k"
     },
-    "command": "npm run build",
     "babel": {
       "plugins": [["styled-components", { "ssr": true }]]
     }
