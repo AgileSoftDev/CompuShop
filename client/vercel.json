@@ -1,7 +1,30 @@
 {
-  "build": {
-    "env": {
-      "OPENSSL_VERSION": "1.1.1k"
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "2048",
+        "lambdas": [
+          {
+            "memory": 128,
+            "maxDuration": 10
+          }
+        ],
+        "build": {
+          "env": {
+            "NODE_ENV": "production"
+          },
+          "command": "npm run build",
+          "output": "dist",
+          "use": "@now/node-server",
+          "config": {
+            "babel": {
+              "plugins": [["styled-components", { "ssr": true }]] 
+            }
+          }
+        }
+      }
     }
-  }
+  ]
 }

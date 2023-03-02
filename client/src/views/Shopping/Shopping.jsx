@@ -1,5 +1,3 @@
-
-
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import compuShopLogo from "../../assets/compu-shop_logo.png"
@@ -13,7 +11,7 @@ const Shopping = () =>{
         <>
             <ContainerShopping>
                 <Header>
-                    <div>
+                    <div i>
                         <img src={compuShopLogo} alt="" />
                         <p>Ayuda</p>
                     </div>
