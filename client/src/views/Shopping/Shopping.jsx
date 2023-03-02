@@ -1,25 +1,42 @@
-
-
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import compuShopLogo from "../../assets/compu-shop_logo.png"
+import Form from "./ShoppingComponents/Formulario";
+import ShoppingCart from './ShoppingComponents/ShoppingCart';
 
 const Shopping = () =>{
-
-
+    console.log("hola");
 
     return(
         <>
             <ContainerShopping>
                 <Header>
-                    <div>
+                    <div i>
                         <img src={compuShopLogo} alt="" />
                         <p>Ayuda</p>
                     </div>
                 </Header>
                 <Body>
-                    <div></div>
-                    <div></div>
+                    <div>
+                        <Formulario>
+                            <div>
+                                <div>
+                                    <h1>Agregar Domicilio</h1>
+                                </div>
+                                <section>
+                                    <Form/>
+                                    <Continuar>
+                                        <button>
+                                            <span>Continuar</span>
+                                        </button>
+                                    </Continuar>
+                                </section>
+                            </div>
+                        </Formulario>
+                        <CartContainer>
+                            <ShoppingCart/>                            
+                        </CartContainer>
+                    </div>
                 </Body>
                 <Footer>
                     <NavInfo>
@@ -45,18 +62,22 @@ export default Shopping;
 
 const ContainerShopping = styled.div`
     @import url('https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap');
-    /* background-color: blue; */
     width: 100%;
     min-height: 100%;
-    font-family: 'Nova Flat', cursive;`;
+    font-family: 'Nova Flat', cursive;
+    color: #333333;
+    `;
 
 const Header = styled.div`
+  z-index: 10000;
   width:100%;
   height: 60px;
-  background-color: #2c2c25;
+  background-color: #2c2c25f3;
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
   img{
     height: 40px;
   };
@@ -75,21 +96,42 @@ const Header = styled.div`
 `;
 
 const Body = styled.div`
-    min-height: calc(100vh - 141px);
-    width: 100%;
-    /* background-color: red; */
-    & :nth-child(1){
+    padding-top: 60px;
+    background-color: #eeeeee;
+    &>:nth-child(1){
         width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
     }
 `;
 
+
+const Formulario = styled.div`
+    position: fixed; 
+    z-index: 1;
+    width: 688px;
+    padding: 60px 48px 60px 8px;
+    &>div>div>h1{
+        font-size: 25px;
+        font-weight: 500;
+    };
+    &>div>section{
+    };
+  
+`;
+
+const CartContainer = styled.div`
+  padding-left: 688px;
+  min-height: calc(100vh - 158px);
+  flex-shrink: 0;
+`;
 
 const Footer = styled.div`
     background-color: #ffffff;
     height: 80px;
     width: 100%;
     border-top: 1px solid #e6e6e6;
-    /* background-color: yellow; */
 `;
 
 const NavInfo = styled.div`
@@ -117,4 +159,26 @@ const NavInfo = styled.div`
         font-weight: 400;
         color: #999;
     }
+`;
+
+const Continuar = styled.div`
+    margin: 24px 0;
+    text-align: center;
+    button{
+        background-color: #3483fa;
+        color:#ffffff ;
+        border-radius: 6px;
+        padding: 0 24px;
+        border-color: transparent;
+        line-height: 45px;
+        width: 95%;
+        cursor: pointer;
+        &:active{
+            background-color: #1c4685;
+        }
+        span{
+            font-size: 17px;
+            font-weight: 600;
+        }
+    };
 `;

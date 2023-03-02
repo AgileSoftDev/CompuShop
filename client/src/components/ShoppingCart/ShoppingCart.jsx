@@ -25,7 +25,10 @@ const ShoppingCart = (props) =>{
         <div>
             <h1>Carrito de compras</h1>
         </div>
-       {itemsToBuy.length?<div>
+       {itemsToBuy.length?<div style={{maxHeight: '560px',
+                overflowY: 'auto',
+                overflowX: 'hidden',
+                paddingRight: '0px',}} id={style.cardContainer}>
            {itemsToBuy.map(e=> <CardShoppingCart key={e._id} title={e.name} img={e.img} id={e._id}  cantidad={e.quantity} refToTrash={props.refToTrash}/>)}
         </div>:null }
         {!itemsToBuy.length?<div id={style.empty}>

@@ -23,6 +23,7 @@
 
 }
 #ShoppingCart>:nth-child(1)>h1{
+    font-size: 25px;
     font-weight: 400;
     font-family: 'Shantell Sans', cursive;
 }   
@@ -85,3 +86,25 @@
     right: 55%;
     transform: translate(50%,0);
 }
+
+#cardContainer{
+    padding-right: 20px;
+}
+
+/* Estilos de la scrollbar */
+#cardContainer::-webkit-scrollbar {
+    width: 15px; 
+    background-color: #b81111d8; 
+    border-radius: 10px; 
+  }
+  
+  /* Estilos del thumb (el botón de arrastre) */
+#cardContainer::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del thumb */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  
+  /* Estilos del thumb cuando se hace hover sobre él */
+  #cardContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color del thumb en hover */
+  }

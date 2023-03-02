@@ -31,20 +31,6 @@ const subirImagen = (file) => {
     });
   });
 };
-
-
-////////////////Post de la imagen y almacenamiento local////////////////////////////////////
-// const storage = multer.diskStorage({
-//   destination: path.join(__dirname, '../public/uploads'),
-//   filename: (req, file, cb) => {
-//     const originalname = file.originalname;
-//     const ext = path.extname(originalname);
-//     const mimeType = mime.lookup(ext);
-//     const newExt = mimeType ? '.' + mime.extension(mimeType) : '';
-//     const newName = path.basename(originalname, ext);
-//     cb(null, newName + newExt);
-//   }
-// });
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   // folder: 'uploads',

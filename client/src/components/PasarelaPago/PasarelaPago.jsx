@@ -6,15 +6,13 @@ import {  PayPalButtons } from "@paypal/react-paypal-js";
 
 const Paypalboton= ()=>{
     const pagoCarrito= useSelector(e=>e.shoppingCart)
-    const [price, setPrice ] = useState(100);
+    const [price, setPrice ] = useState(0);
         useEffect(()=>{
         let num = 0;
         pagoCarrito.forEach(e => {
             num = num + e.price
         });
-
         setPrice(num)
-
     },[])
     const createOrder = (data, actions) => {
         // Order is created on the server and the order id is returned
