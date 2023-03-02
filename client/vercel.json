@@ -2,9 +2,7 @@
   "build": {
     "env": {
       "OPENSSL_VERSION": "1.1.1k"
-    },
-    "babel": {
-      "plugins": [["styled-components", { "ssr": true }]]
     }
   }
 }
+
