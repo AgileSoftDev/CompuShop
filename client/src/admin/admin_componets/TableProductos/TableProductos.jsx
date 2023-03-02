@@ -3,8 +3,34 @@ import style from './TableProductos.module.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import url from "../../../utils/deploy_back.js";
-
+import swal from "sweetalert2"
 const TableLoaded = ({allComponents}) => {
+    const [ setAllComponentes] = useState([])
+    const handleRevoke = async (component) => {
+        try {
+          const { data } = await axios.delete(`${url}/components/${component._id}`);
+          if (data.message === 'Component revoked successfully') {
+            setAllComponentes((prevState) =>
+              prevState.filter((item) => item._id !== component._id)
+            );
+          }
+          swal.fire({
+            title: 'Se elimino el producto con éxito',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+            timerProgressBar: 3000
+          });
+        } catch (error) {
+            swal.fire({
+                title: 'Error al eliminar el producto',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+                timerProgressBar: 3000
+              });
+        }
+      };
+    
     return (
         <>
             <table className={style.card_table}>
@@ -35,7 +61,7 @@ const TableLoaded = ({allComponents}) => {
                                                 <button>Ver</button>
                                                 <button>Editar</button>
                                             </div>
-                                            <button>Revocar</button>
+                                            <button onClick={()=> handleRevoke(component)}>Revocar</button>
                                         </td>
                                     </tr>
                             )
@@ -72,7 +98,6 @@ const [loading, setLoading] = useState(true)
         }
         getAllComponents()
     }, [])
-
   return (
     <div id={style.ProductsPanelContainer}>
         {
