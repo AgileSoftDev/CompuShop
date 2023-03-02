@@ -1,19 +1,11 @@
 {
-  "builds": [
-    {
-      "config": {
-        "build": {
-          "env": {
-            "NODE_ENV": "1.1.1k"
-          },
-          "use": "@now/node-server",
-          "config": {
-            "babel": {
-              "plugins": [["styled-components", { "ssr": true }]] 
-            }
-          }
-        }
-      }
+  "build": {
+    "env": {
+      "OPENSSL_VERSION": "1.1.1k"
+    },
+    "command": "npm run build",
+    "babel": {
+      "plugins": [["styled-components", { "ssr": true }]]
     }
-  ]
+  }
 }
