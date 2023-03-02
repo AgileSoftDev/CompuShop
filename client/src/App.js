@@ -15,12 +15,15 @@ import PasarelaPago from "./components/PasarelaPago/PasarelaPago";
 import Nosotros from "./views/Nosotros/Nosotros"
 import {useEffect, useRef, useState} from "react";
 import ShoppingView from "./views/Shopping/Shopping.jsx";
-// import EditUser from "./views/EditUser/EditUser"
-// import Ayuda from "./views/Ayuda/Ayuda";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
 function App() {
+  const { user, isAuthenticated } = useAuth0()
+  console.log(user);
+  console.log(isAuthenticated);
+
   const headerRef = useRef(null)
   const location = useLocation();
 
@@ -30,6 +33,13 @@ function App() {
     setPadingMain(145)
     console.log(headerRef);
   },[])
+
+
+  useEffect(()=>{
+    if(isAuthenticated){
+        
+    }
+  },[user])
 
   return (
     <div id={style.AbsoluteContaier}>

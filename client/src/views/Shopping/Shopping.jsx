@@ -5,7 +5,6 @@ import Form from "./ShoppingComponents/Formulario";
 import ShoppingCart from './ShoppingComponents/ShoppingCart';
 
 const Shopping = () =>{
-    console.log("hola");
 
     return(
         <>

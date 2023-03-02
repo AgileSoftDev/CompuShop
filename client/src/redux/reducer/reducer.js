@@ -159,6 +159,9 @@ const rootReducer = (state = initialState, { type, payload }) =>{
         case INCREMENT_CART:
             let cartt = state.shoppingCart.map(e=>e);
             const itemPlus = cartt.find((item) => item._id === payload);
+            if (itemPlus.quantity < itemPlus.quantityStock) {
+                console.log(itemPlus);
+            
             let indexx;
 
             cartt.forEach((e,i)=>{
@@ -171,9 +174,14 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             cartt.splice(indexx,1,newob)
             window.localStorage.setItem('carrito', JSON.stringify(cartt))
 
-            return{
-                ...state,
-                shoppingCart: cartt,
+                return{
+                    ...state,
+                    shoppingCart: cartt,
+                }
+            }else{
+                return{
+                    ...state,
+                }
             }
 
         case DECREMENT_CART:
