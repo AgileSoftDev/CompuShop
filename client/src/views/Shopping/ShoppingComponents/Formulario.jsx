@@ -92,7 +92,7 @@ const Formulario = () =>{
                     <Referencias>
                         <label >
                             <div>
-                                <textarea rows="1" name="" onInput={handleAutoResize}>
+                                <textarea rows="2" name="" onInput={handleAutoResize}>
                                 </textarea>
                             </div>
                         </label>
@@ -244,7 +244,7 @@ const Referencias = styled.div`
             border-radius: 6px;
             padding-right: 10px;
             textarea{
-                height: 48px;
+                height: 70px;
                 flex-grow: 1;
                 overflow-x: hidden;
                 overflow-wrap: break-word;
