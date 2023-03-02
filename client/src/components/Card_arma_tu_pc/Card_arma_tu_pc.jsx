@@ -13,9 +13,12 @@ const Card_arma_tu_pc = (props) =>{
 
 
     const cleanTitle =(title) =>{
-        let titleCleaned = title;
-        if (titleCleaned.length < 75) return titleCleaned
-        else return titleCleaned.substring(0, 75) + "..."         
+        if (title) {
+            let titleCleaned = title;
+            if (titleCleaned?.length < 75) return titleCleaned
+            else return titleCleaned.substring(0, 75) + "..."  
+        }
+           
     }
 
 

@@ -37,11 +37,13 @@
     height: 140px;
 }
 
-#Card > :nth-child(1) h1{
+#Card > :nth-child(1) a{
+    text-decoration: none;
     font-size: 18px;
     color: rgb(98, 91, 91);
     font-weight: 300;
     font-family: 'Rowdies', cursive;
+    cursor: pointer;
 }
 
 
@@ -62,6 +64,10 @@
     font-size: 14px;
     font-weight: 400;
     font-family: 'Rowdies', cursive;
+}
+#Card > :nth-child(2) > button:active{
+    background-color: #d99b20;
+    transform: scale(1.05);
 }
 
 #Card > :nth-child(2) > h1{
@@ -115,7 +121,8 @@
     width: 600px;
 }
 
-#Card2 > :nth-child(2) > h2{
+#Card2 > :nth-child(2) > a{
+    text-decoration: none;
     font-size: 17px;
     color: rgb(98, 91, 91);
     font-weight: 300;
@@ -126,6 +133,7 @@
     justify-content: start;
     padding-top: 12px;
     padding-right: 10px;
+    cursor: pointer;
 }
 
 #Card2 > :nth-child(2) > h1{
