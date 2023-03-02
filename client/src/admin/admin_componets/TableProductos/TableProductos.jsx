@@ -6,6 +6,8 @@ import url from "../../../utils/deploy_back.js";
 import swal from "sweetalert2"
 const TableLoaded = ({allComponents}) => {
     const [ setAllComponentes] = useState([])
+    // const [showComponent, setShowComponent] = useState(false);
+    // const [selectedComponent, setSelectedComponent] = useState(null)
     const handleRevoke = async (component) => {
         try {
           const { data } = await axios.delete(`${url}/components/${component._id}`);
@@ -30,7 +32,15 @@ const TableLoaded = ({allComponents}) => {
               });
         }
       };
-    
+
+    //   const handleShowComponent = (component) => {
+    //     setShowComponent(true);
+    //     setSelectedComponent(component);
+    //   };
+    //   const handleHideComponent = () => {
+    //     setShowComponent(false);
+    //     setSelectedComponent(null);
+    //   };
     return (
         <>
             <table className={style.card_table}>

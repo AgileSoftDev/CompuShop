@@ -71,10 +71,11 @@ const FormAgregarProducto = () => {
         data.append('description_4', values.description_4);
         data.append('stock', values.stock);
         data.append('quantityStock', values.quantityStock);
-        await axios.post(`${url}/upload/`, data);
-        console.log(data)
+        
+        const {data:data2}=await axios.post(`${url}/upload/`, data);
+        console.log(data2)
         swal.fire({
-          title: 'Se creo el producto con éxito',
+          title: `hola`,
           icon: 'success',
           confirmButtonText: 'Aceptar',
           allowOutsideClick: false,
