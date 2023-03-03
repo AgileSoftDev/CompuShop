@@ -15,12 +15,15 @@ import PasarelaPago from "./components/PasarelaPago/PasarelaPago";
 import Nosotros from "./views/Nosotros/Nosotros"
 import {useEffect, useRef, useState} from "react";
 import ShoppingView from "./views/Shopping/Shopping.jsx";
-// import EditUser from "./views/EditUser/EditUser"
-// import Ayuda from "./views/Ayuda/Ayuda";
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 
 
 
 function App() {
+  const { user, isAuthenticated } = useAuth0()
+
+
   const headerRef = useRef(null)
   const location = useLocation();
 
@@ -30,6 +33,18 @@ function App() {
     setPadingMain(145)
     console.log(headerRef);
   },[])
+
+
+  useEffect(()=>{
+    const postUser=async()=>{
+        const result = await axios.post(`http://localhost:3001/users`,{email:user.email })
+        console.log("result:");
+        console.log(result);
+    }
+
+    if(isAuthenticated)postUser()
+   
+  },[user])
 
   return (
     <div id={style.AbsoluteContaier}>
