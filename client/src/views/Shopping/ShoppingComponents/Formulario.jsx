@@ -35,7 +35,7 @@ const Formulario = () =>{
                 <label>
                     <span>Nombres y apellidos</span>
                     <div>
-                        <input onChange={hanldeChange} value={formStatus.name} id="name" />
+                        <input onChange={hanldeChange} value={formStatus.name} id="name" className='inputs' />
                     </div>
                 </label>
                 <Aviso1>
@@ -49,7 +49,7 @@ const Formulario = () =>{
                                         Ciudad
                                     </span>
                                     <div>
-                                        <input value={formStatus.city} id="city"  onChange={hanldeChange} />
+                                        <input value={formStatus.city} id="city"  onChange={hanldeChange}  className='inputs'/>
                                     </div>
                                 </Label2>
                                 <Label2>
@@ -57,7 +57,7 @@ const Formulario = () =>{
                                         Dirección
                                     </span>
                                     <div>
-                                        <input value={formStatus.direction} id="direction"  onChange={hanldeChange} />
+                                        <input value={formStatus.direction} id="direction"  onChange={hanldeChange} className='inputs' />
                                     </div>
                                 </Label2>
                             </div>
@@ -105,7 +105,7 @@ const Formulario = () =>{
                                 <label>
                                     <span>Telefono de contancto</span>
                                     <div>
-                                        <input type="text" value={formStatus.phone} id="phone"  onChange={hanldeChange} />
+                                        <input type="text" value={formStatus.phone} id="phone"  onChange={hanldeChange} className='inputs' />
                                     </div>
                                 </label>                                  
                             </NumeroTelefono>
@@ -118,7 +118,7 @@ const Formulario = () =>{
                     <Referencias>
                         <label >
                             <div>
-                                <textarea rows="2" name="" onInput={handleAutoResize} value={formStatus.references} id="references"  onChange={hanldeChange} >
+                                <textarea rows="2" name="" onInput={handleAutoResize} value={formStatus.references} id="references"   onChange={hanldeChange} className='inputs' >
                                 </textarea>
                             </div>
                         </label>
@@ -130,7 +130,7 @@ const Formulario = () =>{
 export default Formulario;
 
 const Form = styled.form`
-input{
+.inputs{
     border: none;
     outline: none;
 }
