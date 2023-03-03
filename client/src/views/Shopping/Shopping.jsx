@@ -16,11 +16,11 @@ const Shopping = () =>{
                     </div>
                 </Header>
                 <Main>
-                    <div>
+                    <div id='firstChildMain'>
                         <Formulario>
                             <div>
                                 <div>
-                                    <h1>Agregar Domicilio</h1>
+                                    <h1 id='titleFormulario'>Agregar Domicilio</h1>
                                 </div>
                                 <section>
                                     <Form/>
@@ -97,7 +97,7 @@ const Header = styled.div`
 const Main = styled.div`
     padding-top: 60px;
     background-color: #eeeeee;
-    &>:nth-child(1){
+    &>#firstChildMain{
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
@@ -111,13 +111,10 @@ const Formulario = styled.div`
     z-index: 1;
     width: 688px;
     padding: 60px 48px 60px 8px;
-    &>div>div>h1{
+    #titleFormulario{
         font-size: 25px;
         font-weight: 500;
     };
-    &>div>section{
-    };
-  
 `;
 
 const CartContainer = styled.div`
