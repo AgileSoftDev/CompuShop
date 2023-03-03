@@ -1,6 +1,7 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { validators } from '../helpers_shopping/helpers_shopping';
+import { useState } from 'react';
+
 
 
 const Formulario = () =>{
