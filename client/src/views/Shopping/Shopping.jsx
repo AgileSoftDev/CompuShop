@@ -15,7 +15,7 @@ const Shopping = () =>{
                         <p>Ayuda</p>
                     </div>
                 </Header>
-                <Body>
+                <Main>
                     <div>
                         <Formulario>
                             <div>
@@ -36,7 +36,7 @@ const Shopping = () =>{
                             <ShoppingCart/>                            
                         </CartContainer>
                     </div>
-                </Body>
+                </Main>
                 <Footer>
                     <NavInfo>
                         <div>
@@ -94,7 +94,7 @@ const Header = styled.div`
   }
 `;
 
-const Body = styled.div`
+const Main = styled.div`
     padding-top: 60px;
     background-color: #eeeeee;
     &>:nth-child(1){

@@ -16,13 +16,13 @@ import Nosotros from "./views/Nosotros/Nosotros"
 import {useEffect, useRef, useState} from "react";
 import ShoppingView from "./views/Shopping/Shopping.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 
 
 
 function App() {
   const { user, isAuthenticated } = useAuth0()
-  console.log(user);
-  console.log(isAuthenticated);
+
 
   const headerRef = useRef(null)
   const location = useLocation();
@@ -36,9 +36,14 @@ function App() {
 
 
   useEffect(()=>{
-    if(isAuthenticated){
-        
+    const postUser=async()=>{
+        const result = await axios.post(`http://localhost:3001/users`,{email:user.email })
+        console.log("result:");
+        console.log(result);
     }
+
+    if(isAuthenticated)postUser()
+   
   },[user])
 
   return (
