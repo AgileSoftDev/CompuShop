@@ -6,10 +6,12 @@ const upload = require('../cloudinaryConfig/multerConfig.js');
 const componentsRoutes= require("./ComponentsRoutes.js");
 // const controlador = require('../controllers/cloudinaryPrueba');
 // const upload = require("../controllers/cloudinaryPrueba")
-const uploadRoutes= require("../controllers/cloudinaryPrueba.js")
+const uploadRoutes= require("../controllers/cloudinaryPrueba.js");
+const nodemailer = require('./nodemailer.js');
 const router = Router();
 router.use("/components", componentsRoutes)
 router.use("/upload", uploadRoutes)
+router.use('/mailer', nodemailer)
 // router.post('/subir-imagen', upload.single('imagen'), controlador.subirImagen);
 
 module.exports = router;
