@@ -21,20 +21,15 @@ const Paypalboton = () => {
     const send = async() => {
         const mailer = await fetch('http://localhost:3001/mailer', {
             method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            credentials: 'same-origin',
             headers: {
-                "Content-Type": "application-json"
+                "Content-type": "application/json; charset=UTF-8"
             },
-            redirect: 'follow',
-            referrerPolicy: 'no-referrer',
             body: JSON.stringify({
                 fromMail: 'compushoppf@gmail.com',
                 toMail: email,
                 name: name
             })
-        })
+        }).then(data => data.json())
         console.log(mailer)
     }
 
