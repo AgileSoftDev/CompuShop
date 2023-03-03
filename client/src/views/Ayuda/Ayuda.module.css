@@ -1,0 +1,19 @@
+.conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+}
+
+#Ayuda{
+    
+    margin-top: 20px;
+    padding-right: 20vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+}

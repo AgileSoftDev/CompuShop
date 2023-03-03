@@ -1,0 +1,52 @@
+{
+    "user":[
+     {
+         "userName": "",
+         "userCategory": "",
+         "email":"",
+         "password": "",
+         "wallet": "",
+         "phoneNumber": ""
+     },
+     {
+         "userName": "antonio",
+         "userCategory": "admin",
+         "email":"antonio123@gmail.com",
+         "password": "antonio1234543",
+         "wallet": "paypal",
+         "phoneNumber": "3283483334"
+     },
+     {
+        "userName": "camilo",
+        "userCategory": "admin",
+        "email":"camilo123@gmail.com",
+        "password": "camilo1234543",
+        "wallet": "paypal",
+        "phoneNumber": "321944394"
+    },
+    {
+        "userName": "martin",
+        "userCategory": "admin",
+        "email":"martin123@gmail.com",
+        "password": "martin1234543",
+        "wallet": "paypal",
+        "phoneNumber": "3118443334"
+    },
+    {
+        "userName": "valeria",
+        "userCategory": "admin",
+        "email":"valeria123@gmail.com",
+        "password": "valeria1234543",
+        "wallet": "paypal",
+        "phoneNumber": "3213993334"
+    },
+    {
+        "userName": "isabel",
+        "userCategory": "admin",
+        "email":"isabel123@gmail.com",
+        "password": "isabel1234543",
+        "wallet": "paypal",
+        "phoneNumber": "3215453334"
+    }
+     ]
+ }

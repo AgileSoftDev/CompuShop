@@ -1,9 +1,12 @@
 const { Router }= require("express");
-const {allComps, findComp, findByCategory, findById} = require("../controllers/component/getComponents.js");
-const createComponent = require('../controllers/component/createComponent.js');
-const deleteComponent = require('../controllers/component/deleteComponent.js');
-const updateComponents = require('../controllers/component/updateComponents.js')
-
+const {allComps, findComp, findByCategory, findById, findStock} = require("./../controllers/component/getComponents.js");
+const createComponent = require('./../controllers/component/createComponents.js');
+const deleteComponent = require('./../controllers/component/deleteComponent.js');
+const updateComponents = require('./../controllers/component/updateComponents.js');
+const multer= require("multer");
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+const cloudinary = require("../cloudinaryConfig/cloudinary.js")
 
 const componentsRoutes= Router();
 
@@ -11,11 +14,17 @@ componentsRoutes.get("/", async (req, res) =>{
     const {name}= req.query;
     try {
         if(name){
-            res.status(201).send(await findComp(name))
+            const compSearch = await findComp(name)
+            if(!compSearch){ 
+                return res.status(400).send({error:"No such component found"})
+            }else{
+                return res.status(200).send(compSearch)
+            }
         }
         else return res.status(201).send(await allComps())
     } catch (error) {
-        res.status(404).send({error})
+        return res.status(500).send({error: error.message})
+
     }
 });
 
@@ -37,15 +46,6 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
     }
 })
 
-componentsRoutes.post("/", async(req, res)=>{
-    try {
-        res.status(201).send(await createComponent(req.body));
-    } catch (error) {
-        console.log(error)
-        res.status(400).send({error})
-    }
-})
-
 componentsRoutes.delete('/:id', async(req, res) => {
     try {
         const {id} = req.params;
@@ -58,11 +58,21 @@ componentsRoutes.delete('/:id', async(req, res) => {
 
 componentsRoutes.put('/:id', async(req, res) => {
     try {
+        console.log("llegó la perición");
         const {id} = req.params;
         const data = req.body;
-        res.status(204).send(await updateComponents(id, data))
+        const resultPut= await updateComponents(id, data)
+        return res.status(200).send("Componente actualizado: " + resultPut)
     } catch (error) {
         res.status(404).send({error})
+    }
+})
+
+componentsRoutes.get("/stock/all", async(req, res)=>{
+    try {
+        return res.status(200).send(await findStock())
+    } catch (error) {
+
     }
 })
 
