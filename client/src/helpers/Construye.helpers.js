@@ -8,7 +8,9 @@ const selectCategoryByStep = {
     '/construye/paso7' : "FUENTE",
     '/construye/paso8' : "CHASIS",
     '/construye/paso9' : "Monitor",
-    '/construye/paso10' : "PERIFERIC",
+    '/construye/paso10' : "Headset",
+    '/construye/paso11' : "Mouse",
+    '/construye/paso12' : "Keyboard",
   }
 export {
     selectCategoryByStep,

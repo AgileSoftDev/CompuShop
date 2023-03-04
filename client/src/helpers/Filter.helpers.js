@@ -34,7 +34,18 @@ const filterCategoryParams = (categoryPick) =>{
         case 'Gabinetes':
             response=["CHASIS",]
             break;
-    
+        case 'Monitores':
+            response=["Monitor",]
+            break;
+        case 'Auriculares':
+            response=["Headset",]
+            break;
+        case 'Mouses':
+            response=["Mouse",]
+            break;
+        case 'Teclados':
+            response=["Keyboard",]
+            break;
         default:
             break;
     }

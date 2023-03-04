@@ -16,6 +16,10 @@ const categorias = [
   'BOARD',
   'CHASIS',
   'FUENTE',
+  'Monitor',
+  'Headset',
+  'Mouse',
+  'Keyboard'
 ] 
 
 const FormAgregarProducto = () => {

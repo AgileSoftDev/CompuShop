@@ -43,6 +43,8 @@ const rutas_pasos = {
     '/construye/paso8' : {caseIcon:true},
     '/construye/paso9' : {screen:true},
     '/construye/paso10' : {peripherals:true},
+    '/construye/paso11' : {peripherals:true},
+    '/construye/paso12' : {peripherals:true},
     '/construye' : {cpu:true},
   }
 
@@ -87,6 +89,14 @@ const rutas_texto = {
         title:'Elige tu Periféricos',
         text:'Mouses, Teclados, MousePad, Auriculares, Coolers, y más.',
     },
+    '/construye/paso11' : {
+        title:'Elige tu Periféricos',
+        text:'Mouses, Teclados, MousePad, Auriculares, Coolers, y más.',
+    },
+    '/construye/paso12' : {
+        title:'Elige tu Periféricos',
+        text:'Mouses, Teclados, MousePad, Auriculares, Coolers, y más.',
+    },
     '/construye' : {
         title:'¡Está listo para empezar a armar tu pc!',
         text:'Empieza eligiendo tu cpu. Tu procesador es la pieza central del rendimiento de los programas. Para saber si un procesador es potente lo que tenés que medir es la frecuencia, el ancho de bus, la memoria caché y los núcleos e hilos de procesamiento.',
@@ -114,6 +124,7 @@ const Construye = () =>{
     const [componet, setComponent] = useState({})
     const [cardsToShow, setCardsToShow] = useState([])
     const [marcaStatus, setMarcaStatus] = useState({})
+    const [subCategory, setSubCategory] = useState({})                 //
     const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
     const [totalPrice, setTotalPrice] = useState(0)
 
@@ -243,7 +254,7 @@ const Construye = () =>{
 
 
     const moveStepHandler = (type) =>{
-        if (pathname !== "/construye/paso10") {
+        if (pathname !== "/construye/paso12") {
             const step = getCurrentStep(cleanPathname(pathname)) + type
             const newRoute ='paso' + String(step)
             if (pathname === "/construye")  history.push("/construye/"+newRoute)
