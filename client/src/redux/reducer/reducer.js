@@ -1,10 +1,11 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART } from "../actions/actions.types";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, EDIT_COMPONENT } from "../actions/actions.types";
 import { paginationArray, getCurrentComponent } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
 const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
 
 const initialState = {
     allComponents: [],
+    editComponent: [],
     numPaginado: 0,
     paginated: [],
     connectionON : true,
@@ -30,8 +31,6 @@ const initialState = {
 //hola de nuevo
 const rootReducer = (state = initialState, { type, payload }) =>{
 
-    
-
     let data = undefined;
     switch (type) {
         case SET_STATE_VIEW_CARD:
@@ -53,8 +52,6 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             };
 
         case SEARCH_COMPONENT:
-
-
             return{
                 ...state,
                 allComponents:payload,
@@ -218,6 +215,9 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 ...state,
                 shoppingCart: arrFiltrado,
             };
+        case EDIT_COMPONENT:
+            const editComponent = state.allComponents.filter((item) => item._id === payload._id)
+            editComponent.push(editComponent)
 
         default:
             return{
