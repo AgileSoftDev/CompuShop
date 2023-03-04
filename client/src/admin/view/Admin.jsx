@@ -6,10 +6,7 @@ import logoutIcon from "../admin_assets/logout-svgrepo-com.svg"
 import TableProductos from "../admin_componets/TableProductos/TableProductos";
 import ControlPanel from "../view/ControlPanel/ControlPanel";
 import FormAgregarProducto from "../admin_componets/FormAgregarProducto/FormAgregarProducto";
-<<<<<<< Updated upstream
-=======
 import FormEditarProducto from "../admin_componets/FormEditarProducto/FormEditarProducto";
->>>>>>> Stashed changes
 const Admin = () =>{
     const pathname = useHistory().location.pathname
     return(
@@ -45,10 +42,7 @@ const Admin = () =>{
                 <Route exact path={"/admin/controlPanel"} render={()=> <ControlPanel />}/>
                 <Route exact path={"/admin/products"} render={()=> <TableProductos/>}/>
                 <Route exact path={"/admin/products/add"} render={()=> <FormAgregarProducto/>}/>
-<<<<<<< Updated upstream
-=======
                 <Route exact path={"/admin/products/edit"} render={()=> <FormEditarProducto/>}/>
->>>>>>> Stashed changes
                 <Route exact path={"/admin/users"} render={()=> <TableProductos/>}/>
             </div>
         </div>

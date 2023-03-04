@@ -69,7 +69,7 @@ const TableLoaded = ({allComponents}) => {
                                         <td id={style.sectionButtons}>
                                             <div>
                                                 <button>Ver</button>
-                                                <button>Editar</button>
+                                                <Link  className={style.buttons} to={'/admin/products/edit'}>Editar Producto</Link>
                                             </div>
                                             <button onClick={()=> handleRevoke(component)}>Revocar</button>
                                         </td>

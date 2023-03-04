@@ -180,11 +180,7 @@
     color: #ffffff;
     width: 50px;
    }
-<<<<<<< Updated upstream
-   #sectionButtons :first-child :nth-child(2){
-=======
    #sectionButtons :first-child :nth-child(1){
->>>>>>> Stashed changes
     margin-left: 4px;
    }
    #sectionButtons :nth-child(2){

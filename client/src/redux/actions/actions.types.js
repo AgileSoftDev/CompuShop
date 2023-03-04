@@ -15,8 +15,5 @@ export const ADD_TO_CART = "ADD_TO_CART"
 export const INCREMENT_CART = "INCREMENT_CART"
 export const DECREMENT_CART = "DECREMENT_CART"
 export const REMOVE_ITEM_CART = "REMOVE_ITEM_CART"
-<<<<<<< Updated upstream
-=======
 //Edit component
 export const EDIT_COMPONENT = "EDIT_COMPONENT"
->>>>>>> Stashed changes
