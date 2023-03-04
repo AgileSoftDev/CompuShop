@@ -29,21 +29,21 @@ const CardCart = (props)=>{
     return(
         <div>
             <Label>
-                <FirstDiv>
-                    <div><img src={props.img} alt="" /></div>
-                    <div><h2>{props.title}</h2></div>
+                <FirstDiv className="contenedores">
+                    <div className="imgContainer"><img className="img" src={props.img} alt="" /></div>
+                    <div className="titleContainer"><h2 id="titleCard">{props.title}</h2></div>
                 </FirstDiv>
-                <SecondDiv>
-                    <div>
-                        <button onClick={()=>dispatch(decrementCart(props.id))}><span>-</span></button>
-                        <span>{props.cantidad}</span>
-                        <button onClick={()=>dispatch(incrementCart(props.id))}><span>+</span></button>
+                <SecondDiv className="contenedores">
+                    <div className="divTwo">
+                        <button className="buttonsControllers" onClick={()=>dispatch(decrementCart(props.id))}><span>-</span></button>
+                        <span id="spanTwo">{props.cantidad}</span>
+                        <button className="buttonsControllers"  onClick={()=>dispatch(incrementCart(props.id))}><span>+</span></button>
                     </div>
                 </SecondDiv>
-                <ThirdDiv>  
+                <ThirdDiv className="contenedores">  
                     <label><span>${price}</span></label>
-                    <i onClick={()=>dispatch(removeItemCart(props.id))}>
-                        <p>X</p>
+                    <i id="xIcon" onClick={()=>dispatch(removeItemCart(props.id))}>
+                        <p id="xP">X</p>
                     </i>
                 </ThirdDiv>                
             </Label>
@@ -59,7 +59,7 @@ const Label = styled.label`
     border-top: 1px solid #34333371;
     padding: 20px 0;
     position: relative;
-    >div{
+    >.contenedores{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -71,17 +71,17 @@ flex-direction: column;
 width: 216px;
 flex-shrink: 0;
 padding-right: 10px;
-    &>:nth-child(1){
+    &>.imgContainer{
         width: 100px;
         padding-bottom: 5px;
-        >img{
+        >.img{
             object-fit: contain;
             max-width: 100%;
         }
     }
     
-    &>:nth-child(2){
-        >h2{
+    &>.titleContainer{
+        >#titleCard{
             font-size: 16px;
             font-weight: 400;
         }
@@ -92,8 +92,8 @@ const SecondDiv = styled.div`
     padding-right: 10px;
     width: 100px;
     flex-shrink: 0;
-    >div{
-        >button{
+    >.divTwo{
+        >.buttonsControllers{
             padding: 5px;
             border-radius: 4px;
             border: 1px solid #34333371;
@@ -104,7 +104,7 @@ const SecondDiv = styled.div`
                 margin: auto;
             }
         }
-        >span{
+        >#spanTwo{
             margin: 0 10px;
         }
     }
@@ -114,12 +114,12 @@ const SecondDiv = styled.div`
 const ThirdDiv = styled.div`
     width: 100px;
     flex-shrink: 0;
-    >i{
+    >#xIcon{
         cursor: pointer;
         position: absolute;
         top: 3px;
         right: 5px;
-        >p{
+        >#xP{
             transform: rotate(-6deg);
         }
     }

@@ -85,11 +85,10 @@ const setStepBuildPc = (step) =>{
         const {data} = await axios.get(ddd)
         .catch(error => alert("Error en la action getAllComponents, al obtener la data"));
 
->>>>>>>>> Temporary merge branch 2
-                dispatch({
+            if(data) dispatch({
                     type: GET_ALL_COMPONENTS,
                     payload: data,
-            })
+                 })
          
     }
 }

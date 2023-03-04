@@ -13,7 +13,6 @@ router.use("/users", userRoutes)
 router.use("/review", reviewRoutes)
 // const controlador = require('../controllers/cloudinaryPrueba');
 // const upload = require("../controllers/cloudinaryPrueba")
-// const uploadRoutes= require("../controllers/cloudinaryPrueba.js")
 router.use("/components", componentsRoutes)
 router.use("/upload", uploadRoutes)
 // router.post('/subir-imagen', upload.single('imagen'), controlador.subirImagen);
