@@ -1,4 +1,4 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART } from "../actions/actions.types";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, SET_SHOPPING_FORM } from "../actions/actions.types";
 import { paginationArray, getCurrentComponent } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
 const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
@@ -25,9 +25,9 @@ const initialState = {
     categoryPick: undefined,
     orderPrice:undefined,
     shoppingCart:window.localStorage.getItem("carrito")===null?[]:JSON.parse(window.localStorage.getItem("carrito")),
+    shoppingForm:undefined,
 }
 
-//hola de nuevo
 const rootReducer = (state = initialState, { type, payload }) =>{
 
     
@@ -160,7 +160,6 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             let cartt = state.shoppingCart.map(e=>e);
             const itemPlus = cartt.find((item) => item._id === payload);
             if (itemPlus.quantity < itemPlus.quantityStock) {
-                console.log(itemPlus);
             
             let indexx;
 
@@ -218,6 +217,19 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 ...state,
                 shoppingCart: arrFiltrado,
             };
+
+        case CLEAN_SHOPPING_CART:
+            window.localStorage.setItem('carrito', JSON.stringify([]))   
+            return{
+                ...state,
+                shoppingCart:[]
+            }
+
+        case SET_SHOPPING_FORM:
+            return{
+                ...state,
+                shoppingForm:payload,
+            }
 
         default:
             return{

@@ -12,6 +12,8 @@ const componentsRoutes= Router();
 
 componentsRoutes.get("/", async (req, res) =>{
     const {name}= req.query;
+    console.log("hola");
+
     try {
         if(name){
             const compSearch = await findComp(name)
@@ -64,7 +66,7 @@ componentsRoutes.put('/:id', async(req, res) => {
         const resultPut= await updateComponents(id, data)
         return res.status(200).send("Componente actualizado: " + resultPut)
     } catch (error) {
-        res.status(404).send({error})
+        res.status(400).send({error})
     }
 })
 

@@ -1,0 +1,157 @@
+#FormCotainer {
+background-color: #ffffff;
+margin-top: 32px;
+
+}
+#FormCotainer .inputs{
+    border: none;
+    outline: none;
+}
+#FormCotainer .spans{
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#FormCotainer >#firstChild{
+    padding: 32px;
+}
+#firstChild>.firstLabel{
+    width: 60%;
+    display: inline-block;
+
+}
+#firstChild>.firstLabel>#firstSpan{
+    margin: 0 0 6px 6px;
+}
+#firstChild>.firstLabel>#childTwo{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+ 
+}
+#firstChild>.firstLabel>#childTwo input{
+    flex-grow: 1;
+    padding: 13px 12px;
+    height: 22px;
+}
+
+#aviso1{
+    margin: 4px 0 0 6px;
+  
+}
+#aviso1 #avisoOne{
+    font-size: 12px;
+}
+#secondDiv>#childOneSecondDiv{
+    padding-top: 12px;
+    padding-bottom: 24px;
+}
+#secondDiv>#childOneSecondDiv>#childOneSecondDivChildOne{
+    display: flex;
+}
+#label2{
+    padding-right: 20px;
+    width: 100%;
+
+}
+#label2 #divLabelTwo{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+#label2 input{
+    padding: 13px 12px;
+    height: 22px;
+    flex-grow: 1;
+}
+
+#label2 #spanLabelTwo{
+    margin: 0 0 6px 6px;
+}
+#optionsHorkHome{
+    display: flex;
+
+}
+#optionsHorkHome .divsWorkOrHome{
+    display: flex;
+    padding: 5px 16px 5px 0;
+    align-items: center;
+}
+#optionsHorkHome .divsWorkOrHome div{
+    padding: 9px;
+ 
+}
+#optionsHorkHome .divsWorkOrHome div input{
+    cursor: pointer;
+}
+#optionsHorkHome .divsWorkOrHome .iconWorkOrHome{
+    padding: 0 9px 0 2px;
+}
+
+#optionsHorkHome .divsWorkOrHome .labelWorkOrHome{
+    padding-left: 2px;
+    cursor: pointer;
+}
+#telefono{
+    padding-top: 12px;
+    width: 47%;   
+}
+#telefono #labelNumeroTelefono{
+    width: auto;
+
+}
+#telefono #labelNumeroTelefono >:nth-child(2){
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    height: 48px;
+    display: flex;
+    align-items: center;
+}
+#telefono #labelNumeroTelefono >:nth-child(2) input{
+    padding: 13px 12px;
+    height: 22px;
+    flex-grow: 1;
+}
+#telefono #labelNumeroTelefono >#spanNumeroTelefono{
+        margin: 0 0 6px 6px;
+};
+
+#controlTelefono{
+    margin: 8px 0 0 6px;
+   
+}
+#controlTelefono >#spanControlTelefono{
+    height: 14px;
+};
+#referenciasContainer{
+    padding:12px 12.6px 0 0 ;
+}
+#referenciasContainer>#labelReferencias>#divReferencias{
+    display: flex;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    padding-right: 10px;
+}
+#referenciasContainer>#labelReferencias>#divReferencias textarea{
+    height: 70px;
+    flex-grow: 1;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    line-height: 22px;
+    font-size: 16px;
+    padding: 13px 12px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+#spanReferencias{
+    margin: 0 0 6px 6px;
+}

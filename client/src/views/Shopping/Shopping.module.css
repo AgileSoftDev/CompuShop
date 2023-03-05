@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap');
+
+
+#ContainerShopping{
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Nova Flat', cursive;
+    color: #333333;
+    position: relative;
+}
+#maxCotainerP{
+    top: 50%;
+    right: 50%;
+    position: absolute;
+    transform: translate(50%,-49%);
+    background-color: #0000006b;
+    width: 100%;
+    height: calc(100% + 15px);
+    z-index: 10000;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;    
+}
+
+#containerPaypal{
+    border-radius: 10px;
+    background-color: #e0620f;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    position: relative;
+
+
+}
+#containerPaypal > h1{
+    color: #fefefe;
+    font-weight: 500;
+}
+
+#exitPasarela{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#headerShopping{
+  z-index: 10000;
+  width:100%;
+  height: 60px;
+  background-color: #2c2c25f3;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+
+#headerShopping img{
+    height: 40px;
+}
+
+#headerShopping div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+#headerShopping p{
+    color: #fefefe;
+    font-size: 14px;
+}
+
+#mainShopping{
+    padding-top: 60px;
+    background-color: #eeeeee;
+}
+#mainShopping>#firstChildMain{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#formularioContainer{
+    position: fixed; 
+    z-index: 1;
+    width: 688px;
+    padding: 60px 48px 60px 8px;
+
+}
+#formularioContainer #titleFormulario{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#continuarButton{
+    margin: 24px 0;
+    text-align: center;
+}
+#continuarButton #principalButton{
+    background-color: #3483fa;
+    color:#ffffff ;
+    border-radius: 6px;
+    padding: 0 24px;
+    border-color: transparent;
+    line-height: 45px;
+    width: 95%;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    /* margin: 24px 0;
+    text-align: center; */
+
+
+};
+#principalButton span{
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#principalButton:active{
+    background-color: #1c4685;
+}
+
+
+#cartContainer{
+  padding-left: 688px;
+  min-height: calc(100vh - 158px);
+  flex-shrink: 0;
+}
+
+#footerShopping{
+    background-color: #ffffff;
+    height: 80px;
+    width: 100%;
+    border-top: 1px solid #e6e6e6;
+}
+
+#navFooter{
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 0px 10px;
+}
+#navFooter>:first-child{
+    padding: 0 0 8px 0;
+}
+#navFooter>:first-child> a{
+    font-size: 12.5px;
+    text-decoration: none;
+    color: #333;
+    margin: 0 20px 0 0;
+    word-spacing: -0.1em;
+}
+#navFooter h2{
+    font-size: 12px;
+    color: #999;
+    font-weight: 400;
+    margin-bottom: 2px;
+}
+
+#navFooter p{
+    font-size: 12px;
+    font-weight: 400;
+    color: #999;
+}
+
+#AlertaExitosa{
+    display: flex;
+    position: absolute;
+    /* background-color: rgb(201, 17, 17); */
+    width: 300px;
+    height: 200px;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}

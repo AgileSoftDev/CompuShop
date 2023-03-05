@@ -10,7 +10,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 ReactDOM.render(
   <Provider store={store}>
      <React.StrictMode>
-        <PayPalScriptProvider options={{ "client-id": "AV_SfUzgSxXsTg7WPIuWps2gwlC6OXu3SWobjg3iIlKyYT1qKcAuhydAw_RApySTPC4dCr5WAVV2ib_d" }}>
+        <PayPalScriptProvider options={{ "client-id": "Aa9SaYMRYI92HMqajFUqG9WSm1CVI3s4nOoyT-F58UXV0WRJQBNeJgVpRe46xfXepr430pElNvgcvj2Q" }}>
       <Auth0Provider
       domain="dev-4x4kckwt6fai1h5p.us.auth0.com"
       clientId="rzpzLVsAkrjHjO1qZIuWL7v6hydBMM2P"
