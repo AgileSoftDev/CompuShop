@@ -80,7 +80,7 @@ const Paypalboton= (props)=>{
                     place:props.statusForm.current.options,
                 }
 
-            const {status} = await axios.put(`http://localhost:3001/users/update/${props.userId}`,{name:props.statusForm.name,orders:{fecha:Date.now(),totalPrice:price,directionDlivery,contactPhone:props.statusForm.phone, productos:cleanCart,}, })
+            const {status} = await axios.put(`http://localhost:3001/users/update/${props.userId}`,{name:props.statusForm.name,orders:{fecha:Date.now(),totalPrice:price,directionDlivery,contactPhone:props.statusForm.current.phone, productos:cleanCart,}, })
             .catch((err)=>alert("El pago fue realizado, pero no pudimos completar tu compra. Contactanos para poder ayudare -> compushoppf@gmail.com"))
 
             if (status===200) {

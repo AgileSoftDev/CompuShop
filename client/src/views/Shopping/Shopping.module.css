@@ -9,18 +9,17 @@
     position: relative;
 }
 #maxCotainerP{
-    top: 50%;
-    right: 50%;
-    position: absolute;
-    transform: translate(50%,-49%);
+    top: 0;
+    position: fixed;
     background-color: #0000006b;
     width: 100%;
-    height: calc(100% + 15px);
+    height: calc(100vh + 15px);
     z-index: 10000;
     display: none; 
     align-items: center;
     justify-content: center;
     text-align: center;    
+    overflow: hidden;
 }
 
 #containerPaypal{
