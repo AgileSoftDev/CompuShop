@@ -169,12 +169,12 @@ const cleanShoppingCart= ()=>{
     }
 };
 
-const setShoppingForm= (payload)=>{
-    return{
-        type:SET_SHOPPING_FORM,
-        payload
-    }
-}
+// const setShoppingForm= (payload)=>{
+//     return{
+//         type:SET_SHOPPING_FORM,
+//         payload
+//     }
+// }
 
 export {
      setStateViewCard,
@@ -194,5 +194,5 @@ export {
      decrementCart,
      removeItemCart,
      cleanShoppingCart,
-     setShoppingForm,
+    //  setShoppingForm,
 };

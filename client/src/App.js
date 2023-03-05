@@ -37,10 +37,7 @@ function App() {
   useEffect(()=>{
     const postUser=async()=>{
         const {data} = await axios.post(`http://localhost:3001/users`,{email:user.email })
-        console.log("result:");
-        console.log(data);
         if (data) setUserId(data.userid)
-        console.log(data.userid);
     }
 
     if(isAuthenticated)postUser()

@@ -124,7 +124,7 @@ const Construye = () =>{
     const [componet, setComponent] = useState({})
     const [cardsToShow, setCardsToShow] = useState([])
     const [marcaStatus, setMarcaStatus] = useState({})
-    const [subCategory, setSubCategory] = useState({})                 //
+    // const [subCategory, setSubCategory] = useState({})                 
     const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
     const [totalPrice, setTotalPrice] = useState(0)
 
@@ -141,9 +141,14 @@ const Construye = () =>{
     window.addEventListener("click",  setButtonsManagerFalse)
 
 
-
-
-      
+    useEffect(()=>{
+        if (step_build_pc) { 
+            if(rutas_pasos[step_build_pc])  { 
+                setComponent(rutas_pasos[step_build_pc])
+                history.push(step_build_pc)
+            }
+        }
+    },[])
 
         useEffect(()=>{
             const handleClick = (evento) => {
@@ -160,13 +165,15 @@ const Construye = () =>{
             setCurrentStep(getCurrentStep(cleanPathname(pathname)))
 
             if (step_build_pc) { 
-                if(rutas_pasos[step_build_pc])   setComponent(rutas_pasos[step_build_pc])
+                if(rutas_pasos[step_build_pc])  { 
+                    setComponent(rutas_pasos[step_build_pc])
+                    // history.push(step_build_pc)
+                }
 
                 else{
                     history.push('/construye/paso1')
                     setComponent({cpu:true})
-                 } 
-
+                    } 
 
             }else{
                 const result = rutas_pasos[cleanPathname(pathname)]?rutas_pasos[cleanPathname(pathname)]:(history.push('/construye/paso1') , {cpu:true});
@@ -365,7 +372,7 @@ const Construye = () =>{
                             </div>
                             
                             <div>
-                                {cardsToShow && Array.isArray(cardsToShow)&& cardsToShow.map(e=><CardArmaTuPc id={e._id} key={e._id} onClick={ ()=>{moveStepHandler(1);dispatch(pickArmaTuPc(e));} } img={e.img} price={e.price} title={e.description}/>)}
+                                {cardsToShow && Array.isArray(cardsToShow)&& cardsToShow.map(e=><CardArmaTuPc id={e._id} key={e._id} onClick={ ()=>{moveStepHandler(1);dispatch(pickArmaTuPc(e));} } img={e.img} price={e.price} title={e.description} stock={e.quantityStock}/>)}
                                 {(!Array.isArray(cardsToShow) || !cardsToShow.length) && <p id={style.noHayProductos}>NO HAY PRODUCTOS EN ESA CATEGORÍA :(</p>}
                                 
                             </div>

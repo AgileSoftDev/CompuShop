@@ -159,10 +159,19 @@
     font-weight: 400;
     font-family: 'Rowdies', cursive;
 }
+#Card2 > :nth-child(2) > button:active{
+    background-color: #d99b20;
+    transform: scale(1.05);
+}
 
-
-
-
-
-
-  
+.noStock{
+    opacity: 0.6 !important;
+}
+.noStock :nth-child(2) > button{
+    position: relative;
+    cursor: not-allowed !important; 
+}
+.noStock :nth-child(2) > button:active{
+    background-color: #fd611a !important;
+    transform: scale(1) !important;
+}

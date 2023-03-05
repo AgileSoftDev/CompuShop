@@ -6,7 +6,7 @@ import { addToCart } from '../../redux/actions/actions';
 
 
 
-const Card = ({ id, name, img, price, component }) => {
+const Card = ({ id, name, img, price, component,stock }) => {
 
     const stateViewCard = useSelector(e=>e.stateViewCard)
     const dispatch = useDispatch()
@@ -31,7 +31,7 @@ const Card = ({ id, name, img, price, component }) => {
 
     if(stateViewCard){
         return (
-            <div id={style.Card }>
+            <div id={style.Card } className={stock<=0?style.noStock:undefined}>
                   <div>
                       <div >
                            <img  src={img} alt={'Imagen de ' + name} />
@@ -40,21 +40,21 @@ const Card = ({ id, name, img, price, component }) => {
                   </div>
                   <div>
                       <h1 >$ {price}</h1>
-                      <button className="buttonSumarCart" onClick={()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
+                      <button className="buttonSumarCart" onClick={stock<=0?undefined:()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
                   </div>
       
             </div>
           );
     }else{
         return (
-            <div id={style.Card2 }>
+            <div id={style.Card2 } className={stock<=0?style.noStock:undefined}>
                   <div>
                     <img  src={img} alt={name} />
                   </div>
                   <div>
                       <Link to={`/producto/${id}`} >{cleanName2(name)}</Link>
                       <h1 >$ {price}</h1>
-                      <button className="buttonSumarCart" onClick={()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
+                      <button className="buttonSumarCart" onClick={stock<=0?undefined:()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
                   </div>
       
             </div>

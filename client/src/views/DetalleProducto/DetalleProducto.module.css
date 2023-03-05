@@ -132,4 +132,16 @@
 
 #mainInfo > :nth-child(5):active{
     background-color: #ff8330;
+    transform: scale(1.05);
+}
+
+
+.noStock{
+    opacity: 0.6 !important;
+    cursor: not-allowed !important; 
+}
+
+.noStock:active{
+    background-color: #e4752b !important;
+    transform: scale(1) !important;
 }

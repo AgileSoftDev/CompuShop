@@ -8,12 +8,13 @@
     display: flex;
     align-items: center;
     justify-content: start;
-    height: 80px;
-    padding: 0px 2px;
+    /* height: 80px; */
+    padding: 10px 2px;
     border-bottom: 1px solid rgb(87, 84, 84);
     color: rgb(207, 206, 203);
     font-family: 'Shantell Sans', cursive;
     position: relative;
+    overflow: hidden;
 }
 #CardShoppingCart h1, #CardShoppingCart h2, #CardShoppingCart p{
     font-weight: 300;

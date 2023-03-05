@@ -34,9 +34,9 @@ const Shopping = (props) =>{
         <>
             <div id={style.ContainerShopping}>
                 <div id={style.headerShopping}>
-                    <div i>
+                    <div>
                         <img src={compuShopLogo} alt="" />
-                        <p>Ayuda</p>
+                        <Link to={"/ayuda"}>Ayuda</Link>
                     </div>
                 </div>
                 <div id={style.mainShopping}>
@@ -64,9 +64,9 @@ const Shopping = (props) =>{
                 <div id={style.footerShopping}>
                     <div id={style.navFooter}>
                         <div>
-                            <Link>Terminos y condiciones</Link>
-                            <Link>Cómo cuidamos tu privacidad</Link>
-                            <Link>Ayuda</Link>
+                            <Link to={"/ayuda"}>Terminos y condiciones</Link>
+                            <Link to={"/ayuda"}>Cómo cuidamos tu privacidad</Link>
+                            <Link to={"/ayuda"}>Ayuda</Link>
                         </div>
                         <div>
                             <h2>Copyright © 2023 CompuShop Lima-Perú S.R.L.</h2>

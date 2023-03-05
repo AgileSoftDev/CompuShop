@@ -73,9 +73,11 @@
     max-width: 1200px;
 }
 
-#headerShopping p{
+#headerShopping a{
     color: #fefefe;
     font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #mainShopping{
