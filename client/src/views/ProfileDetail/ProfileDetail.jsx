@@ -53,7 +53,7 @@ const ProfileDetail = () => {
                             </div>
         
                             <div className={style.cuadro6}>
-                                <Link to={"/shoppingCart"}><button className={style.carrito}><i class="fa-solid fa-cart-shopping"></i> Carrito</button></Link>
+                                <Link to={"/"}><button className={style.carrito}><i class="fa-solid fa-cart-shopping"></i> Carrito</button></Link>
                                 <Link to={"/edituser"} ><button className={style.datos}><i class="fa-solid fa-wrench"></i> Actualizar información</button></Link>
                                 <button className={style.salir} onClick={()=> logout({ returnTo: window.location.origin})}><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
                             </div>

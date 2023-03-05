@@ -243,7 +243,7 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Teclados"? style.categoryActiveOneElement : undefined}>
                         <span id={categoryPick=== "Teclados" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Keyboard',"","Keyboard"))}>
+                            <p onClick={()=>dispatch(filterByCategory('Keyboard',"","Teclados"))}>
                             Teclados
                             </p>
                          </span>  
