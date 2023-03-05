@@ -18,7 +18,6 @@ const orderBy = (tipo ,categoryPick) => {
         return async dispatch =>{
             const [category,marca] = filterCategoryParams(categoryPick)
             let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
-
             if(marca){
                 data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
             }

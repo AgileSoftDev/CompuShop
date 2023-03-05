@@ -16,6 +16,10 @@ const categorias = [
   'BOARD',
   'CHASIS',
   'FUENTE',
+  'Monitor',
+  'Headset',
+  'Mouse',
+  'Keyboard'
 ] 
 
 const FormAgregarProducto = () => {
@@ -75,7 +79,7 @@ const FormAgregarProducto = () => {
         const {data:data2}=await axios.post(`${url}/upload/`, data);
         console.log(data2)
         swal.fire({
-          title: `hola`,
+          title: `Su componente se ha creado con exito`,
           icon: 'success',
           confirmButtonText: 'Aceptar',
           allowOutsideClick: false,

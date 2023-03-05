@@ -1,4 +1,4 @@
-const Components = require("../../models/components");
+const Components = require("../../models/components.js");
 
 const allComps = async () => {
     return await Components.find()
