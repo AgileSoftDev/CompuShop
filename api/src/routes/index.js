@@ -11,7 +11,7 @@ const router = Router();
 
 router.use("/users", userRoutes)
 router.use("/review", reviewRoutes)
-// const controlador = require('../controllers/cloudinaryPrueba');
+ const uploadRoutes = require('../controllers/cloudinaryPrueba');
 // const upload = require("../controllers/cloudinaryPrueba")
 router.use("/components", componentsRoutes)
 router.use("/upload", uploadRoutes)

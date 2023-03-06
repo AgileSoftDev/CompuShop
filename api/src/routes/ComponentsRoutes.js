@@ -1,7 +1,7 @@
 const { Router }= require("express");
 const {allComps, findComp, findByCategory, findById, findStock} = require("./../controllers/component/getComponents.js");
 const createComponent = require('./../controllers/component/createComponents.js');
-const deleteComponent = require('./../controllers/component/deleteComponent.js');
+const {deleteComponent, activateComponent} = require('./../controllers/component/deleteComponent.js');
 const updateComponents = require('./../controllers/component/updateComponents.js');
 const multer= require("multer");
 const storage = multer.memoryStorage();
@@ -48,7 +48,7 @@ componentsRoutes.get("/id/:id", async(req, res)=>{
     }
 })
 
-componentsRoutes.delete('/:id', async(req, res) => {
+componentsRoutes.put('/delete/:id', async(req, res) => {
     try {
         const {id} = req.params;
         await deleteComponent(id);
@@ -75,6 +75,16 @@ componentsRoutes.get("/stock/all", async(req, res)=>{
         return res.status(200).send(await findStock())
     } catch (error) {
 
+    }
+})
+
+componentsRoutes.put('/activate/:id', async(req, res) => {
+    try {
+        const {id} = req.params;
+        await activateComponent(id);
+        res.status(201).send({status: 'Registro reactivado con éxito'});
+    } catch (error) {
+        res.status(404).send({error});
     }
 })
 
