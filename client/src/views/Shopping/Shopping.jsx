@@ -13,6 +13,9 @@ import CompraExitosa from "./ShoppingComponents/PasarelaPago/AlertsPasarela/Comp
 
 
 const Shopping = (props) =>{
+    window.scroll({
+        top: 0
+      });
 
     const [estadoPasarela,setEstadoPasarela] = useState(0)
 
