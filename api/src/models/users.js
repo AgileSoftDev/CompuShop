@@ -8,7 +8,7 @@ const usersSchema= new Schema(
         },
         isAdmin:{
             type: Boolean,
-            default: true,
+            default: false,
         },
         email:{
             type: String,

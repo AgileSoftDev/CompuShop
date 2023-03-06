@@ -11,7 +11,6 @@ import ProfileDetail from "./views/ProfileDetail/ProfileDetail";
 import Ayuda from "./views/Ayuda/Ayuda";
 import DetalleProducto from "./views/DetalleProducto/DetalleProducto";
 import Admin from "./admin/view/Admin.jsx";
-import PasarelaPago from "./components/PasarelaPago/PasarelaPago";
 import Nosotros from "./views/Nosotros/Nosotros"
 import {useEffect, useRef, useState} from "react";
 import ShoppingView from "./views/Shopping/Shopping.jsx";
@@ -28,18 +27,17 @@ function App() {
   const location = useLocation();
 
   const [paddingMain,setPadingMain] = useState(0)
+  const [userId, setUserId]=useState()
 
   useEffect(()=>{
     setPadingMain(145)
-    console.log(headerRef);
   },[])
 
 
   useEffect(()=>{
     const postUser=async()=>{
-        const result = await axios.post(`http://localhost:3001/users`,{email:user.email })
-        console.log("result:");
-        console.log(result);
+        const {data} = await axios.post(`http://localhost:3001/users`,{email:user.email })
+        if (data) setUserId(data.userid)
     }
 
     if(isAuthenticated)postUser()
@@ -62,11 +60,10 @@ function App() {
         {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
         </div>
 }
-        {<Route exact path={"/shoppingcart"} render={()=> <ShoppingView/>}/>}
+        {<Route exact path={"/shoppingcart"} render={()=> <ShoppingView userId={userId}/>}/>}
 
 
         <Route  path={"/admin"} render={()=> <Admin/>}/>
-        <Route exact path={"/pasarela"} render={()=><PasarelaPago/>}/>
         <Route exact path={"/nosotros"} render={()=><Nosotros/>}/>
         { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') &&  location.pathname!=='/shoppingcart' &&  <Footer/>}
     </div>

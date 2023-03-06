@@ -8,10 +8,10 @@ const filterCategoryParams = (categoryPick) =>{
             response=["CPU","AMD"]
             break;
         case 'MothearBoards INTEL':
-            response=["BOARD","INTEL"]
+            response=["MotherBoard","INTEL"]
             break;
         case 'MothearBoards AMD"':
-            response=["BOARD","AMD"]
+            response=["MotherBoard","AMD"]
             break;
         case 'Placas de Video GeForce':
             response=["GPU","GeForce"]
@@ -34,7 +34,18 @@ const filterCategoryParams = (categoryPick) =>{
         case 'Gabinetes':
             response=["CHASIS",]
             break;
-    
+        case 'Monitores':
+            response=["Monitor",]
+            break;
+        case 'Auriculares':
+            response=["Headset",]
+            break;
+        case 'Mouses':
+            response=["Mouse",]
+            break;
+        case 'Teclados':
+            response=["Keyboard",]
+            break;
         default:
             break;
     }

@@ -1,5 +1,5 @@
 import style from "./Construye.module.css";
-import {useHistory} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import cpu from "../../assets/construye/icons_componentes/cpu.png";
 import motherBoard from "../../assets/construye/icons_componentes/mother.png";
 import cooler from "../../assets/construye/icons_componentes/cooler.png";
@@ -22,7 +22,7 @@ import screen_active from "../../assets/construye/icons_componentes_active/scree
 import peripherals_active from "../../assets/construye/icons_componentes_active/periferico_active.png";
 import { useEffect, useRef, useState } from "react";
 import './style_svgs.css';
-import { cleanArmaTuPc, pickArmaTuPc, setStepBuildPc } from "../../redux/actions/actions";
+import { cleanArmaTuPc, finalizarArmaTuPc, pickArmaTuPc, setStepBuildPc } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import CardArmaTuPc from "../../components/Card_arma_tu_pc/Card_arma_tu_pc";
 import triangle from "../../assets/construye/general_icons/triangle.svg";
@@ -43,6 +43,8 @@ const rutas_pasos = {
     '/construye/paso8' : {caseIcon:true},
     '/construye/paso9' : {screen:true},
     '/construye/paso10' : {peripherals:true},
+    '/construye/paso11' : {peripherals:true},
+    '/construye/paso12' : {peripherals:true},
     '/construye' : {cpu:true},
   }
 
@@ -87,6 +89,14 @@ const rutas_texto = {
         title:'Elige tu Periféricos',
         text:'Mouses, Teclados, MousePad, Auriculares, Coolers, y más.',
     },
+    '/construye/paso11' : {
+        title:'Elige tu Periféricos',
+        text:'Mouses, Teclados, MousePad, Auriculares, Coolers, y más.',
+    },
+    '/construye/paso12' : {
+        title:'Elige tu Periféricos',
+        text:'Mouses, Teclados, MousePad, Auriculares, Coolers, y más.',
+    },
     '/construye' : {
         title:'¡Está listo para empezar a armar tu pc!',
         text:'Empieza eligiendo tu cpu. Tu procesador es la pieza central del rendimiento de los programas. Para saber si un procesador es potente lo que tenés que medir es la frecuencia, el ancho de bus, la memoria caché y los núcleos e hilos de procesamiento.',
@@ -114,6 +124,7 @@ const Construye = () =>{
     const [componet, setComponent] = useState({})
     const [cardsToShow, setCardsToShow] = useState([])
     const [marcaStatus, setMarcaStatus] = useState({})
+    // const [subCategory, setSubCategory] = useState({})                 
     const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
     const [totalPrice, setTotalPrice] = useState(0)
 
@@ -130,9 +141,14 @@ const Construye = () =>{
     window.addEventListener("click",  setButtonsManagerFalse)
 
 
-
-
-      
+    useEffect(()=>{
+        if (step_build_pc) { 
+            if(rutas_pasos[step_build_pc])  { 
+                setComponent(rutas_pasos[step_build_pc])
+                history.push(step_build_pc)
+            }
+        }
+    },[])
 
         useEffect(()=>{
             const handleClick = (evento) => {
@@ -149,13 +165,15 @@ const Construye = () =>{
             setCurrentStep(getCurrentStep(cleanPathname(pathname)))
 
             if (step_build_pc) { 
-                if(rutas_pasos[step_build_pc])   setComponent(rutas_pasos[step_build_pc])
+                if(rutas_pasos[step_build_pc])  { 
+                    setComponent(rutas_pasos[step_build_pc])
+                    // history.push(step_build_pc)
+                }
 
                 else{
                     history.push('/construye/paso1')
                     setComponent({cpu:true})
-                 } 
-
+                    } 
 
             }else{
                 const result = rutas_pasos[cleanPathname(pathname)]?rutas_pasos[cleanPathname(pathname)]:(history.push('/construye/paso1') , {cpu:true});
@@ -243,7 +261,7 @@ const Construye = () =>{
 
 
     const moveStepHandler = (type) =>{
-        if (pathname !== "/construye/paso10") {
+        if (pathname !== "/construye/paso12") {
             const step = getCurrentStep(cleanPathname(pathname)) + type
             const newRoute ='paso' + String(step)
             if (pathname === "/construye")  history.push("/construye/"+newRoute)
@@ -252,6 +270,10 @@ const Construye = () =>{
         }
     } 
 
+    const finalizarHandler = ()=>{
+       dispatch(finalizarArmaTuPc())
+       console.log(choosenComponents);
+    }
 
 
     return(
@@ -335,9 +357,9 @@ const Construye = () =>{
                                         <img src={triangle} alt="Flecha abajo" />
                                     </div>
 
-                                      <button ref={refButtonFinalizar} id={buttonsManagerStatus.finalizar ? undefined : style.oculto } className={style.buttonManager}>
+                                      <Link to={"/shoppingcart"} ref={refButtonFinalizar} id={buttonsManagerStatus.finalizar ? undefined : style.oculto } className={style.buttonManager} onClick={()=>finalizarHandler()}>
                                         <span>FINALIZAR</span> 
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -354,7 +376,7 @@ const Construye = () =>{
                             </div>
                             
                             <div>
-                                {cardsToShow && Array.isArray(cardsToShow)&& cardsToShow.map(e=><CardArmaTuPc id={e._id} key={e._id} onClick={ ()=>{moveStepHandler(1);dispatch(pickArmaTuPc(e));} } img={e.img} price={e.price} title={e.description}/>)}
+                                {cardsToShow && Array.isArray(cardsToShow)&& cardsToShow.map(e=><CardArmaTuPc id={e._id} key={e._id} onClick={ ()=>{moveStepHandler(1);dispatch(pickArmaTuPc(e));} } img={e.img} price={e.price} title={e.description} stock={e.quantityStock}/>)}
                                 {(!Array.isArray(cardsToShow) || !cardsToShow.length) && <p id={style.noHayProductos}>NO HAY PRODUCTOS EN ESA CATEGORÍA :(</p>}
                                 
                             </div>

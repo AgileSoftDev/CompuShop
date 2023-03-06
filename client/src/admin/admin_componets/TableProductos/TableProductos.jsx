@@ -33,14 +33,7 @@ const TableLoaded = ({allComponents}) => {
         }
       };
 
-    //   const handleShowComponent = (component) => {
-    //     setShowComponent(true);
-    //     setSelectedComponent(component);
-    //   };
-    //   const handleHideComponent = () => {
-    //     setShowComponent(false);
-    //     setSelectedComponent(null);
-    //   };
+    
     return (
         <>
             <table className={style.card_table}>

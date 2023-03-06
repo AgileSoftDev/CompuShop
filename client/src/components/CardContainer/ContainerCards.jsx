@@ -17,6 +17,7 @@ const ContainerCards = ({ listArray }) => {
                     price={component.price}
                     img={component.img}
                     component={component}
+                    stock={component.quantityStock}
                 />);
       })}
     </div>

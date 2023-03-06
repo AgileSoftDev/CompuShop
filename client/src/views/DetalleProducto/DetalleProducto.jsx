@@ -6,6 +6,8 @@ import shield from "../../assets/detalles_componente/green_shield.svg";
 import truck from "../../assets/detalles_componente/delivery_truck.svg"
 import check from "../../assets/detalles_componente/green_check.svg";
 import url from "../../utils/deploy_back.js";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/actions/actions';
 
 
 const rebaja = (price) => {
@@ -14,6 +16,7 @@ const rebaja = (price) => {
 
 const DetalleProducto = () => {
     const { id } = useParams()
+    const dispatch = useDispatch()
     
     
     const [component, setComponet] = useState({})
@@ -26,14 +29,13 @@ const DetalleProducto = () => {
         const getDetailComponentById = async () => {
 
              const {data} = await  axios.get(`${url}/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
-             setComponet(data)  
+             if(data) setComponet(data)  
         }
 
         getDetailComponentById()
 
     }, [])
 
-    console.log(component);
 
     return (
         <main id={style.ContainerDetailsProduct}>
@@ -64,7 +66,7 @@ const DetalleProducto = () => {
                             <li><div><img src={truck} alt="Delivery truck" id={style.truck} /></div> Envíos a todo el país</li>
                         </ul>
                     </div>
-                    <button>SUMAR AL CARRITO</button>   
+                    <button  className={component.quantityStock<=0?style.noStock:undefined}  onClick={component.quantityStock<=0?undefined:()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>   
                 </div>
             </div>
         </main>

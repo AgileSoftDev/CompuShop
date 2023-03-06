@@ -11,7 +11,9 @@ export const PICK_ARMA_TU_PC = "PICK_ARMA_TU_PC";
 export const CLEAN_ARMA_TU_PC = "CLEAN_ARMA_TU_PC"
 export const EDIT_USER = "EDIT_USER"
 //Shopping cart
-export const ADD_TO_CART = "ADD_TO_CART"
-export const INCREMENT_CART = "INCREMENT_CART"
-export const DECREMENT_CART = "DECREMENT_CART"
-export const REMOVE_ITEM_CART = "REMOVE_ITEM_CART"
+export const ADD_TO_CART = "ADD_TO_CART";
+export const INCREMENT_CART = "INCREMENT_CART";
+export const DECREMENT_CART = "DECREMENT_CART";
+export const REMOVE_ITEM_CART = "REMOVE_ITEM_CART";
+export const CLEAN_SHOPPING_CART = "CLEAN_SHOPPING_CART";
+export const FINALIZAR_ARMA_TU_PC = "FINALIZAR_ARMA_TU_PC";

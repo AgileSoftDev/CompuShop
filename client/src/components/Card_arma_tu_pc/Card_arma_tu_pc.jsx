@@ -23,7 +23,7 @@ const Card_arma_tu_pc = (props) =>{
 
 
     return(
-        <div id={style.Card_arma_tu_pc} onClick={props.onClick} key={props.key} className={picksArmaTuPc[getCurrentComponent[currentStep]]?._id=== props.id ?style.selected:undefined} >
+        <div id={style.Card_arma_tu_pc} onClick={props.stock<=0?undefined:props.onClick} key={props.key} className={props.stock<=0?style.noStock:picksArmaTuPc[getCurrentComponent[currentStep]]?._id=== props.id ?style.selected:undefined} >
 
                 <div>
                     <img src={props.img} alt="" />

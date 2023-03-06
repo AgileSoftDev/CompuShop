@@ -22,15 +22,23 @@ const activateUser = async(id)=>{
 }
 
 const updateUser = async(id, data) => {
-    const user = await User.findOne({ userid: id });
-    if(!user) throw 'No se ha encontrado un componente con ese ID';
-    user.nickname = data.nickname;
-    user.email = data.email;
-    user.wallet = data.wallet;
-    user.phoneNumber = data.phoneNumber;
-    user.addresses = data.addresses;
-    user.updated_at = Date.now()
-    return await user.save().catch(e => console.log(e));
+    try {
+        const user = await User.findOne({ userid: id });
+        if(!user) throw 'No se ha encontrado un componente con ese ID';
+        if(data.nickname) user.nickname = data.nickname;
+        if(data.email) user.email = data.email;
+        if(data.wallet) user.wallet = data.wallet;
+        if(data.phoneNumber) user.phoneNumber = data.phoneNumber;
+        if(data.addresses) user.addresses = data.addresses;
+        if(data.orders) user.orders = [...user.orders,data.orders];
+        if(data.name) user.name = data.name
+        user.updated_at = Date.now()
+        await user.save()
+
+    } catch (error) {
+        throw new Error("Hubo un problema al actualizar usuario")
+    }
+  
 }
 
 const giveAdmin = async(id) =>{
