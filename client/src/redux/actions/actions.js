@@ -99,6 +99,7 @@ const setStepBuildPc = (step) =>{
 const filterByCategory = (category, marca, pick)=>{
     return async dispatch =>{
         let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
+        console.log(data)
         if(marca){
             data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
         }

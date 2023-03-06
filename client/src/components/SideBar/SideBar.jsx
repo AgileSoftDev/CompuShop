@@ -43,24 +43,24 @@ export default function Sidebar(){
                 </div>  
 
                 <div  id={style.categoryContainer} >
-                    <div id={style.categoryTitle} onClick={() => open !== "MothearBoards"? setOpen("MothearBoards"): setOpen(!"MothearBoards")}>
+                    <div id={style.categoryTitle} onClick={() => open !== "MotherBoards"? setOpen("MotherBoards"): setOpen(!"MotherBoards")}>
                         <div>
                             { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                            MothearBoards    
+                            MotherBoards    
                         </div> 
-                        <img className={style.arrows} id={open === "MothearBoards" ?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
+                        <img className={style.arrows} id={open === "MotherBoards" ?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open === "MothearBoards" ? style.categoryActive : style.categoryDesactive}>
-                        <span id={categoryPick=== "MothearBoards INTEL" ? style.categoryPick : undefined}> 
+                    <div id={style.childsContaier} className={open === "MotherBoards" ? style.categoryActive : style.categoryDesactive}>
+                        <span id={categoryPick=== "MotherBoards INTEL" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('BOARD',"INTEL","MothearBoards INTEL"))}>
-                            MothearBoards INTEL
+                            <p onClick={()=>dispatch(filterByCategory("MotherBoard","INTEL","MotherBoards INTEL"))}>
+                            MotherBoards INTEL
                             </p>
                          </span>  
-                         <span id={categoryPick=== "MothearBoards AMD" ? style.categoryPick : undefined}> 
+                         <span id={categoryPick=== "MotherBoards AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("BOARD","AMD","MothearBoards AMD"))}>
-                            MothearBoards AMD
+                            <p onClick={()=>dispatch(filterByCategory("MotherBoard","AMD","MotherBoards AMD"))}>
+                            MotherBoards AMD
                             </p>
                          </span> 
                                 

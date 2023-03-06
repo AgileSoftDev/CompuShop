@@ -8,10 +8,10 @@ const filterCategoryParams = (categoryPick) =>{
             response=["CPU","AMD"]
             break;
         case 'MothearBoards INTEL':
-            response=["BOARD","INTEL"]
+            response=["MotherBoard","INTEL"]
             break;
         case 'MothearBoards AMD"':
-            response=["BOARD","AMD"]
+            response=["MotherBoard","AMD"]
             break;
         case 'Placas de Video GeForce':
             response=["GPU","GeForce"]
