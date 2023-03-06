@@ -67,4 +67,5 @@ padding-right: 10px;
 }
 #thirdDiv>#xIcon>#xP{
     transform: rotate(-6deg);
+    user-select: none;
 }
