@@ -10,9 +10,7 @@ import psu from "../../assets/construye/icons_componentes/psu.png";
 import caseIcon from "../../assets/construye/icons_componentes/case.png";
 import screen from "../../assets/construye/icons_componentes/screen.png";
 import peripherals from "../../assets/construye/icons_componentes/perifericos.png";
-import Headset from "../../assets/construye/icons_componentes/png-clipart-headphones-computer-icons-earphone-headphones-electronics-sound.png";
-import Mouse from "../../assets/construye/icons_componentes/png-transparent-computer-mouse-pointer-computer-icons-cursor-point-and-click-hardware.png";
-import KEYBOARD from "../../assets/construye/icons_componentes/png-transparent-computer-keyboard-computer-icons-keyboard-shortcut-computer-monitors-computer-hardware-keyboard-miscellaneous-electronics-text.png"
+import Mouse from "../../assets/construye/icons_componentes/computer-mouse-icon.svg";
 import cpu_active from "../../assets/construye/icons_componentes_active/cpu_active.png";
 import motherBoard_active from "../../assets/construye/icons_componentes_active/mother_active.png";
 import cooler_active from "../../assets/construye/icons_componentes_active/cooler_active.png";
@@ -374,19 +372,18 @@ const Construye = () =>{
                             </div>
                         </div>
                     </div>
-
                     <div>
                             <div>
                             <span>
-                                <img className={!componet.Headset?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({Headset:true});dispatch(setStepBuildPc('/construye/paso10'))}}  src={choosenComponents.Headset?choosenComponents.Headset.img:componet.Headset?Headset:Headset} alt="Headset" width="100" height="30" />
+                                <svg className={!componet.Headset?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({Headset:true});dispatch(setStepBuildPc('/construye/paso10'))}}  version="1.0" fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11C20 6.58172 16.4183 3 12 3C7.58172 3 4 6.58172 4 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 15.4384V13.5616C2 12.6438 2.62459 11.8439 3.51493 11.6213L5.25448 11.1864C5.63317 11.0917 6 11.3781 6 11.7685V17.2315C6 17.6219 5.63317 17.9083 5.25448 17.8136L3.51493 17.3787C2.62459 17.1561 2 16.3562 2 15.4384Z" stroke="currentColor" stroke-width="1.5"/><path d="M22 15.4384V13.5616C22 12.6438 21.3754 11.8439 20.4851 11.6213L18.7455 11.1864C18.3668 11.0917 18 11.3781 18 11.7685V17.2315C18 17.6219 18.3668 17.9083 18.7455 17.8136L20.4851 17.3787C21.3754 17.1561 22 16.3562 22 15.4384Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 18V18.5C20 19.6046 19.1046 20.5 18 20.5H14.5" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 22H10.5C9.67157 22 9 21.3284 9 20.5C9 19.6716 9.67157 19 10.5 19H13.5C14.3284 19 15 19.6716 15 20.5C15 21.3284 14.3284 22 13.5 22Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                                {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
+                            </span>
+                            <span className={style.MouseContainer} onClick={()=> {history.push("/construye/paso11");  setComponent({Mouse:true}); dispatch(setStepBuildPc("/construe/paso11"))}}>
+                                <img src={Mouse}/>
                                 {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
                             </span>
                             <span>
-                                <img className={!componet.Mouse?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso11'); setComponent({Mouse:true});dispatch(setStepBuildPc('/construye/paso11'))}}  src={choosenComponents.Mouse?choosenComponents.Mouse.img:componet.Mouse?Mouse:Mouse} alt="Headset" width="100" height="30" />
-                                {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
-                            </span>
-                            <span>
-                                <img className={!componet.KEYBOARD?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso12'); setComponent({KEYBOARD:true});dispatch(setStepBuildPc('/construye/paso12'))}}  src={choosenComponents.KEYBOARD?choosenComponents.KEYBOARD.img:componet.KEYBOARD?KEYBOARD:KEYBOARD} alt="Headset" width="100" height="30" />
+                                <svg className={!componet.KEYBOARD?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso12'); setComponent({KEYBOARD:true});dispatch(setStepBuildPc('/construye/paso12'))}}  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" width="32px" height="32px"><path d="M 1.5 3 C 0.675781 3 0 3.675781 0 4.5 L 0 10.5 C 0 11.324219 0.675781 12 1.5 12 L 13.5 12 C 14.324219 12 15 11.324219 15 10.5 L 15 4.5 C 15 3.675781 14.324219 3 13.5 3 Z M 1.5 4 L 13.5 4 C 13.78125 4 14 4.21875 14 4.5 L 14 10.5 C 14 10.78125 13.78125 11 13.5 11 L 1.5 11 C 1.21875 11 1 10.78125 1 10.5 L 1 4.5 C 1 4.21875 1.21875 4 1.5 4 Z M 2 5 L 2 6 L 3 6 L 3 5 Z M 4 5 L 4 6 L 5 6 L 5 5 Z M 6 5 L 6 6 L 7 6 L 7 5 Z M 8 5 L 8 6 L 9 6 L 9 5 Z M 10 5 L 10 6 L 11 6 L 11 5 Z M 12 5 L 12 6 L 13 6 L 13 5 Z M 2 7 L 2 8 L 3 8 L 3 7 Z M 4 7 L 4 8 L 5 8 L 5 7 Z M 6 7 L 6 8 L 7 8 L 7 7 Z M 8 7 L 8 8 L 9 8 L 9 7 Z M 10 7 L 10 8 L 11 8 L 11 7 Z M 12 7 L 12 8 L 13 8 L 13 7 Z M 5 9 L 5 10 L 10 10 L 10 9 Z M 2 9.007813 L 2 10.011719 L 4 10.011719 L 4 9.007813 Z M 11.015625 9.007813 L 11.015625 10.011719 L 13.015625 10.011719 L 13.015625 9.007813 Z"/></svg>
                                 {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
                             </span>
                                 <span onClick={()=>setMarcaStatus({intel:true})} className={marcaStatus.intel?style.span_intel_active:undefined}>
