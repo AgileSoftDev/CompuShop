@@ -385,3 +385,6 @@
     display: none ;
 }
 
+.MouseContainer img{
+    width: 18px;
+}

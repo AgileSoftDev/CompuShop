@@ -6,8 +6,10 @@ import logoutIcon from "../admin_assets/logout-svgrepo-com.svg"
 import TableProductos from "../admin_componets/TableProductos/TableProductos";
 import ControlPanel from "../view/ControlPanel/ControlPanel";
 import FormAgregarProducto from "../admin_componets/FormAgregarProducto/FormAgregarProducto";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Admin = () =>{
+const {logout}= useAuth0()
     const pathname = useHistory().location.pathname
 
     return(
@@ -22,9 +24,9 @@ const Admin = () =>{
                         </div>
                     </div>
                     <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
-                    <Link id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</Link>
+                    {/* <Link id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</Link> */}
                     <Link id={pathname==="/admin/settings/users"?style.linkActive:undefined} to={"/admin/settings/users"}>Users</Link>
-                    <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link>
+                    {/* <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link> */}
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
@@ -32,7 +34,7 @@ const Admin = () =>{
                         <div><img src={userIcon} alt="" /></div>
                         <h3>Mi perfil</h3>
                     </div>
-                    <div>
+                    <div onClick={()=> logout({ returnTo: window.location.origin})}>
                         <img src={logoutIcon} alt="" />
                         <p>Logout</p>
                     </div>
