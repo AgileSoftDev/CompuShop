@@ -31,8 +31,8 @@ const ProfileDetail = () => {
     
                         <div className={style.cuadro2}>
                             <h2><i class="fa-solid fa-bag-shopping"></i> Mis compras</h2>
-                            <p>Aqui van a aparecer tus futuras futuras compras</p>
-                            {/* <Link to={"/compra"} ><button className={style.datos}><i class="fa-solid fa-bag-shopping"></i> Mis Compras</button></Link> */}
+                            <p>Aqui van a aparecer tus futuras reviews de productos</p>
+                            <Link to={"/compra"} ><button className={style.datos}><i class="fa-solid fa-bag-shopping"></i> Mis Compras</button></Link>
                         </div>
                         
                         <div className={style.cuadro3}>
