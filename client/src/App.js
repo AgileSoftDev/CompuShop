@@ -18,6 +18,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import Compra from "./views/Compra/Compra"
 import { useHistory } from "react-router-dom";
+import urlBack from "./utils/deploy_back"
 
 
 
@@ -41,7 +42,7 @@ function App() {
   useEffect(()=>{
     const setting = async()=>{
       const postUser=async()=>{
-        const {data} = await axios.post(`http://localhost:3001/users`,{email:user.email })
+        const {data} = await axios.post(`${urlBack}/users`,{email:user.email })
         if (data) setCurrentUser(data)
       }
       if(isAuthenticated) await postUser()
