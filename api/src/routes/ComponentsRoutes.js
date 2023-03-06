@@ -42,9 +42,10 @@ componentsRoutes.get("/:category", async(req, res)=>{
 componentsRoutes.get("/id/:id", async(req, res)=>{
     const {id}= req.params
     try {
-        return res.status(200).send(await findById(id))
+        const component = await findById(id)
+        return res.status(200).send(component)
     } catch (error) {
-        res.status(404).send({error})
+        res.status(404).send(error.message)
     }
 })
 
