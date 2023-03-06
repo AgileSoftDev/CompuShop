@@ -81,7 +81,7 @@ const Paypalboton= (props)=>{
                 }
 
             const {status} = await axios.put(`${urlBack}/users/update/${props.userId}`,{name:props.statusForm.name,orders:{fecha:Date.now(),totalPrice:price,directionDlivery,contactPhone:props.statusForm.current.phone, productos:cleanCart,}, })
-            .catch((err)=>alert("El pago fue realizado, pero no pudimos completar tu compra. Contactanos para poder ayudare -> compushoppf@gmail.com"))
+            .catch((err)=>alert("El pago fue realizado, pero no pudimos completar tu compra. Contactanos para poder ayudarte -> compushoppf@gmail.com"))
 
             if (status===200) {
                 async function procesarStock(pagoCarrito) {
