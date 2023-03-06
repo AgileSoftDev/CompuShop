@@ -32,12 +32,12 @@ const ProfileDetail = () => {
                         <div className={style.cuadro2}>
                             <h2><i class="fa-solid fa-bag-shopping"></i> Mis compras</h2>
                             <p>Aqui van a aparecer tus futuras reviews de productos</p>
-                            <Link to={"/compra"} ><button className={style.compra}><i class="fa-solid fa-bag-shopping"></i> Mis Compras</button></Link>
+                            <Link to={"/compra"} ><button className={style.datos}><i class="fa-solid fa-bag-shopping"></i> Mis Compras</button></Link>
                         </div>
                         
                         <div className={style.cuadro3}>
                                 <h2><i class="fa-solid fa-star"></i> Mis reviews</h2>
-                                <p>Aqui van a aparecer tus futuras compras</p>
+                                <p>Aqui van a aparecer tus reviews de productos</p>
                             </div>
                         </div>
         
