@@ -2,7 +2,7 @@ const { Schema, model }= require("mongoose");
 
 const reviewSchema = new Schema(
     {
-        user:{
+        userId:{
             type: String,
             required: true,
         },
@@ -14,7 +14,7 @@ const reviewSchema = new Schema(
             type: String,
             required: true,
         },
-        date:{
+        componentId:{
             type: String,
             required: true
         }

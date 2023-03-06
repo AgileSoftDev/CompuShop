@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './TableProductos.module.css';
+import style from './TableUsuarios.module.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import url from "../../../utils/deploy_back.js";
@@ -92,7 +92,7 @@ const LoaderTableProducts = () => {
     )
 }
 
-const TableProductos = () => {
+const TableUsuarios = () => {
 
 const [allComponents, setAllComponentes] = useState([])
 
@@ -116,10 +116,10 @@ const [loading, setLoading] = useState(true)
             
         <div id={style.card}>
             <h1>
-                Productos
+                Usuarios
             </h1>
             <p>
-                Administre los productos de CompuShop
+                Administre los usuarios de CompuShop
             </p>
         </div>
         <div className={style.card}>
@@ -152,4 +152,4 @@ const [loading, setLoading] = useState(true)
   )
 }
 
-export default TableProductos
+export default TableUsuarios
