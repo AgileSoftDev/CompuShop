@@ -16,7 +16,7 @@ import {useEffect, useRef, useState} from "react";
 import ShoppingView from "./views/Shopping/Shopping.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-
+import Compra from "./views/Compra/Compra"
 
 
 function App() {
@@ -55,6 +55,7 @@ function App() {
         <Route exact path={"/producto/:id"} render={()=> <DetalleProducto/>} />
         <Route path={"/construye"} render={()=> <Construye/>} />
         <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
+        <Route exact path={"/compra"} render={()=> <Compra/>}/>
         {/* <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
         <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
         {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }

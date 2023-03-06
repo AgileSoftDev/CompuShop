@@ -71,10 +71,21 @@
 .cuadro2 {
     background-color: white;
     width: 700px;
-    height: 140px;
+    height: 190px;
     margin: 30px;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgb(194, 194, 194);
+}
+.cuadro2 .compra{
+    margin-left: 140px;
+    margin-top: 35px;
+    height: 40px;
+    background-color: rgb(228, 117, 43);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;  
 }
 
 .cuadro2 h2 {
@@ -159,6 +170,8 @@
     cursor: pointer;
     color: white;
 }
+
+
 
 .cuadro6 {
     background-color: white;
