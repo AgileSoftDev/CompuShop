@@ -1,5 +1,5 @@
 import style from "./Construye.module.css";
-import {useHistory} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import cpu from "../../assets/construye/icons_componentes/cpu.png";
 import motherBoard from "../../assets/construye/icons_componentes/mother.png";
 import cooler from "../../assets/construye/icons_componentes/cooler.png";
@@ -22,7 +22,7 @@ import screen_active from "../../assets/construye/icons_componentes_active/scree
 import peripherals_active from "../../assets/construye/icons_componentes_active/periferico_active.png";
 import { useEffect, useRef, useState } from "react";
 import './style_svgs.css';
-import { cleanArmaTuPc, pickArmaTuPc, setStepBuildPc } from "../../redux/actions/actions";
+import { cleanArmaTuPc, finalizarArmaTuPc, pickArmaTuPc, setStepBuildPc } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import CardArmaTuPc from "../../components/Card_arma_tu_pc/Card_arma_tu_pc";
 import triangle from "../../assets/construye/general_icons/triangle.svg";
@@ -270,6 +270,10 @@ const Construye = () =>{
         }
     } 
 
+    const finalizarHandler = ()=>{
+       dispatch(finalizarArmaTuPc())
+       console.log(choosenComponents);
+    }
 
 
     return(
@@ -353,9 +357,9 @@ const Construye = () =>{
                                         <img src={triangle} alt="Flecha abajo" />
                                     </div>
 
-                                      <button ref={refButtonFinalizar} id={buttonsManagerStatus.finalizar ? undefined : style.oculto } className={style.buttonManager}>
+                                      <Link to={"/shoppingcart"} ref={refButtonFinalizar} id={buttonsManagerStatus.finalizar ? undefined : style.oculto } className={style.buttonManager} onClick={()=>finalizarHandler()}>
                                         <span>FINALIZAR</span> 
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

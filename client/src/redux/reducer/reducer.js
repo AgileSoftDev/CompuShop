@@ -1,4 +1,4 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, SET_SHOPPING_FORM } from "../actions/actions.types";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC } from "../actions/actions.types";
 import { paginationArray, getCurrentComponent } from "../../utils";
 import { sortByPrice } from "../../helpers/reducer.helpers";
 const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
@@ -107,7 +107,7 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 ...state.build_pc
             };
 
-            build_pc[getCurrentComponent[state.step_build_pc]]=payload;
+            build_pc[getCurrentComponent[state.step_build_pc]]={...payload,quantity:1};
 
 
             const newState= {
@@ -134,20 +134,23 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             let index;
 
             if (itemInCart) {
-
-                cart.forEach((e,i)=>{
-                    if (e._id === itemInCart._id) 
-                    index = i
-                })
-
-                const newob={
-                    ...itemInCart,
-                    quantity:itemInCart.quantity+1
+                if(itemInCart.quantity<itemInCart.quantityStock){
+                    cart.forEach((e,i)=>{
+                        if (e._id === itemInCart._id) 
+                        index = i
+                    })
+    
+                    const newob={
+                        ...itemInCart,
+                        quantity:itemInCart.quantity+1
+                    }
+                    cart.splice(index,1,newob)
                 }
-                cart.splice(index,1,newob)
                 
             } else {
-                cart.push({ ...payload, quantity: 1 });
+                if(payload.quantityStock>0){
+                    cart.push({ ...payload, quantity: 1 });
+                }
             }
 
             window.localStorage.setItem('carrito', JSON.stringify(cart))
@@ -225,10 +228,15 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 shoppingCart:[]
             }
 
-        case SET_SHOPPING_FORM:
+        case FINALIZAR_ARMA_TU_PC:
+            localStorage.removeItem('pc_build');
+            const newShoppingCart = [...Object.values(state.build_pc),...state.shoppingCart];
+            window.localStorage.setItem('carrito', JSON.stringify(newShoppingCart))
+
             return{
                 ...state,
-                shoppingForm:payload,
+                shoppingCart:newShoppingCart,
+                build_pc:[],
             }
 
         default:

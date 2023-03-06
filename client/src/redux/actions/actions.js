@@ -1,4 +1,4 @@
-import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, SET_SHOPPING_FORM } from "./actions.types"
+import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, SET_NUM_PAGINATED, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC,} from "./actions.types"
 import axios from 'axios'
 import { filterCategoryParams } from "../../helpers/Filter.helpers";
 import url from "../../utils/deploy_back";
@@ -169,12 +169,11 @@ const cleanShoppingCart= ()=>{
     }
 };
 
-// const setShoppingForm= (payload)=>{
-//     return{
-//         type:SET_SHOPPING_FORM,
-//         payload
-//     }
-// }
+const finalizarArmaTuPc= ()=>{
+    return{
+        type:FINALIZAR_ARMA_TU_PC,
+    }
+}
 
 export {
      setStateViewCard,
@@ -194,5 +193,5 @@ export {
      decrementCart,
      removeItemCart,
      cleanShoppingCart,
-    //  setShoppingForm,
+     finalizarArmaTuPc,
 };
