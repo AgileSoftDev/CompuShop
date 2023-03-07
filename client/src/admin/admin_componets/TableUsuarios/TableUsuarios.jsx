@@ -39,10 +39,8 @@ const TableLoaded = ({allUsers}) => {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Categoria</th>
-                        <th>UserId</th>
-                        <th>Review</th>
-                        <th>UsersId</th>
+                        <th>Email</th>
+                        <th>Name</th>
                     </tr> 
                 </thead>
                 <tbody>
@@ -50,11 +48,9 @@ const TableLoaded = ({allUsers}) => {
                         allUsers && allUsers?.map(Users => {
                             return (
                                     <tr key={Users._id}>
-                                        <td>{Users._id}</td>
-                                        <td>{Users.category}</td>
-                                        <td>{Users.maker}</td>
+                                        <td>{Users.user_id}</td>
+                                        <td>{Users.email}</td>
                                         <td>{Users.name}</td>
-                                        <td>{Users.price}</td>
                                         <td id={style.sectionButtons}>
                                             <div>
                                                 <button>Ver</button>
@@ -90,6 +86,8 @@ const [loading, setLoading] = useState(true)
     useEffect(() => {
         const getallUsers =async()=>{
             const {data} = await axios.get(`${url}/users`).catch(error => alert("Error en la tabla usuarios de admin al obtener la data"));
+            console.log(data)
+
             if (data.length) {
                 setAllUsers(data)
                 setLoading(false)
