@@ -7,10 +7,8 @@ import TableProductos from "../admin_componets/TableProductos/TableProductos";
 import ControlPanel from "../view/ControlPanel/ControlPanel";
 import FormAgregarProducto from "../admin_componets/FormAgregarProducto/FormAgregarProducto";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect, useState } from "react";
-import stop from "../../assets/Stop_sign.png"
-import axios from "axios";
-import TableUsuarios from "../admin_componets/TableUsuarios/TableUsuarios";
+import TablaUsuarios from "../admin_componets/TableUsuarios/TableUsuarios";
+
 const Admin = () =>{
 
     const {logout} = useAuth0();
@@ -29,9 +27,7 @@ const Admin = () =>{
                         </div>
                     </div>
                     <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
-                    {/* <Link id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</Link> */}
                     <Link id={pathname==="/admin/users"?style.linkActive:undefined} to={"/admin/users"}>Users</Link>
-                    {/* <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link> */}
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
@@ -50,7 +46,7 @@ const Admin = () =>{
                 <Route exact path={"/admin/controlPanel"} render={()=> <ControlPanel />}/>
                 <Route exact path={"/admin/products"} render={()=> <TableProductos/>}/>
                 <Route exact path={"/admin/products/add"} render={()=> <FormAgregarProducto/>}/>
-                <Route exact path={"/admin/users"} render={()=> <TableUsuarios/>}/>
+                <Route exact path={"/admin/users"} render={()=> <TablaUsuarios/>}/>
             </div>
         </div>
     )
