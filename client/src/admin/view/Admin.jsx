@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import stop from "../../assets/Stop_sign.png"
 import axios from "axios";
 import TableUsuarios from "../admin_componets/TableUsuarios/TableUsuarios";
-
 const Admin = () =>{
 
     const {logout} = useAuth0();
