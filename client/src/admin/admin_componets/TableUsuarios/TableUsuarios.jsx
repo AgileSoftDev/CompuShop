@@ -4,27 +4,27 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import url from "../../../utils/deploy_back.js";
 import swal from "sweetalert2"
-const TableLoaded = ({allComponents}) => {
-    const [ setAllComponentes] = useState([])
-    // const [showComponent, setShowComponent] = useState(false);
-    // const [selectedComponent, setSelectedComponent] = useState(null)
-    const handleRevoke = async (component) => {
+const TableLoaded = ({allUsers}) => {
+    const [ setAllUsers] = useState([])
+    // const [showUsers, setShowUsers] = useState(false);
+    // const [selectedUsers, setSelectedUsers] = useState(null)
+    const handleRevoke = async (user) => {
         try {
-          const { data } = await axios.delete(`${url}/components/${component._id}`);
-          if (data.message === 'Component revoked successfully') {
-            setAllComponentes((prevState) =>
-              prevState.filter((item) => item._id !== component._id)
+          const { data } = await axios.delete(`${url}/users/${user._id}`);
+          if (data.message === 'User revoked successfully') {
+            setAllUsers((prevState) =>
+              prevState.filter((item) => item._id !== user._id)
             );
           }
           swal.fire({
-            title: 'Se elimino el producto con éxito',
+            title: 'Se elimino el usuario con éxito',
             icon: 'success',
             confirmButtonText: 'Aceptar',
             timerProgressBar: 3000
           });
         } catch (error) {
             swal.fire({
-                title: 'Error al eliminar el producto',
+                title: 'Error al eliminar el usuario',
                 text: error.message,
                 icon: 'error',
                 confirmButtonText: 'Aceptar',
@@ -33,14 +33,6 @@ const TableLoaded = ({allComponents}) => {
         }
       };
 
-    //   const handleShowComponent = (component) => {
-    //     setShowComponent(true);
-    //     setSelectedComponent(component);
-    //   };
-    //   const handleHideComponent = () => {
-    //     setShowComponent(false);
-    //     setSelectedComponent(null);
-    //   };
     return (
         <>
             <table className={style.card_table}>
@@ -48,30 +40,27 @@ const TableLoaded = ({allComponents}) => {
                     <tr>
                         <th>ID</th>
                         <th>Categoria</th>
-                        <th>Marca</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Acciones</th>
+                        <th>UserId</th>
+                        <th>Review</th>
+                        <th>UsersId</th>
                     </tr> 
                 </thead>
                 <tbody>
                     {
-                        allComponents && allComponents?.map(component => {
+                        allUsers && allUsers?.map(Users => {
                             return (
-                                    <tr key={component._id}>
-                                        <td>{component._id}</td>
-                                        <td>{component.category}</td>
-                                        <td>{component.maker}</td>
-                                        <td>{component.name}</td>
-                                        <td>{component.price}</td>
-                                        <td>{component.quantityStock}</td>
+                                    <tr key={Users._id}>
+                                        <td>{Users._id}</td>
+                                        <td>{Users.category}</td>
+                                        <td>{Users.maker}</td>
+                                        <td>{Users.name}</td>
+                                        <td>{Users.price}</td>
                                         <td id={style.sectionButtons}>
                                             <div>
                                                 <button>Ver</button>
                                                 <button>Editar</button>
                                             </div>
-                                            <button onClick={()=> handleRevoke(component)}>Revocar</button>
+                                            <button onClick={()=> handleRevoke(Users)}>Revocar</button>
                                         </td>
                                     </tr>
                             )
@@ -84,7 +73,7 @@ const TableLoaded = ({allComponents}) => {
 }
 
 const LoaderTableProducts = () => {
-    // Acá iría el loadingComponent
+    // Acá iría el loadingUsers
     return (
         <div class={style.table}>
                 <h1>LOADING....</h1>
@@ -94,19 +83,19 @@ const LoaderTableProducts = () => {
 
 const TableUsuarios = () => {
 
-const [allComponents, setAllComponentes] = useState([])
+const [allUsers, setAllUsers] = useState([])
 
 const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const getAllComponents =async()=>{
-            const {data} = await axios.get(`${url}/components/`).catch(error => alert("Error en la tabla productos de admin al obtener la data"));
+        const getallUsers =async()=>{
+            const {data} = await axios.get(`${url}/users`).catch(error => alert("Error en la tabla usuarios de admin al obtener la data"));
             if (data.length) {
-                setAllComponentes(data)
+                setAllUsers(data)
                 setLoading(false)
             }
         }
-        getAllComponents()
+        getallUsers()
     }, [])
   return (
     <div id={style.ProductsPanelContainer}>
@@ -129,7 +118,7 @@ const [loading, setLoading] = useState(true)
                     <input placeholder='Search...' className={style.searchBar}></input>
                 </div>
                 <div>
-                    <Link  className={style.buttons} to={'/admin/products/add'}>Agregar Producto</Link>
+                    <Link  className={style.buttons} to={'/admin/users/add'}>Agregar Usuario</Link>
                     <button  className={style.buttons}>Mostrar Inactivos</button>
                 </div>
             </div>
@@ -140,7 +129,7 @@ const [loading, setLoading] = useState(true)
                         <LoaderTableProducts/>
                 ) 
                 : (
-                        <TableLoaded allComponents={allComponents}/>
+                        <TableLoaded allUsers={allUsers}/>
                 )
             }
         </div>
