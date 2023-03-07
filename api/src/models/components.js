@@ -39,6 +39,10 @@ const componentSchema= new Schema(
         quantityStock:{
             type: Number,
             required: true
+        },
+        isActive:{
+            type: Boolean,
+            default: true
         }
     }
 );

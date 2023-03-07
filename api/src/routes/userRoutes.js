@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {getAllUsers, getUser, getDB} = require("../controllers/user/getUser.js")
+const {getAllUsers, getUser, getDB, getUserDb} = require("../controllers/user/getUser.js")
 const createUser = require("../controllers/user/createUser")
 const {deleteUser, activateUser, updateUser, giveAdmin, removeAdmin, addOrder} = require('../controllers/user/updateUser.js');
 const Users = require( "../models/users")
@@ -32,6 +32,15 @@ userRoutes.get("/", async (req, res) =>{
          res.status(404).send(error.message)
      }
  });
+
+ userRoutes.get("/db/:email", async(req, res)=>{
+    const {email}= req.params
+    try {
+        return res.status(200).send(await getUserDb(email))
+    } catch (error) {
+        res.status(404).send({error})
+    }
+})
 
 userRoutes.get("/email/:email", async(req, res)=>{
      const {email}= req.params

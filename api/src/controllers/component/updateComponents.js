@@ -1,4 +1,4 @@
-const Components = require('../../models/components.js');
+const Components = require('../../models/components');
 
 const updateComponents = async(id, data) => {
     const component = await Components.findOne({ _id: id });
