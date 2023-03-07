@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Nova+Flat&display=swap');
+
+#MisComprasContaier{
+    min-height: calc(100vh - 200px);
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    background-color: #ededed;
+}
+#MisComprasContaier > :nth-child(1){
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+    padding: 20px;
+}
+#titleMisCompras{
+    padding: 40px 92px;
+}

@@ -19,6 +19,7 @@ import axios from "axios";
 import Compra from "./views/Compra/Compra"
 import { useHistory } from "react-router-dom";
 import urlBack from "./utils/deploy_back"
+import MisCompras from "./views/MisCompras/MisCompras";
 
 
 
@@ -64,8 +65,9 @@ function App() {
           <Route exact path={"/productos"} render={()=> <Productos/>} />
           <Route exact path={"/producto/:id"} render={()=> <DetalleProducto/>} />
           <Route path={"/construye"} render={()=> <Construye/>} />
-          <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
+          <Route exact path={"/profile"} render={()=>!isAuthenticated?loginWithRedirect():<ProfileDetail/>}/>
           <Route exact path={"/compra"} render={()=> <Compra/>}/>
+          <Route exact path={"/profile/miscompras"} render={()=>!isAuthenticated?loginWithRedirect():<MisCompras currentUser={currentUser}/>}/>
           {/* <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
           <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
           {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }

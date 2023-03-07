@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const Profile = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
 
-    console.log(user.picture);
 
     if(isLoading) {
         return <div>Loading...</div>

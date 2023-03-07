@@ -1,0 +1,14 @@
+#CardMisComprasContainer{
+    background-color: #ffffff;
+    margin: 20px 0;
+}
+#fechaContainer{
+    border-bottom: 1px solid rgba(86, 85, 85, 0.314);
+    font-size: 14px;
+}
+#fecha{
+    padding: 16px 24px;
+}
+#mainCardMisCompras{
+    padding: 24px;
+}
