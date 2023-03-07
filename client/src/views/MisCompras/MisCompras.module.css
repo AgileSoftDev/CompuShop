@@ -5,6 +5,7 @@
     width: 100%;
     font-family: 'Poppins', sans-serif;
     background-color: #ededed;
+    position: relative;
 }
 #MisComprasContaier > :nth-child(1){
     width: 100%;
@@ -20,4 +21,17 @@
 }
 #titleMisCompras h1{
     font-size: 28px;
+}
+
+#compraDetallesContainerRelative{
+    position: fixed;
+    top: 145px;
+    height: 100%;
+    width: 100vw;
+    max-height: calc(100vh - 145px);
+    background-color: rgba(0, 0, 0, 0.284);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

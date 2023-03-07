@@ -5,6 +5,7 @@ const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
 
 const initialState = {
     allComponents: [],
+    getUsers: [],
     numPaginado: 0,
     paginated: [],
     connectionON : true,

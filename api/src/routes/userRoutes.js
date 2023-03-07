@@ -2,6 +2,7 @@ const { Router } = require('express');
 const {getAllUsers, getUser, getDB, getUserDb} = require("../controllers/user/getUser.js")
 const createUser = require("../controllers/user/createUser")
 const {deleteUser, activateUser, updateUser, giveAdmin, removeAdmin, addOrder} = require('../controllers/user/updateUser.js');
+const Users = require( "../models/users")
 
 const userRoutes = Router();
 
@@ -9,7 +10,7 @@ userRoutes.get("/", async (req, res) =>{
     const {email}= req.query;
     try {
        if(email){
-           res.status(201).send(await getUser(email))
+          return res.status(201).send(await getUser(email))
         }
         return res.status(201).send(await getAllUsers())
     } catch (error) {
@@ -17,11 +18,18 @@ userRoutes.get("/", async (req, res) =>{
     }
 })
 
- userRoutes.get("/db", async(req, res)=>{
-     try {
-         res.status(201).send(await getDB());
+ userRoutes.get("/db/:email", async(req, res)=>{
+    const {email}= req.params
+    try {
+        if (email) {
+            const user = await Users.findOne({email:email})
+            if(user)return res.status(200).send(user);
+            else throw new Error("No hay ningún usuario con ese email.")
+        }else{
+            return res.status(201).send(await getDB());
+        }
      } catch (error) {
-         res.status(404).send({error})
+         res.status(404).send(error.message)
      }
  });
 

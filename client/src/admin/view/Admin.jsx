@@ -7,43 +7,19 @@ import TableProductos from "../admin_componets/TableProductos/TableProductos";
 import ControlPanel from "../view/ControlPanel/ControlPanel";
 import FormAgregarProducto from "../admin_componets/FormAgregarProducto/FormAgregarProducto";
 import { useAuth0 } from "@auth0/auth0-react";
+<<<<<<< HEAD
+=======
 import { useEffect, useState } from "react";
 import stop from "../../assets/Stop_sign.png"
 import axios from "axios";
+import TableUsuarios from "../admin_componets/TableUsuarios/TableUsuarios";
+>>>>>>> 5fee0f8f35c17abbd6ca3ab31c6371ee5fb228d5
 const Admin = () =>{
 
-    const { user, logout, isAuthenticated } = useAuth0();
-    const [userAdmin, setuserAdmin] = useState()
-
-    
-  useEffect(()=>{
-    const getUser=async()=>{
-        const {data} = await axios.get(`http://localhost:3001/users/db/${user.email}`)
-        if (data.isAdmin === true) setuserAdmin(data)
-    }
-
-    if(isAuthenticated)getUser()
-   
-  },[user])
-
-
+    const {logout} = useAuth0();
 
     const pathname = useHistory().location.pathname
-    if(!userAdmin || userAdmin.isAdmin===false){
-        return(
-            <div className={style.container}>
-                <div className={style.logo}>
-                    <img src={userIcon} alt="logo" />
-                </div>
-                <h1>ERROR NOT ADMIN USER</h1>
-                <img src={stop} alt="404 image not found" />
-                
-                <div className={style.logout}>
-                    <img src={logoutIcon} alt="logout" onClick={logout} />
-                </div>
-            </div>
-        )
-    }else{
+
     return(
         <div id={style.AdminContainer}>
             <div id={style.panelAdmin}>
@@ -56,9 +32,13 @@ const Admin = () =>{
                         </div>
                     </div>
                     <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
-                    {/* <Link id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</Link> */}
+<<<<<<< HEAD
                     <Link id={pathname==="/admin/settings/users"?style.linkActive:undefined} to={"/admin/settings/users"}>Users</Link>
+=======
+                    {/* <Link id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</Link> */}
+                    <Link id={pathname==="/admin/users"?style.linkActive:undefined} to={"/admin/users"}>Users</Link>
                     {/* <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link> */}
+>>>>>>> 5fee0f8f35c17abbd6ca3ab31c6371ee5fb228d5
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
@@ -77,10 +57,10 @@ const Admin = () =>{
                 <Route exact path={"/admin/controlPanel"} render={()=> <ControlPanel />}/>
                 <Route exact path={"/admin/products"} render={()=> <TableProductos/>}/>
                 <Route exact path={"/admin/products/add"} render={()=> <FormAgregarProducto/>}/>
-                <Route exact path={"/admin/users"} render={()=> <TableProductos/>}/>
+                <Route exact path={"/admin/users"} render={()=> <TableUsuarios/>}/>
             </div>
         </div>
-    )}
+    )
 };
 
 export default Admin;
