@@ -1,0 +1,77 @@
+
+
+#CardMisComprasContainer{
+    background-color: #ffffff;
+    margin: 20px 0;
+    font-family: 'Poppins', sans-serif;
+}
+#fechaContainer{
+    border-bottom: 1px solid rgba(86, 85, 85, 0.314);
+    font-size: 14px;
+}
+#fechaContainer >:nth-child(1){
+    width: 80%;
+    display: inline-block;
+}
+#fechaContainer >:nth-child(2){
+    display: inline-block;
+    width: 19%;
+    text-align: end;
+}
+#fechaContainer >:nth-child(2)>button{
+    background-color: #302c24;
+    border: none;
+    padding: 7px 8px;
+    border-radius: 6px;
+    color: #fefefe;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+}
+#fechaContainer >:nth-child(2)>button:hover{
+
+}
+#fecha{
+    padding: 16px 24px;
+}
+#fecha{
+    width: 75%;
+}
+#mainCardMisCompras{
+    padding: 24px;
+    text-align: right;
+}
+#mainCardMisCompras :nth-child(1){
+    display: flex;
+}
+#precioSection{
+    width: 25%;
+    text-align: end;
+}
+#precioSection label{
+    text-align: center;
+    justify-content: end;
+}
+#precioSection label span{
+    margin-left: 5px;
+}
+#precioSection h4{
+    margin-left: 4px;
+}
+#deliveryStatus{
+    width: 25%;
+    font-weight: 500;
+}
+#productosCantidad{
+    width: 25%;
+}
+#productosCantidad label span{
+    margin-left: 5px;
+}
+#direction{
+    width: 25%;
+}
+#direction label span{
+    margin-left: 5px;
+}

@@ -1,22 +1,27 @@
 import style from "./Header.module.css";
-import xIcon from "../../assets/icons/X-icon.svg"
-import { useState } from "react";
 import Head from '../Head/Head';
 import NavBar from "../NavBar/NavBar";
+import Chat from '../Chat/Chat';
+import { useState } from "react";
 
-// const avisoDisplay ={
-//     display: "none"
-// }
+
 
 const Header = (props) =>{
-
-    // const [avisoDisplayStatus, setAvisoDisplayStatus] = useState(true)
-
+    const [chatStatus,setChatStatus] =useState(false);
     return(
         <div id={style.Header} ref={props.headerRef}>
-            {/* <div style={!avisoDisplayStatus ? avisoDisplay : undefined} id={style.avisoContainer}><h1>PEDIDOS UNICAMENTE VÍA WEB</h1><span>NO TOMAMOS PEDIDOS POR NIGUNA RED SOCIAL</span> <img onClick={()=>setAvisoDisplayStatus(!avisoDisplayStatus)} src={xIcon} alt="X icon" /></div> */}
-            <Head/>
+            <Head isAdmin={props.isAdmin}/>
             <NavBar/>
+            <div id={style.ChatSectionContainer}>
+                {chatStatus?(<div id={style.chatContainer}>
+                    <p onClick={()=>setChatStatus(false)}>x</p>
+                    <div>
+                        <Chat/>
+                    </div>
+                </div>):(<div id={style.openChat} onClick={()=>setChatStatus(true)}><p>Chat</p></div>)}
+                
+                
+            </div>
         </div>
     )
 };

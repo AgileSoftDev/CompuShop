@@ -1,0 +1,136 @@
+#card {
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 80px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+margin: center;
+  
+}
+#textarea{
+  
+    border: 1px center;
+    border-Radius: 5;
+    padding: 40;
+    margin: 100px;
+    min-Height: 200;
+    width: 500;
+    justify-content: center;
+    align-items: center;
+    text-justify: center;
+    vertical-align: center;
+    display: flex;
+    font-family: 'Montserrat';
+    color: #f96400;
+}
+.label{
+  width: 60px;
+}
+#h1{
+  background-color: #f96400;
+  font-family: 'Montserrat';
+  font-size: 40px;
+  font-style: italic;
+  margin-top: center;
+}
+#calificacion{
+padding: 20px;
+font-family: 'Montserrat';
+font-size: 20px;
+color: #f96400;
+
+}
+
+#comentario{
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 80px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin: center;
+  font-family: 'Montserrat';
+  font-size: 30px;
+  color: #f96400; 
+  justify-content: center;
+text-justify: center;
+justify-items: 30%;
+}
+#p{
+  text-justify:center;
+  font-family: 'Montserrat';
+  font-size: 30px; 
+  justify-content: center;
+  font-style: italic;
+  color: #f96400;
+  text-align: center;
+}
+#estrella{
+font-size: 100px;
+justify-items: center;
+justify-content: center;
+text-shadow: none;
+text-align: center;
+padding: 10px;
+color: #f96400
+;
+}
+#span{
+  text-justify:center;
+  font-family: 'Montserrat';
+  font-size: 15px; 
+  justify-content: center;
+  font-style: italic;
+  color: #f96400;
+  text-align: 25%;
+  justify-items: center;
+ 
+}
+#button{
+  background-color:#f96400 ;
+  margin-top: 18px;
+  width: 800;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  grid-column: 1 / 3;
+  font-family: 'Montserrat';
+  font-size: 15px;
+
+}
+#label {
+height: 70px;
+flex-grow: 1;
+overflow-x: hidden;
+overflow-wrap: break-word;
+line-height: 22px;
+font-size: 16px;
+padding: 20px 20px;
+border-radius: 6px;
+border: none;
+outline: none;
+resize: none;
+}
+
+#referenciasContainer>#labelReferencias>#divReferencias textarea{
+  height: 70px;
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  line-height: 22px;
+  font-size: 16px;
+  padding: 13px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  resize: none;
+}
+#spanReferencias{
+  margin: 0 0 6px 6px;
+}

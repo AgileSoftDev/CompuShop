@@ -10,6 +10,7 @@ import psu from "../../assets/construye/icons_componentes/psu.png";
 import caseIcon from "../../assets/construye/icons_componentes/case.png";
 import screen from "../../assets/construye/icons_componentes/screen.png";
 import peripherals from "../../assets/construye/icons_componentes/perifericos.png";
+import Mouse from "../../assets/construye/icons_componentes/computer-mouse-icon.svg";
 import cpu_active from "../../assets/construye/icons_componentes_active/cpu_active.png";
 import motherBoard_active from "../../assets/construye/icons_componentes_active/mother_active.png";
 import cooler_active from "../../assets/construye/icons_componentes_active/cooler_active.png";
@@ -42,9 +43,9 @@ const rutas_pasos = {
     '/construye/paso7' : {psu:true},
     '/construye/paso8' : {caseIcon:true},
     '/construye/paso9' : {screen:true},
-    '/construye/paso10' : {peripherals:true},
-    '/construye/paso11' : {peripherals:true},
-    '/construye/paso12' : {peripherals:true},
+    '/construye/paso10' : {Headset:true},
+    '/construye/paso11' : {Mouse:true},
+    '/construye/paso12' : {KEYBOARD:true},
     '/construye' : {cpu:true},
   }
 
@@ -124,7 +125,7 @@ const Construye = () =>{
     const [componet, setComponent] = useState({})
     const [cardsToShow, setCardsToShow] = useState([])
     const [marcaStatus, setMarcaStatus] = useState({})
-    // const [subCategory, setSubCategory] = useState({})                 
+    const [categoryStatus, setCategoryStatus] = useState({})
     const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
     const [totalPrice, setTotalPrice] = useState(0)
 
@@ -173,7 +174,7 @@ const Construye = () =>{
                 else{
                     history.push('/construye/paso1')
                     setComponent({cpu:true})
-                    } 
+                    }
 
             }else{
                 const result = rutas_pasos[cleanPathname(pathname)]?rutas_pasos[cleanPathname(pathname)]:(history.push('/construye/paso1') , {cpu:true});
@@ -269,7 +270,13 @@ const Construye = () =>{
             setCurrentStep(step )
         }
     } 
-
+    // const filterPeripherics = async(category)=>{
+    //     if(pathname== "/construye/paso10" || pathname== "/construye/paso11" || pathname== "/construye/paso12"){
+    //         let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
+    //         console.log(data)
+    //         setCategoryStatus(data)
+    //     }
+    // }
     const finalizarHandler = ()=>{
        dispatch(finalizarArmaTuPc())
        console.log(choosenComponents);
@@ -327,6 +334,7 @@ const Construye = () =>{
                                 <img className={!componet.caseIcon?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso8'); setComponent({caseIcon:true});dispatch(setStepBuildPc('/construye/paso8'))}}  src={choosenComponents.case?choosenComponents.case.img:componet.caseIcon?caseIcon_active:caseIcon} alt="caseIcon" />
                                 {choosenComponents.case&&<p id={style.nameComponentPicked}>{choosenComponents.case.name}</p>}
                             </li>
+                            
                             <li>
                                 <img className={!componet.peripherals?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({peripherals:true});dispatch(setStepBuildPc('/construye/paso10'))}} src={choosenComponents?.peripherals?choosenComponents.peripherals.img:componet.peripherals?peripherals_active:peripherals} alt="peripherals" />
                                 {!!choosenComponents?.peripherals?.length&& <p id={style.nameComponentPicked}>{choosenComponents.peripherals.name}</p>}
@@ -364,9 +372,20 @@ const Construye = () =>{
                             </div>
                         </div>
                     </div>
-
                     <div>
                             <div>
+                            <span>
+                                <svg className={!componet.Headset?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({Headset:true});dispatch(setStepBuildPc('/construye/paso10'))}}  version="1.0" fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11C20 6.58172 16.4183 3 12 3C7.58172 3 4 6.58172 4 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 15.4384V13.5616C2 12.6438 2.62459 11.8439 3.51493 11.6213L5.25448 11.1864C5.63317 11.0917 6 11.3781 6 11.7685V17.2315C6 17.6219 5.63317 17.9083 5.25448 17.8136L3.51493 17.3787C2.62459 17.1561 2 16.3562 2 15.4384Z" stroke="currentColor" stroke-width="1.5"/><path d="M22 15.4384V13.5616C22 12.6438 21.3754 11.8439 20.4851 11.6213L18.7455 11.1864C18.3668 11.0917 18 11.3781 18 11.7685V17.2315C18 17.6219 18.3668 17.9083 18.7455 17.8136L20.4851 17.3787C21.3754 17.1561 22 16.3562 22 15.4384Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 18V18.5C20 19.6046 19.1046 20.5 18 20.5H14.5" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 22H10.5C9.67157 22 9 21.3284 9 20.5C9 19.6716 9.67157 19 10.5 19H13.5C14.3284 19 15 19.6716 15 20.5C15 21.3284 14.3284 22 13.5 22Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                                {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
+                            </span>
+                            <span className={style.MouseContainer} onClick={()=> {history.push("/construye/paso11");  setComponent({Mouse:true}); dispatch(setStepBuildPc("/construe/paso11"))}}>
+                                <img src={Mouse}/>
+                                {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
+                            </span>
+                            <span>
+                                <svg className={!componet.KEYBOARD?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso12'); setComponent({KEYBOARD:true});dispatch(setStepBuildPc('/construye/paso12'))}}  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" width="32px" height="32px"><path d="M 1.5 3 C 0.675781 3 0 3.675781 0 4.5 L 0 10.5 C 0 11.324219 0.675781 12 1.5 12 L 13.5 12 C 14.324219 12 15 11.324219 15 10.5 L 15 4.5 C 15 3.675781 14.324219 3 13.5 3 Z M 1.5 4 L 13.5 4 C 13.78125 4 14 4.21875 14 4.5 L 14 10.5 C 14 10.78125 13.78125 11 13.5 11 L 1.5 11 C 1.21875 11 1 10.78125 1 10.5 L 1 4.5 C 1 4.21875 1.21875 4 1.5 4 Z M 2 5 L 2 6 L 3 6 L 3 5 Z M 4 5 L 4 6 L 5 6 L 5 5 Z M 6 5 L 6 6 L 7 6 L 7 5 Z M 8 5 L 8 6 L 9 6 L 9 5 Z M 10 5 L 10 6 L 11 6 L 11 5 Z M 12 5 L 12 6 L 13 6 L 13 5 Z M 2 7 L 2 8 L 3 8 L 3 7 Z M 4 7 L 4 8 L 5 8 L 5 7 Z M 6 7 L 6 8 L 7 8 L 7 7 Z M 8 7 L 8 8 L 9 8 L 9 7 Z M 10 7 L 10 8 L 11 8 L 11 7 Z M 12 7 L 12 8 L 13 8 L 13 7 Z M 5 9 L 5 10 L 10 10 L 10 9 Z M 2 9.007813 L 2 10.011719 L 4 10.011719 L 4 9.007813 Z M 11.015625 9.007813 L 11.015625 10.011719 L 13.015625 10.011719 L 13.015625 9.007813 Z"/></svg>
+                                {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
+                            </span>
                                 <span onClick={()=>setMarcaStatus({intel:true})} className={marcaStatus.intel?style.span_intel_active:undefined}>
                                     <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><defs><style> </style></defs><title>INTEL</title><rect class={marcaStatus.intel? "punto_grande_intel_active":"punto_grande_intel_inactive"} y="9.93" width="5.79" height="5.79"></rect><path class={marcaStatus.intel?"intel_active":"intel_inactive"}  d="M5.64,40.07V19.23H.15V40.07ZM42,40.28V35.17A13.19,13.19,0,0,1,40,35a2.28,2.28,0,0,1-1.29-.57,2.24,2.24,0,0,1-.57-1.24,12.26,12.26,0,0,1-.13-2V23.93h4v-4.7h-4V11.11H32.56V31.26A17.91,17.91,0,0,0,33,35.55a6,6,0,0,0,1.46,2.77,6,6,0,0,0,2.68,1.5,16,16,0,0,0,4.19.46Zm31.46-.21V9.51H68V40.07ZM27.27,21.28a8.32,8.32,0,0,0-6.39-2.47,8.12,8.12,0,0,0-3.6.8,7.73,7.73,0,0,0-2.72,2.22l-.3.39v-3H8.84V40.07H14.3V29.74c0-.13,0-.25,0-.38A6.21,6.21,0,0,1,15.76,25a4.72,4.72,0,0,1,3.48-1.48A4.45,4.45,0,0,1,22.83,25,6.12,6.12,0,0,1,24,29h0v0h0v11h5.54V28.24A9.93,9.93,0,0,0,27.27,21.28Zm37.87,8.33a11.11,11.11,0,0,0-.8-4.21A10.69,10.69,0,0,0,62.13,22a10.08,10.08,0,0,0-3.39-2.32,11.25,11.25,0,0,0-4.36-.83,10.72,10.72,0,0,0-4.23.85A11,11,0,0,0,46.71,22a11.1,11.1,0,0,0-2.32,3.44,10.72,10.72,0,0,0-.85,4.23,11,11,0,0,0,.81,4.23,10.53,10.53,0,0,0,2.25,3.44,10.72,10.72,0,0,0,3.48,2.32,11.67,11.67,0,0,0,4.47.85,11.82,11.82,0,0,0,9.27-4.09l-4-3a7.24,7.24,0,0,1-5.28,2.33,6.34,6.34,0,0,1-3.79-1.06,5.29,5.29,0,0,1-2-2.9l0-.19H65.14ZM48.81,27.7c0-1.53,1.75-4.19,5.53-4.2s5.53,2.66,5.53,4.19Z"></path><path class={ marcaStatus.intel?"puntoDeIntel_active":"puntoDeIntel_inatcive"} d="M79.84,10.75a2.13,2.13,0,0,0-1.08-1.08A1.92,1.92,0,0,0,78,9.51a1.89,1.89,0,0,0-.79.16,2.07,2.07,0,0,0-.65.44,2,2,0,0,0-.43.64,2,2,0,0,0,0,1.58,1.9,1.9,0,0,0,.43.64,2.07,2.07,0,0,0,.65.44,1.89,1.89,0,0,0,.79.16,1.92,1.92,0,0,0,.79-.16A2,2,0,0,0,79.4,13a2,2,0,0,0,.44-2.22Zm-.33,1.44a1.71,1.71,0,0,1-.89.89,1.61,1.61,0,0,1-.65.13,1.57,1.57,0,0,1-.65-.13,1.82,1.82,0,0,1-.54-.36,1.69,1.69,0,0,1-.35-1.83,1.58,1.58,0,0,1,.35-.53,1.82,1.82,0,0,1,.54-.36A1.57,1.57,0,0,1,78,9.87a1.61,1.61,0,0,1,.65.13,1.71,1.71,0,0,1,.89.89,1.69,1.69,0,0,1,0,1.3Zm-1.16-.49a.55.55,0,0,0,.39-.18.58.58,0,0,0,.16-.45.64.64,0,0,0-.2-.52.9.9,0,0,0-.62-.18h-.89v2.32h.42v-.95h.31l.58.95H79Zm-.23-.33h-.51v-.65h.51l.18,0a.31.31,0,0,1,.13.1.35.35,0,0,1,0,.36.41.41,0,0,1-.13.1Z"></path></svg>
                                 </span>

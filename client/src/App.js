@@ -16,18 +16,24 @@ import {useEffect, useRef, useState} from "react";
 import ShoppingView from "./views/Shopping/Shopping.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import Compra from "./views/Compra/Compra"
+import { useHistory } from "react-router-dom";
+import urlBack from "./utils/deploy_back"
+import MisCompras from "./views/MisCompras/MisCompras";
 
 
 
 function App() {
-  const { user, isAuthenticated } = useAuth0()
+  const history = useHistory();
 
+  const { user,isAuthenticated,loginWithRedirect,isLoading} = useAuth0()
 
   const headerRef = useRef(null)
   const location = useLocation();
 
   const [paddingMain,setPadingMain] = useState(0)
-  const [userId, setUserId]=useState()
+  const [currentUser, setCurrentUser]=useState({})
+  const [loadinStatus, setLoadingStatus]=useState(true)
 
   useEffect(()=>{
     setPadingMain(145)
@@ -35,39 +41,54 @@ function App() {
 
 
   useEffect(()=>{
-    const postUser=async()=>{
-        const {data} = await axios.post(`http://localhost:3001/users`,{email:user.email })
-        if (data) setUserId(data.userid)
+    const setting = async()=>{
+      const postUser=async()=>{
+        const {data} = await axios.post(`${urlBack}/users`,{email:user.email })
+        if (data) setCurrentUser(data)
+      }
+      if(isAuthenticated) await postUser()
+      if(!isLoading)setLoadingStatus(false)
     }
-
-    if(isAuthenticated)postUser()
+    setting()
    
-  },[user])
+  },[user,isLoading])
 
-  return (
-    <div id={style.AbsoluteContaier}>
-        <Route exact path={"/"} render={()=> <LandingPage/>}/>
-        { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && location.pathname!=='/shoppingcart' && <Header headerRef={headerRef}/>}
+  if (!loadinStatus) {
 
-        {location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && location.pathname!=='/shoppingcart' &&<div id={style.bodyMain} style={{paddingTop:`${paddingMain}px`}}>
-        <Route exact path={"/home"} render={()=> <Home/>}/>
-        <Route exact path={"/productos"} render={()=> <Productos/>} />
-        <Route exact path={"/producto/:id"} render={()=> <DetalleProducto/>} />
-        <Route path={"/construye"} render={()=> <Construye/>} />
-        <Route exact path={"/profile"} render={()=> <ProfileDetail/>}/>
-        {/* <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
-        <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
-        {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
-        </div>
-}
-        {<Route exact path={"/shoppingcart"} render={()=> <ShoppingView userId={userId}/>}/>}
+    return (
+      <div id={style.AbsoluteContaier}>
+          <Route exact path={"/"} render={()=> <LandingPage/>}/>
+          { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && location.pathname!=='/shoppingcart' && <Header headerRef={headerRef} isAdmin={currentUser?.isAdmin}/>}
+  
+          {location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && location.pathname!=='/shoppingcart' &&<div id={style.bodyMain} style={{paddingTop:`${paddingMain}px`}}>
+          <Route exact path={"/home"} render={()=> <Home/>}/>
+          <Route exact path={"/productos"} render={()=> <Productos/>} />
+          <Route exact path={"/producto/:id"} render={()=> <DetalleProducto/>} />
+          <Route path={"/construye"} render={()=> <Construye/>} />
+          <Route exact path={"/profile"} render={()=>!isAuthenticated?loginWithRedirect():<ProfileDetail/>}/>
+          <Route exact path={"/compra"} render={()=> <Compra/>}/>
+          <Route exact path={"/profile/miscompras"} render={()=>!isAuthenticated?loginWithRedirect():<MisCompras currentUser={currentUser}/>}/>
+          {/* <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
+          <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
+          {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
+          </div>
+          }
+          <Route exact path={"/shoppingcart"} render={()=> <ShoppingView userId={currentUser.userid}/>}/>
+          <Route  path={"/admin"} render={()=>!isAuthenticated?loginWithRedirect():currentUser?.isAdmin?<Admin/>:history.push("/productos")}/>
+          <Route exact path={"/nosotros"} render={()=><Nosotros/>}/>
+          { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') &&  location.pathname!=='/shoppingcart' &&  <Footer/>}
+      </div>
+    );
+  }else{
+    return(
+      <>
+        <h1>CARGANDO...</h1>
+       </>
+    )
+  
+  }
 
 
-        <Route  path={"/admin"} render={()=> <Admin/>}/>
-        <Route exact path={"/nosotros"} render={()=><Nosotros/>}/>
-        { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') &&  location.pathname!=='/shoppingcart' &&  <Footer/>}
-    </div>
-  );
 }
 
 export default App;

@@ -56,9 +56,9 @@ const Admin = () =>{
                         </div>
                     </div>
                     <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
-                    <a id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</a>
+                    {/* <Link id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</Link> */}
                     <Link id={pathname==="/admin/settings/users"?style.linkActive:undefined} to={"/admin/settings/users"}>Users</Link>
-                    <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link>
+                    {/* <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link> */}
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
@@ -66,8 +66,8 @@ const Admin = () =>{
                         <div><img src={userIcon} alt="" /></div>
                         <h3>Mi perfil</h3>
                     </div>
-                    <div>
-                        <img src={logoutIcon} alt="logout" onClick={logout} />
+                    <div onClick={()=> logout({ returnTo: window.location.origin})}>
+                        <img src={logoutIcon} alt="" />
                         <p>Logout</p>
                     </div>
                 </div>

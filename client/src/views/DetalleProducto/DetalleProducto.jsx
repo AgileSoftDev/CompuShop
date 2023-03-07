@@ -8,7 +8,7 @@ import check from "../../assets/detalles_componente/green_check.svg";
 import url from "../../utils/deploy_back.js";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/actions';
-
+import Reseñas from '../../components/Reseñas/Reseñas';
 
 const rebaja = (price) => {
     return price - (price * 0.35).toFixed(2)
@@ -38,10 +38,10 @@ const DetalleProducto = () => {
 
 
     return (
-        <main id={style.ContainerDetailsProduct}>
+        <><main id={style.ContainerDetailsProduct}>
             <div id={style.top}>
                 <div id={style.imageContainer}>
-                      <img src={component.img} alt="" />
+                    <img src={component.img} alt="" />
                 </div>
                 <div id={style.mainInfo}>
                     <div>
@@ -62,14 +62,15 @@ const DetalleProducto = () => {
                     <div>
                         <ul>
                             <li><div><img src={shield} alt="Shield Protection" /></div> Garantía - 12 meses</li>
-                            <li><div><img src={check} alt="Green Check"  id={style.check}/></div> Stock disponible</li>
+                            <li><div><img src={check} alt="Green Check" id={style.check} /></div> Stock disponible</li>
                             <li><div><img src={truck} alt="Delivery truck" id={style.truck} /></div> Envíos a todo el país</li>
                         </ul>
                     </div>
-                    <button  className={component.quantityStock<=0?style.noStock:undefined}  onClick={component.quantityStock<=0?undefined:()=>dispatch(addToCart(component))}>SUMAR AL CARRITO</button>   
+                    <button className={component.quantityStock <= 0 ? style.noStock : undefined} onClick={component.quantityStock <= 0 ? undefined : () => dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
                 </div>
             </div>
-        </main>
+<Reseñas />
+        </main></>
     
   )
 }
