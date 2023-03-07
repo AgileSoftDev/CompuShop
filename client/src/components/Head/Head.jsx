@@ -11,6 +11,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 // import { current } from "@reduxjs/toolkit";
 
 
@@ -19,8 +20,10 @@ const NavBar = ()=>{
 
     const itemsToBuy = useSelector(e=>e.shoppingCart)
 
+    const [userAdmin, setuserAdmin] = useState()
 
-    const { isAuthenticated } = useAuth0();
+
+    const { isAuthenticated, user } = useAuth0();
 
     const cartRef = useRef(null);
     const cartIconRef = useRef(null);
@@ -52,6 +55,16 @@ const NavBar = ()=>{
 
      
     },[itemsToBuy])
+
+    useEffect(()=>{
+        const getUser=async()=>{
+            const {data} = await axios.get(`http://localhost:3001/users/db/${user.email}`)
+            if (data.isAdmin === true) setuserAdmin(data)
+        }
+    
+        if(isAuthenticated)getUser()
+       
+      },[user])
 
 
     useEffect(()=>{
@@ -85,9 +98,9 @@ const NavBar = ()=>{
     },[shoppingCartStatus])
 
 
-
-    return(
-        <div id={style.HeaderContainer}>
+    if(!userAdmin || userAdmin.isAdmin===false){
+        return(
+            <div id={style.HeaderContainer}>
             <div id={style.NavBar}>
                 <div id={style.logoContainer}><Link to={"/home"}><img src={logo_compuShop} alt="logo_compuShop" /></Link></div>
                 <SearchBar/>
@@ -112,7 +125,36 @@ const NavBar = ()=>{
                 </div>
             </div>
         </div>
-    )
+        )
+    }else{
+    return(
+        <div id={style.HeaderContainer}>
+            <div id={style.NavBar}>
+                <div id={style.logoContainer}><Link to={"/home"}><img src={logo_compuShop} alt="logo_compuShop" /></Link></div>
+                <SearchBar/>
+                {isAuthenticated ? (
+                    <>  
+                        <Link to = {"/admin"} className={style.admin}>Dashboard</Link>
+                        <Profile/>
+                        <LogoutButton/>
+                    </>
+                ) : (
+                    <LoginButton/>
+                )}
+                <div id={style.shoppingCartContainer}  style={shoppingCartStatus ? { backgroundColor: '#ffdf58' } : undefined} >
+                    <div ref={cartIconRef}  onClick={()=>setShoppingCart(!shoppingCartStatus)} >
+                        <img src={shoppingCart} alt="shoping Cart"/>
+                    </div>
+                    <div id={shoppingCartStatus?style.shoppingCartActive:undefined}>
+                        <div ref={containerRef} style={styleCartContainer}>
+                           <ShoppingCart refCart={cartRef} buttonComprarRef={buttonComprarRef} />
+                        </div>
+                    </div>
+                    <p id={style.itemNumber}>{numberStatus}</p>
+                </div>
+            </div>
+        </div>
+    )}
 };
 
 export default NavBar;

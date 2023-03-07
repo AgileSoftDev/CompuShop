@@ -8,7 +8,7 @@ const createUser = async (email) => {
     const userData = {
         nickname: data[0].nickname,
         email: data[0].email,
-        userid: data[0].user_id,
+        userid: data[0].identities.user_id,
     }
     
      const user = await User.findOneAndUpdate(
