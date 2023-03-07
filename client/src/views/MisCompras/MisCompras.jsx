@@ -10,7 +10,7 @@ const [orders,setUser] = useState([])
     useEffect(()=>{
         const getUserData=async()=>{
              const {data} = await axios.get(`http://localhost:3001/users/db/${props.currentUser.email}`)
-             setUser(data.orders                )
+             setUser(data.orders.reverse())
             console.log(data);
         }
         getUserData()
@@ -20,11 +20,11 @@ const [orders,setUser] = useState([])
         <div id={style.MisComprasContaier}>
             <div>
                 <div id={style.titleMisCompras}>
-                    <h1>Compras</h1>
+                    <h1>Mis compras</h1>
                 </div>
             <div id={style.comprasCardContainer}>
                 {
-                    orders.map(e=> <CardMisCompras fecha={e.fecha} price={e.totalPrice}/>)
+                    orders.map(e=> <CardMisCompras fecha={e.fecha} price={e.totalPrice} productos={e.productos} direction={e.directionDlivery}/>)
                 }
             </div>
             </div>
