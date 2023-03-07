@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import stop from "../../assets/Stop_sign.png"
 import axios from "axios";
 import TableUsuarios from "../admin_componets/TableUsuarios/TableUsuarios";
+import Profile from "../../components/Profile/Profile";
 const Admin = () =>{
 
     const { user, logout, isAuthenticated } = useAuth0();
@@ -64,7 +65,7 @@ const Admin = () =>{
                 </nav>
                 <div>
                     <div>
-                        <div><img src={userIcon} alt="" /></div>
+                        <div><img src={userIcon} alt="" ><Profile/></img></div>
                         <h3>Mi perfil</h3>
                     </div>
                     <div onClick={()=> logout({ returnTo: window.location.origin})}>
