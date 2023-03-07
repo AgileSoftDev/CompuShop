@@ -7,13 +7,11 @@ import TableProductos from "../admin_componets/TableProductos/TableProductos";
 import ControlPanel from "../view/ControlPanel/ControlPanel";
 import FormAgregarProducto from "../admin_componets/FormAgregarProducto/FormAgregarProducto";
 import { useAuth0 } from "@auth0/auth0-react";
-<<<<<<< HEAD
-=======
 import { useEffect, useState } from "react";
 import stop from "../../assets/Stop_sign.png"
 import axios from "axios";
 import TableUsuarios from "../admin_componets/TableUsuarios/TableUsuarios";
->>>>>>> 5fee0f8f35c17abbd6ca3ab31c6371ee5fb228d5
+
 const Admin = () =>{
 
     const {logout} = useAuth0();
@@ -32,20 +30,18 @@ const Admin = () =>{
                         </div>
                     </div>
                     <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
-<<<<<<< HEAD
-                    <Link id={pathname==="/admin/settings/users"?style.linkActive:undefined} to={"/admin/settings/users"}>Users</Link>
-=======
                     {/* <Link id={pathname==="/admin/setting"?style.linkActive:undefined}>Configuraciones</Link> */}
                     <Link id={pathname==="/admin/users"?style.linkActive:undefined} to={"/admin/users"}>Users</Link>
                     {/* <Link id={pathname==="/admin/settings/categories"?style.linkActive:undefined} to={"/admin/settings/categories"}>Categories</Link> */}
->>>>>>> 5fee0f8f35c17abbd6ca3ab31c6371ee5fb228d5
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
-                    <div>
+                    <button className={style.profileButton}>
+                    <Link id={pathname==="/profile"} to={"/profile"} ></Link>
                         <div><img src={userIcon} alt="" /></div>
+                        
                         <h3>Mi perfil</h3>
-                    </div>
+                    </button>
                     <div onClick={()=> logout({ returnTo: window.location.origin})}>
                         <img src={logoutIcon} alt="" />
                         <p>Logout</p>
