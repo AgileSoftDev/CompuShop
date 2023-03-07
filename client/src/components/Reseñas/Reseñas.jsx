@@ -19,7 +19,7 @@ return(
     
 
 <div id={style.name_user}>
-    <strong id={style.strong}>3.0</strong>
+    <strong id={style.strong}>5.0</strong>
   
 
 </div>
@@ -55,7 +55,7 @@ return(
     
 
 <div id={style.name_user}>
-    <strong>Kevin j.</strong>
+    <strong>Kevin C.</strong>
   
 
 </div>
