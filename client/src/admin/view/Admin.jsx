@@ -31,10 +31,12 @@ const Admin = () =>{
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
-                    <div>
+                    <button className={style.profileButton}>
+                    <Link id={pathname==="/profile"} to={"/profile"} ></Link>
                         <div><img src={userIcon} alt="" /></div>
+                        
                         <h3>Mi perfil</h3>
-                    </div>
+                    </button>
                     <div onClick={()=> logout({ returnTo: window.location.origin})}>
                         <img src={logoutIcon} alt="" />
                         <p>Logout</p>
