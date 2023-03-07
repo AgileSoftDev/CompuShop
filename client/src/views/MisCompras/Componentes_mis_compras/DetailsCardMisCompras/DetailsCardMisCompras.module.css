@@ -1,0 +1,49 @@
+#DetallesContainer{
+    background-color: #fefefe;
+    border-radius: 6px;
+    min-width: 40vw;
+}
+#topDetallesContainer{
+    border-bottom: 1px solid gray;
+    padding: 28px 18px 24px 15px;
+    display: flex;
+    position: relative;
+}
+#aNombreDeContainer{
+    flex-grow: 1;
+}
+#aNombreDe{
+  
+}
+#mainDetallesCompras{
+    padding: 15px 15px;
+}
+#fechaHoraContainer{
+    margin-bottom: 10px;
+}
+#directionPropiedadesContainer{
+    padding: 5px 0 0 20px;
+    margin-bottom: 10px;
+}
+.directionPropiedades{
+    display: block;
+}
+.directionPropiedades > :nth-child(1){
+    margin-right: 20px;
+}
+.generalPropiedades{
+    font-size: 15px;
+}
+#montoTotal{
+    margin-bottom: 10px;
+}
+#montoTotal label >:nth-child(1){
+    margin-right: 10px;
+}
+#xToClose{
+    position: absolute;
+    top: 0;
+    right: 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
