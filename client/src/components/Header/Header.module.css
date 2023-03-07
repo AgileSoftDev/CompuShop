@@ -35,3 +35,36 @@
     right: 30px;
     cursor: pointer;
 }
+
+#ChatSectionContainer{
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    bottom: calc(0.2%);
+}
+#chatContainer{
+    position: relative;
+    box-shadow: 0 0 30px 1px rgb(41, 41, 41);
+    border-radius: 10px;
+}
+#chatContainer >p{
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    font-size: 28px;
+    right: 10px;
+    color: #fefefe;
+    font-family: 'Roboto Condensed', sans-serif;
+    cursor: pointer;
+}
+#openChat{
+    background-color: #6e48aa;
+    padding: 15px;
+    margin-right: 5px;
+    border-radius: 50%;
+    color: #fefefe;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+}
