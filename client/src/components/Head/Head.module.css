@@ -174,25 +174,6 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
 }
-<<<<<<< HEAD
-
-.admin{
-    height: 40px;
-    background-color: rgb(228, 117, 43);
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: black;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-style: italic;
-}
-.admin:hover {
-    color: black;
-=======
 #navar_profile_section{
     position: relative;
 }
@@ -243,5 +224,4 @@
 }
 #buttonAdmin:hover{
     text-decoration: underline;
->>>>>>> 294f5281eafd815d4c5e22d2e36865527763ec4b
 }
