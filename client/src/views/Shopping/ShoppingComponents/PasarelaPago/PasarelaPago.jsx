@@ -32,7 +32,7 @@ const Paypalboton= (props)=>{
             toMail: user.email,
             name: user.name
         }
-        const mailer = await fetch('https://compu-shop-weld.vercel.app/mailer', {
+        const mailer = await fetch('https://compu-shop-deploy-back-by64clcl0-kan4crooo.vercel.app//mailer', {
             method: 'POST',
             headers: {
                 "Content-type": "application/json"
