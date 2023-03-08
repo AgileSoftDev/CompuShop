@@ -20,6 +20,8 @@ import Compra from "./views/Compra/Compra"
 import { useHistory } from "react-router-dom";
 import urlBack from "./utils/deploy_back"
 import MisCompras from "./views/MisCompras/MisCompras";
+import cargando from "./assets/cargando.gif"
+import logo from "./assets/compu-shop_logo.png"
 
 
 
@@ -81,9 +83,12 @@ function App() {
     );
   }else{
     return(
-      <>
-        <h1>CARGANDO...</h1>
-       </>
+      <div className={style.container}>
+        <img className={style.gif} src={cargando}></img>
+        <p className={style.cargando}>CARGANDO...</p>
+        <p className={style.espera}>Espera mientras te redirigimos.</p>
+        <img className={style.logo} src={logo}></img>
+      </div>
     )
   
   }
