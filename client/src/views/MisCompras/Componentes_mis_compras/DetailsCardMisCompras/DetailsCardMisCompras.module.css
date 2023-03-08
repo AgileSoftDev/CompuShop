@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+
 #DetallesContainer{
     background-color: #fefefe;
     border-radius: 6px;
-    min-width: 40vw;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 700px;
 }
 #topDetallesContainer{
     border-bottom: 1px solid gray;
-    padding: 28px 18px 24px 15px;
+    padding: 28px 18px 15px 15px;
     display: flex;
     position: relative;
 }
@@ -13,37 +17,199 @@
     flex-grow: 1;
 }
 #aNombreDe{
-  
+}
+#aNombreDe :nth-child(1){
+    font-size: 18px;
+    font-weight: 600;
+}
+#aNombreDe :nth-child(2){
+    font-style: italic;
+    font-weight: 400;
 }
 #mainDetallesCompras{
-    padding: 15px 15px;
+    padding: 15px 0;
+}
+#mainTop{
+    padding: 0 12px;
+    box-shadow: inset 0 -5px 5px -6px rgba(0, 0, 0, 0.5);
 }
 #fechaHoraContainer{
     margin-bottom: 10px;
 }
 #directionPropiedadesContainer{
-    padding: 5px 0 0 20px;
+    padding: 1px 0 0 30px;
     margin-bottom: 10px;
 }
 .directionPropiedades{
     display: block;
+    font-size: 15px;
 }
 .directionPropiedades > :nth-child(1){
     margin-right: 20px;
 }
-.generalPropiedades{
-    font-size: 15px;
-}
 #montoTotal{
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 #montoTotal label >:nth-child(1){
     margin-right: 10px;
 }
 #xToClose{
     position: absolute;
-    top: 0;
-    right: 6px;
-    font-size: 18px;
+    top: 3px;
+    right: 3px;
+    font-size: 15px;
     cursor: pointer;
+    color: #fefefe;
+    font-weight:500;
+    border-radius: 50%;
+    background-color: rgb(193, 85, 85);
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    line-height: 16px;
+}
+#cardsProductosOnDetails img{
+    width: 50px;
+}
+
+#CardContainer{
+    display: flex;
+    color: #000000bc;
+    border-bottom: 1px solid #34333371;
+    padding: 20px 0;
+    position: relative;
+}
+#CardContainer .contenedores{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#firstDiv{
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 40%;
+    padding-right: 10px;
+}
+#firstDiv>.imgContainer{
+    padding-bottom: 5px;
+}
+#firstDiv>.imgContainer .img{
+    object-fit: contain;
+    max-width: 100%;
+}
+#firstDiv>.titleContainer>#titleCard{
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+#secondDiv{
+    padding-right: 10px;
+    flex-shrink: 0;
+    width: 30%;
+}
+#secondDiv >:nth-child(1)>:nth-child(1){
+    margin-bottom: 12px;
+}
+#secondDiv label{
+    display: flex;
+}
+#secondDiv label span{
+    flex-wrap: nowrap;
+    display: flex;
+}
+#secondDiv label :nth-child(1){
+    margin-right: 10px;
+}
+#secondDiv>.divTwo>.buttonsControllers>span{
+    margin: auto;
+}
+#secondDiv>.divTwo>#spanTwo{
+    margin: 0 10px;
+}
+
+
+#thirdDiv{
+    flex-shrink: 0;
+    width: 30%;
+}
+#thirdDiv>#xIcon{
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+}
+#thirdDiv>#xIcon>#xP{
+    transform: rotate(-6deg);
+    user-select: none;
+}
+#productosContainer{
+    padding-top: 5px;
+    font-style: italic;
+}
+#productosContainer>:nth-child(1){
+    display: flex;
+    padding-bottom: 18px;
+}
+#productosContainer>:nth-child(1)>:nth-child(1){
+    flex-grow: 1;
+}
+#productosContainer>:nth-child(1)>:nth-child(2){
+    margin-right: 12px;
+}
+.atributtes{
+    margin-right: 10px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+}
+.values{
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+#cardsProductosOnDetailsContainer{
+    max-height: 400px;
+    overflow: auto;
+}
+#thanks{
+    margin-top: 10px;
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    padding-left: 5px;
+}
+#cardsProductosOnDetailsContainer::-webkit-scrollbar {
+    width: 10px;
+}
+#cardsProductosOnDetailsContainer::-webkit-scrollbar-thumb {
+background-color: #888;
+border-radius: 5px;
+}
+#cardsProductosOnDetailsContainer::-webkit-scrollbar-track {
+background-color: #f5f5f5;
+}
+#cardsProductosOnDetailsContainer::-webkit-scrollbar-thumb:hover {
+background-color: #555;
+}
+#cardsProductosOnDetailsContainer::-webkit-scrollbar-thumb:active {
+background-color: #444;
+}
+#cardsProductosOnDetailsContainer#compraStatus {
+    display: flex;
+    align-items: center;
+}
+#compraStatus > img{
+    width: 15px;
+    margin-right: 3px;
+}
+#compraStatus > span{
+    color: #05b022;
+    font-size:14px;
+    font-weight: 500;
 }

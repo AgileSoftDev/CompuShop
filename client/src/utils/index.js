@@ -33,7 +33,9 @@ const getCurrentComponent = {
   "/construye/paso7": "psu",
   "/construye/paso8": "case",
   "/construye/paso9": "screen",
-  "/construye/paso10": "peripherals",
+  "/construye/paso10": "peripherals1",
+  "/construye/paso11": "peripherals2",
+  "/construye/paso12": "peripherals3",
 };
 
 

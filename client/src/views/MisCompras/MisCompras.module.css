@@ -28,10 +28,26 @@
     top: 145px;
     height: 100%;
     width: 100vw;
-    max-height: calc(100vh - 145px);
+    height: calc(100vh - 145px);
     background-color: rgba(0, 0, 0, 0.284);
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: auto;
+}
+
+#comprasContainerAbsolute{
+    background-color: blueviolet;
+    transform: translateY(0px);
+    animation: intro 0.4s ease;
+}
+
+@keyframes intro{
+    0%{
+        transform: translateY(-780px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
 }

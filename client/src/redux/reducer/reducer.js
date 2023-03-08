@@ -20,7 +20,7 @@ const initialState = {
         psu: undefined,
         case: undefined,
         screen: undefined,
-        peripherals:undefined,
+        peripherals:[],
     },
     step_build_pc:undefined,
     categoryPick: undefined,
@@ -104,11 +104,20 @@ const rootReducer = (state = initialState, { type, payload }) =>{
         
         case PICK_ARMA_TU_PC:
 
-            const build_pc={
-                ...state.build_pc
-            };
+            let build_pc=JSON.parse(JSON.stringify(state.build_pc))
 
-            build_pc[getCurrentComponent[state.step_build_pc]]={...payload,quantity:1};
+            if (!getCurrentComponent[state.step_build_pc].includes("peripherals")) {
+                build_pc[getCurrentComponent[state.step_build_pc]]={...payload,quantity:1};
+            }else if(getCurrentComponent[state.step_build_pc]=== "peripherals1"){
+
+                build_pc.peripherals[0]={...payload,quantity:1}
+            }
+            else if(getCurrentComponent[state.step_build_pc]=== "peripherals2"){
+                build_pc.peripherals[1]={...payload,quantity:1}
+            
+            }else if(getCurrentComponent[state.step_build_pc]=== "peripherals3"){
+                build_pc.peripherals[2]={...payload,quantity:1}
+            }
 
 
             const newState= {
@@ -126,7 +135,9 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             localStorage.removeItem('pc_build');
             return{
                 ...state,
-                build_pc:{}
+                build_pc:{
+                    peripherals:[],
+                }
             }
 
         case ADD_TO_CART:
@@ -234,7 +245,14 @@ const rootReducer = (state = initialState, { type, payload }) =>{
         case FINALIZAR_ARMA_TU_PC:
             localStorage.removeItem('pc_build');
             const shoppingCartWithoutUndefined =Object.values(state.build_pc).filter(e=>e!==undefined)
-            let newShoppingCart = [...shoppingCartWithoutUndefined,...state.shoppingCart];
+            let newShoppingCart = [...state.shoppingCart];
+            shoppingCartWithoutUndefined.forEach(e=>{
+                if(!Array.isArray(e)){
+                    newShoppingCart.push(e)
+                }else{
+                    e.forEach(el=>newShoppingCart.push(el))
+                }
+            })
 
             newShoppingCart = fusionarProductos(newShoppingCart)
               
@@ -243,7 +261,7 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             return{
                 ...state,
                 shoppingCart:newShoppingCart,
-                build_pc:[],
+                build_pc:{peripherals:[]},
             }
 
         default:

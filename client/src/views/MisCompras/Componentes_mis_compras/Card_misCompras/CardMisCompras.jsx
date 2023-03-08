@@ -7,7 +7,7 @@ const CardMisCompras = ({onClickk,compra,fecha,price,productos,direction}) =>{
 
     const direccion = direction.city +"-"+ direction.direction
     const date = format(new Date(fecha), "EEEE d 'de' MMMM 'de' y, HH:mm:ss", {locale: esLocale});
-    const productosCantidad = productos.length
+    const productosCantidad = productos
 
     useEffect(()=>{
        
@@ -17,7 +17,7 @@ const CardMisCompras = ({onClickk,compra,fecha,price,productos,direction}) =>{
         <div id={style.CardMisComprasContainer}>
             <div id={style.fechaContainer}>
                 <label><p id={style.fecha}>{date}</p></label>
-                <label><button onClick={()=>{onClickk({...compra,visible:true})}}><span>Ver Detalles</span></button></label>
+                <label><button onClick={()=>onClickk({...compra,visible:true})}><span>Ver Detalles</span></button></label>
             </div>
             <div id={style.mainCardMisCompras}>
                 <div>
@@ -43,8 +43,6 @@ const CardMisCompras = ({onClickk,compra,fecha,price,productos,direction}) =>{
                         </label>
                     </div>
                 </div>
-                <div></div>
-                <div></div>
             </div>
         </div>
     )

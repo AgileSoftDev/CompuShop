@@ -128,6 +128,8 @@ const Construye = () =>{
     const [categoryStatus, setCategoryStatus] = useState({})
     const [buttonsManagerStatus, setButtonManagerStatus] = useState({});
     const [totalPrice, setTotalPrice] = useState(0)
+    const [peripferalsCount,setPeripferalsCount] = useState()
+    const [firstPeripherals, setFirstPeripherals] =useState()
 
     const refArrowLimpiar = useRef(null)
     const refButtonFinalizar = useRef(null)
@@ -171,10 +173,10 @@ const Construye = () =>{
                     // history.push(step_build_pc)
                 }
 
-                else{
-                    history.push('/construye/paso1')
-                    setComponent({cpu:true})
-                    }
+            else{
+                history.push('/construye/paso1')
+                setComponent({cpu:true})
+                }
 
             }else{
                 const result = rutas_pasos[cleanPathname(pathname)]?rutas_pasos[cleanPathname(pathname)]:(history.push('/construye/paso1') , {cpu:true});
@@ -246,6 +248,22 @@ const Construye = () =>{
             }
             setTotalPrice(fullPrice)
 
+            let contador = 0;
+            choosenComponents.peripherals.forEach(element => {  
+                if (element) {
+                    contador++
+                }
+            });
+            setPeripferalsCount(contador)
+            for (let i = 0; i < choosenComponents.peripherals.length; i++) {
+                const element = choosenComponents.peripherals[i];
+                if (element) {
+                  setFirstPeripherals(element);
+                  break;
+                }
+              }
+              
+
         },[choosenComponents])
 
     function setButtonsManagerFalse (evento) {
@@ -262,24 +280,20 @@ const Construye = () =>{
 
 
     const moveStepHandler = (type) =>{
-        if (pathname !== "/construye/paso12") {
-            const step = getCurrentStep(cleanPathname(pathname)) + type
-            const newRoute ='paso' + String(step)
-            if (pathname === "/construye")  history.push("/construye/"+newRoute)
-            else  history.push(newRoute)
-            setCurrentStep(step )
+        if (cleanPathname(pathname)!=="/construye/paso4") {
+            if (pathname !== "/construye/paso12") {
+                const step = getCurrentStep(cleanPathname(pathname)) + type
+                const newRoute ='paso' + String(step)
+                if (pathname === "/construye")  history.push("/construye/"+newRoute)
+                else  history.push(newRoute)
+                setCurrentStep(step )
+            }
         }
     } 
-    // const filterPeripherics = async(category)=>{
-    //     if(pathname== "/construye/paso10" || pathname== "/construye/paso11" || pathname== "/construye/paso12"){
-    //         let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{console.log(`No Econtró componentes con la categoría ${category}`); return "no data"})
-    //         console.log(data)
-    //         setCategoryStatus(data)
-    //     }
-    // }
+
+    
     const finalizarHandler = ()=>{
        dispatch(finalizarArmaTuPc())
-       console.log(choosenComponents);
     }
 
 
@@ -335,9 +349,10 @@ const Construye = () =>{
                                 {choosenComponents.case&&<p id={style.nameComponentPicked}>{choosenComponents.case.name}</p>}
                             </li>
                             
-                            <li>
-                                <img className={!componet.peripherals?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({peripherals:true});dispatch(setStepBuildPc('/construye/paso10'))}} src={choosenComponents?.peripherals?choosenComponents.peripherals.img:componet.peripherals?peripherals_active:peripherals} alt="peripherals" />
+                            <li id={style.peripferalsCountContainer}>
+                                <img className={!componet.peripherals?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({peripherals:true});dispatch(setStepBuildPc('/construye/paso10'))}} src={choosenComponents?.peripherals.length?firstPeripherals?.img:componet.peripherals?peripherals_active:peripherals} alt="peripherals" />
                                 {!!choosenComponents?.peripherals?.length&& <p id={style.nameComponentPicked}>{choosenComponents.peripherals.name}</p>}
+                                <span style={peripferalsCount?undefined:{display:"none"}} id={style.peripferalsCount}>+{peripferalsCount}</span>
                             </li>
                         </ul>
                         <div>
@@ -359,8 +374,8 @@ const Construye = () =>{
                             </div>
                             <div>
                                 <h1>Toltal: $ {totalPrice}</h1>
-                                <div className={currentStep>=10? style.disabled:undefined}>
-                                    <p  onClick={cleanPathname(pathname) === "/construye" ? ()=> history.push('/construye/paso2') : currentStep < 10? ()=> moveStepHandler(1) :undefined}>SALTAR PASO</p>
+                                <div className={currentStep>=12? style.disabled:undefined}>
+                                    <p  onClick={cleanPathname(pathname) === "/construye" ? ()=> history.push('/construye/paso2') : currentStep < 12? ()=> moveStepHandler(1) :undefined}>SALTAR PASO</p>
                                     <div ref={refArrowFinalizar} onClick={()=>setButtonManagerStatus({ finalizar: !buttonsManagerStatus.finalizar})}>
                                         <img src={triangle} alt="Flecha abajo" />
                                     </div>
@@ -378,7 +393,7 @@ const Construye = () =>{
                                 <svg className={!componet.Headset?style.nonActive:undefined} onClick={()=>{history.push('/construye/paso10'); setComponent({Headset:true});dispatch(setStepBuildPc('/construye/paso10'))}}  version="1.0" fill="none" height="24" stroke-width="1.5" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11C20 6.58172 16.4183 3 12 3C7.58172 3 4 6.58172 4 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 15.4384V13.5616C2 12.6438 2.62459 11.8439 3.51493 11.6213L5.25448 11.1864C5.63317 11.0917 6 11.3781 6 11.7685V17.2315C6 17.6219 5.63317 17.9083 5.25448 17.8136L3.51493 17.3787C2.62459 17.1561 2 16.3562 2 15.4384Z" stroke="currentColor" stroke-width="1.5"/><path d="M22 15.4384V13.5616C22 12.6438 21.3754 11.8439 20.4851 11.6213L18.7455 11.1864C18.3668 11.0917 18 11.3781 18 11.7685V17.2315C18 17.6219 18.3668 17.9083 18.7455 17.8136L20.4851 17.3787C21.3754 17.1561 22 16.3562 22 15.4384Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 18V18.5C20 19.6046 19.1046 20.5 18 20.5H14.5" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 22H10.5C9.67157 22 9 21.3284 9 20.5C9 19.6716 9.67157 19 10.5 19H13.5C14.3284 19 15 19.6716 15 20.5C15 21.3284 14.3284 22 13.5 22Z" stroke="currentColor" stroke-width="1.5"/></svg>
                                 {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
                             </span>
-                            <span className={style.MouseContainer} onClick={()=> {history.push("/construye/paso11");  setComponent({Mouse:true}); dispatch(setStepBuildPc("/construe/paso11"))}}>
+                            <span className={style.MouseContainer} onClick={()=> {history.push("/construye/paso11");  setComponent({Mouse:true}); dispatch(setStepBuildPc("/construye/paso11"))}}>
                                 <img src={Mouse}/>
                                 {choosenComponents.Headset&&<p id={style.nameComponentPicked}>{choosenComponents.Headset.name}</p>}
                             </span>

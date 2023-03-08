@@ -77,7 +77,6 @@
     justify-content: center;
     margin: 0 0 14px 0;
     height: 85px;
-    overflow: hidden;
     flex-direction: column;
     width: 170px;
 }
@@ -387,4 +386,27 @@
 
 .MouseContainer img{
     width: 18px;
+}
+
+
+#peripferalsCountContainer{
+    position: relative;
+    overflow: visible;
+}
+
+#peripferalsCount{
+    position: absolute;
+    top: -10px;
+    left: 115px;
+    color: #fd611a;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 50%;
+    border: 2px solid #fd611a ;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
