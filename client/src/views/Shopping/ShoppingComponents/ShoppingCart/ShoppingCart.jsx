@@ -9,7 +9,7 @@ const ShoppingCart = ()=>{
     const items = useSelector(e=>e.shoppingCart);
 
     const total = useMemo(()=>{
-        return items.reduce((total,currrent)=>total+(currrent.price*currrent.quantity),0)
+        return items.reduce((total,currrent)=>total+(currrent?.price*currrent.quantity),0)
     },[items])
 
 

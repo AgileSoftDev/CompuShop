@@ -1,6 +1,6 @@
 const selectCategoryByStep = {
     '/construye/paso1' : "cpu",
-    '/construye/paso2' : "BOARD",
+    '/construye/paso2' : "MotherBoard",
     '/construye/paso3' : "cooler",
     '/construye/paso4' : "RAM",
     '/construye/paso5' : "GPU",

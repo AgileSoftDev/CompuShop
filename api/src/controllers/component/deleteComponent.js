@@ -5,7 +5,17 @@ const deleteComponent = async(id) => {
     const component = await Components.findOne({ _id: id })
     console.log(component)
     if(!component) throw 'No se ha encontrado un componente con ese ID'
-    await component.remove()
+    component.isActive = false
+    await component.save()
 }
 
-module.exports = deleteComponent
+const activateComponent = async(id) => {
+    console.log(id)
+    const component = await Components.findOne({ _id: id })
+    console.log(component)
+    if(!component) throw 'No se ha encontrado un componente con ese ID'
+    component.isActive = true
+    await component.save()
+}
+
+module.exports = {deleteComponent, activateComponent}

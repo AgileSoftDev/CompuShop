@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import style from './TableProductos.module.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+// import { searchComponent } from "../../../redux/actions/actions.js";
+import {useDispatch} from "react-redux"
 import url from "../../../utils/deploy_back.js";
 import swal from "sweetalert2"
 const TableLoaded = ({allComponents}) => {
@@ -88,7 +90,7 @@ const LoaderTableProducts = () => {
 const TableProductos = () => {
 
 const [allComponents, setAllComponentes] = useState([])
-
+// const [compName, setCompName]= useState([])
 const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -101,6 +103,43 @@ const [loading, setLoading] = useState(true)
         }
         getAllComponents()
     }, [])
+//  const dispatch = useDispatch();
+const searchComponentDos = (value) => {
+    return axios.get(`${url}/components?name=${value}`)
+    .then(res=>res.data)
+    .catch(error=>console.log(error))
+ };
+
+//  const  handlerSubmit=(e) =>{
+//     e.preventDefault();
+//     dispatch(searchComponentDos(e))
+// }
+ const handleSearch = async (value) => {
+     const data1 = await searchComponentDos(value);
+    //  console.log(value)
+    if(data1){
+        const filterName= data1.map((e)=>({
+            name: e.name,
+            price: e.price,
+            category: e.category,
+            _id: e._id,
+            maker: e.maker,
+            quantityStock: e.quantityStock
+        }))
+        setAllComponentes(filterName)
+        setLoading(false)
+    }else {
+        swal.fire({
+            title: 'Error al encontrar el producto',
+            text: "No existe ningun producto con ese nombre",
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            timerProgressBar: 3000
+          })
+    }
+  };
+  
+
   return (
     <div id={style.ProductsPanelContainer}>
         {
@@ -119,7 +158,7 @@ const [loading, setLoading] = useState(true)
             
             <div className={style.card_header}>
                 <div>
-                    <input placeholder='Search...' className={style.searchBar}></input>
+                    <input onChange={(e)=>handleSearch(e.target.value)} placeholder='Search by name...' className={style.searchBar} ></input>
                 </div>
                 <div>
                     <Link  className={style.buttons} to={'/admin/products/add'}>Agregar Producto</Link>

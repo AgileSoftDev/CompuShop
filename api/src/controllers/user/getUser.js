@@ -36,6 +36,14 @@ const auth00 = new ManagementClient({
   }
  }
 
+ const getUserDb = async (email) => {
+  try {
+    return await User.findOne({email: email})
+  } catch (error) {
+    throw new Error(error)
+  }
+ }
 
 
-module.exports= {getAllUsers, getUser, getDB}
+
+module.exports= {getAllUsers, getUser, getDB, getUserDb}

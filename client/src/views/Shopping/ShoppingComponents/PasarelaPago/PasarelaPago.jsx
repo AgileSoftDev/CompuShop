@@ -5,7 +5,7 @@ import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { cleanShoppingCart } from "../../../../redux/actions/actions";
 import style from "./Pasarela.module.css"
-import url from "../../../../utils/deploy_back";
+import urlBack from "../../../../utils/deploy_back";
 
 
 
@@ -32,7 +32,7 @@ const Paypalboton= (props)=>{
             toMail: user.email,
             name: user.name
         }
-        const mailer = await fetch(`${url}/mailer`, {
+        const mailer = await fetch(`${urlBack}/mailer`, {
             method: 'POST',
             headers: {
                 "Content-type": "application/json"
@@ -94,7 +94,7 @@ const Paypalboton= (props)=>{
                     place:props.statusForm.current.options,
                 }
 
-            const {status} = await axios.put(`http://localhost:3001/users/update/${props.userId}`,{name:props.statusForm.name,orders:{fecha:Date.now(),totalPrice:price,directionDlivery,contactPhone:props.statusForm.current.phone, productos:cleanCart,}, })
+            const {status} = await axios.put(`${urlBack}/users/update/${props.userId}`,{name:props.statusForm.name,orders:{fecha:Date.now(),totalPrice:price,directionDlivery,contactPhone:props.statusForm.current.phone, productos:cleanCart,}, })
             .catch((err)=>alert("El pago fue realizado, pero no pudimos completar tu compra. Contactanos para poder ayudare -> compushoppf@gmail.com"))
 
             if (status===200) {
@@ -102,7 +102,7 @@ const Paypalboton= (props)=>{
                     const peticiones = [];
                   
                     pagoCarrito.forEach((e) => {
-                        peticiones.push(axios.put(`http://localhost:3001/components/${e._id}`,{quantityStock:e.quantity*-1}))
+                        peticiones.push(axios.put(`${urlBack}/components/${e._id}`,{quantityStock:e.quantity*-1}))
                     });
                   
                     Promise.all(peticiones)

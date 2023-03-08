@@ -52,13 +52,12 @@ const getDetailComponent = (component) => {
 function searchComponent(payload) {
     return async dispatch => {
         const ruta = `${url}/components?name=${payload}`
-        let {data} = await axios.get(ruta)
+        let {data:data1} = await axios.get(ruta)
         .catch(error => alert("Error en la action getAllComponents, al obtener la data"));
-                dispatch({
-                    type: GET_ALL_COMPONENTS,
-                    payload: data,
-                 })
-         
+        dispatch({
+            type: GET_ALL_COMPONENTS,
+            payload: data1,
+        })     
     }
 };
 
@@ -99,6 +98,7 @@ const setStepBuildPc = (step) =>{
 const filterByCategory = (category, marca, pick)=>{
     return async dispatch =>{
         let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
+        console.log(data)
         if(marca){
             data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
         }

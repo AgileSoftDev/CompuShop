@@ -1,10 +1,11 @@
 import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, SET_NUM_PAGINATED, SEARCH_COMPONENT, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC } from "../actions/actions.types";
 import { paginationArray, getCurrentComponent } from "../../utils";
-import { sortByPrice } from "../../helpers/reducer.helpers";
+import { sortByPrice,fusionarProductos } from "../../helpers/reducer.helpers";
 const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
 
 const initialState = {
     allComponents: [],
+    getUsers: [],
     numPaginado: 0,
     paginated: [],
     connectionON : true,
@@ -215,7 +216,9 @@ const rootReducer = (state = initialState, { type, payload }) =>{
         case REMOVE_ITEM_CART:
             const cartttt= state.shoppingCart.map(e=>e)
             const arrFiltrado = cartttt.filter((item) => item._id !== payload);    
-            window.localStorage.setItem('carrito', JSON.stringify(arrFiltrado))      
+            window.localStorage.setItem('carrito', JSON.stringify(arrFiltrado))   
+            console.log(arrFiltrado);
+   
             return{
                 ...state,
                 shoppingCart: arrFiltrado,
@@ -230,7 +233,11 @@ const rootReducer = (state = initialState, { type, payload }) =>{
 
         case FINALIZAR_ARMA_TU_PC:
             localStorage.removeItem('pc_build');
-            const newShoppingCart = [...Object.values(state.build_pc),...state.shoppingCart];
+            const shoppingCartWithoutUndefined =Object.values(state.build_pc).filter(e=>e!==undefined)
+            let newShoppingCart = [...shoppingCartWithoutUndefined,...state.shoppingCart];
+
+            newShoppingCart = fusionarProductos(newShoppingCart)
+              
             window.localStorage.setItem('carrito', JSON.stringify(newShoppingCart))
 
             return{

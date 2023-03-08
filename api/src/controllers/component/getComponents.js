@@ -19,8 +19,9 @@ const findByCategory = async (category) => {
 }
 
 const findById = async (id) => {
-    const component = await Components.findOne({ _id: id }).catch(e => {throw 'No se ha encontrado un componente con ese ID'});
-    return component;
+    const component = await Components.findOne({ _id: id })
+    if(component) return component;
+    else throw new Error("No se ha encontrado un componente con ese ID");
 }
 
 

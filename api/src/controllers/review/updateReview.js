@@ -8,10 +8,10 @@ const updateReview = async(id, data) => {
     console.log(review)
     console.log(2)
     if(!review) throw 'No se ha encontrado un review con ese ID'
-    review.user = data.user;
+    review.userId = data.userId;
     review.userCategory = data.userCategory;
     review.review = data.review;
-    review.date = data.date;
+    review.componentId = data.componentId;
     console.log(review)
     return await review.save().catch(e => console.log(e));
 }

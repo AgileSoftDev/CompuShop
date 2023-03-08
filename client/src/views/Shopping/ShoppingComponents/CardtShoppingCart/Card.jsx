@@ -17,11 +17,9 @@ const CardCart = (props)=>{
 
 
     const price = useMemo(() => {
-        console.log(currentProduct);
         return currentProduct.price * currentProduct.quantity
       }, [currentProduct]);
 
-      console.log(price);
     return(
         <div>
             <label id={style.CardContainer}>

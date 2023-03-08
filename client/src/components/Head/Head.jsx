@@ -7,20 +7,23 @@ import {Link} from 'react-router-dom'
 import LoginButton from "../Login/Login";
 import LogoutButton from "../Logout/Logout";
 import Profile from "../Profile/Profile";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0} from "@auth0/auth0-react";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 // import { current } from "@reduxjs/toolkit";
 
 
 
-const NavBar = ()=>{
+const NavBar = (props)=>{
 
     const itemsToBuy = useSelector(e=>e.shoppingCart)
 
+    const [userAdmin, setuserAdmin] = useState()
 
-    const { isAuthenticated } = useAuth0();
+
+    const { isAuthenticated, user } = useAuth0();
 
     const cartRef = useRef(null);
     const cartIconRef = useRef(null);
@@ -52,6 +55,16 @@ const NavBar = ()=>{
 
      
     },[itemsToBuy])
+
+    useEffect(()=>{
+        const getUser=async()=>{
+            const {data} = await axios.get(`http://localhost:3001/users/db/${user.email}`)
+            if (data.isAdmin === true) setuserAdmin(data)
+        }
+    
+        if(isAuthenticated)getUser()
+       
+      },[user])
 
 
     useEffect(()=>{
@@ -92,10 +105,17 @@ const NavBar = ()=>{
                 <div id={style.logoContainer}><Link to={"/home"}><img src={logo_compuShop} alt="logo_compuShop" /></Link></div>
                 <SearchBar/>
                 {isAuthenticated ? (
-                    <>
-                        <Profile/>
-                        <LogoutButton/>
-                    </>
+                    <div>
+                        <div id={style.navar_profile_section}>
+                            <div id={style.navar_profile_section_profile}>
+                                <Profile/>
+                            </div>
+                            <div id={style.desplegable_navar_profile_section}>
+                               {props?.isAdmin?( <Link to={"/admin"} id={style.buttonAdmin}>Ir a Admin</Link>):undefined}
+                                <LogoutButton/>
+                            </div>
+                        </div>
+                    </div>
                 ) : (
                     <LoginButton/>
                 )}
@@ -112,8 +132,8 @@ const NavBar = ()=>{
                 </div>
             </div>
         </div>
-    )
-};
+        )
+    }
 
 export default NavBar;
 

@@ -23,7 +23,7 @@
     font-size: 20px;
     font-style: normal;
     margin-left: 850px;
-    color: rgb(228, 117, 43);
+    color:#fd6119;
     text-decoration: none;
 }
 
@@ -59,7 +59,7 @@
 .cuadro1 h2 {
     padding: 10px 20px;
     font-size: 20px;
-    color: rgb(228, 117, 43);
+    color:#fd6119;
 }
 
 .cuadro1 p {
@@ -71,21 +71,34 @@
 .cuadro2 {
     background-color: white;
     width: 700px;
-    height: 140px;
     margin: 30px;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgb(194, 194, 194);
+    padding: 20px;
 }
-
+.containerButtonsToSections{
+    text-align: center;
+    padding-top: 20px;
+}
+.buttonsToSections{
+    background-color: #fd6119;
+    padding: 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fefefe;
+    border-radius: 3px;
+}
+.buttonsToSections:hover{
+    transform: scale(1.04);
+}
 .cuadro2 h2 {
-    padding: 10px 20px;
     font-size: 20px;
-    color: rgb(228, 117, 43);
+    color: #fd6119;
 }
 
 .cuadro2 p {
-    padding: 2px 20px;
     font-size: 15px;
+    margin-top: 10px;
 }
 
 .cuadro3 {
@@ -100,7 +113,7 @@
 .cuadro3 h2 {
     padding: 10px 20px;
     font-size: 20px;
-    color: rgb(228, 117, 43);
+    color: #fd6119;
 }
 
 .cuadro3 p {
@@ -120,7 +133,7 @@
 .cuadro4 h2 {
     padding: 10px 20px;
     font-size: 20px;
-    color: rgb(228, 117, 43);
+    color: #fd6119;
 }
 
 .cuadro4 p {
@@ -140,7 +153,7 @@
 .cuadro5 h2 {
     padding: 10px 20px;
     font-size: 20px;
-    color: rgb(228, 117, 43);
+    color: #fd6119;
 }
 
 .cuadro5 p {
@@ -152,13 +165,15 @@
     margin-left: 140px;
     margin-top: 35px;
     height: 40px;
-    background-color: rgb(228, 117, 43);
+    background-color: #fd6119;
     padding: 10px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
     color: white;
 }
+
+
 
 .cuadro6 {
     background-color: white;
@@ -172,7 +187,7 @@
 .carrito {
     height: 40px;
     width: 140px;
-    background-color: rgb(228, 117, 43);
+    background-color: #fd6119;
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -184,7 +199,7 @@
 .datos {
     height: 40px;
     width: 140px;
-    background-color: rgb(228, 117, 43);
+    background-color: #fd6119;
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -195,7 +210,7 @@
 .salir {
     height: 40px;
     width: 140px;
-    background-color: rgb(228, 117, 43);
+    background-color:#fd6119;
     padding: 10px;
     border-radius: 10px;
     border: none;
