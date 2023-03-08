@@ -1,5 +1,5 @@
 import style from "./App.module.css";
-import {Route} from "react-router-dom";
+import {Route, Redirect} from "react-router-dom";
 import { Home } from "./views/index.js";
 import Header from './components/Header/Header.jsx';
 import Productos from './views/Productos/Productos.jsx'
@@ -22,6 +22,7 @@ import urlBack from "./utils/deploy_back"
 import MisCompras from "./views/MisCompras/MisCompras";
 import cargando from "./assets/cargando.gif"
 import logo from "./assets/compu-shop_logo.png"
+import NotFound from "./components/Notfound/Notfound"
 
 
 
@@ -75,8 +76,10 @@ function App() {
           {<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
           </div>
           }
+          <Route exact path={"/notfound"} render={()=> <NotFound/>}/>
+          <Route path="*"> <Redirect to="/notfound" /> </Route>
           <Route exact path={"/shoppingcart"} render={()=> <ShoppingView userId={currentUser.userid}/>}/>
-          <Route  path={"/admin"} render={()=>!isAuthenticated?loginWithRedirect():currentUser?.isAdmin?<Admin/>:history.push("/productos")}/>
+          <Route path={"/admin"} render={()=>!isAuthenticated?loginWithRedirect():currentUser?.isAdmin?<Admin/>:history.push("/productos")}/>
           <Route exact path={"/nosotros"} render={()=><Nosotros/>}/>
           { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') &&  location.pathname!=='/shoppingcart' &&  <Footer/>}
       </div>

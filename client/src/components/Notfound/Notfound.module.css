@@ -1,6 +1,37 @@
 .container {
-    border: 1px solid black;
-    width: 200rem;
-    height: 37rem;
-    display: flex;
+    /* border: 2px solid black; */
+    width: 1200px;
+    height: 600px;
+    margin-top: 50px;
+    margin-left: 320px;
+    font-family: Montserrat,sans-serif;
+}
+.casa{
+    width: 100px;
+    height: 100px;
+    margin-left: 550px;
+    margin-top: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.cargando {
+    margin-top: 50px;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.espera {
+    font-size: 35px;
+    text-align: center;
+    color: #fea350;
+}
+
+.herramienta{
+    width: 200px;
+    height: 200px;
+    margin-left: 500px;
+    border-radius: 10px;
+    padding: 10px;
 }
