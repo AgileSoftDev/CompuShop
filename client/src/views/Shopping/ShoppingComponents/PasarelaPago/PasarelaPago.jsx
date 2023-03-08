@@ -26,13 +26,27 @@ const Paypalboton= (props)=>{
         return pagoCarrito.reduce((total,currrent)=>total+(currrent.price*currrent.quantity),0)
     },[pagoCarrito])
 
+    const send = async() => {
+        const sendData = {
+            fromMail: "compushoppf@gmail.com",
+            toMail: user.email,
+            name: user.name
+        }
+        const mailer = await fetch(`${urlBack}/mailer`, {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(sendData)
+        })
+        console.log(mailer)
+    }
 
     if (purchaseError) alert(purchaseError)
     else if (purchaseStatus){ 
         setPurchaseStatus(false)
     }
     
-
 
 
     if (!isAuthenticated) {
@@ -131,6 +145,7 @@ const Paypalboton= (props)=>{
     
     
         const onApprove = async(data, actions) => {
+            send()
             const order = await actions.order.capture();
             manejadorSucces(order)
             // console.log(data);

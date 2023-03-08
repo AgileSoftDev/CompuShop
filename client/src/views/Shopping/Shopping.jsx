@@ -22,7 +22,6 @@ const Shopping = (props) =>{
 
     const statusForm = useRef(null)
 
-
     const submitHandler = ()=>{
         for (const i of Object.values(statusForm.current)) {
             if (i === "") {
