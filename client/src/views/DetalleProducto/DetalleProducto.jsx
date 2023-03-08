@@ -8,7 +8,7 @@ import check from "../../assets/detalles_componente/green_check.svg";
 import url from "../../utils/deploy_back.js";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/actions';
-import Reseñas from '../../components/Reseñas/Reseñas';
+import Puntuacion from '../../components/Puntuacion/Puntuacion';
 
 const rebaja = (price) => {
     return price - (price * 0.35).toFixed(2)
@@ -29,7 +29,7 @@ const DetalleProducto = () => {
         const getDetailComponentById = async () => {
 
              const {data} = await  axios.get(`${url}/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
-             if(data) setComponet(data)  
+             if(data) setComponet(data)
         }
 
         getDetailComponentById()
@@ -69,7 +69,7 @@ const DetalleProducto = () => {
                     <button className={component.quantityStock <= 0 ? style.noStock : undefined} onClick={component.quantityStock <= 0 ? undefined : () => dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
                 </div>
             </div>
-<Reseñas />
+<Puntuacion componentId={id}/>
         </main></>
     
   )
