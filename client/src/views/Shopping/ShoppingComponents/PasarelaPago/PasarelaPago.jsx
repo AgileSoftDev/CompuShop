@@ -93,8 +93,9 @@ const Paypalboton= (props)=>{
                     references:props.statusForm.current.references,
                     place:props.statusForm.current.options,
                 }
+                console.log(props.statusForm);
 
-            const {status} = await axios.put(`${urlBack}/users/update/${props.userId}`,{name:props.statusForm.name,orders:{fecha:Date.now(),totalPrice:price,directionDlivery,contactPhone:props.statusForm.current.phone, productos:cleanCart,}, })
+            const {status} = await axios.put(`http://localhost:3001/users/update/${props.userId}`,{name:props.statusForm.current.name,orders:{fecha:Date.now(),totalPrice:price,directionDlivery,contactPhone:props.statusForm.current.phone, productos:cleanCart,}, })
             .catch((err)=>alert("El pago fue realizado, pero no pudimos completar tu compra. Contactanos para poder ayudare -> compushoppf@gmail.com"))
 
             if (status===200) {
@@ -102,7 +103,7 @@ const Paypalboton= (props)=>{
                     const peticiones = [];
                   
                     pagoCarrito.forEach((e) => {
-                        peticiones.push(axios.put(`${urlBack}/components/${e._id}`,{quantityStock:e.quantity*-1}))
+                        peticiones.push(axios.put(`http://localhost:3001/components/${e._id}`,{quantityStock:e.quantity*-1}))
                     });
                   
                     Promise.all(peticiones)

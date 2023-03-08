@@ -10,7 +10,7 @@ const DetailsCardMisCompras = (props)=>{
                 <div id={style.aNombreDeContainer}>
                     <label id={style.aNombreDe}>
                         <span className={style.atributtes} >A nombre de:</span>
-                        <span className={style.values}>César Llajaruna</span>
+                        <span className={style.values}>{props.name}</span>
                     </label>
                 </div>
                 <label id={style.compraStatus}>

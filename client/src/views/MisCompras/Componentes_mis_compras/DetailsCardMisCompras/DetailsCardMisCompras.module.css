@@ -183,6 +183,7 @@
     font-style: italic;
     font-weight: 300;
     padding-left: 5px;
+    font-size: 14px;
 }
 #cardsProductosOnDetailsContainer::-webkit-scrollbar {
     width: 10px;

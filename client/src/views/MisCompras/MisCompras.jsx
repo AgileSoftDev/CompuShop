@@ -13,8 +13,7 @@ const [nameUser, setNameUser] = useState()
         const getUserData=async()=>{
              const {data} = await axios.get(`${Url}/users/db/${props.currentUser.email}`)
              setOrder(data.orders.reverse())
-             setNameUser(data.nickname)
-            console.log(data);
+             setNameUser(data.name)
         }
         getUserData()
     },[])
@@ -34,7 +33,7 @@ const [nameUser, setNameUser] = useState()
             </div>
             {orderFocus.visible?(<div id={style.compraDetallesContainerRelative}>
                     <div id={style.comprasContainerAbsolute}>
-                            <DetailsCardMisCompras setOrderFocus={(value)=>setOrderFocus(value)} name={orderFocus.name} phone={orderFocus.contactPhone} ordenes={orderFocus.productos}/>
+                            <DetailsCardMisCompras setOrderFocus={(value)=>setOrderFocus(value)} name={nameUser} phone={orderFocus.contactPhone} ordenes={orderFocus.productos}/>
                     </div>
             </div>):undefined}
         </div>

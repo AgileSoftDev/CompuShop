@@ -25,13 +25,13 @@ const updateUser = async(id, data) => {
     try {
         const user = await User.findOne({ userid: id });
         if(!user) throw 'No se ha encontrado un componente con ese ID';
+        if(data.name) user.name = data.name;
         if(data.nickname) user.nickname = data.nickname;
         if(data.email) user.email = data.email;
         if(data.wallet) user.wallet = data.wallet;
         if(data.phoneNumber) user.phoneNumber = data.phoneNumber;
         if(data.addresses) user.addresses = data.addresses;
         if(data.orders) user.orders = [...user.orders,data.orders];
-        if(data.name) user.name = data.name
         user.updated_at = Date.now()
         await user.save()
 
