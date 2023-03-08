@@ -12,7 +12,7 @@ const TableLoaded = ({allUsers}) => {
     const handleRevoke = async (user) => {
         try {
           const { data } = await axios.put(`http://localhost:3001/users/${user._id}`);
-          if (data.status == '200') {
+          if (data.status == 200) {
             setAllUsers((prevState) =>
               prevState.filter((item) => item._id !== user._id)
             );
