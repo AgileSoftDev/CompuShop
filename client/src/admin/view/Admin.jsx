@@ -33,7 +33,7 @@ const Admin = () =>{
                 </nav>
                 <div>
                     <button className={style.profileButton}>
-                    <Link id={pathname==="/profile"} to={"/profile"} ></Link>
+                        <Link id={pathname==="/profile"} to={"/profile"}/>
                         <div><img src={userIcon} alt="" /></div>
                         
                         <h3>Mi perfil</h3>

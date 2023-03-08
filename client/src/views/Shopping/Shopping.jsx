@@ -38,7 +38,7 @@ const Shopping = (props) =>{
                 <div id={style.headerShopping}>
                     <div>
                         <img src={compuShopLogo} alt="" />
-                        <Link to={"/ayuda"}>Ayuda</Link>
+                        <Link to={"/productos"}>Volver atras</Link>
                     </div>
                 </div>
                 <div id={style.mainShopping}>
