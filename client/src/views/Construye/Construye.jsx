@@ -281,7 +281,7 @@ const Construye = () =>{
 
     const moveStepHandler = (type) =>{
         if (cleanPathname(pathname)!=="/construye/paso4") {
-            if (pathname !== "/construye/paso12") {
+            if (pathname !== "/construye/paso13") {
                 const step = getCurrentStep(cleanPathname(pathname)) + type
                 const newRoute ='paso' + String(step)
                 if (pathname === "/construye")  history.push("/construye/"+newRoute)
