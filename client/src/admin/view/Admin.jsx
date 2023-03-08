@@ -29,6 +29,7 @@ const Admin = () =>{
                     <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
                     <Link id={pathname==="/admin/users"?style.linkActive:undefined} to={"/admin/users"}>Users</Link>
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
+                    <Link className={style.volver} id={pathname==="/home"?style.linkActive:undefined} to={"/home"}>Volver a Home</Link>
                 </nav>
                 <div>
                     <button className={style.profileButton}>
