@@ -10,20 +10,14 @@ import { useAuth0 } from "@auth0/auth0-react"
 const colors = {
         orange: "#FFBA5A",
     grey: "#a9a9a9"
-
 };
-
-
-
 
 export default function Puntuacion({reviews, componentId}) {
 
 const { user } = useAuth0()
 
-const [orders,setUser] = useState([])
-
-const [nameUser, setNameUser] = useState()
-
+// const [orders,setUser] = useState([])
+// const [nameUser, setNameUser] = useState()
 
 const [review ,setAllreviews] = useState({
     email: "",
@@ -32,12 +26,11 @@ const [review ,setAllreviews] = useState({
     componentId: componentId
 })
 
-
 const handleReview = async (review) => {
     // try {
         console.log(user)
         setAllreviews({...review, email: user.email})
-        console.log(review.email)
+        console.log(review)
         // const { data } = await axios.post(`${url}/review`);
 
 
