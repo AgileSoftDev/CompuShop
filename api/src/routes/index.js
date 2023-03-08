@@ -5,7 +5,7 @@ const { Router } = require('express');
 const userRoutes= require("./userRoutes.js")
 const componentsRoutes= require("./ComponentsRoutes.js");
 const reviewRoutes= require("./reviewRoutes.js");
-const uploadRoutes= require("../controllers/cloudinaryPrueba.js");
+// const uploadRoutes= require("../controllers/cloudinaryPrueba.js");
 const nodemailer = require('./nodemailer.js');
 
 const router = Router();

@@ -6,6 +6,7 @@ import yorliana from "../../assets/Nosotros/yorliana.png"
 import enrique from "../../assets/Nosotros/enrique.png"
 import kevin from "../../assets/Nosotros/kevin.png"
 import cesar from "../../assets/Nosotros/cesar.png"
+import ivan from "../../assets/Nosotros/Ivan.png"
 import github from "../../assets/icons/github.png"
 import linkedin from "../../assets/icons/linkedin.png"
 
@@ -73,7 +74,7 @@ const Nosotros = ()=>{
                 </div>
 
                 <div className={style.persona}>
-                    <img src={negro} alt="negro"></img>
+                    <img src={ivan} alt="negro"></img>
                     <h5>Ivan Bielli</h5>
                     <p>Back-end developer</p>
                     <div className={style.icons}>
