@@ -6,6 +6,7 @@ const createUser = async (email) => {
     const data = await getUser(email.email)
     
     const userData = {
+        name: data[0].given_name + " " + data[0].family_name,
         nickname: data[0].nickname,
         email: data[0].email,
         userid: data[0].identities.user_id,

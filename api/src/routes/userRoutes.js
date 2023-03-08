@@ -18,16 +18,11 @@ userRoutes.get("/", async (req, res) =>{
     }
 })
 
- userRoutes.get("/db/:email", async(req, res)=>{
-    const {email}= req.params
+ userRoutes.get("/db", async(req, res)=>{
     try {
-        if (email) {
-            const user = await Users.findOne({email:email})
-            if(user)return res.status(200).send(user);
-            else throw new Error("No hay ningún usuario con ese email.")
-        }else{
+       
             return res.status(201).send(await getDB());
-        }
+        
      } catch (error) {
          res.status(404).send(error.message)
      }

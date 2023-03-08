@@ -42,11 +42,11 @@ function App() {
     setPadingMain(145)
   },[])
 
-
+  const {logout} = useAuth0();
   useEffect(()=>{
     const setting = async()=>{
       const postUser=async()=>{
-        const {data} = await axios.post(`${urlBack}/users`,{email:user.email })
+        const {data} = await axios.post(`${urlBack}/users`,{email:user.email }).catch(err=>logout({ returnTo: window.location.origin}))
         if (data) setCurrentUser(data)
       }
       if(isAuthenticated) await postUser()
