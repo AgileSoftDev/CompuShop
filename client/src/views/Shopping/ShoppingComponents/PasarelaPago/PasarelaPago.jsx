@@ -5,7 +5,7 @@ import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { cleanShoppingCart } from "../../../../redux/actions/actions";
 import style from "./Pasarela.module.css"
-
+import {Url_deploy_back as url} from "../../../../utils/deploy_back";
 
 
 
@@ -32,7 +32,7 @@ const Paypalboton= (props)=>{
             toMail: user.email,
             name: user.name
         }
-        const mailer = await fetch('https://compu-shop-deploy-back-by64clcl0-kan4crooo.vercel.app//mailer', {
+        const mailer = await fetch(`${url}/mailer`, {
             method: 'POST',
             headers: {
                 "Content-type": "application/json"
