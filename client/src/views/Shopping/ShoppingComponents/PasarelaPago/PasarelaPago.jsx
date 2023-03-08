@@ -5,7 +5,7 @@ import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { cleanShoppingCart } from "../../../../redux/actions/actions";
 import style from "./Pasarela.module.css"
-import {Url_deploy_back as url} from "../../../../utils/deploy_back";
+import url from "../../../../utils/deploy_back";
 
 
 
