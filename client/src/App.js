@@ -77,7 +77,7 @@ function App() {
           </div>
           }
           <Route exact path={"/notfound"} render={()=> <NotFound/>}/>
-          <Route path="*"> <Redirect to="/notfound" /> </Route>
+          {/* <Route path="*"> <Redirect to="/notfound" /> </Route> */}
           <Route exact path={"/shoppingcart"} render={()=> <ShoppingView userId={currentUser.userid}/>}/>
           <Route path={"/admin"} render={()=>!isAuthenticated?loginWithRedirect():currentUser?.isAdmin?<Admin/>:history.push("/productos")}/>
           <Route exact path={"/nosotros"} render={()=><Nosotros/>}/>
