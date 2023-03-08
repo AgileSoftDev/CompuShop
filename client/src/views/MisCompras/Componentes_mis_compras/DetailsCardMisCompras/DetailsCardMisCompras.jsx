@@ -8,8 +8,7 @@ const DetailsCardMisCompras = (props)=>{
     const msPDay = 24 * 60 * 60 * 1000;
     const now = new Date().getTime();
     const date = format(new Date(props.fecha), "EEEE d 'de' MMMM 'de' y, HH:mm : ss", {locale: esLocale});
-    console.log(props.fecha);
-
+    
     return(
         <div id={style.DetallesContainer}>
             <div id={style.topDetallesContainer}>

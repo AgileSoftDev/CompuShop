@@ -14,7 +14,6 @@ const [nameUser, setNameUser] = useState()
              const {data} = await axios.get(`${Url}/users/db/${props.currentUser.email}`)
              setOrder(data.orders.reverse())
              setNameUser(data.name)
-             console.log(data);
         }
         getUserData()
     },[])
