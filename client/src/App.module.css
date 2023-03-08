@@ -10,3 +10,38 @@
 
 #bodyMain{
 }
+
+.container {
+  /* border: 2px solid black; */
+  width: 1200px;
+  height: 600px;
+  margin-top: 130px;
+  margin-left: 320px;
+  font-family: Montserrat,sans-serif;
+}
+
+.gif{
+  width: 350px;
+  margin-left: 420px;
+  margin-top: 80px;
+}
+
+.logo{
+  width: 200px;
+  margin-left: 500px;
+  margin-top: 160px;
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.cargando {
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.espera {
+  font-size: 35px;
+  text-align: center;
+}
