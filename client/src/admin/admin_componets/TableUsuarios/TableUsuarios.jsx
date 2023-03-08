@@ -11,7 +11,7 @@ const TableLoaded = ({allUsers}) => {
     // const [selectedUsers, setSelectedUsers] = useState(null)
     const handleRevoke = async (user) => {
         try {
-          const { data } = await axios.delete(`${url}/users/${user._id}`);
+          const { data } = await axios.put(`${url}/users/delete/${user._id}`);
           if (data.message === 'User revoked successfully') {
             setAllUsers((prevState) =>
               prevState.filter((item) => item._id !== user._id)

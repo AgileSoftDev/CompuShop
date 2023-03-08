@@ -31,8 +31,7 @@ const Admin = () =>{
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
                 </nav>
                 <div>
-                    <button className={style.profileButton}>
-                    <Link id={pathname==="/profile"} to={"/profile"} ></Link>
+                    <button className={style.profileButton} onClick={()=> <Link id={pathname==="/profile"} to={"/profile"}/>}>
                         <div><img src={userIcon} alt="" /></div>
                         
                         <h3>Mi perfil</h3>
