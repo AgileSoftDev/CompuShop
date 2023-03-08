@@ -38,8 +38,7 @@ const usersSchema= new Schema(
             type: Date,
         },
         userid:{
-            type: String,
-            required: true,
+            type: String
         },
         addresses:{
             type: Array,
