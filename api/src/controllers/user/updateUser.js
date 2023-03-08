@@ -4,7 +4,7 @@ const {getUser}=require("./getUser.js")
 
 
 const deleteUser = async (id) =>{
-        const userxd = await User.findOne({userid: id})
+        const userxd = await User.findOne({_id: id})
         if(!userxd){
             throw 'No se ha encontrado un usuario con ese ID'
         }
@@ -13,7 +13,7 @@ const deleteUser = async (id) =>{
 }
 
 const activateUser = async(id)=>{
-    const userxd = await User.findOne({userid: id})
+    const userxd = await User.findOne({_id: id})
         if(!userxd){
             throw 'No se ha encontrado un usuario con ese ID'
         }
@@ -23,7 +23,7 @@ const activateUser = async(id)=>{
 
 const updateUser = async(id, data) => {
     try {
-        const user = await User.findOne({ userid: id });
+        const user = await User.findOne({ _id: id });
         if(!user) throw 'No se ha encontrado un componente con ese ID';
         if(data.name) user.name = data.name;
         if(data.nickname) user.nickname = data.nickname;
@@ -42,7 +42,7 @@ const updateUser = async(id, data) => {
 }
 
 const giveAdmin = async(id) =>{
-    const userxd = await User.findOne({userid: id})
+    const userxd = await User.findOne({_id: id})
         if(!userxd){
             throw 'No se ha encontrado un usuario con ese ID'
         }
@@ -51,7 +51,7 @@ const giveAdmin = async(id) =>{
 }
 
 const removeAdmin = async(id) =>{
-    const userxd = await User.findOne({userid: id})
+    const userxd = await User.findOne({_id: id})
         if(!userxd){
             throw 'No se ha encontrado un usuario con ese ID'
         }
@@ -60,7 +60,7 @@ const removeAdmin = async(id) =>{
 }
 
 const addOrder = async(id, order) =>{
-    const userxd = await User.findOne({userid: id})
+    const userxd = await User.findOne({_id: id})
         if(!userxd){
             throw 'No se ha encontrado un usuario con ese ID'
         }

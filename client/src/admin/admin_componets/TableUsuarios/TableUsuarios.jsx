@@ -11,8 +11,8 @@ const TableLoaded = ({allUsers}) => {
     // const [selectedUsers, setSelectedUsers] = useState(null)
     const handleRevoke = async (user) => {
         try {
-          const { data } = await axios.put(`${url}/users/delete/${user._id}`);
-          if (data.message === 'User revoked successfully') {
+          const { data } = await axios.put(`http://localhost:3001/users/${user._id}`);
+          if (data.status == '200') {
             setAllUsers((prevState) =>
               prevState.filter((item) => item._id !== user._id)
             );
@@ -33,6 +33,26 @@ const TableLoaded = ({allUsers}) => {
               });
         }
       };
+      const handleEdit = async (user) => {
+        try {
+            if(user.isAdmin === false) {
+            await axios.put(`http://localhost:3001/users/giveAdmin/${user._id}`).then((response) => {console.log(response)})
+            
+            }else if(user.isAdmin === true){
+             await axios.put(`http://localhost:3001/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
+            }
+            
+            
+        } catch (error) {
+            swal.fire({
+                title: 'Error al editar el usuario',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+                timerProgressBar: 3000
+              });
+        }
+      }
     return (
         <>
             <table className={style.card_table}>
@@ -41,6 +61,7 @@ const TableLoaded = ({allUsers}) => {
                         <th>ID</th>
                         <th>Email</th>
                         <th>Name</th>
+                        <th>Role</th>
                     </tr> 
                 </thead>
                 <tbody>
@@ -48,13 +69,16 @@ const TableLoaded = ({allUsers}) => {
                         allUsers && allUsers?.map(Users => {
                             return (
                                     <tr key={Users._id}>
-                                        <td>{Users.user_id}</td>
+                                        {!Users.userid ? 
+                                        <td>{Users._id}</td>
+                                        : <td>{Users.userid}</td>}
                                         <td>{Users.email}</td>
-                                        <td>{Users.name}</td>
+                                        {!Users.name ? 
+                                        <td>{Users.nickname}</td>
+                                        : <td>{Users.name}</td>}
+                                        <td><button onClick={()=>handleEdit(Users)}>{Users.isAdmin ? "Administrador" : "Cliente"}</button></td>
                                         <td id={style.sectionButtons}>
                                             <div>
-                                                <button>Ver</button>
-                                                <button>Editar</button>
                                             </div>
                                             <button onClick={()=> handleRevoke(Users)}>Revocar</button>
                                         </td>
@@ -80,7 +104,7 @@ const [allUsers, setAllUsers] = useState([])
 const [loading, setLoading] = useState(true)
     useEffect(() => {
         const getallUsers =async()=>{
-            const {data} = await axios.get(`${url}/users`).catch(error => alert("Error en la tabla usuarios de admin al obtener la data"));
+            const {data} = await axios.get(`http://localhost:3001/users/db`);
             console.log(data)
 
             if (data.length) {
