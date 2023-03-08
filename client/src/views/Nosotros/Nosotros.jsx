@@ -7,6 +7,7 @@ import enrique from "../../assets/Nosotros/enrique.png"
 import kevin from "../../assets/Nosotros/kevin.png"
 import cesar from "../../assets/Nosotros/cesar.png"
 import ivan from "../../assets/Nosotros/Ivan.png"
+import jair from "../../assets/Nosotros/jair.png"
 import github from "../../assets/icons/github.png"
 import linkedin from "../../assets/icons/linkedin.png"
 
@@ -79,7 +80,7 @@ const Nosotros = ()=>{
                     <p>Back-end developer</p>
                     <div className={style.icons}>
                         <a href="https://github.com/GordoEnredadera" target="_blank"><img src={github} alt="github"></img></a>
-                        <a href="https://www.linkedin.com/in/geraldino/" target="_blank"><img src={linkedin} alt="linkedin"></img></a>
+                        <a href="https://www.linkedin.com/in/ivan-bielli-5985461a3/" target="_blank"><img src={linkedin} alt="linkedin"></img></a>
                     </div>
                 </div>
 
@@ -94,7 +95,7 @@ const Nosotros = ()=>{
                 </div>
 
                 <div className={style.persona}>
-                    <img src={negro} alt="negro"></img>
+                    <img src={jair} alt="negro"></img>
                     <h5>Jair Olguín</h5>
                     <p>Back-end developer</p>
                     <div className={style.icons}>
