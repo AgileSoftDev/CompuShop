@@ -102,7 +102,8 @@
     justify-content: start;
     padding-left: 20px;
     cursor: pointer;
-
+   color: #fefefe;
+   text-decoration: none;
 }
 #panelAdmin>:nth-child(2) > :first-child>:nth-child(1){
     background-color: #fefefe8c;
@@ -115,7 +116,6 @@
     align-items: end;
     overflow: hidden;
     position: relative;
-
 }
 #panelAdmin>:nth-child(2) > :first-child>:nth-child(1)>img{
     width: 115%;
@@ -151,4 +151,8 @@
 }
 #panelAdmin>:nth-child(2)>:nth-child(2){
     cursor: pointer;
+}
+#toProfile{
+    /* background-color: red; */
+    color: white;
 }

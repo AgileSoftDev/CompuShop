@@ -32,13 +32,12 @@ const Admin = () =>{
                     <Link className={style.volver} id={pathname==="/home"?style.linkActive:undefined} to={"/home"}>Volver a Home</Link>
                 </nav>
                 <div>
-                    <button className={style.profileButton}>
-                        <Link id={pathname==="/profile"} to={"/profile"}/>
-                        <div><img src={userIcon} alt="" /></div>
-                        
+                <Link to={"/profile"}>
+                    <div>
+                        <img src={userIcon} alt="" /></div>
                         <h3>Mi perfil</h3>
-                    </button>
-                    <div onClick={()=> logout({ returnTo: window.location.origin})}>
+                    </Link>
+                        <div onClick={()=> logout({ returnTo: window.location.origin})}>
                         <img src={logoutIcon} alt="" />
                         <p>Logout</p>
                     </div>
