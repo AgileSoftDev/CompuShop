@@ -111,7 +111,7 @@ const NavBar = (props)=>{
                                 <Profile/>
                             </div>
                             <div id={style.desplegable_navar_profile_section}>
-                               {props?.isAdmin?( <Link to={"/admin"} id={style.buttonAdmin}>Ir a Admin</Link>):undefined}
+                               {props?.isAdmin?( <Link to={"/admin/controlPanel"} id={style.buttonAdmin}>Ir a Admin</Link>):undefined}
                                 <LogoutButton/>
                             </div>
                         </div>
