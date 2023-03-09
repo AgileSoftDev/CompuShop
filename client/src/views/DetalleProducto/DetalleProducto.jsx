@@ -9,6 +9,7 @@ import url from "../../utils/deploy_back.js";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/actions';
 import Puntuacion from '../../components/Puntuacion/Puntuacion';
+import Reseñas from '../../components/Reseñas/Reseñas';
 
 const rebaja = (price) => {
     return price - (price * 0.35).toFixed(2)
@@ -70,8 +71,8 @@ const DetalleProducto = () => {
                 </div>
             </div>
 <Puntuacion componentId={id}/>
+<Reseñas />
         </main></>
-    
   )
 }
 
