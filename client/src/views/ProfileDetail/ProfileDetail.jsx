@@ -76,7 +76,7 @@ const ProfileDetail = () => {
                                                  </div>
                                                  <div id={style.productosCantidad}>
                                                      <label>
-                                                         <span>Catindas de productos: </span> 
+                                                         <span>Cantidad de productos: </span> 
                                                          <span>{e.productos.length}</span> 
                                                      </label>
                                                  </div>

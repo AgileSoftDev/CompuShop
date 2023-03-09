@@ -12,15 +12,20 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
     const [componentOnEdit, setComponenOnEdit]=useState({})
     const handleRevoke = async (component) => {
         try {
-          await axios.delete(`${url}/components/${component._id}`);
-          getAllComponents(setAllComponents, setLoading)
-          swal.fire({
-            title: 'Se elimino el producto con éxito',
-            icon: 'success',
-            confirmButtonText: 'Aceptar',
-            timerProgressBar: 3000
-          });
+            console.log(`🚀 ~ file: TableProductos.jsx:14 ~ handleRevoke ~ component:`, component._id)
+          await axios.put(`${url}/components/${component._id}`)
+            .then((res) => {
+                console.log(`🚀 ~ file: TableProductos.jsx:17 ~ .then ~ res:`, res)
+                getAllComponents(setAllComponents, setLoading)
+                swal.fire({
+                  title: 'Se elimino el producto con éxito',
+                  icon: 'success',
+                  confirmButtonText: 'Aceptar',
+                  timerProgressBar: 3000
+                });
+            });
         } catch (error) {
+            console.log(`🚀 ~ file: TableProductos.jsx:27 ~ handleRevoke ~ error:`, error)
             swal.fire({
                 title: 'Error al eliminar el producto',
                 text: error.message,
@@ -84,7 +89,7 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
                                                     <td id={style.sectionButtons}>
                                                         <div>
                                                             <span onClick={()=>setComponenOnVer({...component,visible:true})}>Ver</span>
-                                                            <span onClick={()=>setComponenOnEdit({...component,visible:true})}>Editar</span>
+                                                            {/* <span onClick={()=>setComponenOnEdit({...component,visible:true})}>Editar</span> */}
                                                         </div>
                                                         <button onClick={()=> handleRevoke(component)}>Revocar</button>
                                                     </td>
@@ -167,7 +172,7 @@ const TableProductos = () => {
             maker: e.maker,
             quantityStock: e.quantityStock
         }))
-        setAllComponentes(filterName)
+        setAllComponents(filterName)
         setLoading(false)
       };
       
@@ -190,7 +195,7 @@ const TableProductos = () => {
                 
                 <div className={style.card_header}>
                     <div>
-                        <input onChange={(e)=>handleSearch(e.target.value)}placeholder='Search by name...' className={style.searchBar} ></input>
+                        {/* <input onChange={(e)=>handleSearch(e.target.value)}placeholder='Search by name...' className={style.searchBar} ></input> */}
                     </div>
                     <div>
                         <Link  className={style.buttons} to={'/admin/products/add'}>Agregar Producto</Link>
