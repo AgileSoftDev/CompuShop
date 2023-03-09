@@ -8,7 +8,6 @@ const DetailsCardMisCompras = (props)=>{
     const msPDay = 24 * 60 * 60 * 1000;
     const now = new Date().getTime();
     const date = format(new Date(props.fecha), "EEEE d 'de' MMMM 'de' y, HH:mm : ss", {locale: esLocale});
-    
     return(
         <div id={style.DetallesContainer}>
             <div id={style.topDetallesContainer}>
@@ -50,9 +49,9 @@ const DetailsCardMisCompras = (props)=>{
                     </label>
                 </div>
                 <div id={style.directionPropiedadesContainer}>
-                    <label className={style.directionPropiedades}><span>Ciudad: </span><span className={style.values} >Trujillo</span></label>
-                    <label className={style.directionPropiedades}><span>Dirección: </span><span className={style.values}>Jr. pizza 455</span></label>
-                    <label className={style.directionPropiedades}><span>Referencias: </span><span className={style.values}>Al lado del parque</span></label>
+                    <label className={style.directionPropiedades}><span>Ciudad: </span><span className={style.values} >{props.direction.city}</span></label>
+                    <label className={style.directionPropiedades}><span>Dirección: </span><span className={style.values}>{props.direction.direction}</span></label>
+                    <label className={style.directionPropiedades}><span>Referencias: </span><span className={style.values}>{props.direction.references}</span></label>
                 </div>
                 <div id={style.productosContainer}>
                     <div>
@@ -61,7 +60,7 @@ const DetailsCardMisCompras = (props)=>{
                         </label>
                         <label>
                             <span className={style.atributtes}>Montol total:</span>
-                            <span className={style.values}>$4597</span>
+                            <span className={style.values}>${props.total}</span>
                         </label>
                     </div>
                 </div>
