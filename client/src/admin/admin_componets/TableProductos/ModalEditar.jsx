@@ -7,7 +7,7 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import url from "../../../utils/deploy_back.js";
 
-
+// :|
 
 const ModalEditar = ({component}) => {
     const categorias = [
