@@ -1,0 +1,13 @@
+#modarFormContainer{
+    background-color: #fefefe;
+    padding: 24px;
+}
+#cerrarContainer{
+    text-align: end;
+}
+#cerrarContainer label{
+    background-color: rgb(67, 37, 37);
+    color: #fefefe;
+    padding: 4px 6px;
+    border-radius: 6px;
+}

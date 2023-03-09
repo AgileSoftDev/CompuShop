@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import url from "../../../utils/deploy_back.js";
 import swal from "sweetalert2"
 import ModalVer from './ModalVer';
+import ModalEdit from './ModalEditar';
 
 const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) => {
     const [componentOnVer, setComponenOnVer]=useState({})
+    const [componentOnEdit, setComponenOnEdit]=useState({})
     const handleRevoke = async (component) => {
         try {
           await axios.delete(`${url}/components/${component._id}`);
@@ -82,7 +84,7 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
                                                     <td id={style.sectionButtons}>
                                                         <div>
                                                             <span onClick={()=>setComponenOnVer({...component,visible:true})}>Ver</span>
-                                                            <span>Editar</span>
+                                                            <span onClick={()=>setComponenOnEdit({...component,visible:true})}>Editar</span>
                                                         </div>
                                                         <button onClick={()=> handleRevoke(component)}>Revocar</button>
                                                     </td>
@@ -105,6 +107,11 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
                     <div>
                         <ModalVer component={componentOnVer} close={setComponenOnVer}></ModalVer>
                     </div>
+            </div>):undefined}           
+            {componentOnEdit.visible?( <div id={style.modalVerContainer}>
+                    <div>
+                        <ModalEdit component={componentOnVer} close={setComponenOnEdit}></ModalEdit>
+                    </div>
             </div>):undefined}
         </div>
         
@@ -112,7 +119,6 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
 }
 
 const LoaderTableProducts = () => {
-    // Acá iría el loadingComponent
     return (
         <div class={style.table}>
                 <h1>LOADING....</h1>
