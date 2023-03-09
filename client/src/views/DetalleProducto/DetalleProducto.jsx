@@ -10,27 +10,35 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/actions';
 import Puntuacion from '../../components/Puntuacion/Puntuacion';
 import Reseñas from '../../components/Reseñas/Reseñas';
+import Reviews from '../../components/Reviews/Reviews';
 
 const rebaja = (price) => {
     return price - (price * 0.35).toFixed(2)
-} 
+}
 
 const DetalleProducto = () => {
+
+    const reviewsContainerStyle = {
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '16px'
+    }
+
     const { id } = useParams()
     const dispatch = useDispatch()
-    
-    
-    const [component, setComponet] = useState({})
 
-    useEffect( () => {
+
+    const [component, setComponet] = useState({})
+    console.log(':c')
+    useEffect(() => {
         window.scroll({
             behavior: "smooth",
             top: 0
-          });
+        });
         const getDetailComponentById = async () => {
 
-             const {data} = await  axios.get(`${url}/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
-             if(data) setComponet(data)
+            const { data } = await axios.get(`${url}/components/id/${id}`).catch(error => alert("Error al obtener data de detalles del componente"));
+            if (data) setComponet(data)
         }
 
         getDetailComponentById()
@@ -70,10 +78,12 @@ const DetalleProducto = () => {
                     <button className={component.quantityStock <= 0 ? style.noStock : undefined} onClick={component.quantityStock <= 0 ? undefined : () => dispatch(addToCart(component))}>SUMAR AL CARRITO</button>
                 </div>
             </div>
-<Puntuacion componentId={id}/>
-<Reseñas />
+            <div style={reviewsContainerStyle}>
+                <Puntuacion componentId={id} />
+                <Reviews id={id} />
+            </div>
         </main></>
-  )
+    )
 }
 
 export default DetalleProducto

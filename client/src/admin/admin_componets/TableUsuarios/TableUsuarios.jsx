@@ -75,7 +75,7 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
                                             {!Users.name ? 
                                             <td>{Users.nickname}</td>
                                             : <td>{Users.name}</td>}
-                                            <td>
+                                            <td id={style.roleee}>
                                             {
                                                 Users.isAdmin 
                                                 ? (

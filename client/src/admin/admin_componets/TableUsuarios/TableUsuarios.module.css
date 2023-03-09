@@ -172,7 +172,8 @@
   
      #sectionButtons{
       padding: 8px 10px;
-      max-width: 200px;
+      width: 100%;
+      max-width: 300px;
       display: inline-block;
      }
      #sectionButtons button{

@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import Modal from 'react-bootstrap/Modal';
 import swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import url from "../../../utils/deploy_back.js";
+import style from "./ModalEdita.module.css"
 
 // :|
 
-const ModalEditar = ({component}) => {
+const ModalEditar = ({component,close}) => {
     const categorias = [
         'GPU',
         'CPU',
@@ -19,10 +17,7 @@ const ModalEditar = ({component}) => {
         'CHASIS',
         'FUENTE',
       ] 
-  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const [file, setFile] = useState(null)
 
   const handleFileChange = (e) => {
@@ -101,21 +96,16 @@ const ModalEditar = ({component}) => {
 );
   return (
     <>
-      <Button onClick={handleShow}>
-        Editar
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Editar producto </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+      <div id={style.modarFormContainer}>
+        <div>
+          <div>Editar producto </div>
+        </div>
+        <div>
         <form 
             onSubmit={formik.handleSubmit} 
-            // className={style.form_container}
           >
               
               <div 
-                // className={style.form_item}
                 >
                 <div>
                   <div>
@@ -123,7 +113,6 @@ const ModalEditar = ({component}) => {
                   </div>
                   <div>
                     <select
-                        // className={style.form_input1}
                         id="category"
                         name="category"
                         onChange={formik.handleChange}
@@ -141,7 +130,6 @@ const ModalEditar = ({component}) => {
                 </div>
                 <div>
                   <input 
-                    //   className={style.form_input1}
                     type="text" 
                     id="maker"
                     name="maker"
@@ -273,23 +261,24 @@ const ModalEditar = ({component}) => {
               </div>
               <div>
                 <input 
-                    // className={style.form_input2}
                     type="file" onChange={handleFileChange} />
               </div>
               <div>
               </div>
               </div>
           </form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cerrar
-          </Button>
-                <input type="submit" placeholder='Agregar'  onClick={handleClose}
-                //  className={style.form_button}
-                 />
-        </Modal.Footer>
-      </Modal>
+        </div>
+        <div>
+                <input type="submit" placeholder='Agregar' 
+                />
+            <div id={style.cerrarContainer}>
+              <label variant="secondary" onClick={()=>close({})}>
+              Cerrar
+            </label>
+            </div>
+
+        </div>
+      </div>
     </>
   );
 }
