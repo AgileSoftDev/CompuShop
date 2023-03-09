@@ -6,11 +6,17 @@ const allReviews = async () => {
     return await Review.find()
 }
 
-const findByUserCategory = async (category) => {
+const findByUserId = async (category) => {
     console.log(category)
     const revByCategory = await Review.find({ userCategory: category })
     if (!revByCategory.length) throw 'No se han encontrado reviews con esa categorÃ­a'
     else return revByCategory
+}
+
+const findByComponentId = async(id) => {
+    const reviews = await Review.find({componentId: id});
+    if(!reviews) throw 'No hay comentarios para ese componente'
+    else return reviews
 }
 
 const findById = async (id) => {
@@ -28,6 +34,7 @@ const findById = async (id) => {
 
 module.exports = {
     allReviews,
-    findByUserCategory,
-    findById
+    findByUserId,
+    findById,
+    findByComponentId
 }
