@@ -4,9 +4,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import url from "../../../utils/deploy_back.js";
 import swal from "sweetalert2"
-import ModalEditar from './ModalEditar';
 import ModalVer from './ModalVer';
+
 const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) => {
+    const [componentOnVer, setComponenOnVer]=useState({})
     const handleRevoke = async (component) => {
         try {
           await axios.delete(`${url}/components/${component._id}`);
@@ -50,7 +51,7 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
       };
     
     return (
-        <>
+        <div>
             <table className={style.card_table}>
                 <thead>
                     <tr>
@@ -80,8 +81,8 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
                                                 ? (
                                                     <td id={style.sectionButtons}>
                                                         <div>
-                                                            <ModalVer component={component}/>
-                                                            <ModalEditar component={component}/>
+                                                            <span onClick={()=>setComponenOnVer({...component,visible:true})}>Ver</span>
+                                                            <span>Editar</span>
                                                         </div>
                                                         <button onClick={()=> handleRevoke(component)}>Revocar</button>
                                                     </td>
@@ -100,7 +101,12 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
                     }
                 </tbody>
             </table> 
-        </>
+           {componentOnVer.visible?( <div id={style.modalVerContainer}>
+                    <div>
+                        <ModalVer component={componentOnVer} close={setComponenOnVer}></ModalVer>
+                    </div>
+            </div>):undefined}
+        </div>
         
     )
 }

@@ -1,33 +1,24 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import style from "./modalVer.module.css";
 
-const ModalVer = ({component}) => {
-  const [show, setShow] = useState(false);
+const ModalVer = ({component,close}) => {
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Ver
-      </Button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{component.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <img src={component.img} alt={'Imagen de' + component.name} style={{width: '300px', height: '300px'}}/>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+      <div id={style.containerModalVer}>
+        <div id={style.nameContainer}>
+          <label>{component.name}</label>
+        </div>
+        <div>
+            <img src={component.img} alt={'Imagen de' + component.name} style={{width: '300px'}}/>
+        </div >
+        <div id={style.modalVerCerrar}>
+        <label onClick={()=>close({visible:false})} >
             Cerrar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        </label>
+        </div>
+      </div>
     </>
   );
 }

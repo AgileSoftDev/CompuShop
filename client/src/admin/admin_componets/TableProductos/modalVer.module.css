@@ -1,0 +1,21 @@
+#containerModalVer{
+    background-color: #fefefeef;
+    padding: 24px;
+    border-radius: 10px;
+}
+#nameContainer{
+    padding: 5px 0 20px;
+    font-size: 20px;
+    font-weight: 800;
+}
+#modalVerCerrar{
+    padding: 20px 0;
+    text-align: end;
+}
+#modalVerCerrar label{
+    background-color: rgb(128, 72, 72);
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #fefefeef;
+    cursor: pointer;
+}

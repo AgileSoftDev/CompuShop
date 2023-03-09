@@ -53,6 +53,7 @@
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    position: relative;
   }
   
   .card_table td {
@@ -242,17 +243,31 @@
     /* background-color: yellow; */
     margin-bottom: 2px;
    }
-   #sectionButtons :nth-child(1) button{
+   #sectionButtons :nth-child(1)> span{
     background-color: rgba(16, 151, 16, 0.89);
     border:1px solid rgb(11, 120, 11);
     color: #ffffff;
     width: 50px;
+    padding: 2px 5px;
+    display: inline-block;
+    cursor: pointer;
    }
    #sectionButtons :first-child :nth-child(2){
     margin-left: 4px;
    }
-   #sectionButtons :nth-child(2){
+   #sectionButtons> :nth-child(2){
     background-color: rgba(215, 16, 16, 0.856);
     color: #fefefefe;
     border: 1px solid rgb(174, 11, 11);
+   }
+   #modalVerContainer>:nth-child(1){ 
+    background-color: rgba(0, 0, 0, 0.229);
+    position: fixed;
+    top: 0;
+    width: 99vw;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
