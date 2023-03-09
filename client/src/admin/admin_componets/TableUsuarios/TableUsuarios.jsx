@@ -3,10 +3,11 @@ import style from './TableUsuarios.module.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import url from "../../../utils/deploy_back.js";
-import swal from "sweetalert2"
-const TableLoaded = ({allUsers}) => {
-    console.log("HOLA")
-    const [ setAllUsers] = useState([])
+import swal from "sweetalert2";
+import { useAuth0, User } from '@auth0/auth0-react';
+
+const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
+    const { user } = useAuth0();
     // const [showUsers, setShowUsers] = useState(false);
     // const [selectedUsers, setSelectedUsers] = useState(null)
     const handleRevoke = async (user) => {
@@ -33,6 +34,7 @@ const TableLoaded = ({allUsers}) => {
               });
         }
       };
+
       const handleEdit = async (user) => {
         try {
             if(user.isAdmin === false) {
@@ -40,7 +42,7 @@ const TableLoaded = ({allUsers}) => {
             
             }else if(user.isAdmin === true){
              await axios.put(`${url}/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
-            } 
+            }
         } catch (error) {
             swal.fire({
                 title: 'Error al editar el usuario',
@@ -65,23 +67,45 @@ const TableLoaded = ({allUsers}) => {
                 <tbody>
                     {
                         allUsers && allUsers?.map(Users => {
-                            return (
-                                    <tr key={Users._id}>
-                                        {!Users.userid ? 
-                                        <td>{Users._id}</td>
-                                        : <td>{Users.userid}</td>}
-                                        <td>{Users.email}</td>
-                                        {!Users.name ? 
-                                        <td>{Users.nickname}</td>
-                                        : <td>{Users.name}</td>}
-                                        <td><button onClick={()=>handleEdit(Users)}>{Users.isAdmin ? "Administrador" : "Cliente"}</button></td>
-                                        <td id={style.sectionButtons}>
-                                            <div>
-                                            </div>
-                                            <button onClick={()=> handleRevoke(Users)}>Revocar</button>
-                                        </td>
-                                    </tr>
-                            )
+                            if(Users.isActive && Users.email !== user.email ){
+                                return (
+                                        <tr key={Users._id}>
+                                            {!Users.userid ? 
+                                            <td>{Users._id}</td>
+                                            : <td>{Users.userid}</td>}
+                                            <td>{Users.email}</td>
+                                            {!Users.name ? 
+                                            <td>{Users.nickname}</td>
+                                            : <td>{Users.name}</td>}
+                                            <td>
+                                            {
+                                                Users.isAdmin 
+                                                ? (
+                                                    <button  
+                                                        onClick={()=>handleEdit(Users)}
+                                                        className={style.buttonRoleAdmin}
+                                                    >
+                                                        <span>Administrador</span> 
+                                                    </button>
+                                                )
+                                                : (
+                                                    <button  
+                                                        onClick={()=>handleEdit(Users)}
+                                                        className={style.buttonRoleClient}
+                                                    >
+                                                        <span>Cliente</span> 
+                                                    </button>
+                                                )
+                            }
+                                            </td>
+                                            <td id={style.sectionButtons}>
+                                                <div>
+                                                </div>
+                                                <button onClick={()=> handleRevoke(Users)}>Revocar</button>
+                                            </td>
+                                        </tr>
+                                )
+                            }
                         })
                     }
                 </tbody>
@@ -89,6 +113,73 @@ const TableLoaded = ({allUsers}) => {
         </>
     )
 }
+
+const TableLoadedInactive = ({allUsers = [], setAllUsers, setLoading}) => {
+    const { user } = useAuth0();
+    // const [showUsers, setShowUsers] = useState(false);
+    // const [selectedUsers, setSelectedUsers] = useState(null)
+    const handleRestore = async (user) => {
+        try {
+          await axios.put(`http://localhost:3001/users/activate/${user._id}`)
+            .then((res) => {
+                console.log(`🚀 ~ file: TableUsuarios.jsx:14 ~ .then ~ res:`, res) 
+                	getallUsers(setAllUsers,setLoading)
+                	swal.fire({
+                  	title: 'Se restauro el usuario con éxito',
+                  	icon: 'success',
+                  	confirmButtonText: 'Aceptar',
+                  	timerProgressBar: 3000
+                	});
+            	});
+        } catch (error) {
+            swal.fire({
+                title: 'Error al restaurar el usuario',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+                timerProgressBar: 3000
+              });
+        }
+      };
+
+    return (
+        <>
+            <table className={style.card_table}>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Name</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    {
+                        allUsers && allUsers?.map(Users => {
+                            if(Users.isActive === false && Users.email !== user.email ){
+                                return (
+                                        <tr key={Users._id}>
+                                            {!Users.userid ? 
+                                            <td>{Users._id}</td>
+                                            : <td>{Users.userid}</td>}
+                                            <td>{Users.email}</td>
+                                            {!Users.name ? 
+                                            <td>{Users.nickname}</td>
+                                            : <td>{Users.name}</td>}
+                                        
+                                            <td>
+                                                <button style={{backgroundColor: 'green', color: 'beige', height: '30px', width: '100px', borderRadius: '8px' }} onClick={()=> handleRestore(Users)}>Restaurar</button>
+                                            </td>
+                                        </tr>
+                                )
+                            }
+                        })
+                    }
+                </tbody>
+            </table> 
+        </>
+    )
+}
+
 const LoaderTableProducts = () => {
     // Acá iría el loadingUsers
     return (
@@ -97,21 +188,25 @@ const LoaderTableProducts = () => {
         </div>
     )
 }
+
+const getallUsers =async(setAllUsers,setLoading)=>{
+    const {data} = await axios.get(`http://localhost:3001/users/db`);
+    console.log(data)
+
+    if (data.length) {
+        setAllUsers(data)
+        setLoading(false)
+    }
+}
+
 const TableUsuarios = () => {
 const [allUsers, setAllUsers] = useState([])
 const [loading, setLoading] = useState(true)
+const [tableActive, setTableActive] = useState(true)
     useEffect(() => {
-        const getallUsers =async()=>{
-            const {data} = await axios.get(`http://localhost:3001/users/db`);
-            console.log(data)
-
-            if (data.length) {
-                setAllUsers(data)
-                setLoading(false)
-            }
-        }
-        getallUsers()
+        getallUsers(setAllUsers,setLoading)
     }, [])
+
   return (
     <div id={style.ProductsPanelContainer}>
         {
@@ -134,7 +229,7 @@ const [loading, setLoading] = useState(true)
                 </div>
                 <div>
                     <Link  className={style.buttons} to={'/admin/users/add'}>Agregar Usuario</Link>
-                    <button  className={style.buttons}>Mostrar Inactivos</button>
+                    <button  className={style.buttons} onClick={() => setTableActive(!tableActive)}>Mostrar {tableActive ? 'inactivos' : 'activos'}</button>
                 </div>
             </div>
         <div className={style.card_body}>
@@ -144,7 +239,9 @@ const [loading, setLoading] = useState(true)
                         <LoaderTableProducts/>
                 ) 
                 : (
-                        <TableLoaded allUsers={allUsers}/>
+                        tableActive
+                        ? (<TableLoaded allUsers={allUsers} setAllUsers={setAllUsers} setLoading={setLoading}/>)
+                        : (<TableLoadedInactive allUsers={allUsers} setAllUsers={setAllUsers} setLoading={setLoading}/>)
                 )
             }
         </div>
