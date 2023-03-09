@@ -31,7 +31,7 @@ const CardMisCompras = ({onClickk,compra,fecha,price,productos,direction}) =>{
                     </div>
                     <div id={style.productosCantidad}>
                         <label>
-                            <span>Catindas de productos: </span> 
+                            <span>Cantidad de productos: </span> 
                             <span>{productosCantidad}</span> 
                         </label>
                     </div>
