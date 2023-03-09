@@ -11,7 +11,7 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
 
     const handleRevoke = async (user) => {
         try {
-          await axios.put(`http://localhost:3001/users/${user._id}`)
+          await axios.put(`${url}/users/${user._id}`)
             .then(() => {
                 getallUsers(setAllUsers,setLoading)
                 swal.fire({
@@ -35,10 +35,10 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
       const handleEdit = async (user) => {
         try {
             if(user.isAdmin === false) {
-            await axios.put(`http://localhost:3001/users/giveAdmin/${user._id}`).then((response) => {console.log(response)})
+            await axios.put(`${url}/users/giveAdmin/${user._id}`).then((response) => {console.log(response)})
             
             }else if(user.isAdmin === true){
-             await axios.put(`http://localhost:3001/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
+             await axios.put(`${url}/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
             }
             getallUsers(setAllUsers,setLoading)
         } catch (error) {
@@ -119,7 +119,7 @@ const TableLoadedInactive = ({allUsers = [], setAllUsers, setLoading}) => {
     
     const handleRestore = async (user) => {
         try {
-          await axios.put(`http://localhost:3001/users/activate/${user._id}`)
+          await axios.put(`${url}/users/activate/${user._id}`)
             .then((res) => {
                 console.log(`🚀 ~ file: TableUsuarios.jsx:14 ~ .then ~ res:`, res) 
                 	getallUsers(setAllUsers,setLoading)
@@ -189,7 +189,7 @@ const LoaderTableProducts = () => {
 }
 
 const getallUsers =async(setAllUsers,setLoading)=>{
-    const {data} = await axios.get(`http://localhost:3001/users/db`);
+    const {data} = await axios.get(`${url}/users/db`);
     console.log(data)
 
     if (data.length) {
