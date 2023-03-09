@@ -93,7 +93,7 @@ function App() {
           </div>
           }
           <Route exact path={"/notfound"} render={()=> <NotFound/>}/>
-          <Route exact path={"/shoppingcart"} render={()=> <ShoppingView userId={currentUser.userid}/>}/>
+          <Route exact path={"/shoppingcart"} render={()=> <ShoppingView userId={currentUser._id}/>}/>
           <Route path={"/admin"} render={()=>!isAuthenticated?loginWithRedirect():currentUser?.isAdmin?<Admin/>:history.push("/productos")}/>
           <Route exact path={"/nosotros"} render={()=><Nosotros/>}/>
           { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') &&  location.pathname!=='/shoppingcart' &&  <Footer/>}
