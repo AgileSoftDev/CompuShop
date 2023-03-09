@@ -2,6 +2,7 @@ import style from "./CompraExitosa.module.css"
 import { Link } from "react-router-dom";
 
 const CompraExitosa = ()=>{
+    
     return(
         <div id={style.buySucces}>
             <h2>Compra exitosa.</h2>

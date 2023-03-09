@@ -29,10 +29,11 @@ const Admin = () =>{
                     <Link id={pathname==="/admin/controlPanel"?style.linkActive:undefined} to={"/admin/controlPanel"}>Panel de control</Link>
                     <Link id={pathname==="/admin/users"?style.linkActive:undefined} to={"/admin/users"}>Users</Link>
                     <Link id={pathname==="/admin/products"?style.linkActive:undefined} to={"/admin/products"}>Productos</Link>
+                    <Link className={style.volver} id={pathname==="/home"?style.linkActive:undefined} to={"/home"}>Volver a Home</Link>
                 </nav>
                 <div>
                     <button className={style.profileButton}>
-                    <Link id={pathname==="/profile"} to={"/profile"} ></Link>
+                        <Link id={pathname==="/profile"} to={"/profile"}/>
                         <div><img src={userIcon} alt="" /></div>
                         
                         <h3>Mi perfil</h3>

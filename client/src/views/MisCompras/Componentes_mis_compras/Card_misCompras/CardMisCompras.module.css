@@ -75,3 +75,30 @@
 #direction label span{
     margin-left: 5px;
 }
+
+#compraStatus > #entregado{
+    color: #05b022;
+    font-size:14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    background-color: #2c2c25 ;
+    border-radius: 6px;
+    padding: 1px 4px;
+}
+#compraStatus > #pendiente{
+    color: #fff93e;
+    font-size:14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    background-color: #2c2c25 ;
+    border-radius: 6px;
+    padding: 1px 4px;
+}
+#compraStatus  img{
+    height: 15px;
+    margin-right: 3px;
+}

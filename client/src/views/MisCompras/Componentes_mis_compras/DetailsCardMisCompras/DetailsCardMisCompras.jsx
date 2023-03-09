@@ -1,9 +1,14 @@
 import style from "./DetailsCardMisCompras.module.css"
 import succes  from "../../assets_mis_compras/success-svgrepo-com.svg"
+import { format } from 'date-fns';
+import esLocale from 'date-fns/locale/es';
+import pending from "../../../../assets/icons/yellow_clock.png";
 
 const DetailsCardMisCompras = (props)=>{
-
-    console.log(props.ordenes);
+    const msPDay = 24 * 60 * 60 * 1000;
+    const now = new Date().getTime();
+    const date = format(new Date(props.fecha), "EEEE d 'de' MMMM 'de' y, HH:mm : ss", {locale: esLocale});
+    
     return(
         <div id={style.DetallesContainer}>
             <div id={style.topDetallesContainer}>
@@ -14,8 +19,10 @@ const DetailsCardMisCompras = (props)=>{
                     </label>
                 </div>
                 <label id={style.compraStatus}>
-                    <img src={succes} alt="succes" /><span>Entregado</span>
-                </label>
+                        {(now-props.fecha)/msPDay>=1?(<label id={style.entregado} ><img src={succes} alt="succes" /><span>Entregado</span></label>):
+                            (<label id={style.pendiente} ><img src={pending} alt="succes" /><span>Pendiente</span></label>)
+                        }                                                
+                    </label>
                 <p onClick={()=>props.setOrderFocus({})} id={style.xToClose}>x</p>
             </div>
             <div id={style.mainDetallesCompras}>
@@ -25,7 +32,7 @@ const DetailsCardMisCompras = (props)=>{
                     <div id={style.fechaHoraContainer}>
                         <label>
                             <span className={style.atributtes}>Compra y fecha de la compra:</span>
-                            <span className={style.values}>domingo 5 de marzo de 2023, 19:36:35</span>
+                            <span className={style.values}>{date}</span>
                         </label>
                     </div>
                 </div>               
@@ -77,14 +84,14 @@ const DetailsCardMisCompras = (props)=>{
                                                                     </label>
                                                                     <label>
                                                                         <span>Precio unitario: </span>
-                                                                        <span>{e.price}</span>
+                                                                        <span>${e.price}</span>
                                                                     </label>
                                                                 </div>
                                                             </div>
                                                             <div id={style.thirdDiv} className={style.contenedores}>  
                                                                     <label>
                                                                         <span>Precio Total: </span>
-                                                                        <span>{e.price*e.quantity}</span>
+                                                                        <span>${e.price*e.quantity}</span>
                                                                     </label>
                                                             </div>                
                                                         </label>

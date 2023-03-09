@@ -1,17 +1,18 @@
-import { useEffect } from "react";
 import style from "./CardMisCompras.module.css";
 import { format } from 'date-fns';
 import esLocale from 'date-fns/locale/es';
+import succes from "../../../MisCompras/assets_mis_compras/success-svgrepo-com.svg";
+import pending from "../../../../assets/icons/yellow_clock.png";
 
 const CardMisCompras = ({onClickk,compra,fecha,price,productos,direction}) =>{
 
     const direccion = direction.city +"-"+ direction.direction
-    const date = format(new Date(fecha), "EEEE d 'de' MMMM 'de' y, HH:mm:ss", {locale: esLocale});
+    const date = format(new Date(fecha), "EEEE d 'de' MMMM 'de' y, HH:mm", {locale: esLocale});
     const productosCantidad = productos
+    const msPDay = 24 * 60 * 60 * 1000;
+    const now = new Date().getTime();
 
-    useEffect(()=>{
-       
-    },[])
+
 
     return(
         <div id={style.CardMisComprasContainer}>
@@ -22,7 +23,11 @@ const CardMisCompras = ({onClickk,compra,fecha,price,productos,direction}) =>{
             <div id={style.mainCardMisCompras}>
                 <div>
                     <div id={style.deliveryStatus}>
-                        <label><span>Finalizado </span></label>
+                    <label id={style.compraStatus}>
+                        {(now-fecha)/msPDay>=1?(<label id={style.entregado} ><img src={succes} alt="succes" /><span>Entregado</span></label>):
+                            (<label id={style.pendiente} ><img src={pending} alt="succes" /><span>Pendiente</span></label>)
+                        }                                                
+                    </label>
                     </div>
                     <div id={style.productosCantidad}>
                         <label>

@@ -4,11 +4,9 @@ const usersSchema= new Schema(
     {
         name:{
             type: String,
-            required: false,
         },
         nickname:{
             type: String,
-            required: true,
         },
         isAdmin:{
             type: Boolean,
@@ -38,8 +36,7 @@ const usersSchema= new Schema(
             type: Date,
         },
         userid:{
-            type: String,
-            required: true,
+            type: String
         },
         addresses:{
             type: Array,

@@ -18,7 +18,6 @@ const [nameUser, setNameUser] = useState()
         getUserData()
     },[])
 
-
     return(
         <div id={style.MisComprasContaier}>
             <div>
@@ -33,7 +32,7 @@ const [nameUser, setNameUser] = useState()
             </div>
             {orderFocus.visible?(<div id={style.compraDetallesContainerRelative}>
                     <div id={style.comprasContainerAbsolute}>
-                            <DetailsCardMisCompras setOrderFocus={(value)=>setOrderFocus(value)} name={nameUser} phone={orderFocus.contactPhone} ordenes={orderFocus.productos}/>
+                            <DetailsCardMisCompras setOrderFocus={(value)=>setOrderFocus(value)} name={nameUser} phone={orderFocus.contactPhone} ordenes={orderFocus.productos} fecha={orderFocus.fecha} direction={orderFocus.directionDlivery}/>
                     </div>
             </div>):undefined}
         </div>

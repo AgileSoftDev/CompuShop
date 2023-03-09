@@ -41,12 +41,13 @@ function App() {
   useEffect(()=>{
     setPadingMain(145)
   },[])
+  
 
-
+  const {logout} = useAuth0();
   useEffect(()=>{
     const setting = async()=>{
       const postUser=async()=>{
-        const {data} = await axios.post(`${urlBack}/users`,{email:user.email })
+        const {data} = await axios.post(`${urlBack}/users`,{email:user.email }).catch(err=>logout({ returnTo: window.location.origin}))
         if (data) setCurrentUser(data)
       }
       if(isAuthenticated) await postUser()
@@ -55,6 +56,21 @@ function App() {
     setting()
    
   },[user,isLoading])
+  
+  useEffect(()=>{
+    const userBanned = async()=>{
+    const userr = await axios.get(`http://localhost:3001/users/db/${user.email}`)
+    if(userr.data.isActive===false){
+      alert("User is banned. Please contact us for more information")
+      logout({ returnTo: window.location.origin })
+    }
+  }
+  if(user){
+    userBanned()
+  }
+  
+  })
+  
 
   if (!loadinStatus) {
 
@@ -77,11 +93,11 @@ function App() {
           </div>
           }
           <Route exact path={"/notfound"} render={()=> <NotFound/>}/>
-          <Route path="*"> <Redirect to="/notfound" /> </Route>
           <Route exact path={"/shoppingcart"} render={()=> <ShoppingView userId={currentUser.userid}/>}/>
           <Route path={"/admin"} render={()=>!isAuthenticated?loginWithRedirect():currentUser?.isAdmin?<Admin/>:history.push("/productos")}/>
           <Route exact path={"/nosotros"} render={()=><Nosotros/>}/>
           { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') &&  location.pathname!=='/shoppingcart' &&  <Footer/>}
+          {/* <Route path="*"> <Redirect to="/notfound" /> </Route> */}
       </div>
     );
   }else{

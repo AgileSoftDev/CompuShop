@@ -188,3 +188,43 @@
       color: #fefefefe;
       border: 1px solid rgb(174, 11, 11);
      }
+
+     .buttonRoleAdmin {
+      background-color: orange;
+      width: 100px;
+      height: 35px;
+      border-radius: 5px;
+      color: beige;
+     }
+
+     .buttonRoleAdmin:hover span {
+      display: none;
+     }
+
+     .buttonRoleAdmin:hover:before {
+      content: 'Cambiar a Cliente';
+     }
+
+     .buttonRoleAdmin:hover {
+      background-color: green;
+    }
+
+     .buttonRoleClient {
+        background-color: blue;
+        width: 100px;
+        height: 35px;
+        border-radius: 5px;
+        color: beige;
+     }
+
+     .buttonRoleClient:hover span{
+      display: none;
+     }
+
+     .buttonRoleClient:hover:before {
+      content: 'Cambiar a Admin';
+     }
+
+     .buttonRoleClient:hover {
+      background-color: green;
+    }
