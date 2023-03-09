@@ -11,7 +11,7 @@ const TableLoaded = ({allUsers}) => {
     // const [selectedUsers, setSelectedUsers] = useState(null)
     const handleRevoke = async (user) => {
         try {
-          const { data } = await axios.put(`http://localhost:3001/users/${user._id}`);
+          const { data } = await axios.put(`${url}/users/${user._id}`);
           if (data.status == 200) {
             setAllUsers((prevState) =>
               prevState.filter((item) => item._id !== user._id)
@@ -36,13 +36,11 @@ const TableLoaded = ({allUsers}) => {
       const handleEdit = async (user) => {
         try {
             if(user.isAdmin === false) {
-            await axios.put(`http://localhost:3001/users/giveAdmin/${user._id}`).then((response) => {console.log(response)})
+            await axios.put(`${url}/users/giveAdmin/${user._id}`).then((response) => {console.log(response)})
             
             }else if(user.isAdmin === true){
-             await axios.put(`http://localhost:3001/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
-            }
-            
-            
+             await axios.put(`${url}/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
+            } 
         } catch (error) {
             swal.fire({
                 title: 'Error al editar el usuario',
