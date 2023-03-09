@@ -83,6 +83,7 @@ const setStepBuildPc = (step) =>{
  const getAllComponents = () => {
     return async dispatch => {
         const ddd = `${url}/components/`
+        console.log(ddd)
         const {data} = await axios.get(ddd)
         .catch(error => alert("Error en la action getAllComponents, al obtener la data"));
 
