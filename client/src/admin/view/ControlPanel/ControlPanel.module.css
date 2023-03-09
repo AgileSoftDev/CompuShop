@@ -37,3 +37,21 @@
     background-color: #f5f5f5;
     text-align: center;
   }
+
+  .cuadraditoColor {
+    background-color: blue;
+    width: 15px;
+    height: 15px;
+  }
+
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* divide el contenedor en dos columnas del mismo tamaño */
+    gap: 10px; /* añade un poco de espacio entre las columnas */
+  }
+  
+  .column {
+    padding: 10px; /* añade un poco de espacio alrededor del contenido de cada columna */
+  }
+  
+  

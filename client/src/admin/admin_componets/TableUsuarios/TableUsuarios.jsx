@@ -52,7 +52,7 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
         }
       }
     return (
-        <>
+        <div id={style.tableContainer}>
             <table className={style.card_table}>
                 <thead>
                     <tr>
@@ -97,8 +97,7 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
                             }
                                             </td>
                                             <td id={style.sectionButtons}>
-                                                <div>
-                                                </div>
+                                           
                                                 <button onClick={()=> handleRevoke(Users)}>Revocar</button>
                                             </td>
                                         </tr>
@@ -108,7 +107,7 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
                     }
                 </tbody>
             </table> 
-        </>
+        </div>
     )
 }
 
@@ -251,7 +250,7 @@ const [searchResults, setSearchResults] = useState([]);
                     <button  className={style.buttons} onClick={() => setTableActive(!tableActive)}>Mostrar {tableActive ? 'inactivos' : 'activos'}</button>
                 </div>
             </div>
-        <div className={style.card_body}>
+        <div id={style.card_body}>
             {
                 loading
                 ? (

@@ -40,11 +40,13 @@
       margin-top: 20px;
     }
     .card_footer>p{
-      /* background-color: red; */
       font-style: oblique;
       color: #707070;
     }
     
+    #tableContainer{
+      width: 100%;
+    }
   
     .card_table >:nth-child(2):not(:nth-child(1)) tr:hover{
       background-color: #e9e3e3;
@@ -53,6 +55,10 @@
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .card_table th{
+      width: 100px;
     }
     
     .card_table td {
@@ -60,6 +66,11 @@
       padding-left: 15px;
       padding-right: 15px;
       border: 1px solid #ccc;
+      height: 100px;
+      max-width: calc(20vw - 70px);
+      height: auto;
+      white-space: normal;
+      word-wrap: break-word;
     }
     
     .card_table td:first-child {
@@ -145,7 +156,6 @@
       height: 100%;
       border-radius: 30px;
       animation: moving 1s ease-in-out infinite;
-      ;
      }
      
      @keyframes moving {
@@ -161,7 +171,9 @@
      }
   
      #sectionButtons{
-      padding: 8px 2px;
+      padding: 8px 10px;
+      max-width: 200px;
+      display: inline-block;
      }
      #sectionButtons button{
       border-radius: 4px;
@@ -183,7 +195,7 @@
      #sectionButtons :first-child :nth-child(2){
       margin-left: 4px;
      }
-     #sectionButtons :nth-child(2){
+     #sectionButtons :nth-child(1){
       background-color: rgba(215, 16, 16, 0.856);
       color: #fefefefe;
       border: 1px solid rgb(174, 11, 11);
@@ -209,6 +221,9 @@
       background-color: green;
     }
 
+    #card_body{
+      width: 100%;
+    }
      .buttonRoleClient {
         background-color: blue;
         width: 100px;
@@ -228,3 +243,4 @@
      .buttonRoleClient:hover {
       background-color: green;
     }
+    

@@ -70,21 +70,37 @@ useEffect(() => {
               <h1>Stock</h1>
             </div>
             <div className={style.card_body}>
-              <PieChart width={400} height={400}>
-                <Pie
-                  dataKey="value"
-                  isAnimationActive={true}
-                  data={allDataStock && allDataStock}
-                  outerRadius={120}
-                  fill="#c2521c"
-                  label
-                >
-                {allDataStock && allDataStock?.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index]} />
-                ))}
-                </Pie>
-                <Tooltip  />
-              </PieChart>
+            <div className={style.gridContainer}>
+              <div className={style.column}>
+                <PieChart width={400} height={400}>
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={allDataStock && allDataStock}
+                    outerRadius={120}
+                    fill="#c2521c"
+                    label
+                  >
+                  {allDataStock && allDataStock?.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                  ))}
+                  </Pie>
+                  <Tooltip  />
+                </PieChart>
+              </div>
+              <div className={style.column} style={{marginLeft: '80px', marginTop: '70px'}}>
+                <ul style={{listStyle: 'none'}}>
+                  {
+                    allDataStock?.map((item,index) => 
+                      <li style={{textDecoration: 'none'}}>
+                        <span className={style.cuadraditoColor} style={{backgroundColor: COLORS[index]}}>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span style={{paddingRight: '20px'}}>{item.name}</span>
+                      </li>
+                    )
+                  }
+                </ul>
+              </div>
+            </div>
             </div>
         </div>
        

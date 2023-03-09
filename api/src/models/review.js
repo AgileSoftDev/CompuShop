@@ -2,12 +2,12 @@ const { Schema, model }= require("mongoose");
 
 const reviewSchema = new Schema(
     {
-        userId:{
+        email:{
             type: String,
             required: true,
         },
-        userCategory:{
-            type: String,
+        score:{
+            type: Number,
             required: true,
         },
         review:{
