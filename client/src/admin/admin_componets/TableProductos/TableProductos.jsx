@@ -145,6 +145,33 @@ const TableProductos = () => {
         getAllComponents(setAllComponents, setLoading)
     }, [])
 
+    const searchComponentDos = (value) => {
+        return axios.get(`${url}/components?name=${value}`)
+        .then(res=>res.data)
+        .catch(error=>swal.fire({
+            title: 'Error al encontrar el producto',
+            text: "No existe ningun producto con ese nombre",
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            timerProgressBar: 3000
+          }))
+     };
+     const handleSearch = async (value) => {
+         const data1 = await searchComponentDos(value);
+        //  console.log(value)
+        const filterName= data1.map((e)=>({
+            name: e.name,
+            price: e.price,
+            category: e.category,
+            _id: e._id,
+            maker: e.maker,
+            quantityStock: e.quantityStock
+        }))
+        setAllComponentes(filterName)
+        setLoading(false)
+      };
+      
+
     return (
         <div id={style.ProductsPanelContainer}>
             {
@@ -163,7 +190,7 @@ const TableProductos = () => {
                 
                 <div className={style.card_header}>
                     <div>
-                        <input placeholder='Search...' className={style.searchBar} ></input>
+                        <input onChange={(e)=>handleSearch(e.target.value)}placeholder='Search by name...' className={style.searchBar} ></input>
                     </div>
                     <div>
                         <Link  className={style.buttons} to={'/admin/products/add'}>Agregar Producto</Link>
