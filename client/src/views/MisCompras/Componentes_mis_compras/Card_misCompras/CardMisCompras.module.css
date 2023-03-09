@@ -86,6 +86,7 @@
     background-color: #2c2c25 ;
     border-radius: 6px;
     padding: 1px 4px;
+    max-height: 25px;
 }
 #compraStatus > #pendiente{
     color: #fff93e;
@@ -97,6 +98,7 @@
     background-color: #2c2c25 ;
     border-radius: 6px;
     padding: 1px 4px;
+    max-height: 25px;
 }
 #compraStatus  img{
     height: 15px;
