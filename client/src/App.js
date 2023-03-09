@@ -42,6 +42,14 @@ function App() {
     setPadingMain(145)
   },[])
 
+  const userBanned = async()=>{
+    const userr = await axios.get(`http://localhost:3001/users/db/${user.email}`)
+    if(userr.data.isActive===false){
+      alert("User is banned. Please contact us for more information")
+      logout({ returnTo: window.location.origin })
+    }
+  }
+
   const {logout} = useAuth0();
   useEffect(()=>{
     const setting = async()=>{
