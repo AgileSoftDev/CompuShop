@@ -8,7 +8,7 @@ const updateReview = async(id, data) => {
     console.log(review)
     console.log(2)
     if(!review) throw 'No se ha encontrado un review con ese ID'
-    review.userId = data.userId;
+    review.email = data.email;
     review.userCategory = data.userCategory;
     review.review = data.review;
     review.componentId = data.componentId;
