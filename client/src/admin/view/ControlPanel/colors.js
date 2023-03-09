@@ -48,5 +48,7 @@ export const chartColors = [
     "#CBA328",
     "#F46197",
     "#DBCFB0",
-    "#545775"
+    "#545775",
+    "#ADD8E6",
+    "#FFE5B4"
   ];

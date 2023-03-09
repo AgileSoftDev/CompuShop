@@ -16,7 +16,9 @@ const COLORS = [
 '#E0E0E0',
 '#FF80AB',
 '#9C27B0',
-'#0D47A1'];
+'#0D47A1',
+"#ADD8E6",
+"#FFE5B4"];
 
 const ControlPanel = () => {
   

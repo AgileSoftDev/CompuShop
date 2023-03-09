@@ -11,6 +11,7 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
 
     const handleRevoke = async (user) => {
         try {
+<<<<<<< Updated upstream
           await axios.put(`${url}/users/${user._id}`)
             .then(() => {
                 getallUsers(setAllUsers,setLoading)
@@ -21,6 +22,20 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
                   timerProgressBar: 3000
                 });
             })
+=======
+          const { data } = await axios.put(`http://localhost:3001/users/${user._id}`);
+          if (data.status == 200) {
+            setAllUsers((prevState) =>
+              prevState.filter((item) => item._id !== user._id)
+            );
+          }
+          swal.fire({
+            title: 'Se elimino el usuario con éxito',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+            timerProgressBar: 3000
+          });
+>>>>>>> Stashed changes
         } catch (error) {
             swal.fire({
                 title: 'Error al eliminar el usuario',
@@ -35,10 +50,10 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
       const handleEdit = async (user) => {
         try {
             if(user.isAdmin === false) {
-            await axios.put(`${url}/users/giveAdmin/${user._id}`).then((response) => {console.log(response)})
+            await axios.put(`http://localhost:3001/users/giveAdmin/${user._id}`).then((response) => {console.log(response)})
             
             }else if(user.isAdmin === true){
-             await axios.put(`${url}/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
+             await axios.put(`http://localhost:3001/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
             }
             getallUsers(setAllUsers,setLoading)
         } catch (error) {
@@ -210,6 +225,7 @@ const [searchResults, setSearchResults] = useState([]);
       };
       
     useEffect(() => {
+<<<<<<< Updated upstream
         getallUsers(setAllUsers,setLoading)
     }, []) // ! el montaje
 
@@ -223,7 +239,49 @@ const [searchResults, setSearchResults] = useState([]);
         );
         setSearchResults(results);
       }, [searchTerm]); // ! cuandop se busca se actualiza el componente
+=======
+        getallUsers(setAllUsers,setLoading, searchUsuario)
+    }, [])
+>>>>>>> Stashed changes
 
+    const searchUsuario = async(value) => {
+        return await axios.get(`http://localhost:3001/users/db/${value}`)
+        .then(res => {
+          // Si la respuesta es un array, devolverla tal cual
+          if(Array.isArray(res.data)){
+            return res.data;
+          }
+          // Si la respuesta no es un array, devolverla dentro de un array
+          else {
+            return [res.data];
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          return []; // Devolver un array vacío si hay un error
+        });
+      };
+      
+      const handleSearch = async (value) => {
+        const data1 = await searchUsuario(value);
+        if(data1){
+          const filterName = allUsers.filter(e=> e.email.toLowerCase().includes(value.toLowerCase()))
+          console.log(filterName)
+          if (Array.isArray(filterName)) {
+            setAllUsers(filterName)
+          } else {
+            // swal.fire({
+            //     title: 'Error al encontrar el usuario',
+            //     text: "No existe ningun usuario con ese nombre",
+            //     icon: 'error',
+            //     confirmButtonText: 'Aceptar',
+            //     timerProgressBar: 3000
+            //   })
+          }
+          setLoading(false)
+        } 
+      };
+      
   return (
     <div id={style.ProductsPanelContainer}>
         {
@@ -242,9 +300,13 @@ const [searchResults, setSearchResults] = useState([]);
             
             <div className={style.card_header}>
                 <div>
+<<<<<<< Updated upstream
                  
                     <input placeholder='Search...' 
                         className={style.searchBar} type="text" value={searchTerm} onChange={handleSearch} />
+=======
+                    <input onChange={(e)=>handleSearch(e.target.value)}placeholder='Search by email...' className={style.searchBar}></input>
+>>>>>>> Stashed changes
                 </div>
                 <div>
                     <button  className={style.buttons} onClick={() => setTableActive(!tableActive)}>Mostrar {tableActive ? 'inactivos' : 'activos'}</button>
