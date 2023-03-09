@@ -13,7 +13,7 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
     const handleRevoke = async (component) => {
         try {
             console.log(`🚀 ~ file: TableProductos.jsx:14 ~ handleRevoke ~ component:`, component._id)
-          await axios.put(`${url}/components/${component._id}`)
+          await axios.put(`${url}/components/delete/${component._id}`)
             .then((res) => {
                 console.log(`🚀 ~ file: TableProductos.jsx:17 ~ .then ~ res:`, res)
                 getAllComponents(setAllComponents, setLoading)
@@ -38,7 +38,7 @@ const TableLoaded = ({allComponents, setAllComponents , setLoading, isActive}) =
 
     const handleRestore = async (component) => {
         try {
-          await axios.put(`${url}/components/${component._id}`);
+          await axios.put(`${url}/components/activate/${component._id}`);
           getAllComponents(setAllComponents, setLoading)
           swal.fire({
             title: 'Se restauro el producto con éxito',
