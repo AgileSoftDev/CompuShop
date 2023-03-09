@@ -8,21 +8,19 @@ import { useAuth0, User } from '@auth0/auth0-react';
 
 const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
     const { user } = useAuth0();
-    // const [showUsers, setShowUsers] = useState(false);
-    // const [selectedUsers, setSelectedUsers] = useState(null)
+
     const handleRevoke = async (user) => {
         try {
-          await axios.put(`http://localhost:3001/users/${user._id}`)
-            .then((res) => {
-                console.log(`🚀 ~ file: TableUsuarios.jsx:14 ~ .then ~ res:`, res) 
-                	getallUsers(setAllUsers,setLoading)
-                	swal.fire({
-                  	title: 'Se elimino el usuario con éxito',
-                  	icon: 'success',
-                  	confirmButtonText: 'Aceptar',
-                  	timerProgressBar: 3000
-                	});
-            	});
+          await axios.put(`${url}/users/${user._id}`)
+            .then(() => {
+                getallUsers(setAllUsers,setLoading)
+                swal.fire({
+                  title: 'Se elimino el usuario con éxito',
+                  icon: 'success',
+                  confirmButtonText: 'Aceptar',
+                  timerProgressBar: 3000
+                });
+            })
         } catch (error) {
             swal.fire({
                 title: 'Error al eliminar el usuario',
@@ -37,34 +35,15 @@ const TableLoaded = ({allUsers = [], setAllUsers, setLoading}) => {
       const handleEdit = async (user) => {
         try {
             if(user.isAdmin === false) {
-                await axios.put(`http://localhost:3001/users/giveAdmin/${user._id}`)
-                    .then((response) => {
-                        getallUsers(setAllUsers,setLoading)
-                        swal.fire({
-                            title: `${response.email} ahora es cliente`,
-                            icon: 'success',
-                            confirmButtonText: 'Aceptar',
-                            timerProgressBar: 3000
-                          });
-                    })
-                
+            await axios.put(`${url}/users/giveAdmin/${user._id}`).then((response) => {console.log(response)})
+            
             }else if(user.isAdmin === true){
-             await axios.put(`http://localhost:3001/users/removeAdmin/${user._id}`)
-                .then((response) => {
-                    getallUsers(setAllUsers,setLoading)
-                    swal.fire({
-                        title: `${response.email} ahora es administrador`,
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar',
-                        timerProgressBar: 3000
-                    });
-                })
+             await axios.put(`${url}/users/removeAdmin/${user._id}`).then((response) => {console.log(response)})
             }
-            
-            
+            getallUsers(setAllUsers,setLoading)
         } catch (error) {
             swal.fire({
-                title: 'Error al editar el usuario',
+                title: 'Error al cambiar de rol del usuario',
                 text: error.message,
                 icon: 'error',
                 confirmButtonText: 'Aceptar',
@@ -136,9 +115,10 @@ const TableLoadedInactive = ({allUsers = [], setAllUsers, setLoading}) => {
     const { user } = useAuth0();
     // const [showUsers, setShowUsers] = useState(false);
     // const [selectedUsers, setSelectedUsers] = useState(null)
+    
     const handleRestore = async (user) => {
         try {
-          await axios.put(`http://localhost:3001/users/activate/${user._id}`)
+          await axios.put(`${url}/users/activate/${user._id}`)
             .then((res) => {
                 console.log(`🚀 ~ file: TableUsuarios.jsx:14 ~ .then ~ res:`, res) 
                 	getallUsers(setAllUsers,setLoading)
@@ -208,7 +188,7 @@ const LoaderTableProducts = () => {
 }
 
 const getallUsers =async(setAllUsers,setLoading)=>{
-    const {data} = await axios.get(`http://localhost:3001/users/db`);
+    const {data} = await axios.get(`${url}/users/db`);
     console.log(data)
 
     if (data.length) {
@@ -221,9 +201,28 @@ const TableUsuarios = () => {
 const [allUsers, setAllUsers] = useState([])
 const [loading, setLoading] = useState(true)
 const [tableActive, setTableActive] = useState(true)
+
+const [searchTerm, setSearchTerm] = useState("");
+const [searchResults, setSearchResults] = useState([]);
+
+    const handleSearch = event => {
+        setSearchTerm(event.target.value);
+      };
+      
     useEffect(() => {
         getallUsers(setAllUsers,setLoading)
-    }, [])
+    }, []) // ! el montaje
+
+    useEffect(() => {
+        setSearchResults(allUsers);
+      }, [allUsers]); // ! actualizado el componente
+
+    useEffect(() => {
+        const results = allUsers.filter(item =>
+          item.email.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setSearchResults(results);
+      }, [searchTerm]); // ! cuandop se busca se actualiza el componente
 
   return (
     <div id={style.ProductsPanelContainer}>
@@ -243,10 +242,11 @@ const [tableActive, setTableActive] = useState(true)
             
             <div className={style.card_header}>
                 <div>
-                    <input placeholder='Search...' className={style.searchBar}></input>
+                 
+                    <input placeholder='Search...' 
+                        className={style.searchBar} type="text" value={searchTerm} onChange={handleSearch} />
                 </div>
                 <div>
-                    <Link  className={style.buttons} to={'/admin/users/add'}>Agregar Usuario</Link>
                     <button  className={style.buttons} onClick={() => setTableActive(!tableActive)}>Mostrar {tableActive ? 'inactivos' : 'activos'}</button>
                 </div>
             </div>
@@ -258,8 +258,8 @@ const [tableActive, setTableActive] = useState(true)
                 ) 
                 : (
                         tableActive
-                        ? (<TableLoaded allUsers={allUsers} setAllUsers={setAllUsers} setLoading={setLoading}/>)
-                        : (<TableLoadedInactive allUsers={allUsers} setAllUsers={setAllUsers} setLoading={setLoading}/>)
+                        ? (<TableLoaded allUsers={searchResults} setAllUsers={setAllUsers} setLoading={setLoading}/>)
+                        : (<TableLoadedInactive allUsers={searchResults} setAllUsers={setAllUsers} setLoading={setLoading}/>)
                 )
             }
         </div>

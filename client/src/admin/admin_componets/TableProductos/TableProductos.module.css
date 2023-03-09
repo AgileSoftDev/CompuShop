@@ -85,10 +85,78 @@
     -webkit-animation: pulse 2s infinite;
     animation: pulse512 1.5s infinite;
    }
+
+   .buttonsActive {
+    border: none;
+    color: #fff;
+    margin-left: 10px;
+    background-color: green;
+    border-radius: 15px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 10px 25px;
+    cursor: pointer;
+   }
+   
+   .buttonsActive:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse515 1.5s infinite;
+   }
+
+   .buttonsInactive {
+    border: none;
+    color: #fff;
+    margin-left: 10px;
+    background-color: red;
+    border-radius: 15px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 10px 25px;
+    cursor: pointer;
+   }
+   
+   .buttonsInactive:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse513 1.5s infinite;
+   }
    
    @keyframes pulse512 {
     0% {
      box-shadow: 0 0 0 0 #fd611a;
+    }
+   
+    70% {
+     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+   
+    100% {
+     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+   }
+
+   @keyframes pulse513 {
+    0% {
+     box-shadow: 0 0 0 0 red;
+    }
+   
+    70% {
+     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+   
+    100% {
+     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+   }
+
+   @keyframes pulse515 {
+    0% {
+     box-shadow: 0 0 0 0 green;
     }
    
     70% {

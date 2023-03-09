@@ -11,6 +11,7 @@ import { useAuth0} from "@auth0/auth0-react";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import url from "../../utils/deploy_back"
 import axios from "axios";
 // import { current } from "@reduxjs/toolkit";
 
@@ -58,7 +59,7 @@ const NavBar = (props)=>{
 
     useEffect(()=>{
         const getUser=async()=>{
-            const {data} = await axios.get(`http://localhost:3001/users/db/${user.email}`)
+            const {data} = await axios.get(`${url}/users/db/${user.email}`)
             if (data.isAdmin === true) setuserAdmin(data)
         }
     
@@ -111,7 +112,7 @@ const NavBar = (props)=>{
                                 <Profile/>
                             </div>
                             <div id={style.desplegable_navar_profile_section}>
-                               {props?.isAdmin?( <Link to={"/admin"} id={style.buttonAdmin}>Ir a Admin</Link>):undefined}
+                               {props?.isAdmin?( <Link to={"/admin/controlPanel"} id={style.buttonAdmin}>Ir a Admin</Link>):undefined}
                                 <LogoutButton/>
                             </div>
                         </div>
