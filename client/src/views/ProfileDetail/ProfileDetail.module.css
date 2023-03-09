@@ -1,17 +1,26 @@
 .fondo {
     background-color: #eeeeeeee;
-    height: 700px;
+    min-height: calc(100vh - 200px);
     font-style: italic;
-    display: flex;
+    font-weight: 500;
+    color: #302c24;
 }
 
 .container {
     width: 1200px;
-    margin: 10px auto;
-    display: flex;
     font-family: Montserrat, sans-serif !important;
+    margin: 0 auto;
+    display: block;
+    padding-bottom: 24px;
 }
-
+#topProfile{
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+}
+#topProfile>:nth-child(1){
+    flex-grow: 1;
+}
 .titulo {
     margin:30px;
     font-size: 35px;
@@ -22,7 +31,7 @@
     margin:30px;
     font-size: 20px;
     font-style: normal;
-    margin-left: 850px;
+    display: inline;    
     color:#fd6119;
     text-decoration: none;
 }
@@ -32,14 +41,7 @@
     color: black;
 }
 
-.izquierda {
-    width: 1200px;
-    height: 600px;
-    position: absolute;
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-}
+
 
 .derecha {
     width: 450px;
@@ -50,17 +52,10 @@
 }
 
 .cuadro1 {
-    background-color: white;
-    width: 700px;
-    height: 140px;
-    margin: 30px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px rgb(194, 194, 194);
-    position: absolute;
+    margin: 0px 0 30px 0;
 }
 
 .cuadro1 h2 {
-    padding: 10px 20px;
     font-size: 20px;
     color:#fd6119;
 }
@@ -72,14 +67,14 @@
 
 
 .cuadro2 {
-    background-color: white;
-    width: 700px;
-    margin: 30px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px rgb(194, 194, 194);
-    padding: 20px;
-    margin-top: 200px;
 
+
+}
+#mainProfile{
+    background-color: #fefefe;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 20px 0 20px 0;
 }
 .containerButtonsToSections{
     text-align: center;
@@ -105,16 +100,6 @@
     font-size: 15px;
     margin-top: 10px;
 }
-
-.cuadro3 {
-    background-color: white;
-    width: 700px;
-    height: 140px;
-    margin: 30px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px rgb(194, 194, 194);
-}
-
 .cuadro3 h2 {
     padding: 10px 20px;
     font-size: 20px;
@@ -223,8 +208,111 @@
     color: white;
     margin: 5px 135px;
 }
+#CardMisComprasContainer{
+    background-color: #ffffff;
+    margin: 0px 0 20px 0;
+    font-family: 'Poppins', sans-serif;
+}
+#fechaContainer{
+    border-bottom: 1px solid rgba(86, 85, 85, 0.314);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+#fechaContainer >:nth-child(1){
+    flex-grow: 1;
+}
+#fechaContainer >:nth-child(2){
+    display: inline-block;
+    text-align: end;
+}
+#fechaContainer >:nth-child(2)>button{
+    background-color: #302c24;
+    border: none;
+    padding: 7px 8px;
+    border-radius: 6px;
+    color: #fefefe;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+}
+#fechaContainer >:nth-child(2)>button:hover{
 
-
-
-
-
+}
+#fecha{
+    padding: 16px 24px;
+}
+#fecha{
+    width: 75%;
+}
+#mainCardMisCompras{
+    padding: 24px;
+    text-align: right;
+}
+#mainCardMisCompras :nth-child(1){
+    display: flex;
+}
+#precioSection{
+    width: 25%;
+    text-align: end;
+}
+#precioSection label{
+    text-align: center;
+    justify-content: end;
+}
+#precioSection label span{
+    margin-left: 5px;
+}
+#precioSection h4{
+    margin-left: 4px;
+}
+#deliveryStatus{
+    width: 25%;
+    font-weight: 500;
+}
+#productosCantidad{
+    width: 25%;
+}
+#productosCantidad label span{
+    margin-left: 5px;
+}
+#compraStatus > #pendiente{
+    color: #fff93e;
+    font-size:14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    background-color: #2c2c25 ;
+    border-radius: 6px;
+    padding: 1px 4px;
+}
+#compraStatus  img{
+    height: 15px;
+    margin-right: 3px;
+}
+#direction{
+    width: 25%;
+}
+#direction label span{
+    margin-left: 5px;
+}
+#lastComprasContainer{
+    padding-top: 20px;
+}
+#lastComprasContainer h3{
+    font-weight: 600;
+    font-size: 17px;
+}
+#compraStatus > #entregado{
+    color: #05b022;
+    font-size:14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    background-color: #2c2c25 ;
+    border-radius: 6px;
+    padding: 1px 4px;
+}
