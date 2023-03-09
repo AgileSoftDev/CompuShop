@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import style from "./Puntuacion.module.css"
 import { FaAlignJustify, FaStar } from "react-icons/fa";
 import axios from 'axios';
@@ -12,9 +12,11 @@ const colors = {
     grey: "#a9a9a9"
 };
 
-export default function Puntuacion({reviews, componentId}) {
+export default function Puntuacion({componentId}) {
 
 const { user } = useAuth0()
+
+const ref = useRef(null)
 
 // const [orders,setUser] = useState([])
 // const [nameUser, setNameUser] = useState()
@@ -25,30 +27,45 @@ const [review ,setAllreviews] = useState({
     review: "",
     componentId: componentId
 })
+// const handleChange = (e) => {
+//     setAllreviews({
+//         ...review,
+//         review: e.target.value
+//     })
+// }
+
+const handleClick = value => {
+    setAllreviews({...review, score: value})
+    setCurrentValue(value)
+}
 
 const handleReview = async (review) => {
-    // try {
+    try {
         console.log(user)
-        setAllreviews({...review, email: user.email})
         console.log(review)
-        // const { data } = await axios.post(`${url}/review`);
+        console.log(review.email)
+        const { data } = await axios.post(`${url}/review`, review);
 
+        setCurrentValue(0)
+        setAllreviews({...review, review: ""})
+        const textarea = document.querySelector("textarea")
+        textarea.value = ""
 
-    //     swal.fire({
-    //     title: 'Se creo la review con éxito',
-    //     icon: 'success',
-    //     confirmButtonText: 'Aceptar',
-    //     timerProgressBar: 3000
-    //     });
-    // } catch (error) {
-    //     swal.fire({
-    //         title: 'Error al enviar la review',
-    //         text: error.message,
-    //         icon: 'error',
-    //         confirmButtonText: 'Aceptar',
-    //         timerProgressBar: 3000
-    //         });
-    // }
+        swal.fire({
+        title: 'Se creo la review con éxito',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        timerProgressBar: 3000
+        });
+    } catch (error) {
+        swal.fire({
+            title: 'Error al enviar la review',
+            text: error.message,
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            timerProgressBar: 3000
+            });
+    }
     };
 
 function handleAutoResize(event) {
@@ -56,15 +73,9 @@ function handleAutoResize(event) {
     event.target.style.height = event.target.scrollHeight + 'px';
     }
 
-    
-
 const [currentValue, setCurrentValue] = useState(0);
 const [hoverValue, setHoverValue] = useState(undefined);
 const stars = Array(5).fill(0)
-
-const handleClick = value => {
-    setCurrentValue(value)
-}
 
 const handleMouseOver = newHoverValue => {
     setHoverValue(newHoverValue)
@@ -73,7 +84,6 @@ const handleMouseOver = newHoverValue => {
 const handleMouseLeave = () => {
     setHoverValue(undefined)
 }
-
     
 return (
     <main id={style.ContainerDetailsProduct}>
@@ -82,7 +92,6 @@ return (
     <div style={styles.stars}>
         {stars.map((_, index) => {
         return (
-            
             <FaStar
             key={index}
             size={24}
@@ -101,8 +110,11 @@ return (
     
     <p id={style.p}>Agregá un Comentario </p>
     <span id={style.span}>(Opcional)</span>
-    
     <textarea 
+        // ref={ref}
+        onChange={(e)=> setAllreviews({...review, review: e.target.value, email: user.email})}
+        id="review" 
+        name="review" 
         placeholder="Comentario"
         style ={styles.textarea}
     />
